@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/tiger_couger_alpha.iml" filepath="$PROJECT_DIR$/.idea/tiger_couger_alpha.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tiberius_cougar_alpha/.idea/tiberius_cougar_alpha.iml" filepath="$PROJECT_DIR$/../tiberius_cougar_alpha/.idea/tiberius_cougar_alpha.iml" />
     </modules>
   </component>
 </project>
