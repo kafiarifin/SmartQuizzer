@@ -6,20 +6,14 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <header className="App-header">
-                    <QuizWrapper title={"test"}/>
-                    <p>
-                        Edit <code>src/App.js</code> and save to reload.
-                    </p>
-                    <a
-                        className="App-link"
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn React
-                    </a>
-                </header>
+                <div className="container m-5">
+                    <div className="row">
+                        <div className="col-12">
+                            <QuizWrapper title={"test"}/>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         );
     }
