@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 export const QuestionExplanation = ({explanation}) => {
     return (
-        <div >
+        <div className="row m-3">
             <div className="col-12 text-left">
                 <h6>Given:</h6>
             </div>

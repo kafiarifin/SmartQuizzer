@@ -5,7 +5,7 @@ import ReactMarkdown from "react-markdown";
 export const QuestionOptions = ({options}) => {
     const renderOptions = () => {
         return options.map(option => (
-            <li className="list-group-item list-group-item-action">
+            <li key={option.id} className="list-group-item list-group-item-action">
                 <div className="row">
                     <div className="col-1">{option.id}</div>
                     <div className="col-11">
@@ -17,14 +17,18 @@ export const QuestionOptions = ({options}) => {
         ))
     };
     return (
-        <div className="card text-left">
-            <ul className="list-group list-group-flush">
-                {renderOptions()}
-            </ul>
+        <div className="row m-3">
+            <div className="col-12">
+                <div className="card text-left">
+                    <ul className="list-group list-group-flush">
+                        {renderOptions()}
+                    </ul>
+                </div>
+            </div>
         </div>
     )
 };
 
 QuestionOptions.propTypes = {
-    options: PropTypes.object
+    options: PropTypes.array
 };
