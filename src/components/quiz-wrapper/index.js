@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {CodeHighlighter} from "../code-highlighter";
-
+import ReactMarkdown from 'react-markdown';
 
 class QuizWrapper extends Component {
     render() {
@@ -16,28 +16,52 @@ class QuizWrapper extends Component {
             <div className="quizWrapper">
                 <div className="container">
                     <div className="row">
-                        <h3 className="col-6">Quiz Title Component</h3>
-                        <h3 className="col-6">Question Title Component</h3>
+                        <h6 className="col-6">Quiz Title Component</h6>
+                        <h6 className="col-6">Question Title Component</h6>
                     </div>
-                    <div className="row">
-                        <h1 className="col-12">Progress Bar Component</h1>
+                    <div className="row m-3">
+                        <div className="col-10 offset-1">
+                            <div className="progress">
+                                <div className="progress-bar progress-bar-striped bg-info"
+                                     role="progressbar"
+                                     style={{width: "50%"}}
+                                     aria-valuenow="50"
+                                     aria-valuemin="0" aria-valuemax="100"/>
+                            </div>
+                        </div>
                     </div>
-                    <div className="row">
-                        <div className="col-8 offset-2">
+                    <div className="row m-4">
+                        <div className="col-8 offset-2 card">
                             <CodeHighlighter codeString={codeString}/>
                         </div>
                     </div>
-                    <div className="row">
-                        <h1 className="col-12">Multiple Choice Options Component</h1>
+                    <div className="row m-3">
+                        <div className="col-10 offset-1">
+                            <div className="card">
+                                <ul className="list-group list-group-flush">
+                                    <li className="list-group-item list-group-item-action"><ReactMarkdown escapeHtml={false} source={'This is `public class Main` code and here some rando text'} /></li>
+                                    <li className="list-group-item list-group-item-action">Option 2</li>
+                                    <li className="list-group-item list-group-item-action">Option 3</li>
+                                    <li className="list-group-item list-group-item-action">Option 4</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div className="row">
-                        <h1 className="col-12">Multiple Choice Options Component</h1>
+
+                    <div className="row m-3">
+                        <div className="col-10 offset-1">
+                            <div className="alert alert-primary" role="alert">
+                                This is a primary alert—check it out!
+                            </div>
+                        </div>
                     </div>
-                    <div className="row">
-                        <h1 className="col-12">Explanation Component</h1>
-                    </div>
-                    <div className="row">
-                        <h1 className="col-12">Navigation Component</h1>
+                    <div className="row m-3">
+                        <div className="col-6">
+                            <button type="button" className="btn btn-success">Review</button>
+                        </div>
+                        <div className="col-6">
+                            <button type="button" className="btn btn-primary">Submit</button>
+                        </div>
                     </div>
                 </div>
             </div>
