@@ -20,7 +20,7 @@ class QuizWrapper extends Component {
                         <h6 className="col-6">Question Title Component</h6>
                     </div>
                     <div className="row m-3">
-                        <div className="col-10 offset-1">
+                        <div className="col-12">
                             <div className="progress">
                                 <div className="progress-bar progress-bar-striped bg-info"
                                      role="progressbar"
@@ -30,26 +30,72 @@ class QuizWrapper extends Component {
                             </div>
                         </div>
                     </div>
+                    <div className="row m-3">
+                        <div className="col-12 text-left">
+                           <p>Explanation</p>
+                        </div>
+                    </div>
                     <div className="row m-4">
-                        <div className="col-8 offset-2 card">
+                        <div className="col-10 offset-1 card">
                             <CodeHighlighter codeString={codeString}/>
                         </div>
                     </div>
                     <div className="row m-3">
-                        <div className="col-10 offset-1">
+                        <div className="col-12">
                             <div className="card">
                                 <ul className="list-group list-group-flush">
-                                    <li className="list-group-item list-group-item-action"><ReactMarkdown escapeHtml={false} source={'This is `public class Main` code and here some rando text'} /></li>
-                                    <li className="list-group-item list-group-item-action">Option 2</li>
-                                    <li className="list-group-item list-group-item-action">Option 3</li>
-                                    <li className="list-group-item list-group-item-action">Option 4</li>
+                                    <li className="list-group-item list-group-item-action">
+                                        <div className="row">
+                                            <div className="col-1">A</div>
+                                            <div className="col-11">
+                                                <ReactMarkdown escapeHtml={false}
+                                                               source={'This is `public class Main` code and here some rando text'}/>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="list-group-item list-group-item-action">
+                                        <div className="row">
+                                            <div className="col-1">B</div>
+                                            <div className="col-11">
+                                                <ReactMarkdown escapeHtml={false}
+                                                               source={'This is `public class Main` code and here some rando text'}/>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="list-group-item list-group-item-action">
+                                        <div className="row">
+                                            <div className="col-1">C</div>
+                                            <div className="col-11">
+                                                <ReactMarkdown escapeHtml={false}
+                                                               source={'This is `public class Main` code and here some rando text'}/>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="list-group-item list-group-item-action">
+                                        <div className="row">
+                                            <div className="col-1">D</div>
+                                            <div className="col-11">
+                                                <ReactMarkdown escapeHtml={false}
+                                                               source={'This is `public class Main` code and here some rando text'}/>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="list-group-item list-group-item-action">
+                                        <div className="row">
+                                            <div className="col-1">E</div>
+                                            <div className="col-11">
+                                                <ReactMarkdown escapeHtml={false}
+                                                               source={'This is `public class Main` code and here some rando text'}/>
+                                            </div>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
                     <div className="row m-3">
-                        <div className="col-10 offset-1">
+                        <div className="col-12">
                             <div className="alert alert-primary" role="alert">
                                 This is a primary alert—check it out!
                             </div>

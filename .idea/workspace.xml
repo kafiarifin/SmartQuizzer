@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01ad5570-6fb8-49fb-82f1-950ac29ba23d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/code-highlighter/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/code-highlighter/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/quiz-wrapper/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/quiz-wrapper/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -94,7 +86,7 @@
         <counts>
           <entry key="css" value="27" />
           <entry key="html" value="4" />
-          <entry key="js" value="1472" />
+          <entry key="js" value="1568" />
           <entry key="txt" value="92" />
         </counts>
       </usages-collector>
@@ -102,7 +94,7 @@
         <counts>
           <entry key="CSS" value="27" />
           <entry key="HTML" value="4" />
-          <entry key="JavaScript" value="1472" />
+          <entry key="JavaScript" value="1568" />
           <entry key="PLAIN_TEXT" value="92" />
         </counts>
       </usages-collector>
@@ -135,8 +127,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/quiz-wrapper/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="40" column="76" lean-forward="true" selection-start-line="40" selection-start-column="76" selection-end-line="40" selection-end-column="76" />
+            <state relative-caret-position="315">
+              <caret line="31" column="26" lean-forward="true" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -265,7 +257,7 @@
       <option name="presentableId" value="Default" />
       <updated>1542334504197</updated>
       <workItem from="1542334506850" duration="1040000" />
-      <workItem from="1542335658777" duration="7506000" />
+      <workItem from="1542335658777" duration="7936000" />
     </task>
     <task id="LOCAL-00001" summary="Installed Bootstrap and created a simple component">
       <created>1542337246939</created>
@@ -285,7 +277,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8546000" />
+    <option name="totallyTimeSpent" value="8976000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -400,8 +392,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/quiz-wrapper/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="40" column="76" lean-forward="true" selection-start-line="40" selection-start-column="76" selection-end-line="40" selection-end-column="76" />
+        <state relative-caret-position="315">
+          <caret line="31" column="26" lean-forward="true" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
