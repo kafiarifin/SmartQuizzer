@@ -5,8 +5,33 @@ import ReactMarkdown from 'react-markdown';
 
 class QuizWrapper extends Component {
     render() {
-        const codeString =
-`public class Whiz {
+
+        const questionDemoObject = {
+            explanation: 'Test Explanation',
+            prompt: 'What is the output?',
+            options: [
+                {
+                    id: 'A',
+                    markdown: '678910'
+                },
+                {
+                    id: 'B',
+                    markdown: '5'
+                },
+                {
+                    id: 'C',
+                    markdown: '4'
+                },
+                {
+                    id: 'D',
+                    markdown: '3'
+                },
+                {
+                    id: 'E',
+                    markdown: 'Compilation fails'
+                },
+            ],
+            codeString: `public class Whiz {
  static int x = 4;
 
  public static void main(String[] args) {
@@ -15,7 +40,18 @@ class QuizWrapper extends Component {
    x++;
   System.out.print(x--);
  }
-}`;
+}`,
+            answerExplanation: `Option C is the correct answer. At line 6 we have created a for loop since we haven’t
+                                use the brackets there,
+                                the printing statement is not in the scope of the for loop block. So the for loop
+                                variable scope ends by line
+                                7. At line 8 printing statement prints the value of the static variable x, which is 4.
+                                There we have used post
+                                decrement operator which has no effect on that line hence option C is correct.`
+        };
+
+        const { codeString } = questionDemoObject;
+
         return (
             <div className="quizWrapper">
                 <div className="container">
@@ -42,7 +78,7 @@ class QuizWrapper extends Component {
                             <h6>Given:</h6>
                         </div>
                         <div className="col-12 text-left">
-                           <p>Explanation</p>
+                            <p>Explanation</p>
                         </div>
                     </div>
                     {/*// @TODO: QuestionBody Component */}
@@ -115,9 +151,12 @@ class QuizWrapper extends Component {
                     <div className="row m-3">
                         <div className="col-12">
                             <div className="alert alert-primary" role="alert">
-                                Option C is the correct answer. At line 6 we have created a for loop since we haven’t use the brackets there,
-                                the printing statement is not in the scope of the for loop block. So the for loop variable scope ends by line
-                                7. At line 8 printing statement prints the value of the static variable x, which is 4. There we have used post
+                                Option C is the correct answer. At line 6 we have created a for loop since we haven’t
+                                use the brackets there,
+                                the printing statement is not in the scope of the for loop block. So the for loop
+                                variable scope ends by line
+                                7. At line 8 printing statement prints the value of the static variable x, which is 4.
+                                There we have used post
                                 decrement operator which has no effect on that line hence option C is correct.
                             </div>
                         </div>
@@ -128,7 +167,8 @@ class QuizWrapper extends Component {
                             <button type="button" className="btn btn-success">Review</button>
                         </div>
                         <div className="col-6">
-                            <button type="button" className="btn btn-primary">Submit</button>
+                            <button type="button" className="btn btn-primary mx-1">Submit</button>
+                            <button type="button" className="btn btn-primary">Next</button>
                         </div>
                     </div>
                 </div>
