@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {CodeHighlighter} from "../question-components/QuestionBody/CodeDisplay";
-import ReactMarkdown from 'react-markdown';
 import {QuestionHeader} from "../question-components/QuestionHeader";
 import {QuestionProgress} from "../question-components/QuestionProgress";
 import {QuestionExplanation} from "../question-components/QuestionExplanation";
+import {Question} from "../question-components/Question";
+import {QuestionOptions} from "../question-components/QuestionOptions";
 
 class QuizWrapper extends Component {
     render() {
@@ -60,17 +61,17 @@ class QuizWrapper extends Component {
                 <div className="container">
                     {/*// @TODO: QuestionHeader Component */}
                     <div className="row">
-                       <QuestionHeader title={'Title'} name={"Name"}/>
+                        <QuestionHeader title={'Title'} name={"Name"}/>
                     </div>
                     {/*// @TODO: QuestionProgress Component */}
                     <div className="row m-3">
                         <div className="col-12">
-                            <QuestionProgress percent={40} />
+                            <QuestionProgress percent={40}/>
                         </div>
                     </div>
                     {/*// @TODO: QuestionExplanation Component */}
                     <div className="row m-3">
-                       <QuestionExplanation explanation={explanation} />
+                        <QuestionExplanation explanation={explanation}/>
                     </div>
                     {/*// @TODO: QuestionBody Component */}
                     <div className="row m-4">
@@ -81,61 +82,13 @@ class QuizWrapper extends Component {
                     {/*// @TODO: Question Component */}
                     <div className="row mx-2">
                         <div className="col-10 offset-1 text-left">
-                            <h6>{prompt}</h6>
+                            <Question prompt={prompt}/>
                         </div>
                     </div>
                     {/*// @TODO: QuestionOptions Component */}
                     <div className="row m-3">
                         <div className="col-12">
-                            <div className="card text-left">
-                                <ul className="list-group list-group-flush">
-                                    <li className="list-group-item list-group-item-action">
-                                        <div className="row">
-                                            <div className="col-1">A</div>
-                                            <div className="col-11">
-                                                <ReactMarkdown escapeHtml={false}
-                                                               source={'678910'}/>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="list-group-item list-group-item-action">
-                                        <div className="row">
-                                            <div className="col-1">B</div>
-                                            <div className="col-11">
-                                                <ReactMarkdown escapeHtml={false}
-                                                               source={'5'}/>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="list-group-item list-group-item-action">
-                                        <div className="row">
-                                            <div className="col-1">C</div>
-                                            <div className="col-11">
-                                                <ReactMarkdown escapeHtml={false}
-                                                               source={'4'}/>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="list-group-item list-group-item-action">
-                                        <div className="row">
-                                            <div className="col-1">D</div>
-                                            <div className="col-11">
-                                                <ReactMarkdown escapeHtml={false}
-                                                               source={'3'}/>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="list-group-item list-group-item-action">
-                                        <div className="row">
-                                            <div className="col-1">E</div>
-                                            <div className="col-11">
-                                                <ReactMarkdown escapeHtml={false}
-                                                               source={'Compilation fails'}/>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                            <QuestionOptions options={options}/>
                         </div>
                     </div>
                     {/*// @TODO: QuestionExplanation Component */}
