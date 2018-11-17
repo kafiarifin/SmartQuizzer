@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {CodeHighlighter} from "../question-components/QuestionBody/CodeDisplay";
 import ReactMarkdown from 'react-markdown';
+import {QuestionHeader} from "../question-components/QuestionHeader";
+import {QuestionProgress} from "../question-components/QuestionProgress";
+import {QuestionExplanation} from "../question-components/QuestionExplanation";
 
 class QuizWrapper extends Component {
     render() {
@@ -50,47 +53,35 @@ class QuizWrapper extends Component {
                                 decrement operator which has no effect on that line hence option C is correct.`
         };
 
-        const { codeString } = questionDemoObject;
+        const {explanation, prompt, options, codeString, answerExplanation} = questionDemoObject;
 
         return (
             <div className="quizWrapper">
                 <div className="container">
                     {/*// @TODO: QuestionHeader Component */}
                     <div className="row">
-                        <h6 className="col-6">Quiz Title Component</h6>
-                        <h6 className="col-6">Question Title Component</h6>
+                       <QuestionHeader title={'Title'} name={"Name"}/>
                     </div>
                     {/*// @TODO: QuestionProgress Component */}
                     <div className="row m-3">
                         <div className="col-12">
-                            <div className="progress">
-                                <div className="progress-bar progress-bar-striped bg-info"
-                                     role="progressbar"
-                                     style={{width: "50%"}}
-                                     aria-valuenow="50"
-                                     aria-valuemin="0" aria-valuemax="100"/>
-                            </div>
+                            <QuestionProgress percent={40} />
                         </div>
                     </div>
                     {/*// @TODO: QuestionExplanation Component */}
                     <div className="row m-3">
-                        <div className="col-12 text-left">
-                            <h6>Given:</h6>
-                        </div>
-                        <div className="col-12 text-left">
-                            <p>Explanation</p>
-                        </div>
+                       <QuestionExplanation explanation={explanation} />
                     </div>
                     {/*// @TODO: QuestionBody Component */}
                     <div className="row m-4">
-                        <div className="col-10 offset-1 card">
+                        <div className="col-10 offset-1">
                             <CodeHighlighter codeString={codeString}/>
                         </div>
                     </div>
                     {/*// @TODO: Question Component */}
                     <div className="row mx-2">
                         <div className="col-10 offset-1 text-left">
-                            <h6>What is the output?</h6>
+                            <h6>{prompt}</h6>
                         </div>
                     </div>
                     {/*// @TODO: QuestionOptions Component */}
@@ -151,13 +142,7 @@ class QuizWrapper extends Component {
                     <div className="row m-3">
                         <div className="col-12">
                             <div className="alert alert-primary" role="alert">
-                                Option C is the correct answer. At line 6 we have created a for loop since we haven’t
-                                use the brackets there,
-                                the printing statement is not in the scope of the for loop block. So the for loop
-                                variable scope ends by line
-                                7. At line 8 printing statement prints the value of the static variable x, which is 4.
-                                There we have used post
-                                decrement operator which has no effect on that line hence option C is correct.
+                                {answerExplanation}
                             </div>
                         </div>
                     </div>

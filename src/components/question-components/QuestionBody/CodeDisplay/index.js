@@ -1,15 +1,12 @@
 import React from 'react';
-import Highlight from "react-highlight";
-import 'highlight.js/styles/arduino-light.css'
 import PropTypes from 'prop-types'
+import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
+import { docco } from 'react-syntax-highlighter/dist/styles/hljs';
 
 export const CodeHighlighter = ({codeString}) => {
     return (
         <div style={{textAlign : 'justify'}}>
-            {/*<h1 className="col-12">Question Body Component</h1>*/}
-            <Highlight className='java'>
-                {codeString}
-            </Highlight>
+            <SyntaxHighlighter language='java' showLineNumbers={true} lineNumberStyle={{marginRight: '20px'}} style={docco}>{codeString}</SyntaxHighlighter>
         </div>
     )
 };
