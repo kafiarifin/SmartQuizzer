@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import QuizWrapper from './components/quiz-wrapper'
+import QuizWrapper from './components/QuizWrapper'
 
 class App extends Component {
     render() {
