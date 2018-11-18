@@ -6,7 +6,7 @@ export const QuestionProgress = ({percent}) => {
         <div className="row m-3">
             <div className="col-12">
                 <div className="progress">
-                    <div className="progress-bar progress-bar-striped bg-info"
+                    <div className="progress-bar progress-bar"
                          role="progressbar"
                          style={{width: `${percent}%`}}
                          aria-valuenow={percent}

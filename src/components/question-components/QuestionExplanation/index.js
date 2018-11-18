@@ -1,9 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-export const QuestionExplanation = ({explanation}) => {
+export const QuestionExplanation = ({complete, isIncorrect, explanation}) => {
     return (
         <div className="row m-3">
+            <div className="col-12">
+                {complete ? isIncorrect ? <div className="alert alert-danger" role="alert">
+                        Incorrect
+                    </div> :
+                    <div className="alert alert-primary" role="alert">
+                        Correct!
+                    </div> : null}
+            </div>
             <div className="col-12 text-left">
                 <h6>Given:</h6>
             </div>
@@ -15,5 +23,7 @@ export const QuestionExplanation = ({explanation}) => {
 };
 
 QuestionExplanation.propTypes = {
-    explanation: PropTypes.string
+    explanation: PropTypes.string,
+    complete: PropTypes.bool,
+    isIncorrect: PropTypes.bool
 };

@@ -16,6 +16,7 @@ class App extends Component {
 //         const questionDataSet = [{
 //             explanation: 'Test Explanation',
 //             prompt: 'What is the output?',
+//             correctAnswerId: 'C',
 //             options: [
 //                 {
 //                     id: 'A',
@@ -56,15 +57,16 @@ class App extends Component {
 //                                 There we have used post
 //                                 decrement operator which has no effect on that line hence option C is correct.`
 //         }];
+//
+//
+//         db.collection('test').doc('test1').set({
+//             quiz1: questionDataSet
+//         }, {merge: true}).then(function () {
+//             console.log("Document successfully written!");
+//         }).catch((err) => {
+//             console.warn('ERROR', err);
+//         });
 
-
-        // db.collection('test').doc('test1').set({
-        //     quiz1: questionDataSet
-        // }, {merge: true}).then(function () {
-        //     console.log("Document successfully written!");
-        // }).catch((err) => {
-        //     console.warn('ERROR', err);
-        // });
         db.collection("test").doc('test1').get().then((doc) => {
             this.setState({
                 questionDataSet: doc.data().quiz1
