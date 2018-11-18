@@ -6,21 +6,29 @@ import {AnswerExplanation} from "../question-components/AnswerExplanation";
 import {connect} from 'react-redux'
 import {updateQuestionIndex} from '../../actions'
 import {bindActionCreators} from "redux";
+import {updateTest} from "../../fireStoreLogicLayer";
 
 
 class QuizLogic extends Component {
     // Logic Layer that is responsible for delivering a specific question. ML that logic.
+    constructor(props) {
+        super(props);
+        this.state = {
+            totalQuestionsInInterval: 5
+        }
+    }
 
     componentDidUpdate() {
-        if (this.props.questionsAttempted === 5){
+        if (this.props.questionsAttempted === this.state.totalQuestionsInInterval){
             this.props.updateQuestionIndex();
         }
     }
 
     HandleNextQuestion() {
-        console.log('HandleNextQuestion');
-        console.log(this.props.quizData);
-        if (this.props.questionsAttempted === 5){
+        console.log('Total Questions: ', this.props.quizData.length);
+        console.log('Questions: ', this.props.quizData);
+        if (this.props.questionsAttempted === this.state.totalQuestionsInInterval){
+            updateTest('testOne', this.props.quizData);
             this.props.quizData.sort((a, b) => a.questionComplexityIndex-b.questionComplexityIndex);
         }
 
@@ -34,7 +42,7 @@ class QuizLogic extends Component {
                     <div className="row">
                         <div className="col-12">
                             <QuestionProgress
-                                percent={(this.props.questionsAttempted / this.props.quizData.length) * 100}/>
+                                percent={(this.props.questionsAttempted / (this.state.totalQuestionsInInterval -1)) * 100}/>
                             <QuizWrapper attempts={this.props.questionsAttempted}
                                          questionObject={this.HandleNextQuestion()}/>
                         </div>

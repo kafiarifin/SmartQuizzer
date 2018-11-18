@@ -18,13 +18,14 @@ class QuizWrapper extends Component {
             isCorrect: false,
             attemptsRemaining: 2,
             isIncorrect: false,
+            wrongAnswer: false,
             questionsAnswered: props.attempts,
             questionObject: props.questionObject
         };
     }
 
     componentDidUpdate() {
-        if(this.state.questionsAnswered !== this.props.attempts) {
+        if (this.state.questionsAnswered !== this.props.attempts) {
             this.shuffledOptions = shuffle(this.props.questionObject.options);
             this.setState({
                 isCorrect: false,
@@ -53,19 +54,22 @@ class QuizWrapper extends Component {
             console.log('correct');
             questionObject.questionComplexityIndex = questionComplexityIndex + 1;
             this.setState({
-                isCorrect: true
+                isCorrect: true,
+                wrongAnswer: false
             })
         } else {
             console.log('Not Correct');
-            questionObject.questionComplexityIndex = questionComplexityIndex - 1;
+            questionObject.questionComplexityIndex = questionComplexityIndex - 0.5;
             if (attemptsRemaining === 1) {
                 this.setState({
                     isIncorrect: true,
-                    attemptsRemaining: attemptsRemaining - 1
+                    attemptsRemaining: attemptsRemaining - 1,
+                    wrongAnswer: false
                 })
             } else {
                 this.setState({
-                    attemptsRemaining: attemptsRemaining - 1
+                    attemptsRemaining: attemptsRemaining - 1,
+                    wrongAnswer: true
                 })
             }
         }
@@ -81,6 +85,7 @@ class QuizWrapper extends Component {
                 isCorrect,
                 attemptsRemaining,
                 isIncorrect,
+                wrongAnswer,
                 questionObject: {
                     explanation,
                     prompt,
@@ -95,7 +100,8 @@ class QuizWrapper extends Component {
             <div className="quizWrapper">
                 <div className="container">
                     <QuestionHeader title={'Title'} name={`Total Questions Attempted: ${attempts}`}/>
-                    <QuestionExplanation complete={complete} isIncorrect={isIncorrect} explanation={explanation}/>
+                    <QuestionExplanation wrongAnswer={wrongAnswer} complete={complete} isIncorrect={isIncorrect}
+                                         explanation={explanation}/>
                     {codeString.length > 1 && <CodeHighlighter codeString={codeString}/>}
                     <Question prompt={prompt}/>
                     <QuestionOptions complete={complete} options={this.shuffledOptions}/>

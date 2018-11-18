@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import ReactMarkdown from "react-markdown";
 
-export const QuestionExplanation = ({complete, isIncorrect, explanation}) => {
+export const QuestionExplanation = ({complete, isIncorrect, explanation, wrongAnswer}) => {
     return (
         <div className="row m-3">
             <div className="col-12">
@@ -12,6 +12,7 @@ export const QuestionExplanation = ({complete, isIncorrect, explanation}) => {
                     <div className="alert alert-primary" role="alert">
                         Correct!
                     </div> : null}
+                {wrongAnswer ? <div className="alert alert-danger" role="alert">Incorrect, Please Try Again</div> : null}
             </div>
             <div className="col-12 text-left">
                 <h6>Given:</h6>
