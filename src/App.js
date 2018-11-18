@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import QuizLogic from "./components/QuizLogic";
 import db from './fireStoreLogicLayer';
+import Particles from 'react-particles-js';
 
 class App extends Component {
     constructor(props) {
@@ -9,6 +10,7 @@ class App extends Component {
             questionDataSet: undefined
         }
     }
+
     componentDidMount() {
 //         const questionDataSet = [{
 //             explanation: 'Test Explanation',
@@ -73,6 +75,28 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+                <Particles
+                    params={{
+                        particles: {
+                            line_linked: {
+                                shadow: {
+                                    enable: true,
+                                    color: "#777777",
+                                    blur: 5
+                                }
+                            },
+                            move: {
+                                speed: 0.4,
+                                bounce: true
+                            }
+                        }
+                    }}
+                    style={{
+                        position: 'fixed',
+                        width: '100vw',
+                        height: '100vh'
+                    }}
+                />
                 {this.state.questionDataSet ? <QuizLogic quizData={this.state.questionDataSet}/> : 'Loading...'}
             </div>
         );
