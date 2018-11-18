@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import QuizLogic from "./components/QuizLogic";
 import db from './fireStoreLogicLayer';
 import Particles from 'react-particles-js';
+import {Loader} from "./components/Loader";
 
 class App extends Component {
     constructor(props) {
@@ -97,7 +98,7 @@ class App extends Component {
                         height: '100vh'
                     }}
                 />
-                {this.state.questionDataSet ? <QuizLogic quizData={this.state.questionDataSet}/> : 'Loading...'}
+                {this.state.questionDataSet ? <QuizLogic quizData={this.state.questionDataSet}/> : <Loader/>}
             </div>
         );
     }
