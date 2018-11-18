@@ -25,3 +25,14 @@ const db = firebase.firestore();
     // });
 db.settings({ timestampsInSnapshots: true });
 export default db;
+
+
+export const updateTest = (docName, data) => {
+    db.collection('test').doc(docName).set({
+        quizData: data
+    }, {merge: true}).then(function () {
+        console.log("Document successfully written!");
+    }).catch((err) => {
+        console.warn('ERROR', err);
+    });
+};

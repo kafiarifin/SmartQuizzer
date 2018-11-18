@@ -4,11 +4,10 @@ import db from "../fireStoreLogicLayer";
 export const updateSelection = id => ({ type: SELECTED_QUESTION, payload: id });
 export const nextQuestion = isCorrect =>  ({ type: NEXT_QUESTION, payload: isCorrect });
 
-export const retrieveData = () => {
+export const retrieveData = (docName) => {
     return dispatch => {
-        db.collection("test").doc('test1').get().then((doc) => {
-            dispatch(getQuestions(doc.data().quiz1));
-
+        db.collection("test").doc(docName).get().then((doc) => {
+            dispatch(getQuestions(doc.data().quizData));
         });
     };
 };

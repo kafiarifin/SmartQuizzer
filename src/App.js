@@ -5,6 +5,8 @@ import {Loader} from "./components/Loader";
 import {connect} from 'react-redux';
 import {retrieveData} from './actions'
 import {bindActionCreators} from "redux";
+import {questionDataSetTest} from './test-data'
+import {updateTest} from './fireStoreLogicLayer';
 
 class App extends Component {
     constructor(props) {
@@ -16,15 +18,9 @@ class App extends Component {
 
     componentDidMount() {
 
-        // db.collection('test').doc('test1').set({
-        //     quiz1: questionDataSetTest
-        // }, {merge: true}).then(function () {
-        //     console.log("Document successfully written!");
-        // }).catch((err) => {
-        //     console.warn('ERROR', err);
-        // });
+        // updateTest('testOne', questionDataSetTest);
 
-        this.props.retrieveData()
+        this.props.retrieveData('testOne')
 
     }
 
