@@ -5,11 +5,10 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {updateSelection} from '../../../actions'
 
-
 class QuestionOptions extends Component {
 
     handleSelected(id) {
-        this.props.updateSelection(id)
+        this.props.updateSelection(id);
     }
 
     renderOptions() {

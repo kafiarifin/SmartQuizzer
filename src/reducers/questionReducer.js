@@ -1,4 +1,4 @@
-import {NEXT_QUESTION, SELECTED_QUESTION} from "../constants";
+import {NEXT_QUESTION, SELECTED_QUESTION, UPDATE_QUESTION_INDEX} from "../constants";
 
 const initialState = {
     selectedQuestionID: null,
@@ -17,6 +17,11 @@ export const quesitonReducer = (state = initialState, action) => {
                 selectedQuestionID: null,
                 questionsAttempted: state.questionsAttempted + 1,
                 wasCorrect: action.payload
+            };
+        case UPDATE_QUESTION_INDEX:
+            return {
+                ...state,
+                questionsAttempted: 0
             };
         default:
             return state;

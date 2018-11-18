@@ -1,8 +1,9 @@
 // src/js/actions/index.js
-import { SELECTED_QUESTION ,NEXT_QUESTION, GET_QUESTIONS } from "../constants";
+import { SELECTED_QUESTION ,NEXT_QUESTION, GET_QUESTIONS , UPDATE_QUESTION_INDEX} from "../constants";
 import db from "../fireStoreLogicLayer";
 export const updateSelection = id => ({ type: SELECTED_QUESTION, payload: id });
 export const nextQuestion = isCorrect =>  ({ type: NEXT_QUESTION, payload: isCorrect });
+export const updateQuestionIndex = () => ({type: UPDATE_QUESTION_INDEX});
 
 export const retrieveData = (docName) => {
     return dispatch => {

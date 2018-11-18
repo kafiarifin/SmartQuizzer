@@ -37,10 +37,12 @@ class QuizWrapper extends Component {
     }
 
     handleGuess(id) {
-        const {
+        let {
             props: {
+                questionObject,
                 questionObject: {
-                    correctAnswerId
+                    correctAnswerId,
+                    questionComplexityIndex
                 }
             },
             state: {
@@ -49,11 +51,13 @@ class QuizWrapper extends Component {
         } = this;
         if (correctAnswerId && id === correctAnswerId) {
             console.log('correct');
+            questionObject.questionComplexityIndex = questionComplexityIndex + 1;
             this.setState({
                 isCorrect: true
             })
         } else {
             console.log('Not Correct');
+            questionObject.questionComplexityIndex = questionComplexityIndex - 1;
             if (attemptsRemaining === 1) {
                 this.setState({
                     isIncorrect: true,
