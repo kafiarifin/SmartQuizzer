@@ -17,8 +17,9 @@ export const QuestionExplanation = ({complete, isIncorrect, explanation}) => {
                 <h6>Given:</h6>
             </div>
             <div className="col-12 text-left">
-                <ReactMarkdown escapeHtml={false}
-                               source={explanation}/>
+                {/*<ReactMarkdown escapeHtml={false}*/}
+                {/*source={explanation}/>*/}
+                <p>{explanation}</p>
             </div>
         </div>
     )

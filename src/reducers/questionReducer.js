@@ -7,9 +7,17 @@ const initialState = {
 export const quesitonReducer = (state = initialState, action) => {
     switch (action.type) {
         case SELECTED_QUESTION:
-            return {...state, selectedQuestionID: action.payload};
+            return {
+                ...state,
+                selectedQuestionID: action.payload
+            };
         case NEXT_QUESTION:
-            return {...state, selectedQuestionID: null, questionsAttempted: state.questionsAttempted + 1};
+            return {
+                ...state,
+                selectedQuestionID: null,
+                questionsAttempted: state.questionsAttempted + 1,
+                wasCorrect: action.payload
+            };
         default:
             return state;
     }

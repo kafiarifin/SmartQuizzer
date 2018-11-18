@@ -8,34 +8,20 @@ import {updateSelection} from '../../../actions'
 
 class QuestionOptions extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            selected: null
-        }
-    }
-
     handleSelected(id) {
-        this.setState({
-            selected: id
-        });
         this.props.updateSelection(id)
     }
-
 
     renderOptions() {
         let {
             props: {
                 options
-            },
-            state: {
-                selected
             }
         } = this;
 
         return options.map(option => (
             <li key={option.id} onClick={() => !this.props.complete && this.handleSelected(option.id)}
-                className={`list-group-item list-group-item-action ${selected === option.id ? 'active' : ''} ${this.props.complete ? 'disabled' : null}`}>
+                className={`list-group-item list-group-item-action ${this.props.questionData.selectedQuestionID === option.id ? 'active' : ''} ${this.props.complete ? 'disabled' : null}`}>
                 <div className="row">
                     <div className="col-1">{option.id}</div>
                     <div className="col-11">
@@ -68,7 +54,13 @@ function mapDispatchToProps(dispatch) {
     }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(QuestionOptions);
+function mapStateToProps(state) {
+    return {
+        questionData: state.questionData
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionOptions);
 
 QuestionOptions.propTypes = {
     options: PropTypes.array

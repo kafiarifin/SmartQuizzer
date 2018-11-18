@@ -17,8 +17,23 @@ class QuizWrapper extends Component {
         this.state = {
             isCorrect: false,
             attemptsRemaining: 2,
-            isIncorrect: false
+            isIncorrect: false,
+            questionsAnswered: props.attempts,
+            questionObject: props.questionObject
         };
+    }
+
+    componentDidUpdate() {
+        if(this.state.questionsAnswered !== this.props.attempts) {
+            this.shuffledOptions = shuffle(this.props.questionObject.options);
+            this.setState({
+                isCorrect: false,
+                attemptsRemaining: 2,
+                isIncorrect: false,
+                questionsAnswered: this.props.attempts,
+                questionObject: this.props.questionObject
+            });
+        }
     }
 
     handleGuess(id) {
@@ -57,17 +72,17 @@ class QuizWrapper extends Component {
         const {
             props: {
                 attempts,
+            },
+            state: {
+                isCorrect,
+                attemptsRemaining,
+                isIncorrect,
                 questionObject: {
                     explanation,
                     prompt,
                     codeString,
                     answerExplanation,
                 }
-            },
-            state: {
-                isCorrect,
-                attemptsRemaining,
-                isIncorrect
             }
         } = this;
 
@@ -75,13 +90,13 @@ class QuizWrapper extends Component {
         return (
             <div className="quizWrapper">
                 <div className="container">
-                    <QuestionHeader title={'Title'} name={`Total Questions: ${attempts}`}/>
+                    <QuestionHeader title={'Title'} name={`Total Questions Attempted: ${attempts}`}/>
                     <QuestionExplanation complete={complete} isIncorrect={isIncorrect} explanation={explanation}/>
-                    <CodeHighlighter codeString={codeString}/>
+                    {codeString.length > 1 && <CodeHighlighter codeString={codeString}/>}
                     <Question prompt={prompt}/>
                     <QuestionOptions complete={complete} options={this.shuffledOptions}/>
                     {complete && <AnswerExplanation answerExplanation={answerExplanation}/>}
-                    <QuestionNavigation complete={complete} attemptsRemaining={attemptsRemaining}
+                    <QuestionNavigation complete={complete} isCorrect={isCorrect} attemptsRemaining={attemptsRemaining}
                                         callBack={() => this.handleGuess(this.props.questionData.selectedQuestionID)}/>
                 </div>
             </div>

@@ -7,20 +7,24 @@ import {connect} from 'react-redux'
 
 class QuizLogic extends Component {
     // Logic Layer that is responsible for delivering a specific question. ML that logic.
-    HandleNextQuestion(){
+    HandleNextQuestion() {
         console.log('HandleNextQuestion');
-        return this.props.quizData[0]
+        if (this.props.questionsAttempted === this.props.quizData.length) {
+            console.log('Complete');
+        }
+        return this.props.quizData[this.props.questionsAttempted]
     }
 
     render() {
-        console.log(this.props.questionsAttempted);
         return (
             <div className="App">
                 <div className="container p-3 text-center">
                     <div className="row">
                         <div className="col-12">
-                            <QuestionProgress percent={40}/>
-                            <QuizWrapper attempts={this.props.questionsAttempted} questionObject={this.HandleNextQuestion()}/>
+                            <QuestionProgress
+                                percent={(this.props.questionsAttempted / this.props.quizData.length) * 100}/>
+                            <QuizWrapper attempts={this.props.questionsAttempted}
+                                         questionObject={this.HandleNextQuestion()}/>
                         </div>
                     </div>
                 </div>
