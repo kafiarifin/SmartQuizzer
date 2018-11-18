@@ -7,36 +7,18 @@ import {QuestionExplanation} from "../question-components/QuestionExplanation";
 import {Question} from "../question-components/Question";
 import QuestionOptions from "../question-components/QuestionOptions";
 import {AnswerExplanation} from "../question-components/AnswerExplanation";
-import {QuestionNavigation} from "../question-components/QuestionNavigation";
+import QuestionNavigation from "../question-components/QuestionNavigation";
+import {shuffle} from '../../utils'
 
 class QuizWrapper extends Component {
     constructor(props) {
         super(props);
-        this.shuffledOptions = this.shuffle(props.questionObject.options);
+        this.shuffledOptions = shuffle(props.questionObject.options);
         this.state = {
             isCorrect: false,
             attemptsRemaining: 2,
             isIncorrect: false
         };
-    }
-
-    shuffle(array) {
-        let currentIndex = array.length, temporaryValue, randomIndex;
-
-        // While there remain elements to shuffle...
-        while (0 !== currentIndex) {
-
-            // Pick a remaining element...
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -= 1;
-
-            // And swap it with the current element.
-            temporaryValue = array[currentIndex];
-            array[currentIndex] = array[randomIndex];
-            array[randomIndex] = temporaryValue;
-        }
-
-        return array;
     }
 
     handleGuess(id) {
@@ -74,6 +56,7 @@ class QuizWrapper extends Component {
 
         const {
             props: {
+                attempts,
                 questionObject: {
                     explanation,
                     prompt,
@@ -92,7 +75,7 @@ class QuizWrapper extends Component {
         return (
             <div className="quizWrapper">
                 <div className="container">
-                    <QuestionHeader title={'Title'} name={"Name"}/>
+                    <QuestionHeader title={'Title'} name={`Total Questions: ${attempts}`}/>
                     <QuestionExplanation complete={complete} isIncorrect={isIncorrect} explanation={explanation}/>
                     <CodeHighlighter codeString={codeString}/>
                     <Question prompt={prompt}/>

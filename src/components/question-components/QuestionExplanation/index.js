@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import ReactMarkdown from "react-markdown";
 
 export const QuestionExplanation = ({complete, isIncorrect, explanation}) => {
     return (
@@ -16,7 +17,8 @@ export const QuestionExplanation = ({complete, isIncorrect, explanation}) => {
                 <h6>Given:</h6>
             </div>
             <div className="col-12 text-left">
-                <p>{explanation}</p>
+                <ReactMarkdown escapeHtml={false}
+                               source={explanation}/>
             </div>
         </div>
     )

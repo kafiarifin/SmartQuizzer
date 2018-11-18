@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import {bindActionCreators} from "redux";
+import {connect} from 'react-redux'
+import {nextQuestion} from "../../../actions";
 
-export const QuestionNavigation = ({attemptsRemaining, callBack, isCorrect, complete}) => {
+const QuestionNavigation = ({attemptsRemaining, callBack, isCorrect, complete, nextQuestion}) => {
     return (
         <div className="row m-3">
             <div className="col-7 text-left">
@@ -15,14 +18,20 @@ export const QuestionNavigation = ({attemptsRemaining, callBack, isCorrect, comp
             <div className="col-2 text-right">
                 {!complete ?
                     <button type="button" onClick={callBack} className="btn btn-primary">Submit</button> :
-                    <button type="button" onClick={() => {
-                        console.log('nextQuestionDispatch...')
-                    }} className="btn btn-primary">Next</button>
+                    <button type="button" onClick={nextQuestion} className="btn btn-primary">Next</button>
                 }
             </div>
         </div>
     )
 };
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        nextQuestion
+    }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(QuestionNavigation);
 
 QuestionNavigation.propTypes = {
     callBack: PropTypes.func,
