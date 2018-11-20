@@ -14,25 +14,29 @@ class QuizWrapper extends Component {
     constructor(props) {
         super(props);
         this.shuffledOptions = shuffle(props.questionObject.options);
+        const isMultiAnswer = props.questionObject.correctAnswerId.length > 1;
         this.state = {
             isCorrect: false,
             attemptsRemaining: 2,
             isIncorrect: false,
             wrongAnswer: false,
             questionsAnswered: props.attempts,
-            questionObject: props.questionObject
+            questionObject: props.questionObject,
+            isMultiAnswer
         };
     }
 
     componentDidUpdate() {
         if (this.state.questionsAnswered !== this.props.attempts) {
             this.shuffledOptions = shuffle(this.props.questionObject.options);
+            const isMultiAnswer = this.props.questionObject.correctAnswerId.length > 1;
             this.setState({
                 isCorrect: false,
                 attemptsRemaining: 2,
                 isIncorrect: false,
                 questionsAnswered: this.props.attempts,
-                questionObject: this.props.questionObject
+                questionObject: this.props.questionObject,
+                isMultiAnswer
             });
         }
     }
@@ -47,30 +51,53 @@ class QuizWrapper extends Component {
                 }
             },
             state: {
-                attemptsRemaining
+                attemptsRemaining,
+                isMultiAnswer
             }
         } = this;
-        if (correctAnswerId && id === correctAnswerId) {
-            console.log('correct');
-            questionObject.questionComplexityIndex = questionComplexityIndex + 1;
-            this.setState({
-                isCorrect: true,
-                wrongAnswer: false
-            })
-        } else {
-            console.log('Not Correct');
-            questionObject.questionComplexityIndex = questionComplexityIndex - 0.5;
-            if (attemptsRemaining === 1) {
+        if (isMultiAnswer) {
+            if (correctAnswerId.sort().toString() === id.sort().toString()) {
                 this.setState({
-                    isIncorrect: true,
-                    attemptsRemaining: attemptsRemaining - 1,
+                    isCorrect: true,
                     wrongAnswer: false
                 })
             } else {
+                if (attemptsRemaining === 1) {
+                    this.setState({
+                        isIncorrect: true,
+                        attemptsRemaining: attemptsRemaining - 1,
+                        wrongAnswer: false
+                    })
+                } else {
+                    this.setState({
+                        attemptsRemaining: attemptsRemaining - 1,
+                        wrongAnswer: true
+                    })
+                }
+            }
+        } else {
+            if (correctAnswerId && id === correctAnswerId) {
+                console.log('correct');
+                questionObject.questionComplexityIndex = questionComplexityIndex + 1;
                 this.setState({
-                    attemptsRemaining: attemptsRemaining - 1,
-                    wrongAnswer: true
+                    isCorrect: true,
+                    wrongAnswer: false
                 })
+            } else {
+                console.log('Not Correct');
+                questionObject.questionComplexityIndex = questionComplexityIndex - 0.5;
+                if (attemptsRemaining === 1) {
+                    this.setState({
+                        isIncorrect: true,
+                        attemptsRemaining: attemptsRemaining - 1,
+                        wrongAnswer: false
+                    })
+                } else {
+                    this.setState({
+                        attemptsRemaining: attemptsRemaining - 1,
+                        wrongAnswer: true
+                    })
+                }
             }
         }
     }
@@ -86,11 +113,12 @@ class QuizWrapper extends Component {
                 attemptsRemaining,
                 isIncorrect,
                 wrongAnswer,
+                isMultiAnswer,
                 questionObject: {
                     explanation,
                     prompt,
                     codeString,
-                    answerExplanation,
+                    answerExplanation
                 }
             }
         } = this;
@@ -104,9 +132,10 @@ class QuizWrapper extends Component {
                                          explanation={explanation}/>
                     {codeString.length > 1 && <CodeHighlighter codeString={codeString}/>}
                     <Question prompt={prompt}/>
-                    <QuestionOptions complete={complete} options={this.shuffledOptions}/>
+                    <QuestionOptions isMultiAnswer={isMultiAnswer} complete={complete} options={this.shuffledOptions}/>
                     {complete && <AnswerExplanation answerExplanation={answerExplanation}/>}
-                    <QuestionNavigation complete={complete} isCorrect={isCorrect} attemptsRemaining={attemptsRemaining}
+                    <QuestionNavigation isMultiAnswer={isMultiAnswer} complete={complete} isCorrect={isCorrect}
+                                        attemptsRemaining={attemptsRemaining}
                                         callBack={() => this.handleGuess(this.props.questionData.selectedQuestionID)}/>
                 </div>
             </div>

@@ -1,31 +1,76 @@
-export const questionDataSetTest = [{
-    questionComplexityIndex: 0,
-    explanation: '',
-    prompt: 'What is the output?',
-    correctAnswerId: 'C',
-    options: [
-        {
-            id: 'A',
-            markdown: '678910'
-        },
-        {
-            id: 'B',
-            markdown: '5'
-        },
-        {
-            id: 'C',
-            markdown: '4'
-        },
-        {
-            id: 'D',
-            markdown: '3'
-        },
-        {
-            id: 'E',
-            markdown: 'Compilation fails'
-        },
-    ],
-    codeString: `public class Whiz {
+export const questionDataSetTest = [
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Which are true? (Choose 2)',
+        prompt: '*GC - Garbage Collector',
+        correctAnswerId: ['B', 'E'],
+        options: [
+            {
+                id: 'A',
+                markdown: 'Java applications never run out of memory as GC manages the memory'
+            },
+            {
+                id: 'B',
+                markdown: 'An object is eligible for GC when there is no reference to it'
+            },
+            {
+                id: 'C',
+                markdown: 'The purpose of GC is to delete objects that there is no use at the moment'
+            },
+            {
+                id: 'D',
+                markdown: 'When you request GC to run, it will start to run immediately'
+            },
+            {
+                id: 'E',
+                markdown: 'Object Class has a finalize() method'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Options B and E are the correct answer.
+
+Option B is correct since an object is eligible for GC when there is no reference to an object in a currently live thread.
+
+Option E is correct since there is a method called “finalize” in Object class, it is a special method much like main method in java. finalize() is called before Garbage collector reclaims the Object, it is the last chance for any object to perform cleanup activity.
+
+Like other any program, java applications can run out of memory. So option A is incorrect.
+
+Option C is incorrect as the purpose of the GC is to remove the objects which have no reference in a currently live thread.
+
+Option D is incorrect as the JVM decides when to run GC whether we request or not.
+
+REFERENCE : http://docs.oracle.com/javase/tutorial/java/javaOO/usingobject.html
+
+The correct answers are: An object is eligible for GC when there is no reference to it, Object Class has a finalize() method      *GC – Garbage Collector`
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '678910'
+            },
+            {
+                id: 'B',
+                markdown: '5'
+            },
+            {
+                id: 'C',
+                markdown: '4'
+            },
+            {
+                id: 'D',
+                markdown: '3'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz {
  static int x = 4;
 
  public static void main(String[] args) {
@@ -35,14 +80,14 @@ export const questionDataSetTest = [{
   System.out.print(x--);
  }
 }`,
-    answerExplanation: `Option C is the correct answer. At line 6 we have created a for loop since we haven’t
+        answerExplanation: `Option C is the correct answer. At line 6 we have created a for loop since we haven’t
                                 use the brackets there,
                                 the printing statement is not in the scope of the for loop block. So the for loop
                                 variable scope ends by line
                                 7. At line 8 printing statement prints the value of the static variable x, which is 4.
                                 There we have used post
                                 decrement operator which has no effect on that line hence option C is correct.`
-},
+    },
     {
         questionComplexityIndex: 0,
         explanation: '',
@@ -732,6 +777,693 @@ Option D is correct as all given statements are correct.
 Reference            :http://www.oracle.com/technetwork/java/javase/tech/index.html
 
 The correct answer is: All of above`
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following is valid?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'boolean b = tr_ue;'
+            },
+            {
+                id: 'B',
+                markdown: 'double d = 0._42;'
+            },
+            {
+                id: 'C',
+                markdown: 'long l = 1000_l;'
+            },
+            {
+                id: 'D',
+                markdown: 'int i = _1000;'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option E is the correct answer.
+
+When using underscore for literals, you need to remember followings
+
+You can place underscores only between digits but you cannot place underscores in the following places:
+
+At the beginning or end of a number – (so option D is incorrect)
+
+Adjacent to a decimal point in a floating point literal – (so option B is incorrect)
+
+Prior to an F or L suffix – (so option C is incorrect)
+
+In positions where a string of digits is expected
+
+Option A is incorrect since we can't use “_” with Boolean literals.
+
+REFERNCE                           : 
+
+http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
+
+The correct answer is: None of above`
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which is the output?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '30'
+            },
+            {
+                id: 'B',
+                markdown: '60'
+            },
+            {
+                id: 'C',
+                markdown: 'An Exception is thrown'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to error at line 4'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to error at line 5'
+            },
+        ],
+        codeString: `             public class Whiz{
+              
+                         public static void main(String args[]){
+                                         Integer i1 = Integer.decode("10");
+                                         Integer i2 = new Integer("20");
+                                         Integer i3 = Integer.valueOf("30");
+              
+                                         System.out.print(i1 + i2 + i3);
+                         }
+         }      `,
+        answerExplanation: `Option B is the correct answer.
+
+There are few ways to create Integer wrapper. Following legal ways have used in above code correctly.
+
+-          We can invoke constructor by passing String which represents a number or int like line 5
+
+-          We can call decode method by passing String which represents a number like line 4
+
+-          We can invoke the valueOf method by passing String which represents a number like line 6
+
+ 
+
+So at line 8, summation of three integers will be printed. Hence the option B is correct.
+
+REFERENCE        : https://docs.oracle.com/javase/tutorial/java/data/numberclasses.html
+
+ 
+
+`
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following lines of code will compile?',
+        prompt: '',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'double d1 = 1_22.7;'
+            },
+            {
+                id: 'B',
+                markdown: 'double d2 = 1_234._0;'
+            },
+            {
+                id: 'C',
+                markdown: 'double d3 = 122.7_;'
+            },
+            {
+                id: 'D',
+                markdown: 'double d4 = 122_.7;'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option A is the correct answer.
+
+Underscores are allowed as long as they are directly between two other digits. Hence option A is correct. Options B and D are incorrect because the underscore is adjacent to the decimal point. Option C is incorrect because the underscore is the last character.
+
+REFERNCE                           : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: double d1 = 1_22.7;`
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the result?',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: '100'
+            },
+            {
+                id: 'B',
+                markdown: '10'
+            },
+            {
+                id: 'C',
+                markdown: '0'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error on line 6.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to an error on line 7.'
+            },
+        ],
+        codeString: `public class Whiz{
+                int y = 10;
+                public static void main(String[] args){   
+                                int y;
+                                final int x;
+                                 x = 10;
+                                System.out.print(x*y);
+                }
+}`,
+        answerExplanation: `Option E is the correct answer.
+
+Method local variables are not initialized to its default their values, they should be initialized before using, however it is not illegal to declare them without initializing. So at line 7 trying to use uninitialized local variable results a compile time error hence option E is correct.
+
+REFERNCE                           : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: Compilation fails due to an error on line 7.`
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following creates a Boolean wrapper of false?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Boolean b1 = "false";'
+            },
+            {
+                id: 'B',
+                markdown: 'Boolean b2 = new Boolean("true");'
+            },
+            {
+                id: 'C',
+                markdown: 'Boolean b3 = new Boolean("T");'
+            },
+            {
+                id: 'D',
+                markdown: 'Boolean b4 = 4>3;'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option C is the correct answer.
+
+Option A is incorrect since we cannot assign string to a boolean wrapper.
+
+Option D is incorrect since it will create boolean wrapper of true.
+
+We can use following constructor of the Boolean class to create a Boolean by passing string as parameter.
+
+public Boolean(String s)
+
+Allocates a Boolean object representing the value true if the string argument is not null and is equal, ignoring case, to the string "true". Otherwise, allocate a Boolean object representing the value false. Examples:
+
+new Boolean("True") produces a Boolean object that represents true.
+
+new Boolean("yes") produces a Boolean object that represents false.
+
+As explained above option C will create a Boolean wrapper false.
+
+REFERENCE : https://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html
+
+The correct answer is: Boolean b3 = new Boolean("T");`
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '0.0'
+            },
+            {
+                id: 'B',
+                markdown: '0.25'
+            },
+            {
+                id: 'C',
+                markdown: 'An Exception.'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails.'
+            }
+        ],
+        codeString: `class Whiz{
+                static Integer i;
+                public static void main(String args[]){
+                                Double j = 0.25;
+                                Double z = j +i;
+                                System.out.print(z);
+                }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+Option C is correct since the code throws a NullPointer Exception. The Integer defined at line 2 is not initialized so at line 5 trying to use is it result a null pointer exception.
+
+REFERENCE  : https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html
+
+The correct answer is: An Exception.`
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'You read the following statement in a Java program that compiles and executes.',
+        prompt: 'What observation can you make out here for sure?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'speed must be a double.'
+            },
+            {
+                id: 'B',
+                markdown: 'drive must be a method.'
+            },
+            {
+                id: 'C',
+                markdown: 'drive must be the name of an instance field.'
+            },
+            {
+                id: 'D',
+                markdown: 'car must be the name of a class.'
+            },
+            {
+                id: 'E',
+                markdown: 'car must be a method.'
+            },
+        ],
+        codeString: `car.drive(speed);`,
+        answerExplanation: `Option B is the correct answer.
+
+According to the given statement, we are invoking a method on a object via reference, here the object reference is the car, but class can have any name so only the option B is correct.
+
+REFERNCE                           : http://docs.oracle.com/javase/tutorial/java/javaOO/usingobject.html
+
+The correct answer is: drive must be a method.`
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What is garbage collection in the context of Java?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The operating system periodically deletes all of the java files available on the system.'
+            },
+            {
+                id: 'B',
+                markdown: 'Any package imported in a program and not used is automatically deleted.'
+            },
+            {
+                id: 'C',
+                markdown: 'The JVM checks the output of any Java program and deletes anything that doesn\'t make sense.'
+            },
+            {
+                id: 'D',
+                markdown: 'When all references to an object are gone, the memory used by the object is automatically reclaimed.'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option D is the correct answer.
+
+Option D is correct since when there is no active references to an object that object is eligiable for the GC to be collected. But we can't predict the exact time that would happen as it is decided by the GC.
+
+REFERNCE                           : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: When all references to an object are gone, the memory used by the object is automatically reclaimed.`
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the result?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '21'
+            },
+            {
+                id: 'B',
+                markdown: '22'
+            },
+            {
+                id: 'C',
+                markdown: 'Compilation fails due to an error on line 4'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error on line 6'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors'
+            },
+        ],
+        codeString: `public class Whiz{
+                public static void main(String[] args){   
+                                short s = 10;
+                                s += 10;
+                                s++;
+                                s = s+1;
+                                System.out.println(s);
+                }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+The code fails to compile due to line 6. At line 6 trying to add integer value to a short value will result a integer since in java addition of integers result integer in default so option D is correct.
+
+Increment operator and assignment operator will not result any compilation error since then there will be implicitly casting.
+
+REFERENCE                         
+
+https://docs.oracle.com/javase/specs/jls/se8/html/jls-5.html#jls-5.6.2
+The correct answer is: Compilation fails due to an error on line 6`
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the result?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '5'
+            },
+            {
+                id: 'B',
+                markdown: '10'
+            },
+            {
+                id: 'C',
+                markdown: 'An exception will be thrown at runtime'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error on line 6'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors'
+            },
+        ],
+        codeString: `class Whiz {
+    int j = 10;
+    public static void main(String args[]) {
+        int j;
+        if (new Whiz().go(10)) j = 5;
+        System.out.print(j);
+    }
+    boolean go(int y) {
+        if (y > 5) return true;
+        else return false;
+    }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+Option D is correct as local variables must be initialized before use them, here we has used if block to initialize value for variable “j”. When the compile time compiler sees that initialization might not happen so produce compile time error. 
+
+Option A, B and C are incorrect as code fails to compile.
+
+REFERENCE   : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: Compilation fails due to an error on line 6`
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following set contains only primitive literals? ',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '1, ‘c’, “a”'
+            },
+            {
+                id: 'B',
+                markdown: '1, 1.5f, True'
+            },
+            {
+                id: 'C',
+                markdown: '‘BF’, 10, “Sure”'
+            },
+            {
+                id: 'D',
+                markdown: '1.2D, 1f, ‘c’'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option D is the correct answer.
+
+Option D is correct since all are primitive literals, they are double, float and char.
+
+Option A is incorrect as “a” is a String literal.
+
+Option B is incorrect as True is incorrect literal is should be true.
+
+Option C is incorrect as ‘BF’ is illegal; char literal can only has one letter.
+
+REFERNCE                           : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
+
+The correct answer is: 1.2D, 1f, ‘c’`
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Consider following three statements.',
+        prompt: 'Which is true?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Only II'
+            },
+            {
+                id: 'B',
+                markdown: 'Only III'
+            },
+            {
+                id: 'C',
+                markdown: 'Only I and II'
+            },
+            {
+                id: 'D',
+                markdown: 'Only II and III'
+            },
+            {
+                id: 'E',
+                markdown: 'None'
+            },
+        ],
+        codeString: `                    I.            Reference variables can’t be declared as static.
+                  II.            Reference variables haven’t got default values
+                III.            String variables are examples of reference variables.
+`,
+        answerExplanation: `Option B is the correct answer.
+
+Statement I is incorrect since it is legal to declare static reference variables, static String class variable is a simple example for this.
+
+Statement II is incorrect as instance and class reference variables have a default value, it is null.
+
+Statement III is correct as Strings are objects so String variables are object reference variables.
+
+Option B is correct as only the statement III is correct.
+
+REFERENCE  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
+
+The correct answer is: Only III`
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which of the following inserted at line 4, will produce compile time error?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'System.out.print(ab.x);'
+            },
+            {
+                id: 'B',
+                markdown: 'System.out.print(B.j);'
+            },
+            {
+                id: 'C',
+                markdown: 'System.out.print(ab.j);'
+            },
+            {
+                id: 'D',
+                markdown: 'System.out.print(A.x);'
+            },
+            {
+                id: 'E',
+                markdown: 'None'
+            },
+        ],
+        codeString: `class Whiz {
+    public static void main(String args[]) {
+        A ab = new B();
+        //insert here
+    }
+}
+class A {
+    protected int x = 10;
+    static int j = 21;
+}
+
+class B extends A {}`,
+        answerExplanation: `Option D is the correct answer.
+
+Option D is correct since it is illegal to access instance variables using class name, to access them we have to access it through valid object reference. So this will cause a compile time error.
+
+Option A is incorrect since using the object reference we can access instance variables.
+
+Option B is incorrect since we can access static variables using class name. Here we have accessed variable “j” because class B inherits it, there is no problem class B for accessing it.
+
+Option C is incorrect as we can also access static variables using object reference but it is not appropriate.
+
+REFERENCE : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+                                                http://docs.oracle.com/javase/tutorial/java/javaOO/usingobject.html
+
+The correct answer is: System.out.print(A.x);`
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the result?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Value: 10'
+            },
+            {
+                id: 'B',
+                markdown: 'Whiz : 10'
+            },
+            {
+                id: 'C',
+                markdown: 'Compilation fails due to an error on line 3'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to multiple errors'
+            },
+            {
+                id: 'E',
+                markdown: 'An exception will be thrown at runtime'
+            },
+        ],
+        codeString: `class Whiz implements A {
+    public static void main(String args[]) {
+        s = "Whiz : ";
+        System.out.print(s);
+        System.out.print(A.x);
+    }
+}
+
+interface A {
+    static int x = 10;
+    String s = "Value: ";
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+The interface variables are implicitly final so at line 3, trying to modify the value of variable ‘s” cause a compile time error. Therefore option C is correct.
+
+Options A, B and E are incorrect as code fails to compile.
+
+Option D is incorrect since there are no other reasons for compile time errors.
+
+REFERNCE                           : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+                                                http://docs.oracle.com/javase/tutorial/java/javaOO/usingobject.html
+
+The correct answer is: Compilation fails due to an error on line 3`
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following will covert string to a Character wrapper?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'new Character(“C”);'
+            },
+            {
+                id: 'B',
+                markdown: 'Character.valueof(“C”);'
+            },
+            {
+                id: 'C',
+                markdown: 'Character.of(“C”);'
+            },
+            {
+                id: 'D',
+                markdown: 'Character.decode(“C”);'
+            },
+            {
+                id: 'E',
+                markdown: 'None'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option E is the correct answer.
+
+Option A is incorrect as the Character has one constructor which takes char the parameter.
+
+Wrapper class Character has one static method that can return new Character object.
+
+static Character valueOf(char c)
+
+Returns a Character instance representing the specified char value.
+
+So option B is incorrect. Other options are incorrect since there are no such methods.
+
+REFERENCE        : https://docs.oracle.com/javase/tutorial/java/data/characters.html
+
+ 
+
+The correct answer is: None of above`
     }
 ];
 

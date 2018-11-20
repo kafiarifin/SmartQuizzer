@@ -8,7 +8,7 @@ import {updateSelection} from '../../../actions'
 class QuestionOptions extends Component {
 
     handleSelected(id) {
-        this.props.updateSelection(id);
+        this.props.updateSelection(id, this.props.isMultiAnswer);
     }
 
     renderOptions() {
@@ -20,7 +20,7 @@ class QuestionOptions extends Component {
 
         return options.map(option => (
             <li key={option.id} onClick={() => !this.props.complete && this.handleSelected(option.id)}
-                className={`list-group-item list-group-item-action ${this.props.questionData.selectedQuestionID === option.id ? 'active' : ''} ${this.props.complete ? 'disabled' : null}`}>
+                className={`list-group-item list-group-item-action ${this.props.questionData.selectedQuestionID && this.props.questionData.selectedQuestionID.includes(option.id) ? 'active' : ''} ${this.props.complete ? 'disabled' : null}`}>
                 <div className="row">
                     <div className="col-1">{option.id}</div>
                     <div className="col-11">
