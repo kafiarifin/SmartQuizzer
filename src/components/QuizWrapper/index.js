@@ -57,13 +57,13 @@ class QuizWrapper extends Component {
         } = this;
         if (isMultiAnswer) {
             if (correctAnswerId.sort().toString() === id.sort().toString()) {
-                questionObject.questionComplexityIndex = questionComplexityIndex + 1;
+                questionObject.questionComplexityIndex = questionComplexityIndex + 0.5;
                 this.setState({
                     isCorrect: true,
                     wrongAnswer: false
                 })
             } else {
-                questionObject.questionComplexityIndex = questionComplexityIndex - 0.5;
+                questionObject.questionComplexityIndex = questionComplexityIndex - 1;
                 if (attemptsRemaining === 1) {
                     this.setState({
                         isIncorrect: true,
@@ -80,14 +80,14 @@ class QuizWrapper extends Component {
         } else {
             if (correctAnswerId && id === correctAnswerId) {
                 console.log('correct');
-                questionObject.questionComplexityIndex = questionComplexityIndex + 1;
+                questionObject.questionComplexityIndex = questionComplexityIndex + 0.5;
                 this.setState({
                     isCorrect: true,
                     wrongAnswer: false
                 })
             } else {
                 console.log('Not Correct');
-                questionObject.questionComplexityIndex = questionComplexityIndex - 0.5;
+                questionObject.questionComplexityIndex = questionComplexityIndex - 1;
                 if (attemptsRemaining === 1) {
                     this.setState({
                         isIncorrect: true,
