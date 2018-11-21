@@ -4,7 +4,7 @@ export const questionDataSetTest = [
         explanation: 'Which of the following are true? \n' +
             '(Choose two options.)',
         prompt: '',
-        correctAnswerId: '',
+        correctAnswerId: ['C', 'D'],
         options: [
             {
                 id: 'A',
@@ -1502,6 +1502,661 @@ REFERENCE        : https://docs.oracle.com/javase/tutorial/java/data/characters.
  
 
 The correct answer is: None of above`
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which, inserted independently at line 7, will compile and produce the output as “0”?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'System.out.print(++x + i--);'
+            },
+            {
+                id: 'B',
+                markdown: 'System.out.print(x++ + i--); '
+            },
+            {
+                id: 'C',
+                markdown: 'System.out.print(x++ + --i);'
+            },
+            {
+                id: 'D',
+                markdown: 'System.out.print(x++ + ++i);'
+            },
+            {
+                id: 'E',
+                markdown: 'System.out.print(++x + i);'
+            },
+        ],
+        codeString: `public class Whiz {
+
+    public static void main(String[] args) {
+        int x = -1;
+        int i = 2;
+
+        //insert here
+
+    }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+Both the Increment and Decrement operators can be used as prefix and postfix and there is a big difference between them. If we use them in prefix mode then the increment/decrement will occur before any operator acts. If we use them in postfix mode the increment or decrement will be done after the whole expression evaluates.
+
+Option A is incorrect as we used pre increment with the variable “x” and post decrement with the variable "i", the value of them will change after the whole expression evaluates so output would be 2.
+
+Option C is correct as we used pre decrement with the variable “i”, the value of “i” will be changed before the addition is done (to 1, in this case) and with the variable “x”, we have used post increment, so -1 + 1, will give expected result.     
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/op1.html
+
+The correct answer is: System.out.print(x++ + --i);`,
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'BD'
+            },
+            {
+                id: 'B',
+                markdown: 'B'
+            },
+            {
+                id: 'C',
+                markdown: 'ABD'
+            },
+            {
+                id: 'D',
+                markdown: 'C'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `  class Whiz {
+
+      public static void main(String args[]) {
+          final int x;
+          x = 0;
+          final int y = 2;
+
+          int i = (int)(Math.random() * 4);
+
+          switch (i) {
+              case x:
+                  {
+                      System.out.print("A");
+                  }
+                  break;
+              case 1:
+                  System.out.print("B");
+              case 4:
+                  System.out.print("D");
+                  break;
+              case y:
+                  System.out.print("C");
+          }
+
+      }
+  }`,
+        answerExplanation: `Option E is the correct answer.
+
+Option E is correct as this code fails to compile because the “case x”s “x” is not a compile time constant.
+
+Other answers are incorrect as this code fails to compile.             
+
+Reference : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html
+
+The correct answer is: Compilation fails.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following is TRUE about the switch statement in Java?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'A default sends execution immediately to the end of the switch statement.'
+            },
+            {
+                id: 'B',
+                markdown: 'A break sends execution immediately to the end of the switch statement.'
+            },
+            {
+                id: 'C',
+                markdown: 'A case sends execution immediately to the end of the switch statement.'
+            },
+            {
+                id: 'D',
+                markdown: 'A break sends execution immediately to the end of the next case.'
+            },
+            {
+                id: 'E',
+                markdown: 'The statements in a switch continue to execute as long as the condition at the top of the switch remains true.'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option B is the correct answer.
+
+To end the execution of a switch we need to use the keyword break. Hence option B is correct.
+
+Default and case won’t end the execution till it reaches to final case/default of the switch hence options A, C are incorrect.
+
+Option E is incorrect since the switch is not a loop.
+
+REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html
+
+The correct answer is: A break sends execution immediately to the end of the switch statement.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What is the result?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'false'
+            },
+            {
+                id: 'B',
+                markdown: 'true'
+            },
+            {
+                id: 'C',
+                markdown: 'Nothing will be printed.'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to line 4.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to line 6.'
+            },
+        ],
+        codeString: `    public class Whizlab {
+        public static void main(String[] args) {
+            boolean f = true;
+            if (f = false) {
+                System.out.println("false");
+            } else if (f) {
+                System.out.println("true");
+            }
+        }
+    }`,
+        answerExplanation: `Option C is the correct answer.
+
+One common mistake programmers make (and that can be difficult to spot), is assigning a boolean variable when you meant to test a boolean variable. Look out for code like the following:
+
+                boolean boo = false;
+
+                if (boo = true) { }
+
+Above code compiles and runs fine and the if test succeeds because boo is SET to true (rather than TESTED for true) in the if argument.
+
+In this code at line 4 instead using == we had used assignment operator =, which assigns the false to the boolean f,  so if statement will not be executed, when it reaches to else if, f stays false so that statements won’t execute too, so option C is correct.
+
+Reference            : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
+
+The correct answer is: Nothing will be printed.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following type cannot be used for switch expression?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'char'
+            },
+            {
+                id: 'B',
+                markdown: 'enum'
+            },
+            {
+                id: 'C',
+                markdown: 'String'
+            },
+            {
+                id: 'D',
+                markdown: 'long'
+            },
+            {
+                id: 'E',
+                markdown: 'All of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option D is the correct answer.
+
+Data types supported by switch statements include the following:
+
+int and Integer                                  byte and Byte
+
+short and Short                                char and Character
+
+String                                                  enum values
+
+So option D is correct.
+
+Reference                : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html
+
+The correct answer is: long`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '9'
+            },
+            {
+                id: 'B',
+                markdown: '12'
+            },
+            {
+                id: 'C',
+                markdown: '36'
+            },
+            {
+                id: 'D',
+                markdown: '30'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to an error on line 4'
+            },
+        ],
+        codeString: `public class Whiz {
+
+    public static void main(String[] args) {
+        int x = 9, y = 3;
+        int z = (x + y / y) * y;
+
+        System.out.print(z);
+
+    }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+Consider the expression of the variable “z”, without parentheses, it looks like;
+
+                                z = x + y / y * y;
+
+Now “y/y” will be occur first since it has higher precedence than “+” and same as “*”. Then the result of “y/y” will be multiplied by “y”. After that addition will be done which results 12 as the output.
+
+But with parentheses multiplication will occur after the addition is done. So the output will be 30 (10*3).
+
+Reference  :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/expressions.html
+
+                     http://docs.oracle.com/javase/tutorial/java/nutsandbolts/operators.html
+
+The correct answer is: 30`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which is the output?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'x+y = 12 x+y = 12'
+            },
+            {
+                id: 'B',
+                markdown: 'x+y = 93 x+y = 93'
+            },
+            {
+                id: 'C',
+                markdown: 'x+y = 12 x+y = 93'
+            },
+            {
+                id: 'D',
+                markdown: 'x+y = 93 x+y = 12'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to an error on line 4.'
+            },
+        ],
+        codeString: `public class Whiz {
+
+    public static void main(String[] args) {
+        int x = 9, y = 3;
+
+        System.out.print("x+y = " + 9 + 3 + ”“);
+        System.out.print("x+y = " + (9 + 3) + ”“);
+    }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+When using ‘+’ operator for adding a string and other type, the other type will be automatically converted to its String representation.
+
+With line 6, “x+y = 93” will be printed as String concatenation and addition have the same precedence the operators will evaluate left to right.
+
+With line 7, “x+y = 12” will be printed as  the parentheses there ensure that the second + operator performs addition instead of string concatenation.
+
+So option D is correct.
+
+Reference    : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/expressions.html
+
+                               http://docs.oracle.com/javase/tutorial/java/nutsandbolts/operators.html
+
+The correct answer is: x+y = 93 x+y = 12`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following has higher precedence than the ternary operator ( ?: ) ?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '&='
+            },
+            {
+                id: 'B',
+                markdown: '='
+            },
+            {
+                id: 'C',
+                markdown: '+='
+            },
+            {
+                id: 'D',
+                markdown: '=='
+            },
+            {
+                id: 'E',
+                markdown: 'All of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option D is the correct answer.
+
+Only “==” operator has the higher precedence than the ternary operator, others has lower precedence than the ternary operator hence option D is correct.
+
+Reference : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/operators.html
+
+The correct answer is: ==`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which is true?',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Inserting the code statement II at line 6, will produce the output as “true true”'
+            },
+            {
+                id: 'B',
+                markdown: 'Inserting the code statement I at line 6, will produce the output as “true false” '
+            },
+            {
+                id: 'C',
+                markdown: 'Inserting the code statement I at line 6, will produce the output as “false false” '
+            },
+            {
+                id: 'D',
+                markdown: 'Inserting the code statement II at line 6, will produce the output as “false true” '
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: `public class Whiz {
+
+    public static void main(String[] args) {
+        String name1 = "Rekha";
+
+        //insert here
+
+        System.out.print(name1.equals(name2) + " ");
+        System.out.print(name1 == name2);
+
+    }
+}
+ I.String name2 = "Rekha";
+
+ II.String name2 = new String("Rekha");`,
+        answerExplanation: `Option E is the correct answer.
+
+When creating Strings without using “new” keyword, compiler search for equal String literal in the String pool, if equal found then the reference will refer to it without creating new String. So in this case with statement I, new String won’t be created, so both “name1” and “name2” refer to same String object, therefore with statement I, we will have “true true” as result. So options B and C are incorrect.
+
+When using “new” to create a String, a new String object will be create even there is an equal String literal in the pool, so here “==” check will return false since “name1” and “name2” refer to two different objects. But the “equals()” method will return true , since the String literal are equal. So options A and D are incorrect.
+
+Option E is correct as explained above.
+
+Reference        :http://docs.oracle.com/javase/tutorial/java/IandI/objectclass.html
+
+The correct answer is: None of above`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '01'
+            },
+            {
+                id: 'B',
+                markdown: '02'
+            },
+            {
+                id: 'C',
+                markdown: '03'
+            },
+            {
+                id: 'D',
+                markdown: '013'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `public class Whiz {
+     public static void main(String[] args) {
+              String out = "0";
+               int x = 6, y = 6;
+    
+               if (x <= 6)
+                 if (y > 0)
+                   if(x > y)
+                      out += "1";
+                   else out += "2";
+                 else out += "3";
+               else out += "4";
+
+              System.out.println(out);
+      }
+ }     `,
+        answerExplanation: `Option B is the correct answer.
+
+This is badly organized code but still this code is legal. Remember when there is a nested if-else branching like in this code, “else” belongs to closest “if”. So here “else” at line 10 belongs to line 8 “if”, “else” at line 11 belongs to line 7 “if” and “else” at line 12 belongs to line 6 “if”.
+
+Option B is correct since the line 6 and line 7, “if” conditions are true line 11 and line 12 “else” won’t execute but at line 8 “if” condition false, its “else” will execute and 2 is added to String. So the output is 02.
+
+Option A, C and D are incorrect as explained above.
+
+Option E is incorrect as code compiles fine.
+
+Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
+
+The correct answer is: 02`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which is the output?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'AB'
+            },
+            {
+                id: 'B',
+                markdown: 'ABC'
+            },
+            {
+                id: 'C',
+                markdown: 'ABD'
+            },
+            {
+                id: 'D',
+                markdown: 'ABCD'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz{
+                    
+                     public static void main(String[] args) {
+                    
+                                     String s = "AB";
+                                     String ss = "";
+                                     if (ss.length() != 0)
+                                                     ss += "C";
+                                                     ss += "D";
+                                                   s +=  ss;
+                                                 
+                                  System.out.println(s);
+                  }
+  }     `,
+        answerExplanation: `Option C is the correct answer.
+
+The curly braces are optional if you have only one statement to execute within the body of the conditional block. If there are no curly braces only the next statement considers as the if block content.
+
+Here if condition fails , due to the length of the string ‘ss’ is 0 , so line 8 is skipped but all other statements will be executed since they are not related to if. So finally the string ‘s’ will contain “ABD”, hence option C is correct.
+
+REFERENCE :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
+
+The correct answer is: ABD`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following statements will assign “pass” to the String variable ‘result’ when the value of the integer variable ‘marks’ is greater than 50, or “fail” otherwise ?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'String result = marks<50?"pass";"fail";'
+            },
+            {
+                id: 'B',
+                markdown: 'String result = marks<=50?"fail":"pass";'
+            },
+            {
+                id: 'C',
+                markdown: 'String result = marks>=50?"fail":"pass";'
+            },
+            {
+                id: 'D',
+                markdown: 'String result = marks>=50?"fail","pass";'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option B is the correct answer.
+
+Here we can use ternary operator to assign value to String result. The general syntax for the ternary operator is
+
+                condition?[when true value]:[when false value];
+
+So here options A and D are incorrect since we need to use colon between true and false values.
+
+Option C is incorrect since the logic is wrong, “marks>=50” will assign "pass" when marks are less than 50.
+
+Option B is correct since it follows correct logic and correct syntax.
+
+REFERENCE   https://docs.oracle.com/javase/tutorial/java/nutsandbolts/op2.html
+
+The correct answer is: String result = marks<=50?"fail":"pass";`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which of the following case statement can be inserted at line 7 so the code will compile fine?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'case x+1               : {System.out.print("A");}'
+            },
+            {
+                id: 'B',
+                markdown: 'case x+2               : {System.out.print("A");}'
+            },
+            {
+                id: 'C',
+                markdown: 'case i+1                : {System.out.print("A");}'
+            },
+            {
+                id: 'D',
+                markdown: 'case x-1                : {System.out.print("A");}'
+            },
+            {
+                id: 'E',
+                markdown: 'Any of these'
+            },
+        ],
+        codeString: `class Whiz {
+            public static void main(String args[]) {
+                     final int x = 0;
+                     final int y = 2;
+                     int i = x;
+                     switch(i) {
+                            // insert code here
+                            case 1    : System.out.print("B");
+                            default : System.out.print("default"); break;
+                            case y    : System.out.print("C");
+                    }
+           }
+   }      `,
+        answerExplanation: `Option D is the correct answer
+
+When using switch we need to remember two important things about cases
+
+-          Duplicate cases not allowed.
+
+-          Case should be compile time constant.
+
+So options A and B become incorrect since they will create duplicate cases.
+
+Option C is incorrect as the variable ‘i’ is not a compile time constant.
+
+Option D is correct as the variable ‘x’ is compile time constant, and it won’t create duplicate case.
+
+Reference : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html
+
+The correct answer is: case x-1                : {System.out.print("A");}`,
+        referenceImage: ''
     }
 ];
 

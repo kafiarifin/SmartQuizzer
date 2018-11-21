@@ -14,25 +14,35 @@ class QuizLogic extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            totalQuestionsInInterval: 5
+            totalQuestionsInInterval: 5,
+            quizData: props.quizData.sort((a, b) => a.questionComplexityIndex - b.questionComplexityIndex)
         }
     }
 
     componentDidUpdate() {
-        if (this.props.questionsAttempted === this.state.totalQuestionsInInterval){
+        if (this.props.questionsAttempted === this.state.totalQuestionsInInterval) {
             this.props.updateQuestionIndex();
         }
     }
 
     HandleNextQuestion() {
-        console.log('Total Questions: ', this.props.quizData.length);
-        console.log('Questions: ', this.props.quizData);
-        if (this.props.questionsAttempted === this.state.totalQuestionsInInterval){
-            updateTest('testOne', this.props.quizData);
-            this.props.quizData.sort((a, b) => a.questionComplexityIndex-b.questionComplexityIndex);
-        }
+        const {
+            props: {
+                questionsAttempted
+            },
+            state: {
+                quizData,
+                totalQuestionsInInterval
+            }
+        } = this;
 
-        return this.props.quizData[this.props.questionsAttempted]
+        console.log('Total Questions: ', quizData.length);
+        console.log('Questions: ', quizData);
+        if (questionsAttempted === totalQuestionsInInterval) {
+            updateTest('testOne', quizData);
+            quizData.sort((a, b) => a.questionComplexityIndex - b.questionComplexityIndex);
+        }
+        return quizData[questionsAttempted]
     }
 
     render() {
@@ -42,7 +52,7 @@ class QuizLogic extends Component {
                     <div className="row">
                         <div className="col-12">
                             <QuestionProgress
-                                percent={(this.props.questionsAttempted / (this.state.totalQuestionsInInterval -1)) * 100}/>
+                                percent={(this.props.questionsAttempted / (this.state.totalQuestionsInInterval - 1)) * 100}/>
                             <QuizWrapper attempts={this.props.questionsAttempted}
                                          questionObject={this.HandleNextQuestion()}/>
                         </div>
