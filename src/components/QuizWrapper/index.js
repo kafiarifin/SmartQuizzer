@@ -118,7 +118,8 @@ class QuizWrapper extends Component {
                     explanation,
                     prompt,
                     codeString,
-                    answerExplanation
+                    answerExplanation,
+                    referenceImage
                 }
             }
         } = this;
@@ -133,7 +134,7 @@ class QuizWrapper extends Component {
                     {codeString.length > 1 && <CodeHighlighter codeString={codeString}/>}
                     <Question prompt={prompt}/>
                     <QuestionOptions isMultiAnswer={isMultiAnswer} complete={complete} options={this.shuffledOptions}/>
-                    {complete && <AnswerExplanation answerExplanation={answerExplanation}/>}
+                    {complete && <AnswerExplanation answerExplanation={answerExplanation} referenceImage={referenceImage}/>}
                     <QuestionNavigation isMultiAnswer={isMultiAnswer} complete={complete} isCorrect={isCorrect}
                                         attemptsRemaining={attemptsRemaining}
                                         callBack={() => this.handleGuess(this.props.questionData.selectedQuestionID)}/>
