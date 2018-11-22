@@ -2157,6 +2157,2083 @@ Reference : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html
 
 The correct answer is: case x-1                : {System.out.print("A");}`,
         referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which is true?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The output will be 12'
+            },
+            {
+                id: 'B',
+                markdown: 'The output will be 10'
+            },
+            {
+                id: 'C',
+                markdown: 'Compilation fails due to error on line 4'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to error on line 5'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors'
+            },
+        ],
+        codeString: `public class Whiz {
+   static int i;
+   public static void main(String [ ] args) {
+               int array [ ] = new int [ ] {10,12,11};
+               System.out.print(array[i++]);
+   }
+} `,
+        answerExplanation: `Option B is the correct answer.
+
+At line 4, we have assigned an anonymous array to array variable called “array”. As the indexing starts from zero the elements of the "array" are as follows: array[0] = 10,  array[1] = 12 and array[2] = 11.
+
+Option B is correct. At line 5, we have tried to access array element by using static variable “i”. When class variables are not given a value then they take default values. So in this case value of “i” is zero. Here, when we access the array elements, we has used post increment, therefore the value of “i” will not change when we are accessing the element. So we will get 10 as the output since it is the value of array[0].
+
+Option A is incorrect as explained above.
+
+As the code compiles fine options C, D and E are incorrect.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: The output will be 10`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which is true?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The output will be 66'
+            },
+            {
+                id: 'B',
+                markdown: 'The output will be “C”'
+            },
+            {
+                id: 'C',
+                markdown: 'The output will be 67'
+            },
+            {
+                id: 'D',
+                markdown: 'An Exception will be thrown at the runtime'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails as we can’t assign int values as the elements of a char array'
+            },
+        ],
+        codeString: `public class Whiz{
+          
+           public static void main(String[] args) {
+                       int i = 2;
+                       char array[] = new char[i];
+                       array[0] = 65;
+                       array[1] = 66;
+                       array[2] = 67;
+                       System.out.print(array[2]);
+       }
+   }     `,
+        answerExplanation: `Option D is the correct answer.
+
+Option D is correct as at line 5, we created an array which can hold only 2 elements but we have tried to insert 3 elements to it. So it will cause an ArrayIndexOutOfBoundsException. 
+
+Other options are incorrect as code throws an exception before producing any output.
+
+Option E is incorrect as the code compiles fine.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: An Exception will be thrown at the runtime`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The output will be 2.'
+            },
+            {
+                id: 'B',
+                markdown: 'The output will be 4.'
+            },
+            {
+                id: 'C',
+                markdown: 'The output will be 51.'
+            },
+            {
+                id: 'D',
+                markdown: 'An exception is thrown at the runtime.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors.'
+            },
+        ],
+        codeString: `public class Whiz {
+          
+            public static void main(String[] args) {
+                      int i = 2;
+                      int array[ ][ ][ ] = {{{1,2},{3,4}},{{83,12,19},{26,51}},{{0},{10}}};
+                                      
+                     System.out.print(array[1][1][1]);
+           }
+   }  `,
+        answerExplanation: `Option C is the correct answer.
+
+At line 5, we have created a three dimensional array. Here we have used the shortcut syntax to create and initialize an array. It is equal to create and initialize an array using general way.
+
+Here array[1][1][1] contains the value 51 so the option C is correct.
+
+Option A is incorrect as 2 is the element of array[0][0][1].
+
+Option B is incorrect as 4 is the element of array[0][1][1].
+
+Option E is incorrect as the code compiles fine.
+
+Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: The output will be 51.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which is true?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The output will be 1'
+            },
+            {
+                id: 'B',
+                markdown: 'The output will be 10'
+            },
+            {
+                id: 'C',
+                markdown: 'A NullPointerException is thrown at the runtime'
+            },
+            {
+                id: 'D',
+                markdown: 'An ArrayIndexOutOfBoundsException is thrown at the runtime'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors'
+            },
+        ],
+        codeString: `public class Whiz{
+          
+           public static void main(String[] args){
+                      
+                       int array[][] = new int[2][];
+                       array[0][0] = 0;
+                       array[0][1] = 1;
+                       array[0][2] = 2;
+                      
+                   array[1][0] = 0;
+                   array[1][1] = 10;
+                   array[1][2] = 20;               
+    
+                   System.out.print(array[1][1]);
+       }
+   }     `,
+        answerExplanation: `Option C is the correct answer.
+
+Option C is correct as we have failed to create one dimensional array for “array[0]”, so there, we try to initialize array elements without creating the array. Therefore it will cause a NullPointerException.
+
+Options A and B are incorrect as code throws an exception before producing any output. However if we create one dimensional arrays as follows before initializing, then the output would be 10.
+
+array[0] = new int[3];
+
+array[1] = new int[3];
+
+ 
+
+Option D is incorrect as the NullPointerException is thrown not the ArrayIndexOutOfBoundsException.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: A NullPointerException is thrown at the runtime`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which is the output?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '2'
+            },
+            {
+                id: 'B',
+                markdown: '4'
+            },
+            {
+                id: 'C',
+                markdown: '5'
+            },
+            {
+                id: 'D',
+                markdown: 'An exception is thrown at the runtime'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz{
+                      
+                       public static void main(String[] args) {
+        
+                                       int array[][] = new int[2][];
+                                      
+                                       array[0] = new int[3];
+                                       array[1] = new int[2];
+                                      
+                                   System.out.print(array.length + array[1].length);
+                   }
+   }   `,
+        answerExplanation: `Option B is the correct answer.
+
+At line 5 we have created a two dimensional array with number of rows 2, so array.length will return 2. Then at line 8 we have assigned one dimensional array of size 2 to second row, so array[1].length will return 2. So at line 10 printing statement will print 4 as the output hence option B is correct.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: 4`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '3'
+            },
+            {
+                id: 'B',
+                markdown: '9'
+            },
+            {
+                id: 'C',
+                markdown: '14'
+            },
+            {
+                id: 'D',
+                markdown: 'An exception is thrown at the runtime'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `import java.util.Arrays;
+        
+public class Whiz {
+                  
+       public static void main(String[] args) {
+                  
+                 int array[ ] = {2,5,9,5,0,3};
+                 Arrays.sort(array,2,6);
+                 System.out.print(array[2]+array[5]);
+        }
+}       `,
+        answerExplanation: `Option B is the correct answer.
+
+Arrays class provides various method which can be used to manipulate an array. Here we have used following overloaded version of the sort method,
+
+public static void sort(int[] a, int fromIndex, int toIndex)
+
+This method Sorts the specified range of the array into ascending numerical order. The range to be sorted extends from the index fromIndex, inclusive, to the index toIndex, exclusive.
+
+So only elements from index position 2 to 5 will be sorted, so index 2 will be 0 while index 5 will be 9, so option B is correct.
+
+Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: 9`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: '0'
+            },
+            {
+                id: 'B',
+                markdown: '2'
+            },
+            {
+                id: 'C',
+                markdown: '3'
+            },
+            {
+                id: 'D',
+                markdown: 'An Exception.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `class Whizlab {
+                
+                 public static void main(String args[]){                   
+                                 int[] arr = {1,2,3};
+                                 arr = new int[6];
+                                 System.out.println(arr[2]);
+                 }
+ }     `,
+        answerExplanation: `Option A is the correct answer.
+
+At line 4 we create an array of three elements. Then at line 5 we assign new array of size 6 to the same reference so previous array is dereferenced. Since the new array elements are not initialized they take default value of the integer hence option A is correct.
+
+Reference            : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: 0`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: '10'
+            },
+            {
+                id: 'B',
+                markdown: '20'
+            },
+            {
+                id: 'C',
+                markdown: 'A  NullPointerException is thrown.'
+            },
+            {
+                id: 'D',
+                markdown: 'An ArrayIndexOutOfBoundsException is thrown.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `public class Whizlab{
+           public static void main(String[] args) {
+                       long len = 8;
+                       int []ints = new int[len];
+        
+                       ints[8] = 10;
+                      
+                       System.out.print(ints[7] + ints[8]);
+           }
+   }      `,
+        answerExplanation: `Option E is the correct answer.
+
+Code fails as we have passed long value instead int as the size of array, which is illegal, so option E is correct.
+
+Reference            : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: Compilation fails.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the result?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'aaa'
+            },
+            {
+                id: 'B',
+                markdown: 'abc'
+            },
+            {
+                id: 'C',
+                markdown: 'cba'
+            },
+            {
+                id: 'D',
+                markdown: 'aa followed by an exception'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation error'
+            },
+        ],
+        codeString: `import java.util.ArrayList;
+import java.util.List;
+ 
+public class Whiz {
+         public static void main(String [ ] args) {
+                   List<String>ints = new ArrayList<>();
+               
+                                ints.add("a");
+                                ints.add("b");  
+                                ints.add("c");
+                               
+                                while(!ints.isEmpty()){
+                                                System.out.print(ints.remove(0));
+                                }
+          }
+}`,
+        answerExplanation: `Option B is the Correct answer
+
+Here we have used while loop to iterate through a list. At line 12 we have passed condition to check whether the list is empty or not, when list is empty loop will stop. In each iteration we remove the first element and print it, so when loop iterates it will print all list elements. Since the remove removes the first element of the list, printing order will be same as the elements exist in the list. So option B is correct.
+
+REFERENCE  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html                                               
+
+The correct answer is: abc`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: '10'
+            },
+            {
+                id: 'B',
+                markdown: '1031'
+            },
+            {
+                id: 'C',
+                markdown: '10-4'
+            },
+            {
+                id: 'D',
+                markdown: 'An exception'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz {
+         public static void main(String [ ] args) {
+                   
+                      int ar[ ][ ] = {{1,0},{-4},{3,1}};
+                   
+                      f1: for(int[ ] a : ar) {
+                                 for (int x = 0; x < a.length; x++) {
+                                              if (a[x] < 0) break f1;
+                                                   System.out.print(a[x]);
+                                 }
+                     }
+          }
+ }`,
+        answerExplanation: `Option A is the correct answer.
+
+Here we have a nested loop. Outer loop has a label named “f1” so when using break or continue we can refer which loop to choose using loop label. At line 8 we have if which checks whether the current number is negative, if condition met then it will break the outer loop which causes stopping of outer and inner loops. So here only 1 and 0 will be printed. So option A is correct.
+
+REFERENCE : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html
+
+ 
+
+The correct answer is: 10`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the result?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '10 11 12 13 14 15'
+            },
+            {
+                id: 'B',
+                markdown: '10 11 12 13 14 15 3'
+            },
+            {
+                id: 'C',
+                markdown: 'The program will hang without ever completing.'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails.'
+            }
+        ],
+        codeString: `class Whiz {
+          public static void main(String [ ] args) {
+                   for (int x = 10; x>5; x++) {
+                             if (x == 16) x -= 11;
+                                      System.out.print(x + " ");
+                   }
+         }
+ }`,
+        answerExplanation: `Option C is the correct answer.
+
+Option C is correct, first code will produce 10 11 12 13 14 15 and then when x= 16 the value of x will change to 5 so again loop will start from 6. This process will repeat and creates an endless loop.
+
+REFERENCE  : https://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html  
+
+The correct answer is: The program will hang without ever completing.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which options are true?(Choose 2)',
+        correctAnswerId: ['B', 'E'],
+        options: [
+            {
+                id: 'A',
+                markdown: 'When we need to execute a certain section, we can use the "while" or the "for" statements'
+            },
+            {
+                id: 'B',
+                markdown: 'The "switch" statement allows for any number of possible execution paths'
+            },
+            {
+                id: 'C',
+                markdown: 'The "while" and the "do-while" are equivalent'
+            },
+            {
+                id: 'D',
+                markdown: 'The "while" evaluates its conditional expression at the bottom of the loop'
+            },
+            {
+                id: 'E',
+                markdown: 'The "for" loops has two forms, one of them was designed for looping through collections and arrays'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Options B and E are the correct answer.
+
+Option B is correct as using "switch" we can have different number of execution paths depending on the input to "switch".
+
+Option E is correct as "for" loops has two forms, for and enhanced for. The latter one is designed to iterate through elements of a collection or array.
+
+Option A is incorrect when we need to execute certain section of code then we have to use "if" or "switch".
+
+Option C is incorrect as "while" and "do-while" are not the same.
+
+Option D is incorrect since the "while" loop evaluates its expression at the top of the loop.
+
+REFERENCE : https://docs.oracle.com/javase/tutorial/java/nutsandbolts/flowsummary.html
+
+ 
+
+The correct answers are: The "switch" statement allows for any number of possible execution paths, The "for" loops has two forms, one of them was designed for looping through collections and arrays`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '01'
+            },
+            {
+                id: 'B',
+                markdown: '1-1'
+            },
+            {
+                id: 'C',
+                markdown: '1-2'
+            },
+            {
+                id: 'D',
+                markdown: 'An infinite loop.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `public class Whizlab{
+               
+                public static void main(String[] args) {                  
+                                int x = 10;
+                                while(x>0) {
+                                                do {
+                                                                x -= 2;
+                                                } while (x>3);
+                                                x--;
+                                                System.out.print(x);
+                                }
+                }
+               
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+In the first time this loop executes, the inner loop repeats until the value of x is 2. The value will then be decremented to 1 and that will be the output at the end of the first iteration of the outer loop. On the second iteration of the outer loop, the inner do-while will be executed once, even though x is already not greater than 3. As you may recall, do-while statements always execute the body at least once. This will reduce the value to -1, which will be further lowered by the decrement operator in the outer loop to -2. Once the value reaches -2, the outer loop will terminate. So output is 1-2, hence option C is correct.
+
+Reference                            : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html
+
+The correct answer is: 1-2`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which looping process checks the test condition at the beginning of the loop?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'if'
+            },
+            {
+                id: 'B',
+                markdown: 'do while'
+            },
+            {
+                id: 'C',
+                markdown: 'for'
+            },
+            {
+                id: 'D',
+                markdown: 'switch'
+            },
+            {
+                id: 'E',
+                markdown: 'None of the above.'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option C is the correct answer.
+
+Option C is correct since the for loop checks the condition before executing the inner statements.
+
+REFERENCE : https://docs.oracle.com/javase/tutorial/java/nutsandbolts/flowsummary.html
+
+The correct answer is: for`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '0 0 1 2 3 4'
+            },
+            {
+                id: 'B',
+                markdown: '0 0 1 1 2 2 3 3'
+            },
+            {
+                id: 'C',
+                markdown: 'No output'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails'
+            },
+            {
+                id: 'E',
+                markdown: 'An Exception'
+            },
+        ],
+        codeString: `class Whizlab {
+           public static void main(String[] args) {
+                    byte i = 1, j = 1;
+                    while (i == 3 && j < 5) {
+                                System.out.print (i +" "+j+" ");
+                                 i++;
+                                 j += 2;
+                     }
+          }
+ }`,
+        answerExplanation: `Option C is the correct answer.
+
+The condition in while loop (i ==3 && j < 5) fails in the first attempt, so there is no output. The whole expression fails because i == 3 fails, the initial condition is (1==3) is false. Then the interpreter will not check the second condition.
+
+REFERENCE : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html
+
+The correct answer is: No output`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What would be the output, if it is executed as a program?',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Prints 30'
+            },
+            {
+                id: 'B',
+                markdown: 'Prints 20'
+            },
+            {
+                id: 'C',
+                markdown: 'No output'
+            },
+            {
+                id: 'D',
+                markdown: 'An Exception'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `class Whizlab{
+             public static void main(String[] args){
+                       int i = 10;
+                       while (false) {
+                                i = 20;
+                               System.out.println(i);
+                       }
+             }
+   }`,
+        answerExplanation: `Option E is the correct answer.
+
+The compiler complains “error: unreachable statement” at line 4. All statements inside while loop will never execute. So the answer will be option E.
+
+REFERENCE : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html
+
+The correct answer is: Compilation fails`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which statement is true?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The break can be only used in switch.'
+            },
+            {
+                id: 'B',
+                markdown: 'The continue can be used in method.'
+            },
+            {
+                id: 'C',
+                markdown: 'We can use return to return a value from a method.'
+            },
+            {
+                id: 'D',
+                markdown: 'Using break with loop label we can stop outer loop without disturbing enclosing inner loop.'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option C is the correct answer.
+
+Option A is incorrect since break can be used in loops too.
+
+Option B is incorrect since we can’t use continue for method.
+
+Option C is correct as we need to use return for returning values from a method.
+
+Option D is incorrect, we can label loops and break or continue them using label name, even inside from inner loop but when we break the outer loop enclosing inner loop will also stop.
+
+Reference : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html
+
+The correct answer is: We can use return to return a value from a method.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What is the result?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '0'
+            },
+            {
+                id: 'B',
+                markdown: '01'
+            },
+            {
+                id: 'C',
+                markdown: '1'
+            },
+            {
+                id: 'D',
+                markdown: '0 will be print endlessly.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation error.'
+            },
+        ],
+        codeString: `public class Whiz {
+         public static void main(String [ ] args) {
+                  int x = 0;
+                  while ((x = 0) <= 1) {
+                             System.out.print(x);
+                             x++;
+                  }
+         }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+At line 4 we have used “(x=0) <= 1” as the condition, which is legal. The “(x=0)” will first assign 0 to variable x, and then it will be compared. In each iteration the value of x will be reset to 0, even there is increment at line 6. So every time 0 will be printed and loop will not stop. So option D is correct.
+
+REFERENCE : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html                                             
+
+The correct answer is: 0 will be print endlessly.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the result?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '012345'
+            },
+            {
+                id: 'B',
+                markdown: '0123'
+            },
+            {
+                id: 'C',
+                markdown: '03'
+            },
+            {
+                id: 'D',
+                markdown: '0'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz {
+                               
+         public static void main(String [ ] args) {
+                   int x = 0;
+                   for (; x < 5; x += 3) {
+                             System.out.print(x);
+                   }
+         }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+The general form of the for statement can be expressed as follows:
+
+for (initialization; termination; increment) {
+
+statement(s)
+
+}
+
+When using this version of the for statement, keep in mind that:
+
+The initialization expression initializes the loop; it's executed once, as the loop begins.
+
+When the termination expression evaluates to false, the loop terminates.
+
+The increment expression is invoked after each iteration through the loop; it is perfectly acceptable for this expression to increment or decrement a value.
+
+Here we have used “x+=3” as the increment statement which will add 3 to variable x after each iteration, so for loop will first print 0 and then 3. After printing 3 then value of x will be 6, so the termination condition will become false so loop stops. Hence option C is correct.
+
+REFERENCE : https://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html
+
+The correct answer is: 03`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which of the following can be inserted at line 5, will print all elements of the array?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'for (x : ar[x]) System.out.print(x);'
+            },
+            {
+                id: 'B',
+                markdown: 'for (int y : ar) System.out.print(y);'
+            },
+            {
+                id: 'C',
+                markdown: 'for (int y : ar[x]) System.out.print(y);'
+            },
+            {
+                id: 'D',
+                markdown: 'System.out.print(ar[x]);'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: `public class Whiz {
+         public static void main(String [ ] args) {
+                  int ar [ ][ ] = {{1,11},{1},{1,11}};
+                  for (int x = 0; x < ar.length; x++) {
+                                //insert code here
+                  }
+         }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+To print all elements in the array we have to iterate trough each one dimensional array, for that we can use enhanced for loop, for that we need to get each one dimensional array by using “ar[x]” and then we can use enhanced for loop to iterate each element easily as follows
+
+                for(int y : ar[x])
+
+So option C is correct since it will print all elements as required.
+
+REFERENCE  : https://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html
+
+The correct answer is: for (int y : ar[x]) System.out.print(y);`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the result? ',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: '0'
+            },
+            {
+                id: 'B',
+                markdown: '01'
+            },
+            {
+                id: 'C',
+                markdown: 'No output'
+            },
+            {
+                id: 'D',
+                markdown: 'Runtime Exception'
+            },
+            {
+                id: 'E',
+                markdown: 'Compile Error'
+            },
+        ],
+        codeString: `public class Whiz {
+         public static void main(String [ ] args) {
+                  int x = 0;
+                  do {
+                                System.out.println(x);
+                  }while(x++ > 0);
+         }
+}`,
+        answerExplanation: `Option A is the correct answer.
+
+Here first "x" is initialized with zero. do-while loop executes statement or block of statements in the first iteration without condition checking. So "0" will be printed. In condition checking, "x" has post increment . So first condition will be checked and "x" value will be incremented . "0>0", condition is false. So loop execution stops. So the final output is "0".
+
+REFERENCE  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html
+
+The correct answer is: 0`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which looping process checks the test condition at the end of the loop?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'if'
+            },
+            {
+                id: 'B',
+                markdown: 'while'
+            },
+            {
+                id: 'C',
+                markdown: 'do-while'
+            },
+            {
+                id: 'D',
+                markdown: 'switch'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option C is the correct answer.
+
+If, while and switch all check the condition before executing statements, but do while check condition after executing the statements. Hence option C is correct.
+
+REFERNCE          : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html
+
+The correct answer is: do-while`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the result?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '1212'
+            },
+            {
+                id: 'B',
+                markdown: '012012'
+            },
+            {
+                id: 'C',
+                markdown: '12012'
+            },
+            {
+                id: 'D',
+                markdown: '01212'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz {
+    public static void main(String [ ] args) {
+                int x = 0;
+                do{
+                                System.out.print(x);
+                }while(x++ < 2);
+               
+                for(x = 0;x++<2;) System.out.print(x);
+     }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+In first do while loop, since the condition checking done after executing the statements printing will be started with 0 and end when value of x reaches to 2. So it will print 012.
+
+Then at line 8 for loop will check the condition before executing the printing statement hence before printing value of the x will be incremented, so 1 and 2 will be printed there.
+
+So final output will be 01212, hence option D is correct.
+
+REFERNCE          : https://docs.oracle.com/javase/tutorial/java/nutsandbolts/flowsummary.html
+
+ 
+
+The correct answer is: 01212`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Each pass through a loop is called a/an',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'enumeration'
+            },
+            {
+                id: 'B',
+                markdown: 'iteration'
+            },
+            {
+                id: 'C',
+                markdown: 'pass'
+            },
+            {
+                id: 'D',
+                markdown: 'through'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option B is the correct answer.
+
+Passing through each elements is called as iteration, each pass is called as iteration. So option B is correct.
+
+REFERNCE          : https://docs.oracle.com/javase/tutorial/java/nutsandbolts/flowsummary.html
+
+ 
+
+The correct answer is: iteration`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which inserted at line 4, will print only even numbers between 1 to 10?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'if (x % 2 == 0) break; '
+            },
+            {
+                id: 'B',
+                markdown: 'if (x % 2 != 0) break;'
+            },
+            {
+                id: 'C',
+                markdown: 'if (x % 2 == 1) continue;'
+            },
+            {
+                id: 'D',
+                markdown: 'continue'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `public class Whiz {
+             public static void main(String [ ] args) {
+                       for (int x = 1; x < 10; x++) {
+                                    //insert here
+                                    System.out.print(x);
+                        }
+              }
+      }     `,
+        answerExplanation: `Option C is the correct answer.
+
+According the given requirement either we need to skip printing odd numbers or print only the even numbers. So if we choose first way, which is to skip printing which are not even, while not ending the for loop iteration. So at line 4 we can use continue statement to stop executing next statements and skip to next iteration. So option C is correct since it skips printing statement when the number is odd.
+
+REFERENCE : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html
+
+The correct answer is: if (x % 2 == 1) continue;`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Choose the correct method signature for compilation to succeed?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'private static String method(Object c) {'
+            },
+            {
+                id: 'B',
+                markdown: 'public String method(Object c) {'
+            },
+            {
+                id: 'C',
+                markdown: 'public static void method(Integer c) {'
+            },
+            {
+                id: 'D',
+                markdown: 'public String method(Number c) {'
+            },
+            {
+                id: 'E',
+                markdown: 'public static String method() {'
+            },
+        ],
+        codeString: `class Whiz {
+        
+             public static void main(String args[]) {
+                       Integer in = 10;
+                       System.out.print( method(in) );              
+             }
+                      
+             // insert here
+                      return c.toString();
+             }
+   }`,
+        answerExplanation: `Option A is the correct answer.
+
+According to the method call on line 5, we could assume following things about the method we are trying to invoke;
+
+-          method name is “method”
+
+-          method should be static since it doesn’t use any object reference.
+
+-          method should return string.
+
+-          method should be able to accept Integer wrapper.
+
+-          method can have any access level since they are in the same class.
+
+Option A is correct since it is the only method which satisfies all above requirements. Object is super class of any class so with object as the argument type method can take any instance including Integer.
+
+Reference : http://docs.oracle.com/javase/tutorial/java/javaOO/returnvalue.html
+
+The correct answer is: private static String method(Object c) {`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which is the output?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Unknown'
+            },
+            {
+                id: 'B',
+                markdown: 'parrot'
+            },
+            {
+                id: 'C',
+                markdown: 'unknown parrot'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error on line 18'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to an error on line 3'
+            },
+        ],
+        codeString: `class Animal {
+    Animal() {
+        super();
+    }
+}
+
+class Bird extends Animal {
+    private Bird(String name) {
+        System.out.print(name);
+    }
+    Bird() {
+        System.out.print("unknown");
+    }
+}
+
+class Whiz {
+    public static void main(String args[]) {
+        new Bird("parrot");
+    }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+At Line 18 , we are trying to invoke Bird class one argument constructor and it is marked as private, so it is illegal to try to create a Bird object from outside class with it's  one argument constructor. So line 18 causes a compile time error. Hence option D is correct.
+
+Options A, B and C are incorrect as the code fails to compile .
+
+Option E is incorrect as there is no error at line 3. 
+
+Reference                :http://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html
+
+The correct answer is: Compilation fails due to an error on line 18`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '10'
+            },
+            {
+                id: 'B',
+                markdown: '5'
+            },
+            {
+                id: 'C',
+                markdown: '0'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to error on line 14'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors'
+            },
+        ],
+        codeString: `package one;
+
+import whiz.A;
+
+public class Whiz extends A {
+
+    public static void main(String args[]) {
+        Whiz wh = new Whiz();
+        wh.print(5);
+    }
+
+    public void print(int x) {
+        A a = new A();
+        System.out.println(a.x);
+    }
+}
+//Following source is in different source file
+package whiz;
+
+public class A {
+    protected int x = 10;
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+Option D is correct as the protected variables can be only access through inheritance. So trying to access the variable “x”, using object reference at line 14 causes a compile time error.
+
+Reference                :http://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html
+
+The correct answer is: Compilation fails due to error on line 14`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which is correct?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The access modifier “private” can be used with every class'
+            },
+            {
+                id: 'B',
+                markdown: 'The access modifier “protected” can be used with every class'
+            },
+            {
+                id: 'C',
+                markdown: 'The only access modifier which can be used inside a method is public'
+            },
+            {
+                id: 'D',
+                markdown: 'Default access level is less restrictive than the protected access level'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option E is the correct answer.
+
+Options A, B are incorrect because private and protected can't  be used with top level classes. Only  public or default (no explicit modifier) can be used with top level classes.
+
+Option C is incorrect as no access modifier can be used inside a method.
+
+Option D is incorrect as default access level is restrictive than the protected access level.
+
+Reference                :http://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html
+
+The correct answer is: None of above`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which statement is correct?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Inner classes don’t have access to private members of the enclosing class.'
+            },
+            {
+                id: 'B',
+                markdown: 'Inner class can’t be declared with the “private” access modifier.'
+            },
+            {
+                id: 'C',
+                markdown: 'Method local classes can access any local variable.'
+            },
+            {
+                id: 'D',
+                markdown: 'A static nested class is behaviorally a top-level class.'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option D is the correct answer.
+
+Option D is correct as a static nested class interacts with the instance members of its outer class (and other classes) just like any other top-level class. In effect, a static nested class is behaviorally a top-level class that has been nested in another top-level class for packaging convenience.
+
+Option A is incorrect as inner classes have access to private members of the enclosing class.
+
+Option B is incorrect because Member inner classes , static nested classes can be declared with private access modifier but Method local classes , anonymous inner classes can't be declared with private access modifier.
+
+Option C is incorrect as method local classes do not have access to local variables of a method unless those variables are final or effectively final.
+
+Reference : http://docs.oracle.com/javase/tutorial/java/javaOO/innerclasses.html
+
+The correct answer is: A static nested class is behaviorally a top-level class. `,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Choose the correct method signature for compilation to succeed? ',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'private static int aval(char c){'
+            },
+            {
+                id: 'B',
+                markdown: 'public int aval(char c){'
+            },
+            {
+                id: 'C',
+                markdown: 'public static void aval(char c){'
+            },
+            {
+                id: 'D',
+                markdown: 'public char aval(char c){'
+            },
+            {
+                id: 'E',
+                markdown: 'public char aval(){'
+            },
+        ],
+        codeString: ` class Ex1 {
+
+     public static void main(String args[]) {
+         char c = 'A'; //ASCII value of 'A'is 65.
+         System.out.print(aval(c));
+     }
+
+     //here
+         int x = c;
+         return x;
+     }
+
+ }`,
+        answerExplanation: `Option A is the correct answer.
+
+According to the method call on line 5, we could assume following things about the method we are trying to invoke-
+
+method name is “aval’
+method should be static since it doesn’t use any object reference.
+method should return something, because if method returns nothing then a compile time error occur.
+method should be able to char value.
+method can have any access level since they are in the same class.
+
+Option A is correct since it is the only method which satisfies all above requirements.
+
+Option B, D and E are incorrect as those methods are not static.
+
+Option C is incorrect since it doesn’t return anything.
+
+Reference:
+http://docs.oracle.com/javase/tutorial/java/javaOO/returnvalue.html
+
+ 
+
+The correct answer is: private static int aval(char c){`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which will be the result?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '1'
+            },
+            {
+                id: 'B',
+                markdown: '3'
+            },
+            {
+                id: 'C',
+                markdown: '4'
+            },
+            {
+                id: 'D',
+                markdown: '5'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz{
+ 
+                public static void main(String args[]){
+                                int []ary = {1,2,3};
+                                change(ary[2]);
+                                change(ary);
+                                System.out.println(ary[1]+ary[2]);
+                }
+ 
+                public static void change(int x){
+                                x = 1;
+                }
+               
+                public static void change(int x[]){
+                                x[1] = 0;
+                }
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+In Java, Primitive arguments, such as an int or a double, are passed into methods by value. This means that any changes to the values of the parameters exist only within the scope of the method. When the method returns, the parameters are gone and any changes to them are lost. So our array third element doesn't get changed which is 3. 
+Reference data type parameters, such as objects, are also passed into methods by value. This means that when the method returns, the passed-in reference still references the same object as before. However, the values of the object's fields can be changed in the method, if they have the proper access level. So here the change method which takes int array will change the value of second element to zero. Now array elements are ary[0]=1, ary[1]=0, ary[2]=3. So output is 3, hence option B is correct. 
+
+
+Reference                :http://docs.oracle.com/javase/tutorial/java/javaOO/arguments.html
+
+The correct answer is: 3`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which of the following can be considered as true about above code?',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'I only'
+            },
+            {
+                id: 'B',
+                markdown: 'II only'
+            },
+            {
+                id: 'C',
+                markdown: 'I and II only'
+            },
+            {
+                id: 'D',
+                markdown: 'I and III only'
+            },
+            {
+                id: 'E',
+                markdown: 'None.'
+            },
+        ],
+        codeString: `class En {
+    public int i;
+    public char c;
+    public static void main(String[] args) {
+        //codes
+    }
+    private int getI() {
+        return i;
+    }
+}
+I.  This code has correctly implemented the encapsulation principals.
+
+II. This “getI” method at line 7, has correctly implemented the encapsulation principals but not the variables.
+
+III. Variables in this code have correctly implemented the encapsulation principals but not the “getI” method.`,
+        answerExplanation: `Option E is the correct answer.
+
+Statement I and III are incorrect as both methods and variables in this class doesn’t implement the encapsulation principals. Here all variables are declared as public which allows anyone to modify variables without using methods and also methods have declared to be private which should have declared as public.
+
+Option E is correct since all statements are incorrect.
+
+The correct answer is: None.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output when compiling class B?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '12'
+            },
+            {
+                id: 'B',
+                markdown: '0'
+            },
+            {
+                id: 'C',
+                markdown: 'Compilation fails due to error on line 16.'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to error on line 18.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors.'
+            },
+        ],
+        codeString: `package first;
+
+public class A {
+    protected int j;
+    // some codes
+    public void change() {
+        j = 12;
+    }
+}
+package second;
+import first.*;
+
+class B extends A {
+    int x = j;
+    public static void main(String[] args) {
+        A a = new A();
+        a.change();
+        System.out.print(a.j);
+    }
+}
+// Note: two packages are defined in two source codes.`,
+        answerExplanation: `Option D is the correct answer.
+
+Option D is correct. You get compile time error at line 18, because Super class variable access modifier is protected. It can be accessed by sub class object's references. You can't access with super class object's references  in another package. If sub class is in same package as super class , you don't get error at line 18. But here sub class is in different package.
+
+As code fails to compile option A and B are incorrect.
+
+Option C is incorrect as we can create a class A object because class A is public.
+
+Reference : http://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html
+
+ 
+
+The correct answer is: Compilation fails due to error on line 18.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'You are asked to create a method which should satisfy the following requirements.\n' +
+            '\n' +
+            'Method should be in package access level. It should take integer array only. It should return an int. Name of the method should be “find”. And it should be an instance Method.',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'private  static int find(int []c)'
+            },
+            {
+                id: 'B',
+                markdown: 'static void find(int []c)'
+            },
+            {
+                id: 'C',
+                markdown: 'int find(int []c)'
+            },
+            {
+                id: 'D',
+                markdown: 'public int[] find(intc)'
+            },
+            {
+                id: 'E',
+                markdown: 'static int find()'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option C is the correct answer.
+
+According to the given description, only the “intfind(int []c)” signature satisfies all given requirements. So option C is correct.
+
+Option A is incorrect as it is a static method because it uses the static keyword and it also use private access modifier.
+
+Option B is incorrect as it is not instance method and also it doesn’t return int.
+
+Option E is incorrect as it is a static method and it also takes no argument.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/javaOO/returnvalue.html
+
+The correct answer is: int find(int []c)`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which of the following method signature overload above method?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'private int overloadMe(String s)'
+            },
+            {
+                id: 'B',
+                markdown: 'int overloadMe()'
+            },
+            {
+                id: 'C',
+                markdown: 'private void overloadMe()'
+            },
+            {
+                id: 'D',
+                markdown: 'public static void overloadMe()'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: `public void overloadMe() { }`,
+        answerExplanation: `Option A is the correct answer.
+
+When method overloading we should change the argument list. It is optional to change return type or access level.
+
+Here only option A changes the argument list, hence option A is correct.
+
+Reference : https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html
+
+
+The correct answer is: private int overloadMe(String s)`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: '5'
+            },
+            {
+                id: 'B',
+                markdown: '5.1'
+            },
+            {
+                id: 'C',
+                markdown: '5.0'
+            },
+            {
+                id: 'D',
+                markdown: 'An Exception'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz {
+
+    public static void main(String args[]) {
+        A ab = new B();
+        System.out.println(ab.calc(2.0, 3.1));
+    }
+}
+
+class A {
+    public int calc(int a, int b) {
+        return a + b;
+    }
+}
+
+class B extends A {
+    public double calc(double a, double b) {
+        return a + b;
+    }
+}`,
+        answerExplanation: `Option E is the correct answer.
+
+Code fails to compile due to line 5, when invoking overload methods compiler check the reference and see if such a method exists in the reference type. So here when the compiler finds that there is no method with name calc that can take two doubles in reference type compiler complains. So option E is correct.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/javaOO/returnvalue.html
+
+The correct answer is: Compilation fails`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output ?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'int version'
+            },
+            {
+                id: 'B',
+                markdown: 'double version'
+            },
+            {
+                id: 'C',
+                markdown: 'char version'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to one error'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors'
+            },
+        ],
+        codeString: `class Ab {
+    protected void meth1() {
+        System.out.print("base version");
+    }
+}
+
+class Cd extends Ab {
+    final void meth1(int i) {
+        System.out.print("int version");
+    }
+
+    void meth1(double d) {
+        System.out.print("double version");
+    }
+
+    void meth1(char c) {
+        System.out.print("char version");
+    }
+}
+
+class Whiz {
+    public static void main(String[] args) {
+        Cd ab = new Cd();
+        ab.meth1(5);
+    }
+}`,
+        answerExplanation: `Option A is the correct answer.
+
+Which overloaded method is invoked is decided by the reference type, so here actual Cd object has Cd reference and Cd class has a meth1() method which can take int as an argument. So meth1(int i) method will be invoked. So the output will be “int version” therefore option A is correct.
+
+Other options are incorrect based on above explanation.
+
+Reference   : http://docs.oracle.com/javase/tutorial/java/javaOO/methods.html
+
+The correct answer is: int version`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: '97'
+            },
+            {
+                id: 'B',
+                markdown: 'a'
+            },
+            {
+                id: 'C',
+                markdown: 'A'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to error on line 6'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to error on line 10'
+            },
+        ],
+        codeString: `public class Ex1 {
+    final int j = 32;
+
+    public static void main(String args[]) {
+        char c = 'A'; //ASII value of 'A' is 65 and 'a' is 97
+        System.out.print((char) calc(c));
+    }
+
+    static int calc(int i) {
+        return (i + j);
+    }
+}`,
+        answerExplanation: `Option E is the correct answer.
+
+Option E is correct as trying to access instance variable “j” from static method “calc” causes a compile time error. So line 10 will cause a compile time error.
+
+Options A, B and C are incorrect since the code fails to compile.
+
+Option D is incorrect as line 6 is completely legal.
+
+               
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html
+
+The correct answer is: Compilation fails due to error on line 10`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which are true?',
+        prompt: '',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Instance methods can access instance variables and instance methods directly'
+            },
+            {
+                id: 'B',
+                markdown: 'Instance methods can’t access class variables and class methods directly'
+            },
+            {
+                id: 'C',
+                markdown: 'Class methods can access Instance variables and Instance methods directly'
+            },
+            {
+                id: 'D',
+                markdown: 'Both class methods and instance methods can use the keyword “this”'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option A is the correct answer
+
+Option A is correct as instance methods can access instance variables and instance methods directly.
+
+Option B is incorrect as instance methods can access class variables and class methods directly.
+
+Option C is incorrect as class methods can’t access instance variables and instance methods directly.
+
+Option D is incorrect as static content can never use this since static content does not belong to any instance, it belongs to a class.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html
+
+The correct answer is: Instance methods can access instance variables and instance methods directly`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'AAAAAA'
+            },
+            {
+                id: 'B',
+                markdown: 'AA'
+            },
+            {
+                id: 'C',
+                markdown: 'No output'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to error on line 15'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors'
+            },
+        ],
+        codeString: `public class Whiz {
+
+    static int i;
+
+    public static void main(String[] args) {
+        Whiz w1 = new Whiz();
+        Whiz w2 = new Whiz();
+        Whiz w3 = new Whiz();
+        w1.method();
+        w2.method();
+        w3.method();
+    }
+
+    public void method() {
+        while (++i < 3) {
+            System.out.print("A");
+        }
+    }
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+Static variable “i” at line 3 has default value “0” as we have not given any specific value. So when the “method()” invokes first time using “w1” object reference, while loop executes and will print “A” twice. Since the variable “i” is static “w2” and “w3” objects see variable “i” with value larger than 3, so when using “w2” and “w3” for invoking the “method()”, while loop will not execute.
+
+The output only contains two “A”s as explained above, so option B is correct.
+
+Option A is incorrect, it would be correct if the variable “i” was an instance variable.
+
+Options D and E are incorrect as the code compiles fine.
+
+Reference : http://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html
+
+The correct answer is: AA`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which is/are correct? (Choose 2)',
+        prompt: '',
+        correctAnswerId: ['A', 'C'],
+        options: [
+            {
+                id: 'A',
+                markdown: 'When we failed to provide a constructor to a class, a default constructor is created'
+            },
+            {
+                id: 'B',
+                markdown: 'The default constructor has only the statement “this()”'
+            },
+            {
+                id: 'C',
+                markdown: 'If we create a constructor , then the default constructor won\'t be created.'
+            },
+            {
+                id: 'D',
+                markdown: 'The default constructors’ name is same as the class’s’ name but user defined constructors may have different names'
+            },
+            {
+                id: 'E',
+                markdown: 'We can write two constructors that have the same number and type of  arguments in the same order for the class'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Options A and C are the correct answer.
+
+Option A is correct as the compiler provides a default constructor when we fail to specify a constructor.
+
+Option C is correct as when we specify a constructor then there will be no default constructor created.
+
+Option B is incorrect as default constructor has only “super()” call.
+
+Option D is incorrect as any constructor, no matter user defined or default, all must have same name as class name.
+
+ Option E is incorrect as it is illegal to have two constructors with same argument list.
+
+Reference                :http://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html
+
+The correct answers are: When we failed to provide a constructor to a class, a default constructor is created, If we create a constructor , then the default constructor won't be created.`,
+        referenceImage: ''
     }
 ];
 
