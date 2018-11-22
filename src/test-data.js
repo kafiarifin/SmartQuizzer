@@ -4234,7 +4234,681 @@ Reference                :http://docs.oracle.com/javase/tutorial/java/javaOO/con
 
 The correct answers are: When we failed to provide a constructor to a class, a default constructor is created, If we create a constructor , then the default constructor won't be created.`,
         referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What of the following is true?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Code compiles and prints true'
+            },
+            {
+                id: 'B',
+                markdown: 'Code compiles and prints false'
+            },
+            {
+                id: 'C',
+                markdown: '“a” has a Bird'
+            },
+            {
+                id: 'D',
+                markdown: '“a” has a Animal'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `class Bird extends Animal implements Fly {
+    // lots of code goes here
+}
+
+interface Fly {
+    // lots of code goes here
+}
+
+class Animal {
+    // lots of code goes here
+}
+
+class Whiz {
+    static Animal a = new Bird();
+    public static void main(String[] args) {
+        System.out.print(a instanceof Fly);
     }
+}`,
+        answerExplanation: `Option A is the correct answer.
+
+Option A is correct as the code compiles fine and produces the output as true. Since the class “Bird” has implemented the interface “Fly” Bird object can be considerd as a “Fly”, simply a “Bird” class object passes the “is-a” test with “Fly”. Therefore output is true.
+
+Option B is incorrect as explained above.
+
+Option D is incorrect since the class “Bird” is a subclass of the “Animal” class so we can consider “a” as an Animal.
+
+Option C is incorrect there is no “Bird” object in the “Bird” class.
+
+Option E is incorrect as the code compiles fine.  
+
+Reference  : http://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
+
+The correct answer is: Code compiles and prints true`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '10I'
+            },
+            {
+                id: 'B',
+                markdown: '15I'
+            },
+            {
+                id: 'C',
+                markdown: 'Compilation fails due to error at line 11.'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to error at line 15.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors'
+            },
+        ],
+        codeString: `public class Whiz {
+          public static void main(String[] args) {   
+                   I i = new I() { };   
+                  System.out.println(I.x + i.getValue() +""+ i);
+          }
+ } 
+        
+ interface I {
+          int x = 10;
+                  
+          public default int getValue() {
+                   return 5;
+          }
+                  
+          public default String toString() {
+                   return "I";
+          }             
+ }`,
+        answerExplanation: `Option D is the correct answer
+
+From Java SE 8, we are allowed to have non-abstract default and static methods but there are some limitations. Such limitation is that we cannot override methods of Objects class. So the code fails to compile due to line 15 since toString is Object class method. Hence option D is correct.
+
+Reference : http://docs.oracle.com/javase/tutorial/java/IandI/abstract.html
+
+The correct answer is: Compilation fails due to error at line 15.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following is a full signature of a valid default method?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'public default String toString()'
+            },
+            {
+                id: 'B',
+                markdown: 'default static void print()'
+            },
+            {
+                id: 'C',
+                markdown: 'abstract default void help()'
+            },
+            {
+                id: 'D',
+                markdown: 'public default void method()'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option D is the correct answer.
+
+From java 8 we can define non abstract default method in interfaces. Option A is incorrect since it is illegal to override Objects class methods using default methods.
+
+Option B is incorrect as the default methods can’t be static. Option C is incorrect as they should be non abstract.
+
+Option D is correct since it shows correct signature for the default method.
+
+Reference  : http://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html
+
+The correct answer is: public default void method() `,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'In1'
+            },
+            {
+                id: 'B',
+                markdown: 'In2'
+            },
+            {
+                id: 'C',
+                markdown: 'An Exception.'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to error at line 14.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors.'
+            },
+        ],
+        codeString: `public class Whizlab {
+    public static void main(String[] args) {
+        System.out.print(In2.print());
+    }
+}
+
+interface In1 {
+    public static void print() {
+        System.out.println("In1");
+    }
+}
+
+interface In2 extends In1 {
+    static String print() {
+        return "In2";
+    }
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+Java 8 includes support for static methods within interfaces. These methods are defined explicitly with the static keyword and function nearly identically to static methods defined in classes. In fact, there is really only one distinction between a static method in a class and an interface. A static method defined in an interface is not inherited in any classes that implement the interface and  even not inherited  to it's sub interfaces. So there won't be any compile time error at line 14. Hence option D is incorrect. 
+
+You can access interface static method using it's interface name only. So, At Line 3 statement prints "In2". Hence option B is correct
+
+Reference            : http://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html
+
+ 
+
+The correct answer is: In2`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which of the following methods, inserted independently in the class Sub, correctly override method() from the class Sup?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'public final void method(){ }'
+            },
+            {
+                id: 'B',
+                markdown: 'private void method(){ }'
+            },
+            {
+                id: 'C',
+                markdown: 'void method(){ }'
+            },
+            {
+                id: 'D',
+                markdown: 'public void method(int i){ }'
+            },
+            {
+                id: 'E',
+                markdown: 'protected int method(){}'
+            },
+        ],
+        codeString: `class Sup {
+    protected void method() {
+        System.out.print("Sup");
+    }
+}
+class Sub extends Sup {
+    //override method () here
+}`,
+        answerExplanation: `Option A is the correct answer.
+
+Option A is correct as there we have used less restrictive access modifier and it is legal to make overriding method final therefore that method correctly override the “method()”.
+
+Option E is incorrect since we can’t change void or primitive return types when overriding methods.
+
+Option B and C are incorrect as we use more restrictive access level there (private and default access levels).
+
+Option D is incorrect as it is overloading not overriding since we have changed the argument list.
+
+Reference  : http://docs.oracle.com/javase/tutorial/java/IandI/override.html
+
+The correct answer is: public final void method(){ }`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which of the following statement will produce the output as true when inserted at line 16? (Choose 2)',
+        correctAnswerId: ['D', 'E'],
+        options: [
+            {
+                id: 'A',
+                markdown: 'System.out.print(a.instanceof(A));'
+            },
+            {
+                id: 'B',
+                markdown: 'System.out.print(a.instanceof(B));'
+            },
+            {
+                id: 'C',
+                markdown: 'System.out.print(a instance of A);'
+            },
+            {
+                id: 'D',
+                markdown: 'System.out.print(a instanceof C);'
+            },
+            {
+                id: 'E',
+                markdown: 'System.out.print(a instanceof Object);'
+            },
+        ],
+        codeString: `class A extends B implements C {
+    // lots of code goes here
+}
+
+interface C {
+    // lots of code goes here
+}
+
+abstract class B {
+    // lots of code goes here
+}
+
+class Whiz {
+    public static void main(String[] args) {
+        A a = new A();
+    }
+}`,
+        answerExplanation: `Options D and E are the correct answer.
+
+In this code class “A” has implemented the interface C and extended the class B. So class ‘A’ object can be considered as a “C” or “B”. So if we test the object “a” for is-a relationship with “C” or “B” then the output will be true. And instanceof is an operator. Therefore option D is correct.
+
+As any class in java is an indirect or direct subclass of Object, So option E is correct.
+
+Options A, B and C are incorrect as “instanceof” has been used incorrectly there.   
+
+Reference : http://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
+
+The correct answers are: System.out.print(a instanceof C);, System.out.print(a instanceof Object);`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which are correct overriding of print() method?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'public final void print(){ } '
+            },
+            {
+                id: 'B',
+                markdown: 'private final void print(){ }'
+            },
+            {
+                id: 'C',
+                markdown: 'int print(){ return 0; }'
+            },
+            {
+                id: 'D',
+                markdown: 'public void print(int i){ }'
+            },
+            {
+                id: 'E',
+                markdown: 'protected void print() throws Exception { }'
+            },
+        ],
+        codeString: `void print(){ System.out.println(“default”); }`,
+        answerExplanation: `Option A is the correct answer
+
+Option A is correct as there we have used less restrictive access modifier and it is legal therefore that method correctly overrides the “print()”.
+
+Option B is incorrect as we use more restrictive access level there (private access level).
+
+Option C is incorrect since we can’t change void or primitive return types when overriding methods.
+
+Option D is incorrect as it is overloading not overriding since we have changed the argument list.
+
+Option E is incorrect as it is declared to throw a checked exception which is not thrown in the super class method. It is illegal to throw a new checked exception in overriding method.
+
+Reference  : http://docs.oracle.com/javase/tutorial/java/IandI/override.html
+
+The correct answer is: public final void print(){ } `,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which is true?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The output will be: class Ab'
+            },
+            {
+                id: 'B',
+                markdown: 'The output will be: class Sub'
+            },
+            {
+                id: 'C',
+                markdown: 'Compilation fails due to error on line 8 since final methods can’t be overridden.'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to error on line 16.'
+            },
+            {
+                id: 'E',
+                markdown: 'An exception will be thrown at runtime'
+            },
+        ],
+        codeString: `class Ab {
+    private final void print() {
+        System.out.print("class Ab");
+    }
+}
+
+class Sub extends Ab {
+    private void print() {
+        System.out.print("class Sub");
+    }
+}
+
+class Whiz {
+    public static void main(String[] args) {
+        Ab ab = new Sub();
+        ab.print();
+    }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+Option D is correct as code fails due to error on line 16. Trying to access private method from the outside class causes a compile time error.
+
+Options A, B and E are incorrect as the code fails to compile.
+
+Option C is incorrect. The “print()” method can’t be seen from any other class since it is declared as private. So it is impossible to overide them because the method is not inherited. So at line 8 there is new “print()” method not overridden method. Therefore there is no error due to final at line 8.
+
+Reference  :http://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html
+
+The correct answer is: Compilation fails due to error on line 16.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'BirdBird flies'
+            },
+            {
+                id: 'B',
+                markdown: 'Bird'
+            },
+            {
+                id: 'C',
+                markdown: 'Bird followed by an exception'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails'
+            }
+        ],
+        codeString: `class Bird extends Animal {
+        public void print(){ System.out.print("Bird"); }
+        void fly(){ System.out.print("Bird flies");   }
+}
+    
+class Animal {
+       public void print(){ System.out.print("Animal"); }
+}
+    
+class Whiz {
+  
+         public static void main(String []args) {
+                  Animal b = new Bird();
+                  b.print();
+                  b.fly();
+         }
+} `,
+        answerExplanation: `Option D is the correct answer.
+
+Option D is correct as the code fails to compile. At line 15, we have tried to invoke the “fly()” method of the “Bird” class but it causes a compile time error because the reference type of the object is “Animal” and there is no such a method declared inside the Animal class.
+
+Other options are incorrect as explained above.
+
+Reference  : http://docs.oracle.com/javase/tutorial/java/javaOO/objectcreation.html
+
+                      http://docs.oracle.com/javase/tutorial/java/javaOO/usingobject.html
+
+The correct answer is: Compilation fails`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'A'
+            },
+            {
+                id: 'B',
+                markdown: 'C'
+            },
+            {
+                id: 'C',
+                markdown: 'Compilation fails due to error on line 6'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to multiple errors'
+            },
+            {
+                id: 'E',
+                markdown: 'An exception will be thrown at runtime'
+            },
+        ],
+        codeString: `interface I {
+    void meth();
+}
+
+class A implements I {
+    void A(String s) {}
+    
+    public void meth() {
+        System.out.print("A");
+    }
+}
+
+class C extends A implements I {
+    public void meth() {
+        System.out.print("C");
+    }
+}
+
+class Ex6 {
+    public static void main(String args[]) {
+        A a = new A();
+        C c1 = (C) a;
+        c1.meth();
+    }
+}`,
+        answerExplanation: `Option E is the correct answer.
+
+Option E is correct as here we try to cast a super class reference to lower class reference, but super class reference refers to super class object, so casting will cause a ClassCastException.
+
+Option A and B are incorrect as the code throws an exception before producing any output.
+
+Options C and D are incorrect as the code compiles fine.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
+
+The correct answer is: An exception will be thrown at runtime`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which, inserted independently at line 5, will produce the output as “Kent”?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Employee(String s){ super();System.out.print(s); }        \n' +
+                    'Employee(){ this("Kent");}'
+            },
+            {
+                id: 'B',
+                markdown: 'Employee(String s){ super(null);System.out.print(s); }          \n' +
+                    'Employee(){ this("Kent"); }'
+            },
+            {
+                id: 'C',
+                markdown: 'Employee(String s){ super(“ ”);System.out.print(s); }          \n' +
+                    'Employee(){ super("Kent"); }'
+            },
+            {
+                id: 'D',
+                markdown: 'Employee(String s){ super(null);System.out.print(“Kent”); }'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: `class Person {
+    Person(String s) {
+        super();
+    }
+}
+class Employee extends Person {
+    // insert code here
+    // insert code here
+}
+
+public class Whiz {
+    public static void main(String[] args) {
+        Person ab = new Employee();
+    }
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+Option B is correct as we have used the keyword “this” to invoke the “Employee(String s)” constructor. And print statement in that constructor produces the expected output.
+
+Option A is incorrect as the super class has only one constructor which can take String as the argument so calling “super()” with empty parameters causes a compile time error.
+
+Option C is incorrect as the expected output can only be achieved by invoking the “Employee(String s)” constructor so using super will skip the needed constructor and will invoke the super class constructor. Therefore the expected output will not be produced.
+
+Option D will cause compile time error as we need to have “Employee()” constructor which doesn’t take any parameter as we used “new Employee()” at line 11.
+
+Reference : http://docs.oracle.com/javase/tutorial/java/javaOO/thiskey.html
+
+The correct answer is: Employee(String s){ super(null);System.out.print(s); }          
+Employee(){ this("Kent"); }`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following can be inserted in to an interface?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'public abstract static void print();'
+            },
+            {
+                id: 'B',
+                markdown: 'default abstract void print();\n'
+            },
+            {
+                id: 'C',
+                markdown: 'public void print(){}'
+            },
+            {
+                id: 'D',
+                markdown: 'public default void print(){}'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option D is the correct answer
+
+From java SE 8, we can have static and default non abstract method in interfaces. So Option D is correct.
+
+Options A and B are incorrect since static and default methods should be non-abstract in interfaces.
+
+Option C is incorrect since all non-abstract methods should be either static or default in interfaces.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/IandI/usinginterface.html
+
+The correct answer is: public default void print(){}`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of following represents a correct abstract class?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'abstract class Whiz{ public void print(); }'
+            },
+            {
+                id: 'B',
+                markdown: 'abstract class Whiz{ public void print() { } }'
+            },
+            {
+                id: 'C',
+                markdown: 'class Whiz{ public void print(); }'
+            },
+            {
+                id: 'D',
+                markdown: 'final abstract class Whiz{ public abstract void print(); }'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option B is the correct answer
+
+Option B is correct. Abstract methods are optional for an abstract class, it is enough to mark a class with the abstract keyword to make it abstract.
+
+Option A is incorrect as the abstract methods should be marked using the abstract keyword.
+
+Option C is incorrect as the abstract class should be marked with the abstract keyword and also the abstract method should be marked with the abstract keyword.
+
+Option D is incorrect as the abstract class can’t be final.
+
+REFERENCE        :http://docs.oracle.com/javase/tutorial/java/IandI/abstract.html
+
+The correct answer is: abstract class Whiz{ public void print() { } }`,
+        referenceImage: ''
+    },
 ];
 
 const exampleObject = {
