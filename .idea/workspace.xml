@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01ad5570-6fb8-49fb-82f1-950ac29ba23d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/QuizWrapper/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QuizWrapper/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/question-components/QuestionBody/CodeDisplay/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/question-components/QuestionBody/CodeDisplay/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/question-components/QuestionNavigation/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/question-components/QuestionNavigation/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/question-components/QuestionOptions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/question-components/QuestionOptions/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -64,7 +69,7 @@
         <counts>
           <entry key="css" value="6" />
           <entry key="html" value="1" />
-          <entry key="js" value="63" />
+          <entry key="js" value="65" />
           <entry key="ts" value="3" />
         </counts>
       </usages-collector>
@@ -72,7 +77,7 @@
         <counts>
           <entry key="CSS" value="6" />
           <entry key="HTML" value="1" />
-          <entry key="JavaScript" value="63" />
+          <entry key="JavaScript" value="65" />
           <entry key="TypeScript" value="3" />
         </counts>
       </usages-collector>
@@ -86,7 +91,7 @@
         <counts>
           <entry key="css" value="36" />
           <entry key="html" value="4" />
-          <entry key="js" value="8929" />
+          <entry key="js" value="9000" />
           <entry key="txt" value="92" />
         </counts>
       </usages-collector>
@@ -94,7 +99,7 @@
         <counts>
           <entry key="CSS" value="36" />
           <entry key="HTML" value="4" />
-          <entry key="JavaScript" value="8929" />
+          <entry key="JavaScript" value="9000" />
           <entry key="PLAIN_TEXT" value="92" />
         </counts>
       </usages-collector>
@@ -106,8 +111,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/question-components/QuestionOptions/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+            <state relative-caret-position="156">
+              <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -118,10 +123,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/QuizWrapper/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="74" column="65" lean-forward="true" selection-start-line="74" selection-start-column="65" selection-end-line="74" selection-end-column="65" />
+            <state relative-caret-position="416">
+              <caret line="139" column="35" lean-forward="true" selection-start-line="139" selection-start-column="35" selection-end-line="139" selection-end-column="35" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/question-components/QuestionBody/CodeDisplay/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="12" column="51" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="51" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -142,8 +159,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/question-components/QuestionExplanation/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="92">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -154,8 +171,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="768">
+              <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -163,11 +180,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/question-components/QuestionNavigation/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="33" column="15" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
+            <state relative-caret-position="338">
+              <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -175,11 +192,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test-data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="658">
-              <caret line="6562" column="13" lean-forward="true" selection-start-line="6562" selection-start-column="13" selection-end-line="6562" selection-end-column="13" />
+            <state relative-caret-position="451">
+              <caret line="6553" lean-forward="true" selection-start-line="6553" selection-end-line="6553" />
             </state>
           </provider>
         </entry>
@@ -187,29 +204,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/QuizLogic/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
+            <state relative-caret-position="395">
               <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/reducers/questionReducer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/constants/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="24" selection-start-column="24" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -242,7 +241,6 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/components/code-highlighter/index.js" />
         <option value="$PROJECT_DIR$/src/components/quiz-wrapper/index.js" />
-        <option value="$PROJECT_DIR$/src/components/question-components/QuestionBody/CodeDisplay/index.js" />
         <option value="$PROJECT_DIR$/src/components/question-components/Question/index.js" />
         <option value="$PROJECT_DIR$/src/components/question-components/QuestionHeader/index.js" />
         <option value="$PROJECT_DIR$/src/app.css" />
@@ -250,7 +248,6 @@
         <option value="$PROJECT_DIR$/src/components/Loader/index.css" />
         <option value="$PROJECT_DIR$/src/components/question-components/QuestionProgress/index.js" />
         <option value="$PROJECT_DIR$/src/utils.js" />
-        <option value="$PROJECT_DIR$/src/components/question-components/QuestionNavigation/index.js" />
         <option value="$PROJECT_DIR$/src/reducers/index.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/reducers/testReducer.js" />
@@ -258,13 +255,15 @@
         <option value="$PROJECT_DIR$/src/constants/index.js" />
         <option value="$PROJECT_DIR$/src/components/question-components/QuestionExplanation/index.js" />
         <option value="$PROJECT_DIR$/src/actions/index.js" />
-        <option value="$PROJECT_DIR$/src/components/question-components/QuestionOptions/index.js" />
         <option value="$PROJECT_DIR$/src/reducers/questionReducer.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/question-components/AnswerExplanation/index.js" />
         <option value="$PROJECT_DIR$/src/components/QuizLogic/index.js" />
-        <option value="$PROJECT_DIR$/src/components/QuizWrapper/index.js" />
         <option value="$PROJECT_DIR$/src/test-data.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/components/QuizWrapper/index.js" />
+        <option value="$PROJECT_DIR$/src/components/question-components/QuestionBody/CodeDisplay/index.js" />
+        <option value="$PROJECT_DIR$/src/components/question-components/QuestionOptions/index.js" />
+        <option value="$PROJECT_DIR$/src/components/question-components/QuestionNavigation/index.js" />
       </list>
     </option>
   </component>
@@ -301,6 +300,41 @@
             <path>
               <item name="tiberius_cougar_alpha" type="b2602c69:ProjectViewProjectNode" />
               <item name="tiberius_cougar_alpha" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tiberius_cougar_alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tiberius_cougar_alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tiberius_cougar_alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tiberius_cougar_alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="react-syntax-highlighter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tiberius_cougar_alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tiberius_cougar_alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="react-syntax-highlighter" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tiberius_cougar_alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tiberius_cougar_alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="react-syntax-highlighter" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tiberius_cougar_alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tiberius_cougar_alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="react-syntax-highlighter" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
+              <item name="hljs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tiberius_cougar_alpha" type="b2602c69:ProjectViewProjectNode" />
@@ -433,7 +467,7 @@
       <option name="presentableId" value="Default" />
       <updated>1542334504197</updated>
       <workItem from="1542334506850" duration="1040000" />
-      <workItem from="1542335658777" duration="56796000" />
+      <workItem from="1542335658777" duration="58291000" />
     </task>
     <task id="LOCAL-00001" summary="Installed Bootstrap and created a simple component">
       <created>1542337246939</created>
@@ -453,7 +487,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57836000" />
+    <option name="totallyTimeSpent" value="59331000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -468,7 +502,7 @@
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" content_ui="combo" id="Project" order="6" sideWeight="0.49668476" weight="0.37551868" />
+      <window_info active="true" anchor="bottom" content_ui="combo" id="Project" order="6" sideWeight="0.49668476" visible="true" weight="0.37551868" />
       <window_info anchor="bottom" id="Run" order="7" weight="0.31431535" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
@@ -538,16 +572,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/question-components/QuestionBody/CodeDisplay/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -679,20 +703,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/question-components/QuestionOptions/index.js">
+    <entry file="file://$PROJECT_DIR$/src/test-data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+        <state relative-caret-position="451">
+          <caret line="6553" lean-forward="true" selection-start-line="6553" selection-end-line="6553" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/QuizLogic/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/QuizLogic/index.js">
+    <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="768">
+          <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -701,8 +732,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/question-components/QuestionExplanation/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="92">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -719,20 +750,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/question-components/QuestionNavigation/index.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/react-syntax-highlighter/dist/esm/light.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="33" column="15" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
+        <state relative-caret-position="23">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/question-components/QuestionBody/CodeDisplay/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="12" column="51" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="51" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
+    <entry file="file://$PROJECT_DIR$/src/components/question-components/QuestionOptions/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="156">
+          <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -741,18 +779,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/QuizWrapper/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="74" column="65" lean-forward="true" selection-start-line="74" selection-start-column="65" selection-end-line="74" selection-end-column="65" />
+        <state relative-caret-position="416">
+          <caret line="139" column="35" lean-forward="true" selection-start-line="139" selection-start-column="35" selection-end-line="139" selection-end-column="35" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test-data.js">
+    <entry file="file://$PROJECT_DIR$/src/components/question-components/QuestionNavigation/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="658">
-          <caret line="6562" column="13" lean-forward="true" selection-start-line="6562" selection-start-column="13" selection-end-line="6562" selection-end-column="13" />
+        <state relative-caret-position="338">
+          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

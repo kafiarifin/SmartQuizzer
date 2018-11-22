@@ -8,11 +8,11 @@ const QuestionNavigation = ({attemptsRemaining, callBack, isCorrect, complete, n
     return (
         <div className="row m-3">
             <div className="col-7 text-left">
-                <button type="button" className="btn btn-outline-secondary">Review</button>
+                <button type="button" className="btn btn-outline-light">Review</button>
             </div>
             <div className="col-3">
-                {!complete && <button type="button" className="btn btn-outline-secondary disabled">
-                    Attempts Remaining <span className="badge badge-dark">{attemptsRemaining}</span>
+                {!complete && <button type="button" className="btn btn-outline-light disabled">
+                    Attempts Remaining <span className="badge badge-light">{attemptsRemaining}</span>
                 </button>}
             </div>
             <div className="col-2 text-right">

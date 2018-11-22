@@ -128,7 +128,7 @@ class QuizWrapper extends Component {
 
         const complete = isCorrect || isIncorrect;
         return (
-            <div className="quizWrapper">
+            <div className="quizWrapper text-light">
                 <div className="container">
                     <QuestionHeader title={'Title'} name={`Total Questions Attempted: ${attempts}`}/>
                     <QuestionExplanation wrongAnswer={wrongAnswer} complete={complete} isIncorrect={isIncorrect}

@@ -18,7 +18,7 @@ class App extends Component {
 
     componentDidMount() {
 
-        //updateTest('testOne', questionDataSetTest);
+        // updateTest('testOne', questionDataSetTest);
 
         this.props.retrieveData('testOne')
 
@@ -46,7 +46,8 @@ class App extends Component {
                     style={{
                         position: 'fixed',
                         width: '100vw',
-                        height: '100vh'
+                        height: '100vh',
+                        backgroundColor: '#6c757d'
                     }}
                 />
                 {this.props.testBank ? <QuizLogic quizData={this.props.testBank}/> : <Loader/>}
