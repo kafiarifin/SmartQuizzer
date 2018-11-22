@@ -5650,32 +5650,947 @@ The correct answer is: public void print()throws NullPointerException, IOExcepti
     }, {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'What is the result?',
+        correctAnswerId: 'D',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: '14'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: '20'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: '26'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: '30'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz {
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder(10);
+        StringBuilder sb1 = new StringBuilder("ABCD");
+        System.out.println(sb.capacity() + sb1.capacity());
+    }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+At line 3 we have passed integer 10 as the constructor argument when creating the string builder which will result a string builder with initial capacity of 10.
+
+At line 4 we have created another string builder by passing string with 4 characters. In such cases capacity is calculated by java by adding 16 to passed string length, hence here capacity will be 20.
+
+At line 5, 30 will be printed since the string builders have the capacities of 10 and 20. Hence option D is correct.
+
+REFERENCE  : http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html
+
+The correct answer is: 30`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '[1, 3, 3, 4]'
+            },
+            {
+                id: 'B',
+                markdown: '[3, 3, 4]'
+            },
+            {
+                id: 'C',
+                markdown: '[3, 4]'
+            },
+            {
+                id: 'D',
+                markdown: '[1]'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `import java.util.ArrayList;
+import java.util.List;
+
+public class Whiz {
+    public static void main(String[] args) {
+        List < Integer > ints = new ArrayList < > ();
+        ints.add(1);
+        ints.add(3);
+        ints.add(4);
+        ints.add(2, 3);
+        ints.removeIf(e - > e < 3);
+        System.out.println(ints);
+    }
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+The removeIf method will remove all elements where elements match the given predicate, so here it will remove elements which are less than 3.
+
+At line 10, we insert value 3 to index position 2. So ints will initially contain 1,3,3 and 4. Since only the 1 matches the given predicate at line 11, it will be removed, so option B is correct.
+
+REFERNCE                           : https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html
+
+ 
+
+The correct answer is: [3, 3, 4]`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following is the functional method of java.util.function.Predicate<T> interface?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Boolean accept(T t)'
+            },
+            {
+                id: 'B',
+                markdown: 'Boolean apply(T t)'
+            },
+            {
+                id: 'C',
+                markdown: 'T get()'
+            },
+            {
+                id: 'D',
+                markdown: 'boolean test(T t)'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
             },
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `Option D is the correct answer.
+
+The Predicate represents a predicate (boolean-valued function) of one argument. Its functional method is
+
+boolean test(T t)
+
+This method evaluates this predicate on the given argument. So option D is correct
+
+REFERENCE                           : https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html
+
+The correct answer is: boolean test(T t)`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'A Functional interface should :',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Contain a static method.'
+            },
+            {
+                id: 'B',
+                markdown: 'Contain one or more abstract methods.'
+            },
+            {
+                id: 'C',
+                markdown: 'Contain only one abstract method.'
+            },
+            {
+                id: 'D',
+                markdown: 'Not contain abstract methods.'
+            },
+            {
+                id: 'E',
+                markdown: 'Contain the @FunctionalInterface annotation.'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option C is the correct answer.
+
+A functional interface should have only one abstract method so option C is correct.
+
+It is optional to include default or static method in functional interface, so option A is incorrect.
+
+It is optional to have @FunctionalInterface annotation, for a functional interface. So option E is incorrect.
+
+REFERENCE   : https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html
+
+                           https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach5
+
+The correct answer is: Contain only one abstract method.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'AB'
+            },
+            {
+                id: 'B',
+                markdown: 'ABC'
+            },
+            {
+                id: 'C',
+                markdown: 'nullnull'
+            },
+            {
+                id: 'D',
+                markdown: 'An Exception is thrown.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `import java.util.ArrayList;
+import java.util.List;
+
+public class Whizlab {
+
+    public static void main(String args[]) {
+
+        List < String > strings = new ArrayList < > ();
+
+        strings.add("A");
+        strings.add("B");
+        strings.add("C");
+        String[] arr = new String[2];
+        arr = strings.toArray(arr);
+        for (String s: arr) {
+            System.out.print(s);
+        }
+    }
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+The ArrayList class has following method which we can use to convert list to an array of correct type.
+
+public<T> T[] toArray(T[] a)
+
+Returns an array containing all of the elements in this list in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array. If the list fits in the specified array, it is returned therein. Otherwise, a new array is allocated with the runtime type of the specified array and the size of this list.
+
+If the list fits in the specified array with room to spare (i.e., the array has more elements than the list), the element in the array immediately following the end of the collection is set to null. (This is useful in determining the length of the list only if the caller knows that the list does not contain any null elements.)
+
+So here a new array with all elements will be returned and it will be assigned to the arr reference, so option B is correct.
+
+REFERENCE  : https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
+
+The correct answer is: ABC`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'true'
+            },
+            {
+                id: 'B',
+                markdown: '10'
+            },
+            {
+                id: 'C',
+                markdown: '1'
+            },
+            {
+                id: 'D',
+                markdown: 'An Exception is thrown.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `import java.util.ArrayList;
+import java.util.List;
+
+public class Whizlab {
+
+    public static void main(String[] args) {
+        List list = new ArrayList < > ();
+        list.add(5);
+        list.add(5);
+        System.out.println(Integer.max(list.get(0), 1));
+
+    }
+}`,
+        answerExplanation: `Option E is the correct answer.
+
+Here we haven’t given any generic type for the array list, so get method will return object and also we can add any sort of object. Here at line 10 trying to invoke max method of the Integer class by passing object (list.get(0)) causes a compile time error, So option E is correct.
+
+REFERENCE          : https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
+
+The correct answer is: Compilation fails.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which of the following can be used to fill the blank?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Instant'
+            },
+            {
+                id: 'B',
+                markdown: 'LocalDateTime'
+            },
+            {
+                id: 'C',
+                markdown: 'LocalDate'
+            },
+            {
+                id: 'D',
+                markdown: 'LocalTime'
+            },
+            {
+                id: 'E',
+                markdown: 'Date'
+            },
+        ],
+        codeString: `LocalDate ld = LocalDate.of(2016, 3, 21);
+
+________ lt = ld.atTime(10,10);`,
+        answerExplanation: `Option B is the correct answer.
+
+First here we have LocalDate instance and then invoking the atTime will combine passed time with LocalDate value, and result will be LocalDateTime object, so we have to have LocalDateTime reference, hence option B is correct.
+
+REFERENCE  : https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html
+
+The correct answer is: LocalDateTime`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the result?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '2'
+            },
+            {
+                id: 'B',
+                markdown: '3'
+            },
+            {
+                id: 'C',
+                markdown: 'MARCH'
+            },
+            {
+                id: 'D',
+                markdown: 'An Exception.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `import java.time.LocalDate;
+
+public class Whizlab {
+    public static void main(String[] args) {
+        LocalDate ld = LocalDate.of(2015, 2, 27).plusDays(3);
+        System.out.println(ld.getMonth());
+    }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+At line 5 we have created a LocalDate with date 2015/2/27, and then we have invoked the plusDays method by passing 3 so finally ld will contain 2015/3/2 as the date. At line 6 invoking the getMonth method will result the enum value of the month not the integer value of the month so finally ‘MARCH’ will be printed. Hence option C is correct.
+
+Reference            : https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html
+
+The correct answer is: MARCH`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'P1Y1M'
+            },
+            {
+                id: 'B',
+                markdown: 'P13M'
+            },
+            {
+                id: 'C',
+                markdown: 'P1Y'
+            },
+            {
+                id: 'D',
+                markdown: 'An Exception.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `import java.time.Period;
+
+public class Whizlab {
+    public static void main(String[] args) {
+        Period p = Period.ofMonths(13);
+        System.out.println(p.normalized());
+    }
+}`,
+        answerExplanation: `Option A is the correct answer.
+
+At line 5 we have created a period of 13 months. Java knows that 12 months means 1 year, so java can identify that period consist of 1 year and 1 month. For such a conversion we can use the normalized  method which normalizes the years and months units, leaving the days unit unchanged. The months unit is adjusted to have an absolute value less than 12, with the years unit being adjusted to compensate. For example, a period of "1 Year and 15 months" will be normalized to "2 years and 3 months". So in this case output will be P1Y1M. Hence option A is correct.
+
+Reference  : https://docs.oracle.com/javase/8/docs/api/java/time/Period.html
+
+The correct answer is: P1Y1M`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'How many String objects are created when code reaches to line 7?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '1'
+            },
+            {
+                id: 'B',
+                markdown: '2'
+            },
+            {
+                id: 'C',
+                markdown: '3'
+            },
+            {
+                id: 'D',
+                markdown: '4'
+            },
+            {
+                id: 'E',
+                markdown: '5'
+            },
+        ],
+        codeString: `class Whizlab {
+    public static void main(String[] args) {
+        String s = "Whiz";
+        s.concat("Lab");
+        s.toLowerCase();
+        System.out.print(s);
+        //how many?
+    }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+Line 3 creates a new String object and gives it the value “Whiz”. At line 4, two String objects are created (“Lab” and “WhizLab”).  At line 5, a new String object is created (“whiz”). So four objects are created hence option D is correct and others are incorrect.
+
+REFERENCE   : http://docs.oracle.com/javase/tutorial/java/data/strings.html
+
+               
+
+The correct answer is: 4`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the result?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'hizl'
+            },
+            {
+                id: 'B',
+                markdown: 'Whizl'
+            },
+            {
+                id: 'C',
+                markdown: 'izla'
+            },
+            {
+                id: 'D',
+                markdown: 'An exception.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `class Whizlab {
+    public static void main(String args[]) {
+        StringBuilder sb = new StringBuilder("Whizlab");
+        char[] ch = new char[4];
+        sb.getChars(1, 5, ch, 1);
+        for (char c: ch) System.out.print(c);
+    }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+public void getChars(int srcBegin,int srcEnd,char[] dst,int dstBegin);
+
+The getChars method copy characters from this sequence into the destination character array dst. The first character to be copied is at index srcBegin; the last character to be copied is at index srcEnd-1.
+
+The total number of characters to be copied is srcEnd-srcBegin. The characters are copied into the subarray of dst starting at index dstBegin and ending at index:
+
+dstbegin + (srcEnd-srcBegin) - 1
+
+So here at line 5 we have given 1 as the start point and 5 as the end point, so there will be 4 chars extracted which is the number of elements that can be hold in the array created at line 4, so adding one offset makes it 5 elements which results an ArrayIndexOutOfBoundsException. Hence option D is correct.
+
+REFERENCE   : http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html
+
+                           http://docs.oracle.com/javase/tutorial/java/data/buffers.html
+
+The correct answer is: An exception.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the result?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '10'
+            },
+            {
+                id: 'B',
+                markdown: '110'
+            },
+            {
+                id: 'C',
+                markdown: '100'
+            },
+            {
+                id: 'D',
+                markdown: 'An exception'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz {
+    public static void main(String[] args) {
+        long l = 1;
+        int i = 0;
+        StringBuilder sb = new StringBuilder("10");
+        sb.insert(i, l);
+        System.out.println(sb.toString());
+    }
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+At line 5 we have created StringBuilder instance by passing “10”. Then at line 6, we have used one of the overloaded versions of the insert method of the StringBuilder
+
+public StringBuilder insert(int offset,long l)
+
+It inserts the string representation of the long argument into this sequence.
+
+The overall effect is exactly as if the second argument were converted to a string by the method String.valueOf(long), and the characters of that string were then inserted into this character sequence at the indicated offset. The offset argument must be greater than or equal to 0, and less than or equal to the length of this sequence.
+
+Here we have passed the 0 as offset, which is the value of the variable i,  and then we have passed long value 1, so 1 will be inserted into sb at the indicated offset 0, hence option B is correct.
+
+REFERENCE  : http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html
+
+                          http://docs.oracle.com/javase/tutorial/java/data/buffers.html
+
+The correct answer is: 110`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '32'
+            },
+            {
+                id: 'B',
+                markdown: '46'
+            },
+            {
+                id: 'C',
+                markdown: '30'
+            },
+            {
+                id: 'D',
+                markdown: '39'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `class Whizlab {
+
+    public static void main(String args[]) {
+        StringBuilder sb = new StringBuilder("Whizlab");
+        int x = sb.capacity();
+        sb.trimToSize();
+        int y = sb.capacity();
+        System.out.print(x + y);
+    }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+Default capacity of the stringbuilder is length of the current content plus 16. So here when we invoke the method capacity at line 5 it will assign 23 to x. Then at line 6 we invoke the trimToSize method which result the capacity to change 7 which is the length of the current content. Hence option C is correct.
+
+REFERENCE                           : http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html
+
+                                                  http://docs.oracle.com/javase/tutorial/java/data/buffers.html
+
+ 
+
+The correct answer is: 30`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following will create valid string instance?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'new String();'
+            },
+            {
+                id: 'B',
+                markdown: 'new String(new byte[]{88,89});'
+            },
+            {
+                id: 'C',
+                markdown: 'new String(new char[]{\'1\',\'2\',\'3\'});'
+            },
+            {
+                id: 'D',
+                markdown: 'new String(new StringBuilder("ABCD"));'
+            },
+            {
+                id: 'E',
+                markdown: 'All of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option E is the correct answer
+
+Given all are valid uses of String class constructors. So option E is correct.
+
+String() : Initializes a newly created String object so that it represents an empty character sequence.
+
+String(byte[] bytes) : Constructs a new String by decoding the specified array of bytes using the platform's default charset.
+
+String(StringBuilder builder) : Allocates a new string that contains the sequence of characters currently contained in the string builder argument.
+
+String(char[] value) : Allocates a new String so that it represents the sequence of characters currently contained in the character array argument.
+
+REFERNCE                           : http://docs.oracle.com/javase/tutorial/java/data/strings.html
+
+The correct answer is: All of above.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: '1-1'
+            },
+            {
+                id: 'B',
+                markdown: '-11'
+            },
+            {
+                id: 'C',
+                markdown: '11'
+            },
+            {
+                id: 'D',
+                markdown: '0'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to line 3'
+            },
+        ],
+        codeString: `public class Whiz {
+         public static void main(String [ ] args) {
+                  String s = String.join("-", "1", "1");
+                  System.out.println(s);
+         }
+}`,
+        answerExplanation: `Option A is the correct answer
+
+From java Se 8, we have new method called join in String class.
+
+public static String join(CharSequence delimiter,CharSequence... elements)
+
+Returns a new String composed of copies of the CharSequence elements joined together with a copy of the specified delimiter.
+
+For example,
+
+     String message = String.join("-", "Java", "is", "cool");
+
+     // message returned is: "Java-is-cool"
+
+So here two “1” will be joined by “-“, so output will be “1-1”. Hence option A is correct.
+
+REFERENCE : http://docs.oracle.com/javase/tutorial/java/data/strings.html
+
+The correct answer is: 1-1`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the result?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'SATURDAY > 10:22'
+            },
+            {
+                id: 'B',
+                markdown: '6 > 10:22'
+            },
+            {
+                id: 'C',
+                markdown: 'A DateTimeException'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails'
+            }
+        ],
+        codeString: `import java.time.LocalDate;
+import java.time.LocalTime;
+
+public class Whiz {
+    public static void main(String[] args) {
+        LocalDate date = LocalDate.of(2015, 12, 12);
+        LocalTime time = date.atTime(10, 22);
+        System.out.println(date.getDayOfWeek() + " > " + time.getHour() + ":" + time.getMinute());
+    }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+The code fails to compile since at line 7, invoking the atTime method on date instance will result a LocaDateTime instance not and LocalTime instance so trying to assign it to a LocalTime result a compile time error. So option D is correct.
+
+REFERENCE                        : https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html
+
+The correct answer is: Compilation fails`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '2015-03-31'
+            },
+            {
+                id: 'B',
+                markdown: '2014-05-01'
+            },
+            {
+                id: 'C',
+                markdown: '2014-04-31'
+            },
+            {
+                id: 'D',
+                markdown: 'An Exception is thrown'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `import java.time.LocalDate;
+import java.time.MonthDay;
+import java.time.Year;
+
+public class Whiz {
+    public static void main(String[] args) {
+        Year y = Year.of(2015);
+        LocalDate date = y.atMonthDay(MonthDay.of(4, 31));
+        System.out.println(date);
+    }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+At line 7, we have created an year instance by passing 2015 as the year. Then at line 8 we have tried to get local date instance by invoking the atMonthDay method of the year class.
+
+We have passed 4 as the month and 31 as the day arguments for the of method which causes an exception because month April doesn’t have such a day. Hence option D is correct.
+
+REFERENCE  : https://docs.oracle.com/javase/8/docs/api/java/time/LocalTime.html
+
+The correct answer is: An Exception is thrown`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the result?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '[A,B,C]     [A,B,C]'
+            },
+            {
+                id: 'B',
+                markdown: '[A,B,A,C,B]     [A,A,B,B,C]'
+            },
+            {
+                id: 'C',
+                markdown: '[A,B,A,C,B]     [A,B,A,C,B]'
+            },
+            {
+                id: 'D',
+                markdown: '[A,B,A,C,B]     [A,B,C]'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `import java.util.*;
+class Whiz {
+    public static void main(String[] args) {
+        ArrayList < String > alist = new ArrayList < String > ();
+        alist.add("A");
+        alist.add("B");
+        alist.add("A");
+        alist.add("C");
+        alist.add("B");
+        System.out.println(alist);
+        Collections.sort(alist);
+        System.out.println(alist);
+    }
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+Here we have used the method called sort from java.util.Collections class. The sort method has sorted them alphabetically. Line 10 will print unsorted list according to the order we added elements. After sorting them they will be printed by the print method at line 12. So the answer is B.
+
+Option A is incorrect as with Lists we can keep duplicate elements.
+
+Option C is incorrect as the sort method of the “java.util.Collections” class sorted elements.
+
+There is no problem in this code, it compiles fine so E is incorrect.
+
+Reference            :http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html
+
+The correct answer is: [A,B,A,C,B]     [A,A,B,B,C]`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which is true?',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Compilation fails due to error on line 4'
+            },
+            {
+                id: 'B',
+                markdown: 'Compilation fails due to multiple errors'
+            },
+            {
+                id: 'C',
+                markdown: 'Compilation succeeds without any warning'
+            },
+            {
+                id: 'D',
+                markdown: 'An Exception is thrown at the runtime'
+            },
+            {
+                id: 'E',
+                markdown: 'The output will be [1, A, 5]'
+            },
+        ],
+        codeString: `import java.util.*;
+class Whiz {
+    public static void main(String[] args) {
+        List lst = new ArrayList(1);
+        lst.add(1);
+        lst.add("A");
+        lst.add(new Integer(5));
+        System.out.print(lst);
+    }
+}`,
+        answerExplanation: `Option E is the correct answer.
+
+Option E is correct as the code compiles and runs without any exception and prints [1, A, 5].
+
+Option C is incorrect since we have not specified what can List lst hold, so it can take any kind of object except primitive. (This is called as the non-generic collection)  The compiler will warn you about using the non-generic collections as there are risks by allowing anything to be put in to the collection.
+
+Option D is incorrect. Not like arrays, with ArrayList size of the array can resize accordingly. So here even we have created an ArrayList for holding one element, it will dynamically change its size when we add more elements. So there won’t be an ArrayIndexOutOfBoundsException.
+
+Reference : http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html
+
+The correct answer is: The output will be [1, A, 5]`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of following can be considered as a functional interface?',
+        prompt: '',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'public interface Movable {     static void print(){           }     void move();     }'
+            },
+            {
+                id: 'B',
+                markdown: '@FunctionalInterface     public interface Movable  {     }'
+            },
+            {
+                id: 'C',
+                markdown: '@FunctionalInterface     public interface Movable  {     default void move();     }'
+            },
+            {
+                id: 'D',
+                markdown: 'public interface Movable  {     static void move();     }'
+            }
+        ],
+        codeString: ``,
+        answerExplanation: `Option A is the correct answer.
+
+Functional interfaces provide target types for lambda expressions and method references. Each functional interface has a single abstract method (SAM), called the functional method for that functional interface, to which the lambda expression's parameter and return types are matched or adapted. It can also include other methods such as static and default methods.
+
+Also we should remember that interfaces can have default and/or static methods, but they should be non abstract , this is not just for functional interfaces, this applies for all java interfaces.
+
+As explained above, option A satisfies requirements for the function interfaces.
+
+All other answers are invalid interfaces.
+
+REFERNCE                           : https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html
+
+The correct answer is: public interface Movable {     static void print(){           }     void move();     }`,
         referenceImage: ''
     }
 ];
