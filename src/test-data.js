@@ -6592,6 +6592,3487 @@ REFERNCE                           : https://docs.oracle.com/javase/8/docs/api/j
 
 The correct answer is: public interface Movable {     static void print(){           }     void move();     }`,
         referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which of the following can access the value of @ in this given array? ',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'chars[3];'
+            },
+            {
+                id: 'B',
+                markdown: 'chars[5];'
+            },
+            {
+                id: 'C',
+                markdown: 'chars[chars.last];'
+            },
+            {
+                id: 'D',
+                markdown: 'chars[chars.length-1];'
+            },
+            {
+                id: 'E',
+                markdown: 'Given array is invalid.'
+            },
+        ],
+        codeString: `char [ ] chars = {'A', 'B', '1', '2', '@'};`,
+        answerExplanation: `Option D is the correct answer.
+
+Size or length of the array is the number of elements in an array. Index positions of an array start from zero, so the last index is 1 less than the length. Here array has 5 elements, so the size of the array is 5 and the last index is 4.
+
+So we can access the last element by using chars.length-1 or 4. So option D is correct.
+
+Options A and B are incorrect since they are not the last indexes of the array.
+
+Reference :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is:  chars[chars.length-1];`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'true  false'
+            },
+            {
+                id: 'B',
+                markdown: 'false  false'
+            },
+            {
+                id: 'C',
+                markdown: 'false true'
+            },
+            {
+                id: 'D',
+                markdown: 'true true'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `class Program {
+                public static void main(String [ ] args) {
+                 int a [ ] = { 1,2,053,4};
+                 int b [ ][ ] = { {1,2,4} , {2,2,1},{0,43,2}};
+                 System.out.print(a[3] == b[0][2] );
+                 System.out.print(" " + (a[2] == b[2][1]));
+                }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+Indexing of array elements begins with zero. So here a[3] refers to the fourth element of array a. Its value is 4 and we have assigned 4 to b[0][2]. We have assigned an octal value to a[2] so the value of the element is 43 in decimals. And we have assigned 43 in decimal to b[2][1]. So, both will print true.
+
+Due to the above reasons, options  A, B and C are incorrect. E is also incorrect as the code compiles properly.
+
+Reference            :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: true true`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program code?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: '2'
+            },
+            {
+                id: 'B',
+                markdown: '3'
+            },
+            {
+                id: 'C',
+                markdown: '5'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to error at the line 3.'
+            },
+            {
+                id: 'E',
+                markdown: 'Run-time exception.'
+            },
+        ],
+        codeString: `class Program {
+                public static void main(String [ ] args) {
+                                 int ints [ ][ ] = new int[3][ ];
+                                 ints[1] = new int[ ]{1,2,3};
+                                 ints[2] = new int[ ]{4,5};
+                                 System.out.print(ints[1][1]);
+                }
+ }`,
+        answerExplanation: `Option A is the correct answer.
+
+We can use several steps to complete the creation of multi-dimensional array using anonymous arrays. We have assigned 2 one-dimensional int arrays to the two-dimensional array ints. So, the code compiles properly and produces the output 2. So, the answer A is correct while B and C are incorrect.
+
+Reference            :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: 2`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: '00000'
+            },
+            {
+                id: 'B',
+                markdown: '0000'
+            },
+            {
+                id: 'C',
+                markdown: 'nullnullnullnull'
+            },
+            {
+                id: 'D',
+                markdown: 'A NullPointerException is thrown.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to error at line 4.'
+            },
+        ],
+        codeString: `public class Program {
+           public static void main(String [ ] args) {
+        
+                       int []ints = new int[0b101];
+                       int len = ints.length;
+                      
+                       for(int i : ints)
+                       System.out.print(i);
+           }
+   }`,
+        answerExplanation: `Option A is the correct answer.
+
+Option A is correct as when we create an array, elements of the array are initialized to default values. Since the default value of int is zero, all elements will be 0 here. At line 4, while initializing the array, we have passed binary literal which is perfectly legal. Passed binary value is 5 in decimal; so, the array will store 5 elements and the output will contain 5 zeros i.e. 00000.
+
+Reference            : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: 00000`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '1Z1-808'
+            },
+            {
+                id: 'B',
+                markdown: '1Z0-810'
+            },
+            {
+                id: 'C',
+                markdown: '1Z1-801'
+            },
+            {
+                id: 'D',
+                markdown: '1Z0-801'
+            },
+            {
+                id: 'E',
+                markdown: 'An ArrayIndexOutOfBoundsException is thrown.'
+            },
+        ],
+        codeString: ` public class Program {
+     public static void main(String[] args) {
+         String[][] strings = {
+             {
+                 "1",
+                 "0"
+             },
+             {
+                 "Z",
+                 "8",
+                 "1"
+             },
+             {
+                 "-"
+             }
+         };
+         System.out.print(strings[0][0] + strings[1][0] + strings[0][1] +
+             strings[2][0] + strings[1][1] + strings[1][2] + strings[0][1]);
+     }
+ }c`,
+        answerExplanation: `Option B is the correct answer. 
+
+Here, we have two-dimensional array, and each index of array refers to strings as follows;
+
+strings[0][0] = 1
+
+strings[0][1] = 0
+
+strings[1][0] = Z
+
+strings[1][1] = 8
+
+strings[1][2] = 1
+
+strings[2][0] = 0
+
+The output is 1Z0-810. So, option B is correct.
+
+Reference            : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: 1Z0-810`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program code?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'ACDLSZ'
+            },
+            {
+                id: 'B',
+                markdown: 'ZSLDCA'
+            },
+            {
+                id: 'C',
+                markdown: 'A ClassCastException is thrown.'
+            },
+            {
+                id: 'D',
+                markdown: 'An ArrayIndexOutOfBoundsException is thrown.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `import java.util.Arrays;
+
+public class Program {
+    public static void main(String[] args) {
+        String[][] strings = {
+            {
+                "A",
+                "Z"
+            },
+            {
+                "C",
+                "D",
+                "S"
+            },
+            {
+                "L"
+            }
+        };
+        Arrays.sort(strings);
+        for (String[] str: strings) {
+            for (String s: str) {
+                System.out.print(s);
+            }
+        }
+    }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+Arrays class has few overloaded versions of sort method. There is no method that takes a two-dimensional array. So, it only matches the version of an overloaded method which takes Object[] as the argument. Here the sort method does not try to cast the whole sorted array to Comparable or to Comparable[], it just tries to cast its elements to Comparable. In this case, those elements are of type String[], which is not Comparable. So, it throws ClassCastException error.
+
+Hence, option C is correct.  
+
+
+Reference   : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: A ClassCastException is thrown.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following statement is true?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'All classes of Exception extend Error.'
+            },
+            {
+                id: 'B',
+                markdown: 'All classes of Error extend Exception.'
+            },
+            {
+                id: 'C',
+                markdown: 'Checked Exceptions must be handled or declared to be thrown.'
+            },
+            {
+                id: 'D',
+                markdown: 'Runtime Exceptions must be handled or declared to be thrown.'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option C is the correct answer.
+
+Option C is correct as we must handle or declare to be thrown checked exceptions, otherwise code fails to compile.
+
+Options A and B are incorrect according to the following class hierarchy.
+
+There are two types of exceptions, checked and unchecked. Only the checked exceptions must be handled or declared. So, option C is correct.
+
+Option D is incorrect as we may handle or declare runtime exceptions and it is not a must.
+
+REFERENCE        : http://docs.oracle.com/javase/tutorial/essential/exceptions/catchOrDeclare.html
+
+ 
+
+The correct answer is: Checked Exceptions must be handled or declared to be thrown.`,
+        referenceImage: 'data:image/jpeg;base64,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'
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which of the following will compile the above code successfully when inserted at line 2?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'public static void main(String [ ] args)throws java.io.IOException, ClassNotFoundException  {'
+            },
+            {
+                id: 'B',
+                markdown: 'public static void main(String [ ] args)throws java.io.IOException, SecurityException {'
+            },
+            {
+                id: 'C',
+                markdown: 'public static void main(String [ ] args)throws java.io.IOException|SecurityException {'
+            },
+            {
+                id: 'D',
+                markdown: 'public static void main(String [ ] args)throws ClassNotFoundException {'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: `public class Program {
+    public static void main(String[] args) {
+        new Program().doIt();
+        new Program().didIt();
+    }
+
+    static void doIt() throws java.io.IOException {
+        throw new java.io.IOException();
+    }
+
+    static void didIt() throws ClassNotFoundException {
+        throw new SecurityException();
+    }
+}`,
+        answerExplanation: `Option A is the correct answer.
+
+When a method is declared to throw a checked exception, the compiler checks whether the calling method has handled or declared the checked exception or not. If not, then a compile-time error is produced.
+
+Option A is correct since the both IOException and ClassNotFoundException are checked exceptions. So, they must be handled or declared in the main method. Using this declaration, we have declared the both checked exceptions to be thrown. 
+
+Option B is incorrect as the ClassNotFoundException is not handled or declared and SecurityException is not a checked exception.
+
+Option C is incorrect as the ClassNotFoundException is not handled or declared and also “|” is not valid there.
+
+Option D is incorrect as the IOException is not handled or declared.
+
+REFERENCE                        : http://docs.oracle.com/javase/tutorial/essential/io/fileOps.html#exception
+
+The correct answer is: public static void main(String [ ] args)throws java.io.IOException, ClassNotFoundException  {`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program when the given command line invocation is: java Program 10',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'NumberFormat Fin1 Fin2'
+            },
+            {
+                id: 'B',
+                markdown: 'NumberFormat Fin1'
+            },
+            {
+                id: 'C',
+                markdown: 'NumberFormat Fin2'
+            },
+            {
+                id: 'D',
+                markdown: 'Fin1 Fin2'
+            },
+            {
+                id: 'E',
+                markdown: 'Fin2 Fin1 followed by uncaught exception'
+            },
+        ],
+        codeString: `class Program {
+    static Integer I;
+    public static void main(String args[]) {
+        String s;
+        try {
+            s = I.toString();
+        } finally {
+            try {
+                int i = Integer.parseInt(args[0]);
+            } catch (NumberFormatException E) {
+                System.out.print("NumberFormat ");
+            } finally {
+                System.out.print("Fin2 ");
+            }
+            System.out.print("Fin1 ");
+        }
+    }
+}`,
+        answerExplanation: `Option E is the correct answer.
+
+At line 6, NullPointerException is generated as we try to invoke toString method on the null reference. But there is no catch clause to catch it and it has only finally clause, so finally executes. In that finally, clause there is another try clause. In that try clause, no exception will occur, so it goes to its finally and prints Fin2. After that Fin1 is printed as there is no exception generated inside try clause of first finally clause. As the NullPointerException remains uncaught, it will be thrown at the end. So, the answer is E.
+
+At line 9, NumberFormatException will not be thrown as we have already passed 10 as arg[0]. So, NumberFormat will not be printed. So, A, B, and C are incorrect.
+
+As uncaught exception is thrown, the answer D is incorrect.
+
+REFERENCE : http://docs.oracle.com/javase/tutorial/essential/exceptions/catch.html
+
+The correct answer is: Fin2 Fin1 followed by uncaught exception`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following exception is thrown by the JVM when code uses an illegal index to access an array?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'NullPointerException'
+            },
+            {
+                id: 'B',
+                markdown: 'NumberFormatException'
+            },
+            {
+                id: 'C',
+                markdown: 'IllegalArgumentException'
+            },
+            {
+                id: 'D',
+                markdown: 'ClassCastException'
+            },
+            {
+                id: 'E',
+                markdown: 'ArrayIndexOutOfBoundsException'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option E is the correct answer.
+
+The ArrayIndexOutOfBoundsException is thrown by the JVM when code uses an illegal index to access an array. Hence, option E is correct.
+
+The NullPointerException is thrown by the JVM when there is a null reference where an object is required. So, option A is incorrect.
+
+The NumberFormatException is thrown by the programmer when an attempt is made to convert a string to a numeric type but the string doesn’t have an appropriate format. So, option B is incorrect.
+
+Option C is incorrect since the IllegalArgumentException is thrown by the programmer to indicate that a method has been passed an illegal or inappropriate argument.
+
+Option D is incorrect since ClassCastException will be thrown by the JVM when you try to cast super class reference variable to subclass type if superclass reference variable is referring to an object which can't be referred by that subclass reference variable.
+
+REFERENCE   : http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html
+
+The correct answer is: ArrayIndexOutOfBoundsException`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '___________________ is thrown by the programmer to indicate that a method has passed an illegal or inappropriate argument.',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'NullPointerException'
+            },
+            {
+                id: 'B',
+                markdown: 'NumberFormatException'
+            },
+            {
+                id: 'C',
+                markdown: 'IllegalArgumentException'
+            },
+            {
+                id: 'D',
+                markdown: 'ClassCastException'
+            },
+            {
+                id: 'E',
+                markdown: 'ArrayIndexOutOfBoundsException'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option C is the correct answer.
+
+Option C is correct since the IllegalArgumentException thrown by the programmer to indicate that a method has been passed an illegal or inappropriate argument.
+
+The NullPointerException is thrown by the JVM when there is a null reference where an object is required. So, option A is incorrect.
+
+The NumberFormatException is thrown by the programmer when an attempt is made to convert a string to a numeric type but the string doesn’t have an appropriate format. So, option B is incorrect.
+
+Option D is incorrect since the ClassCastException thrown by the JVM when an attempt is made to cast an exception to a subclass of which it is not an instance.
+
+The ArrayIndexOutOfBoundsException is thrown by the JVM when code uses an illegal index to access an array. Hence, option E is incorrect.
+
+REFERENCE        : http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html
+
+The correct answer is: IllegalArgumentException`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program code?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: '3.0'
+            },
+            {
+                id: 'B',
+                markdown: 'ClassCastException'
+            },
+            {
+                id: 'C',
+                markdown: 'IllegalArgumentException'
+            },
+            {
+                id: 'D',
+                markdown: 'NumberFormatException'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Program {
+              public static void main(String [ ] args) {
+                        Object obj = new Double(3);
+                         Number num = (Number) obj;
+                         System.out.println(num);
+              }
+    }`,
+        answerExplanation: `Option A is the correct answer.
+
+At line 4, class cast exception will not be thrown since the Number is a superclass of wrappers.  So, casting will occur without any issue. So, option A is correct.
+
+REFERENCE        : https://docs.oracle.com/javase/8/docs/api/java/lang/Number.html
+
+The correct answer is: 3.0`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following is a valid way of compiling java source file with the name "Whizlabs"?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'javac Whizlabs.class'
+            },
+            {
+                id: 'B',
+                markdown: 'javac Whizlabs.java'
+            },
+            {
+                id: 'C',
+                markdown: 'java Whizlabs.java'
+            },
+            {
+                id: 'D',
+                markdown: 'javac Whizlabs'
+            },
+            {
+                id: 'E',
+                markdown: 'java Whizlabs.class'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option B is the correct answer.
+
+The compiler is invoked by the javac command. When compiling a java class, you must include the file name, which houses the main classes including the .java extension. So, to run Whizlabs file we have to use the command in option B.
+
+To execute java program, we can use java command but can’t use it for compiling.
+
+REFERENCE        : https://docs.oracle.com/javase/tutorial/getStarted/application/index.html
+
+The correct answer is: javac Whizlabs.java`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program? ',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Static Main'
+            },
+            {
+                id: 'B',
+                markdown: 'Whiz Static Main'
+            },
+            {
+                id: 'C',
+                markdown: 'Whiz Main'
+            },
+            {
+                id: 'D',
+                markdown: 'Main'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `public class Whiz {
+
+    public static void main(String args[]) {
+        System.out.println("Main ");
+    }
+
+    {
+        System.out.println("Whiz ");
+    };
+
+    static {
+        System.out.print("Static ");
+    };
+}`,
+        answerExplanation: `Option A is the correct answer.
+
+A static initialization block is a normal block of code enclosed in braces, { }, and is preceded by the static keyword. A class can have any number of static initialization blocks, and they can appear anywhere in the class body. The runtime system guarantees that static initialization blocks are called in the order that they appear in the source code. When class loads static block executes first. Hence here “Static” will be printed first. Then running the main method will print Main.
+
+So, option A is correct.
+
+The non-static initialization block executes only when instance creates. Whiz won’t be printed here since we haven’t tried to instantiate the class.
+
+REFERENCE        : https://docs.oracle.com/javase/tutorial/java/javaOO/initial.html
+
+The correct answer is: Static Main`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'A Java class must always have  _________ .',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'A main method.'
+            },
+            {
+                id: 'B',
+                markdown: 'Variable(s).'
+            },
+            {
+                id: 'C',
+                markdown: 'At least one method.'
+            },
+            {
+                id: 'D',
+                markdown: 'A Constructor.'
+            },
+            {
+                id: 'E',
+                markdown: 'All of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option D is the correct answer.
+
+A Class should contain a constructor, even we have not defined a constructor explicitly. Then, the compiler will generate a default constructor. Hence, option D is correct.
+
+Methods, variables are optional for class.
+
+REFERENCE        : https://docs.oracle.com/javase/tutorial/getStarted/application/index.html
+
+The correct answer is: A Constructor.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following is used for the java doc comments?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: '// comments'
+            },
+            {
+                id: 'B',
+                markdown: '/* comments */'
+            },
+            {
+                id: 'C',
+                markdown: '/// comments'
+            },
+            {
+                id: 'D',
+                markdown: '\'comments'
+            },
+            {
+                id: 'E',
+                markdown: '/**  comments*/'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option E is the correct answer.
+
+We can have following comments in java
+
+/* text */            -              The compiler ignores everything from /* to */.
+
+// text                -              The compiler ignores everything from // to the end of the line.
+
+/** documentation */  
+
+This is a documentation comment and in general, it is called doc comment. The JDK javadoc tool uses doc comments when preparing automatically generated documentation.
+
+As explained above, option E is correct.
+
+REFERENCE        : https://docs.oracle.com/javase/tutorial/getStarted/application/index.html
+
+The correct answer is: /**  comments*/`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program?',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: '0123'
+            },
+            {
+                id: 'B',
+                markdown: '012'
+            },
+            {
+                id: 'C',
+                markdown: '123'
+            },
+            {
+                id: 'D',
+                markdown: '222'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `public class Whiz {
+
+    public static void main(String args[]) {
+        int x = 2;
+        for (int x = 0; x < 3; x++) {
+            System.out.print(x);
+        }
+    }
+}`,
+        answerExplanation: `Option E is the correct answer.
+
+The code fails to compile as we have defined two variables with the same name in the same scope. Variable x at line 4, and again trying to declare another variable with name x for the for the loop at line 5, results in a compile time error. So, option E is correct.
+
+REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: Compilation fails.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program code?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '12310'
+            },
+            {
+                id: 'B',
+                markdown: '1210'
+            },
+            {
+                id: 'C',
+                markdown: '123'
+            },
+            {
+                id: 'D',
+                markdown: '10'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `public class Whiz {
+               
+         static int x = 10;
+               
+         public static void main(String args [ ]) {
+                  for ( x = 1; x < 3; x++ ) {
+                          System.out.print(x);
+                  }             
+                  System.out.println(x);
+          }
+ }             `,
+        answerExplanation: `Option C is the correct answer.
+
+In for loop at line 6, we have used the static variable x in the for loop. In the for loop, we have changed the value of variable x to 1. So, it will print integers from 1 to 2 in for loop. Finally, once x reaches to value 3, for loop will end. So, when it reaches to line 9, the value of the variable x is 3,  and the output is 123.
+
+Hence, option C is correct.
+
+REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: 123`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Suppose that you need to create a class to store information about Books contained in a library.\n' +
+            '\n' +
+            'What will be the scope of the variable that stores the ISBN of a book?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Method parameter'
+            },
+            {
+                id: 'B',
+                markdown: 'Instance variable'
+            },
+            {
+                id: 'C',
+                markdown: 'Static variable'
+            },
+            {
+                id: 'D',
+                markdown: 'Global variable'
+            },
+            {
+                id: 'E',
+                markdown: 'Local variable'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option B is the correct answer.
+
+In a class that stores information about items, you would want to store ISBN of the item in a variable that will remain in scope for the life of the object. Hence, the instance variable is the most suitable. So, option B is correct.
+
+REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: Instance variable`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following is a valid top level class declaration?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'class switch{ }'
+            },
+            {
+                id: 'B',
+                markdown: 'public static class Test{}'
+            },
+            {
+                id: 'C',
+                markdown: 'protected class Test{ }'
+            },
+            {
+                id: 'D',
+                markdown: 'private class Test{ }'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option E is the correct answer.
+
+Option E is correct because all given top level class declarations are incorrect.
+
+Option A is incorrect as class name “switch” is a keyword in java.
+
+Option B is incorrect as it is illegal to use static with top level class declarations.
+
+Options C and D are incorrect as both protected and private access levels are not allowed with top level class declarations.
+
+Reference         : http://docs.oracle.com/javase/tutorial/java/javaOO/classes.html
+
+The correct answer is: None of the above.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following statement specifies that file belongs to the package com.whizlabs.exams?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'pack com.whizlabs.exams;'
+            },
+            {
+                id: 'B',
+                markdown: 'package com.whizlabs.exams.*;'
+            },
+            {
+                id: 'C',
+                markdown: 'pack com.whizlabs.exams.*;'
+            },
+            {
+                id: 'D',
+                markdown: 'package com.whizlabs.exams;'
+            },
+            {
+                id: 'E',
+                markdown: 'package com.whizlabs.*;'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option D is the correct answer.
+
+The keyword package is appropriately used, followed by the package name delimited with periods and followed by a semicolon. So, option D is correct.
+
+The option A and C incorrect since the pack is not valid for package declarations.
+
+Option B is incorrect since for package statements it is illegal to use *.
+
+Reference                            : http://docs.oracle.com/javase/tutorial/java/javaOO/classes.html
+
+The correct answer is: package com.whizlabs.exams;`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: '10'
+            },
+            {
+                id: 'B',
+                markdown: 'No output will be produced.'
+            },
+            {
+                id: 'C',
+                markdown: 'Compilation fails due to error at line 1.'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to error at line 8.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors'
+            },
+        ],
+        codeString: `import static java.lang.System.*;
+
+public class Whizlabs {
+
+    static int x = 10;
+
+    public static void main(String args[]) {
+        out.println(x);
+    }
+}`,
+        answerExplanation: `Option A is the correct answer.
+
+When using static imports we are allowed to import all static members of a class. The syntax for importing all static members statically:
+
+                import static [class name.*]
+
+Here, we have imported the static members of java.lang.System class, so we can directly access the out like at line 8. So, option A is correct.
+
+Reference                            : http://docs.oracle.com/javase/tutorial/java/javaOO/classes.html
+
+The correct answer is: 10`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Basic object orientation principles are - ',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Abstraction'
+            },
+            {
+                id: 'B',
+                markdown: 'Encapsulation'
+            },
+            {
+                id: 'C',
+                markdown: 'Inheritance'
+            },
+            {
+                id: 'D',
+                markdown: 'Polymorphism'
+            },
+            {
+                id: 'E',
+                markdown: 'All of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option E is the correct answer.
+
+All of given are basic principles - encapsulation, polymorphism, abstraction, and inheritance.
+
+Encapsulation is the hiding of data implementation by restricting access to accessors and mutators.
+
+Polymorphism means one name, many forms. Polymorphism manifests itself by having multiple methods all with the same name, but slightly different functionality.
+
+Data abstraction is the simplest of principles to understand. Data abstraction and encapsulation are closely tied together, because a simple definition of data abstraction is the development of classes, objects, types in terms of their interfaces and functionality, instead of their implementation details.
+
+Reference  : http://docs.oracle.com/javase/tutorial/java/javaOO/classes.html
+
+The correct answer is: All of the above.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: '17'
+            },
+            {
+                id: 'B',
+                markdown: '1717'
+            },
+            {
+                id: 'C',
+                markdown: '1715'
+            },
+            {
+                id: 'D',
+                markdown: 'No output will be produced.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `public class Whiz {
+               
+         public static void main(String [ ] args) {                  
+                  for ( int x = 9; x > 0; x--) {                              
+                          for (int y = 8; x > y; y++ )  {                                                                                  
+                                       System.out.print(x+y);
+                          }             
+                  }             
+        }
+               
+ }`,
+        answerExplanation: `Option A is the correct answer.
+
+For loop at line 4, start with x value 9 and iterate till the value of x reaches to 0, in each iteration inner for loop, will start from, and iterate till the value of x is greater than y. In first iteration value of the x will be 9, so it will pass the for loop condition and print 17, but then it will stop iterating. Since incrementing will make inner for loop condition false. In next iterations, only the outer for loop will iterate since for each iteration value of the variable y is greater than x. So option A is correct.
+
+Reference                            : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html
+
+ 
+
+ 
+
+The correct answer is: 17`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following is an invalid loop declaration?',
+        prompt: '',
+        correctAnswerId: 'F',
+        options: [
+            {
+                id: 'A',
+                markdown: 'for(int x = 10, y =6;x > y;x--);'
+            },
+            {
+                id: 'B',
+                markdown: 'for(int x = 10, y =6;x-- > y;);'
+            },
+            {
+                id: 'C',
+                markdown: 'for(;;);'
+            },
+            {
+                id: 'D',
+                markdown: 'for(int x = 10, y =6;x > y;System.out.println(x--));'
+            },
+            {
+                id: 'E',
+                markdown: 'All of these'
+            },
+            {
+                id: 'F',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option F is the correct answer.
+
+Syntax of the for loop : for(initialization; booleanExpression; updateStatement)
+
+Options A and D are valid as we have used correct syntax there.
+
+While using for loop, we need to remember that initialization, booleanExpression and updateStatement all are optional; and we can skip any of these. So, options B and C are also valid.
+
+Since all given options are valid for loop declaration, option F is correct.
+
+Reference                            : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html
+
+The correct answer is: None of the above.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '3'
+            },
+            {
+                id: 'B',
+                markdown: '3567'
+            },
+            {
+                id: 'C',
+                markdown: '34567'
+            },
+            {
+                id: 'D',
+                markdown: 'No output will be produced.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors.'
+            },
+        ],
+        codeString: `public class Whiz {
+               
+          static String o = "";
+               
+          public static void main(String [ ] args) {  
+                               
+                   z: for (int x = 3; x < 8; x++) {                        
+                           if (x == 4)
+                               continue;
+                           if (x == 4)
+                                break z;
+                                o += x;
+                    }
+                    System.out.println(o);
+           }
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+For loop at line 7, iterates till the value of x reach to 8. So, the value of x will be increased 1 by 1 from 3 to 8. When the value of the variable x is 4, first “if” test will execute and skip concatenating the value of x to the String o. Since the first if statement, second if statement does not execute so loop won’t break there. So, the String o will consist of concatenated values from 3 to 7 except 4, i.e. "3567". Hence, option B is correct
+
+Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html
+
+ 
+
+The correct answer is: 3567`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program?',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: '0112233445'
+            },
+            {
+                id: 'B',
+                markdown: '01234'
+            },
+            {
+                id: 'C',
+                markdown: '12345'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to error at line 7.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to error at line 10.'
+            },
+            {
+                id: 'F',
+                markdown: 'Compilation fails due to multiple errors.'
+            },
+        ],
+        codeString: `public class Whiz {
+               
+          static int x = 1;
+            
+          public static void main(String args [ ]) { 
+                   int[ ] nums = {0,1,2,3,4};
+                   for(int x : nums) {
+                          System.out.print(x);
+                          continue;
+                          System.out.print(x + Whiz.x);
+                   }
+          }
+ }`,
+        answerExplanation: `Option E is the correct answer.
+
+We have declared three statements Inside enhanced for loop. Between two print statements, we have declared a  continue statement, due to that the compiler can never reach the statement at line 10. So, compiler complains as follows
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem:   
+
+Whiz.java:10: error: unreachable statement
+System.out.print(x + Whiz.x);"
+
+So, option E is correct.
+
+Reference     : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html
+
+The correct answer is: Compilation fails due to error at line 10.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What is the output of following program code?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '420'
+            },
+            {
+                id: 'B',
+                markdown: '30'
+            },
+            {
+                id: 'C',
+                markdown: '52-1'
+            },
+            {
+                id: 'D',
+                markdown: 'An infinite loop'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz {
+               
+         public static void main(String [ ] args) {                  
+                  int x = 20;
+                  while( x > 0 ) {
+                          do {
+                                   x -= 2;
+                          } while ( x > 5 );
+                          x--;
+                          System.out.print(x);
+                   }
+         }
+               
+ }`,
+        answerExplanation: `Option B is the correct answer.
+
+When this loop executes for the first time, the inner loop repeats until the value of x is 4. The value will then be decremented to 3 and that will be the output at the end of the first iteration of the outer loop. On the second iteration of the outer loop, the inner do-while will be executed once, even though x is already not greater than 5. As you may recall, do-while statements always execute the body at least once. This will reduce the value to 1, which will be further lowered by the decrement operator in the outer loop to 0. Once the value reaches 0, the outer loop will terminate. So, the output is 30. Because "print" method  prints values in the same line, output looks like thirty. It is actually three zero.Hence, option B is correct.
+
+Reference                            : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html
+
+ 
+
+The correct answer is: 30`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program?',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: '11111'
+            },
+            {
+                id: 'B',
+                markdown: '12345'
+            },
+            {
+                id: 'C',
+                markdown: '123456'
+            },
+            {
+                id: 'D',
+                markdown: 'An infinite loop'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz {
+               
+         public static void main(String [ ] args) {                  
+                               
+                   do{
+                             int i = 1;
+                            System.out.print(i++ + "");
+                   } while(i <= 5);
+        }
+               
+ }`,
+        answerExplanation: `Option E is the correct answer.
+
+The variable i is declared within the body of the do-while statement, so it is out of scope on line 8. Line 8 generates a compiler error. Hence, option E is correct answer.
+
+Reference                            : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html
+
+The correct answer is: Compilation fails`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program?',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: '>'
+            },
+            {
+                id: 'B',
+                markdown: '<'
+            },
+            {
+                id: 'C',
+                markdown: '><'
+            },
+            {
+                id: 'D',
+                markdown: 'No output.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whizlabs {
+                      
+                public static void main(String args[ ]) {
+                         int x = 10;
+                      
+                         if (x > 10);
+                                  System.out.println(">");
+                         else if(x < 10)
+                                  System.out.println("<");
+                }
+      }`,
+        answerExplanation: `Option E is the correct answer.
+
+At line 6, we have used a semi-colon at the end of if statement, which signifies that if statement ends here. Also, it doesn’t contain any statement to execute. As a result, else if block at line 8 become invalid since it has no if statement. So, the code fails to compile.
+
+REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
+
+The correct answer is: Compilation fails`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program code?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'ABdefault'
+            },
+            {
+                id: 'B',
+                markdown: 'default'
+            },
+            {
+                id: 'C',
+                markdown: 'defaultC'
+            },
+            {
+                id: 'D',
+                markdown: 'C'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz {
+
+    public static void main(String args[]) {
+
+        final int x = 0;
+        final int y = 2;
+
+        switch (x + y) {
+            case x:
+                {
+                    System.out.print("A");
+                }
+            case 1:
+                System.out.print("B");
+            default:
+                System.out.print("default");
+                break;
+            case y:
+                System.out.print("C");
+        }
+    }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+In switch expression, x+y results 2, and case related to that value will be executed. So in this case, given case y will be executed, and will print C. Hence, option D is correct.
+
+Reference                : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html
+
+The correct answer is: C`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program code?',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'ABdefault'
+            },
+            {
+                id: 'B',
+                markdown: 'default'
+            },
+            {
+                id: 'C',
+                markdown: 'defaultC'
+            },
+            {
+                id: 'D',
+                markdown: 'C'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz {
+
+    public static void main(String args[]) {
+
+        final int x;
+        x = 0;
+        final int y = 2;
+
+        switch (x) {
+            case x:
+                {
+                    System.out.print("A");
+                }
+            case 1:
+                System.out.print("B");
+            default:
+                System.out.print("default");
+                break;
+            case y:
+                System.out.print("C");
+        }
+    }
+}`,
+        answerExplanation: `Option E is the correct answer.
+
+Option E is correct as the code fails to compile due to error at line 10. When using a primitive or reference type variables as case constants, we should keep in mind that they should be compile time constant. Here the variable x is final but it is not at compile-time as the value is assigned later. So, trying to use the variable x at line 10, causes a compile-time error.
+
+Reference                : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html
+
+The correct answer is: Compilation fails`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following data type cannot be used in switch expression?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'char'
+            },
+            {
+                id: 'B',
+                markdown: 'enum'
+            },
+            {
+                id: 'C',
+                markdown: 'String'
+            },
+            {
+                id: 'D',
+                markdown: 'long'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option D is the correct answer.
+
+Data types supported by switch statements include the following:
+
+int and Integer                           byte and Byte
+
+short and Short                         char and Character
+
+String                                        enum values
+
+So, option D is correct.
+
+Reference                : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html
+
+The correct answer is: long`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '01'
+            },
+            {
+                id: 'B',
+                markdown: '02'
+            },
+            {
+                id: 'C',
+                markdown: '03'
+            },
+            {
+                id: 'D',
+                markdown: '04'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation Error'
+            },
+        ],
+        codeString: `public class Whiz {
+         public static void main(String[ ] args) {
+                  String out = "0";
+                  int i = -1, j = -5;
+                  if(i < 5)
+                  if(j > 0)
+                  if(i > j)
+                  out += "1";
+                  else out += "2";
+                  else out += "3";
+                  else out += "4";
+                  System.out.println(out);
+         }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+Using if statement, we need to remember whenever there is no curly braces to group if statements, if consider only the next line as statement related to if. So, in the given code, first if consider next if condition as its statement, and the if at line 6 consider if at line 7 as its statement to execute.
+
+ At line 5, if condition becomes true; hence, next if condition at line 6 is tested and it becomes false. So, it’s else block at line 10 executes and concatenate 3 to the string. So, option C is correct.
+
+REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
+
+ 
+
+The correct answer is: 03`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program?',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: '>6 or'
+            },
+            {
+                id: 'B',
+                markdown: '<6'
+            },
+            {
+                id: 'C',
+                markdown: 'or <6'
+            },
+            {
+                id: 'D',
+                markdown: 'No output.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz {
+               
+        public static void main(String args [ ]) {
+                 
+                 int _6 = 6;
+                              
+                 if(_6 > 6)
+                      System.out.print(">6");              
+                      System.out.print(" or ");
+                 else {
+                      System.out.print("<6");
+                 }
+        }
+}`,
+        answerExplanation: `Option E is the correct answer.
+
+Using if statement, we need to remember whenever there is no curly braces to group if statements, if consider only the next line as statement related to the if. Here at line 9, adding printing statement between if and else results in compilation error because else block has not got if statement. Hence, option E is correct.
+
+REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
+
+ 
+
+The correct answer is: Compilation fails`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following statement is true?',
+        prompt: '',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Only II.'
+            },
+            {
+                id: 'B',
+                markdown: 'Only III.'
+            },
+            {
+                id: 'C',
+                markdown: 'Only I and II.'
+            },
+            {
+                id: 'D',
+                markdown: 'Only I and III.'
+            },
+            {
+                id: 'E',
+                markdown: 'Only II and III.'
+            },
+        ],
+        codeString: `I.            If statement must contain else or else if.
+
+II.           We can’t place any other statements between if and else (or else if) blocks.
+
+III.          If statement may have more than one else statements.`,
+        answerExplanation: `Option A is the correct answer.
+
+Statement I is incorrect because if statement may or may not contain else and/or else if.
+
+Statement II is correct as we can’t place any statement between if and else code blocks.
+
+Statement III is incorrect as if statement can have only one else statement.
+
+So, option A is correct.
+
+REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
+
+The correct answer is: Only II.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Choose the option that is equivalent to this if-then-else statement:',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'System.out.println(x>1?">":x<1?"<":"=");'
+            },
+            {
+                id: 'B',
+                markdown: 'System.out.println(x>1?">":"<":"=");'
+            },
+            {
+                id: 'C',
+                markdown: 'System.out.println(x>1?">"?"<":"=");'
+            },
+            {
+                id: 'D',
+                markdown: 'System.out.println(x>1?">"?"<"?"=");'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: `int x = 1;
+if (x > 1) {
+    System.out.println(">");
+} else if (x < 1) {
+    System.out.println("<");
+} else {
+    System.out.println("=");
+}`,
+        answerExplanation: `Option A is the correct answer.
+
+Here we have to use two ternary operators combined. So, first we can use to check the first condition which is x > 1, as follows;
+
+                x>1?”>”: (when condition false)
+
+Now we have to use another to check if x<1 as follows;
+
+                x<1?”<”: “=”
+
+We can combine these two by putting last ternary statement in the false position of first ternary statement as follows;
+
+                x>1?”>”: x<1?”<”: “=”
+
+As explained above option A is correct.
+
+REFERENCE        : https://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
+
+The correct answer is: System.out.println(x>1?">":x<1?"<":"=");`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program code?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '33'
+            },
+            {
+                id: 'B',
+                markdown: '312'
+            },
+            {
+                id: 'C',
+                markdown: '1212'
+            },
+            {
+                id: 'D',
+                markdown: '123'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz {
+                public static void main(String args [ ]) {
+                                System.out.print("" + 1 + 2);
+                                System.out.print("" + (1 + 2));
+                }
+}`,
+        answerExplanation: `Option D is correct.
+
+String concatenation and addition have the same precedence. Since they are left-associative, the operators are evaluated left-to-right. The parentheses in the second statement ensure that the second + operator perform addition instead of string concatenation. So, 1 + 2 = 12 and 1 + 2 = 3, prints respectively. So, option D is correct.
+
+REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
+
+The correct answer is: 123`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following will result false?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'true ^ false | true'
+            },
+            {
+                id: 'B',
+                markdown: '(true ^ false) | true'
+            },
+            {
+                id: 'C',
+                markdown: '(true ^ false | true)'
+            },
+            {
+                id: 'D',
+                markdown: 'true ^ (false | true)'
+            },
+            {
+                id: 'E',
+                markdown: 'None of the above'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option D is the correct answer.
+
+Option A evaluates as true because it evaluates using default precedence, first true ^ false become true and then using “|” will stay true. Options B and C are same, parentheses will not have precedence.
+
+Option D becomes false, as due to parentheses first it will evaluate “false | true” and become true. Then expression will be evaluated as “true ^ true”. So, finally, it will be false. So, option D is correct.
+
+REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/expressions.html
+
+The correct answer is: true ^ (false | true)`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Consider this program code -',
+        prompt: 'Which of the following statement is true?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Inserting the statement II at line 6, will produce the output as “true true” .'
+            },
+            {
+                id: 'B',
+                markdown: 'Inserting the statement I at line 6, will produce the output as “true false” .'
+            },
+            {
+                id: 'C',
+                markdown: 'Inserting the statement I at line 6, will produce the output as “false false” .'
+            },
+            {
+                id: 'D',
+                markdown: 'Inserting the statement II at line 6, will produce the output as “true false” .'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: `public class Whiz {
+
+    public static void main(String[] args) {
+        String s1 = "Rekha";
+        //insert here
+
+        System.out.print(s1.equals(s2) + " ");
+        System.out.print(s1 == s2);
+
+    }
+}
+I.      String s2 = "Rekha";
+II.     String s2 = new String("Rekha");`,
+        answerExplanation: `Option D is the correct answer.
+
+When creating Strings without using “new” keyword, compiler search for equal String literal in the String pool, if found equal, then the reference will refer to it without creating new String. So in this case with the statement I, new String won’t be created, so both “s1” and “s2” refer to the same String object, therefore with the statement I, we will have “true true” as result. So, options B and C are incorrect.
+
+When using “new” to create a String, a new String object will create even there is an equal String literal in the pool, so here “==” check will return false since “s1” and “s2” refer to two different objects. But the “equals()” method will return true since the String literal are equal. So, the option A is incorrect and D is correct.
+
+Reference        : http://docs.oracle.com/javase/tutorial/java/IandI/objectclass.html
+
+The correct answer is: Inserting the statement II at line 6, will produce the output as “true false” .`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'If “x.equals(y)” return true, which of the following is true?',
+        prompt: '',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Only I.'
+            },
+            {
+                id: 'B',
+                markdown: 'Only III.'
+            },
+            {
+                id: 'C',
+                markdown: 'Only I and II.'
+            },
+            {
+                id: 'D',
+                markdown: 'Only I and III.'
+            },
+            {
+                id: 'E',
+                markdown: 'All of these'
+            },
+        ],
+        codeString: `I.     “y.hashCode()” must be equal to “x.hashCode()”
+II.     Both “x” and “y” objects should have same field status.
+III.     “y.hashCode()” may be equal to “x.hashCode()”`,
+        answerExplanation: `Option A is the correct answer.
+
+If “x.equals(y)” return true, then the hashcodes of both objects must equal. So, the statement I is correct.
+
+Statement II is incorrect as even the objects have different values for fields “x.equals(y)” may still return true as it is decided by the “equals()” method. For example, if a class has three fields called id, name, age, then if we override the “equals()” method to compare only the value of “id”, then equality will be decided only based on the id.
+
+The hashcode must be equal if “x.equals(y)” return true. So, the statement III is incorrect.
+
+Reference                : http://docs.oracle.com/javase/tutorial/java/IandI/objectclass.html
+
+The correct answer is: Only I.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following statement is true about this program code?',
+        prompt: '',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The output will be A B'
+            },
+            {
+                id: 'B',
+                markdown: 'The output will be C D'
+            },
+            {
+                id: 'C',
+                markdown: 'The output will be A B C D'
+            },
+            {
+                id: 'D',
+                markdown: 'Run-time exception is thrown.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to error at line 8.'
+            },
+        ],
+        codeString: `class A {
+    static void method() {
+        System.out.print(" A B");
+    }
+}
+
+class B extends A {
+    protected static void method() {
+        System.out.print(" C D");
+    }
+}
+
+class Program {
+    public static void main(String[] args) {
+        A a = new B();
+        a.method();
+    }
+}`,
+        answerExplanation: `Option A is the correct answer.
+
+Option A is correct since polymorphism doesn’t apply to the static method. So, invoking an overridden(method hiding) method with super class reference will cause invoking the superclass method itself. So, the output is A B.
+
+Options B and C are incorrect as explained above.
+
+Overriding static methods is legal so there won’t be any compile time errors. So, option E is incorrect.
+
+Reference            : http://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html
+
+The correct answer is: The output will be A B `,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Bark Dog runs'
+            },
+            {
+                id: 'B',
+                markdown: 'Bark Animal runs'
+            },
+            {
+                id: 'C',
+                markdown: 'Compilation fails due to an error at line 9.'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error at line 20.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors.'
+            },
+        ],
+        codeString: `class Animal {
+    void run() {
+        System.out.print("Animal run");
+    }
+}
+
+class Dog extends Animal {
+
+    void sound() {
+        System.out.print("Bark");
+    }
+
+    public void run() {
+        System.out.print(" Dog runs");
+    }
+}
+class Program {
+    public static void main(String[] args) {
+        Animal dog = new Dog();
+        dog.sound();
+        dog.run();
+    }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+Option D is correct as the code fails to compile due to an error at line 20. The reference type of the “dog” object is Animal so we can’t invoke any method which is not defined in the Animal class on dog object. Therefore, the code fails as the sound method is not defined in the Animal class.
+
+Options A and B are incorrect as the code fails to compile.
+
+Reference            : http://docs.oracle.com/javase/tutorial/java/javaOO/objectcreation.html
+
+                               http://docs.oracle.com/javase/tutorial/java/javaOO/usingobject.html
+
+The correct answer is: Compilation fails due to an error at line 20.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following statement is true?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The up casting increases the capabilities of the object.'
+            },
+            {
+                id: 'B',
+                markdown: 'The up casting can’t be occurred implicitly.'
+            },
+            {
+                id: 'C',
+                markdown: 'Casting subclass object to super class object is known as down casting.'
+            },
+            {
+                id: 'D',
+                markdown: 'With down casting, a ClassCastException is possible.'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option D is the correct answer.
+
+Option D is correct as ClassCastException is possible with down casting.
+
+Option A is incorrect as when we casting the object becomes more general so it will remove object’s unique actions. Therefore object capabilities are reduced.
+
+Option B is incorrect as up casting can be occurred implicitly but down casting should be done explicitly.    
+
+Option C is incorrect as the casting subclass object to super class object is known as up casting.
+
+Reference            : http://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
+
+The correct answer is: With down casting, a ClassCastException is possible.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'SP IT CP CT'
+            },
+            {
+                id: 'B',
+                markdown: 'CP CP IT SP'
+            },
+            {
+                id: 'C',
+                markdown: 'SP CP IT CT'
+            },
+            {
+                id: 'D',
+                markdown: 'SP CP IT CT SP'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `class Person {
+    Person() {
+        System.out.print("CP ");
+    }
+    static {
+        System.out.print("SP ");
+    }
+}
+class Manager extends Person {
+    Manager() {
+        System.out.print("CT ");
+    } {
+        System.out.print("IT ");
+    }
+}
+class Program {
+    public static void main(String[] args) {
+        Person p1 = new Manager();
+    }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+The static contents are executed when the class is loaded so before the constructors are executed, so the SP will be printed first.  Then the constructor of Person will print CP. Then the Manager class instance code block will print IT before Constructor prints CT.  So, the output is SP CP IT CT. Therefore, option C is correct.
+
+Static content will print only once. So, option D is incorrect.
+
+Other outputs are incorrect as explained above.
+
+The Code compiles fine so, option E is incorrect.
+
+Reference            : http://docs.oracle.com/javase/tutorial/java/IandI/super.html
+
+The correct answer is: SP CP IT CT `,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which of the following statement will override method() in class Sub?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'public final void method(){ }'
+            },
+            {
+                id: 'B',
+                markdown: 'private void method() { }'
+            },
+            {
+                id: 'C',
+                markdown: 'void method() { }'
+            },
+            {
+                id: 'D',
+                markdown: 'public void method(int i) { }'
+            },
+            {
+                id: 'E',
+                markdown: 'protected int method() { return 0; }'
+            },
+        ],
+        codeString: `class Sup {
+    protected void method() {
+        System.out.print("Sup");
+    }
+}
+class Sub extends Sup {
+    //override method () here
+}`,
+        answerExplanation: `Option A is the correct answer.
+
+Option A is correct as there we have used less restrictive access modifier and it is legal to make overriding method final, therefore that method correctly override the “method()”.
+
+Option E is incorrect since we can’t change void or primitive return types when overriding methods. An overriding method can also return a subtype of the type returned by the overridden method. This subtype is called a covariant return type.
+
+Options B and C are incorrect as we use more restrictive access level there (private and default access levels).
+
+Option D is incorrect as it is overloading not overriding since we have changed the argument list.
+
+Reference:
+
+http://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html
+
+The correct answer is: public final void method(){ } `,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following statement is correct?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Interfaces are 100% like abstract classes.'
+            },
+            {
+                id: 'B',
+                markdown: 'Interfaces can have abstract static methods.'
+            },
+            {
+                id: 'C',
+                markdown: 'Methods in interfaces are always public but not always abstract.'
+            },
+            {
+                id: 'D',
+                markdown: 'When abstract class implements an interface (or more), we have to concrete all the methods in the interface.'
+            },
+            {
+                id: 'E',
+                markdown: 'If it is an abstract implementing then we should concrete all interface\'s methods.'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option C is the correct answer.
+
+Since from java SE 8 interfaces can have default and static non-abstract methods, so option A is incorrect while option C is correct.
+
+Option E is incorrect as if the implementing class is abstract then it is optional to concrete all interfaces methods.
+
+Interfaces can have static methods but they should be non-abstract methods. So option B is incorrect.
+
+If it is not abstract implementing we have to concrete all methods declared in an interface. So option D is incorrect.
+
+Reference            : http://docs.oracle.com/javase/tutorial/java/IandI/usinginterface.html
+
+The correct answer is: Methods in interfaces are always public but not always abstract.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of following program code?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '5'
+            },
+            {
+                id: 'B',
+                markdown: '6'
+            },
+            {
+                id: 'C',
+                markdown: '10'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error at line 13.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors.'
+            },
+        ],
+        codeString: `interface Walk {
+    public
+    default int getSpeed() {
+        return 5;
+    }
+}
+
+interface Run {
+    public
+    default int getSpeed() {
+        return 10;
+    }
+}
+
+public class Animal implements Walk, Run {
+
+    public int getSpeed() {
+        return 6;
+    }
+
+    public static void main(String args[]) {
+        Animal an = new Animal();
+        System.out.println(an.getSpeed());
+    }
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+If a class implements two interfaces that have default methods with the same name and signature, the compiler will throw an error. There is an exception to this rule, though: if the subclass overrides the duplicate default methods, the code will compile without any issue—the ambiguity about which version of the method to call has been removed.
+
+So, in above code, both walk and run interfaces have default method getSpeed since the Animal class overrides to return value 6. So, invoking getSpeed method returns 6.  Hence, option B is correct.
+
+Reference            : http://docs.oracle.com/javase/tutorial/java/IandI/abstract.html
+
+The correct answer is: 6`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Code will produce the output 1.'
+            },
+            {
+                id: 'B',
+                markdown: 'Code will produce the output 2.'
+            },
+            {
+                id: 'C',
+                markdown: 'Compilation fails due to an error at line 2.'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error at line 7.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors.'
+            },
+        ],
+        codeString: `class Program {
+    int x = 013;
+    public static void main(String[] args) {
+        Program pr = new Program();
+        pr.go(22);
+    }
+    void go(final int i) {
+        System.out.print(i / x);
+    }
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+Option B is correct; as at line 2, instead of using Decimal literals, we have used octal literals. So, the decimal value of x is 11 and the output is 2.
+
+Option A is incorrect as the value of the variable “x” is 11 (not 13 since this is an octal literal)
+
+Option C is incorrect as it is legal to assign octal literals.
+
+Option D is incorrect as it is legal to declare argument variables as final.
+
+REFERNCE                           : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+                                                http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: Code will produce the output 2.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'What will be the output of this program code?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '2'
+            },
+            {
+                id: 'B',
+                markdown: '0'
+            },
+            {
+                id: 'C',
+                markdown: 'Compilation fails due to an error at line 3.'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error at line 11.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors.'
+            },
+        ],
+        codeString: `class Program {
+    static {
+        x = 10;
+        y = 5;
+    }
+    final int x;
+    final static int y;
+    public static void main(String args[]) {
+        try {
+            Program pr = new Program();
+            int c = pr.x / y;
+            System.out.print(c);
+        } catch (ArithmeticException E) {
+            System.out.print("Arithmetic Exception");
+        }
+    }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+Option C is correct as this code has static initialization block and it will assign value 10 to instance variable 'x'  but it is illegal to access non-static members from a static content. So, Compilation will fail due to error at line 3.
+
+REFERENCE  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: Compilation fails due to an error at line 3.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which of the following will produce a compile-time error when inserted at line 4?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'System.out.print(ab.x);'
+            },
+            {
+                id: 'B',
+                markdown: 'System.out.print(B.j);'
+            },
+            {
+                id: 'C',
+                markdown: 'System.out.print(ab.j);'
+            },
+            {
+                id: 'D',
+                markdown: 'System.out.print(A.x);'
+            },
+            {
+                id: 'E',
+                markdown: 'System.out.print(A.j);'
+            },
+        ],
+        codeString: `class Whiz {
+    public static void main(String args[]) {
+        A ab = new B();
+        //insert here
+    }
+}
+class A {
+    protected int x = 10;
+    static int j = 21;
+}
+class B extends A {}`,
+        answerExplanation: `Option D is the correct answer.
+
+Option D is correct since it is illegal to access instance variables using the class name, to access them we have to access it through a valid object reference. So, this will cause a compile time error.
+
+Option A is incorrect since using the object reference we can access instance variables.
+
+Option B is incorrect since we can access static variables using the class name. Here, we have accessed variable “j” because class B inherits it, there is no problem class B for accessing it.
+
+Option C is incorrect as we can also access static variables using object reference but it is not appropriate.
+
+REFERNCE                           : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+                                                http://docs.oracle.com/javase/tutorial/java/javaOO/usingobject.html
+
+The correct answer is: System.out.print(A.x);`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following statement is true?',
+        prompt: '*GC – Garbage Collector',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Java applications never run out of memory as GC manages the memory.'
+            },
+            {
+                id: 'B',
+                markdown: 'An object is eligible for GC when there is no reference to that object.'
+            },
+            {
+                id: 'C',
+                markdown: 'The purpose of GC is to delete objects that is of no use at the moment.'
+            },
+            {
+                id: 'D',
+                markdown: 'When you request GC to run, it will start immediately.'
+            },
+            {
+                id: 'E',
+                markdown: 'Object Class has a final() method.'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option B is the correct answer.
+
+Option B is correct since an object is eligible for GC when there is no reference to an object in a currently live thread.
+
+Option E is incorrect since there is no method called final() but there is a method called “finalize” in Object class. It is a special method like main method in java. finalize() is called before Garbage collector, reclaims the Object, its last chance for any object to perform Tthe cleanup activity.
+
+Like any other programming languages, java applications can run out of memory. So, option A is incorrect.
+
+Option C is incorrect as the purpose of the GC is to remove the objects which have no reference in a currently live/active thread.
+
+Option D is incorrect as the JVM decide when to run GC whether we request or not.
+
+REFERNCE                           : http://docs.oracle.com/javase/tutorial/java/javaOO/usingobject.html
+
+The correct answer is: An object is eligible for GC when there is no reference to that object.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'How many objects are eligible for GC at the execution of //line 14?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '0'
+            },
+            {
+                id: 'B',
+                markdown: '1'
+            },
+            {
+                id: 'C',
+                markdown: '2'
+            },
+            {
+                id: 'D',
+                markdown: '3'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `class Capacitor {
+          int [ ] array = {1,2,3};
+}
+class Pc {
+          Capacitor cap;
+ }
+public class Ex4 {
+         public static void main(String [ ] args) {
+                  Capacitor c = new Capacitor();
+                  Pc p        = new Pc();
+                  Pc p1     = p;
+                  p1 = null;
+                  p = null;
+                  //line 14
+          }
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+Refer the diagram, according to the diagram there is one object which will be eligible to GC. So, option B is correct. 
+
+REFERNCE                           : http://docs.oracle.com/javase/tutorial/java/javaOO/usingobject.html
+
+The correct answer is: 1`,
+        referenceImage: 'data:image/jpeg;base64,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j/h2v8O/+hj+P3/h9fG//wAtqP8Ah2v8O/8AoY/j9/4fXxv/APLavPzHP8zzCChjsROqk7pSk5JPyu3YuFKENYpI9+rwD9sP/ipvj7+zl4dsv3+qp47n8Rzwpy1vp1noupRz3TjqIxPdWcO7p5l3EP4qX/h2v8O/+hj+P3/h9fG//wAtq7v4Ifsr+CP2ebrULzw3puovq2rIkV7rGta1fa7q93GhJSKS+vpprlo1LMVjMhRSzEAFiT5Boeh0UUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAf//Z\n'
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following statement will compile the code successfully when inserted at line 4?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Print.p2(6);'
+            },
+            {
+                id: 'B',
+                markdown: 'P.p2(6);'
+            },
+            {
+                id: 'C',
+                markdown: 'p.print(6);'
+            },
+            {
+                id: 'D',
+                markdown: 'Print.print();'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: `class Program {
+    public static void main(String args[]) {
+        Print p = new Print();
+        //insert here
+    }
+}
+
+class Print {
+    private static void p2(int i) {
+        System.out.print(i * 2);
+    }
+    static void print(int i) {
+        System.out.print(i);
+    }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+Option C is correct as calling static methods using object reference variables is legal but it is not appropriate.
+
+Option A is incorrect as the “p2” method is declared as private. So, it is illegal to access from outside class.  Also, it is non-static method, so we have to have a reference variable to call it.
+
+Option D is incorrect as we should pass suitable arguments when calling methods. Here the “print()” method need to be invoked with int variable but trying to invoke it without passing int cause a compile-time error.
+
+REFERENCE                           : http://docs.oracle.com/javase/tutorial/java/javaOO/usingobject.html
+
+ 
+
+The correct answer is: p.print(6);`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following is not a valid int literal?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '10'
+            },
+            {
+                id: 'B',
+                markdown: '1_000'
+            },
+            {
+                id: 'C',
+                markdown: '012'
+            },
+            {
+                id: 'D',
+                markdown: '0B021'
+            },
+            {
+                id: 'E',
+                markdown: '0X33'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option D is the correct answer. 
+
+In Java SE 7, the integral types (byte, short, int, and long) can also be expressed using the binary number system. To specify a binary literal, add the prefix 0b or 0B to the number. But in option D, we have used 2, which is not possible in the binary number, so it is an invalid literal.
+
+Option A is incorrect since it is perfectly valid literal.
+
+Any number of underscore characters (_) can appear anywhere between digits in a numerical literal. This feature enables you, for example, to separate groups of digits in numeric literals, which can improve the readability of your code. So, option B is valid literal.
+
+Option C is incorrect since it is legal literal; however, when it starts with 0, it means that it is octal literal.
+
+To specify a hexadecimal literal, add the prefix 0x or 0x to the number. So, option E is correct.
+
+REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: 0B021`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following is not a valid int literal?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: '1_000'
+            },
+            {
+                id: 'B',
+                markdown: '012'
+            },
+            {
+                id: 'C',
+                markdown: '0B01'
+            },
+            {
+                id: 'D',
+                markdown: '0XE'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option E is the correct answer.
+
+Any number of underscore characters (_) can appear anywhere between digits in a numerical literal. This feature enables you, for example, to separate groups of digits in numeric literals, which can improve the readability of your code. So, option A is valid literal.
+
+Option B is incorrect since it is legal literal. However, when it starts with 0, it means that it is octal literal.
+
+In Java SE 7, the integral types (byte, short, int, and long) can also be expressed using the binary number system. To specify a binary literal, add the prefix 0b or 0B to the number. So option C is valid literal.
+
+To specify a hexadecimal literal, add the prefix 0x or 0X to the number. Since it is base 16, its digits can consist of the numbers 0 through 9 and the letters A through F. So, option D is valid literal.
+
+REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: None of these`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program code?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'true false'
+            },
+            {
+                id: 'B',
+                markdown: 'false false'
+            },
+            {
+                id: 'C',
+                markdown: 'An Exception is thrown.'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to error at line 7.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to error at line 8.'
+            },
+        ],
+        codeString: `public class Program {
+
+    public static void main(String args[]) {
+
+        Double d1 = 0.0 / 0.0;
+
+        System.out.print(Double.isNaN() + " ");
+        System.out.print(d1.isInfinite());
+    }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+Float points primitives do not throw ArithmeticExcetion when dividing by zero. So, option C is incorrect.
+
+At line 7, trying to invoke isNaN method causes a compile time error. Double class has two methods with that name, one is the instance which can use to invoke an object without passing argument.  But static isNaN method which we have invoked here takes Double as the parameter as it is not bound to any instance. So, option D is correct.
+
+REFERENCE        : https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html
+
+The correct answer is: Compilation fails due to error at line 7.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program code?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'true'
+            },
+            {
+                id: 'B',
+                markdown: 'false'
+            },
+            {
+                id: 'C',
+                markdown: 'An Exception is thrown.'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to error at line 3.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to error at line 4.'
+            },
+        ],
+        codeString: `public class Program {
+    public static void main(String args[]) {
+        Character ch = new Character("a");
+        System.out.print(Character.isLetterOrDigit(ch));
+    }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+Wrapper class Character has one constructor which takes char the parameter. So at line 3, trying to create a Character object by passing string causes a compile time error. So, option D is correct.
+
+REFERENCE        : https://docs.oracle.com/javase/tutorial/java/data/characters.html
+
+ 
+
+The correct answer is: Compilation fails due to error at line 3.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the followings is valid method declaration?',
+        prompt: '',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Only I'
+            },
+            {
+                id: 'B',
+                markdown: 'Only II'
+            },
+            {
+                id: 'C',
+                markdown: 'Only III'
+            },
+            {
+                id: 'D',
+                markdown: 'I and II'
+            },
+            {
+                id: 'E',
+                markdown: 'I and III'
+            },
+        ],
+        codeString: `I. public int[] method(double x, int y)
+
+II. public int, double method(int x)
+
+III. public method(int x)`,
+        answerExplanation: `Option A is the correct answer.
+
+The signature of a method is used to uniquely identify a method. A signature consists of:
+
+                • Method name
+
+                • Number of parameters
+
+                • Type of the parameters
+
+                • Order of the parameter
+
+Even the return type is not part of the signature; return type is a must for a method, if the method doesn’t expect to return anything then we need to use void. So, the method given in III is incorrect.
+
+We cannot have more than one return type. Hence, the method given in II is incorrect. Only the method given in I is correct, hence, option A is correct.
+
+REFERENCE        : http://docs.oracle.com/javase/tutorial/java/javaOO/returnvalue.html
+
+The correct answer is: Only I`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Create a method which satisfies the following requirements -\n' +
+            '\n' +
+            'The method should be in package access level. It shouldn’t take any parameters. It should return an int array. Name of the method should be “supply” and it should be an instance Method.\n' +
+            '\n' +
+            'Which of the following is the correct method signature?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'static int[ ] supply()'
+            },
+            {
+                id: 'B',
+                markdown: 'protected int[ ] supply(int [ ]c) '
+            },
+            {
+                id: 'C',
+                markdown: 'int[ ] supply()'
+            },
+            {
+                id: 'D',
+                markdown: 'public int[ ] supply(int [ ]c)'
+            },
+            {
+                id: 'E',
+                markdown: 'static void supply(int[ ] c)'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option C is the correct answer.
+
+According to the given description, only the “int[] supply()” signature satisfies all given requirements. So, option C is correct.
+
+Option A is incorrect as it is a static method because it uses the static keyword and it also uses protected access modifier.
+
+Option B is incorrect as it is not in package access level since it is protected and it has a parameter.
+
+Option D is incorrect as it is not in package access level since it is public and it has a parameter.
+
+Option E is incorrect as it doesn't return anything and also excepts an int array.
+
+Reference            : http://docs.oracle.com/javase/tutorial/java/javaOO/returnvalue.html
+
+The correct answer is: int[ ] supply()`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: '97'
+            },
+            {
+                id: 'B',
+                markdown: 'a'
+            },
+            {
+                id: 'C',
+                markdown: 'A'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to error at line 6.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to error at line 10.'
+            },
+        ],
+        codeString: `public class Program {
+    final int j = 32;
+
+    public static void main(String args[]) {
+        char c = 'A'; //ASII value of 'A' is 65 and 'a' is 97
+        System.out.print((char) calc(c));
+    }
+
+    static int calc(int i) {
+        return (i + j);
+    }
+}`,
+        answerExplanation: `Option E is the correct answer.
+
+Option E is correct as trying to access instance variable “j” from static method “calc” causes a compile time error. So line 10 will cause a compile time error.
+
+Options A, B and C are incorrect since the code fails to compile.
+
+Option D is incorrect as line 6 is completely legal.
+
+Reference            : http://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html
+
+The correct answer is: Compilation fails due to error at line 10.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following statements are correct?\n' +
+            '\n' +
+            '(Choose 3 options.) ',
+        prompt: '',
+        correctAnswerId: ['C', 'D', 'E'],
+        options: [
+            {
+                id: 'A',
+                markdown: 'Overloaded methods may change the argument list.'
+            },
+            {
+                id: 'B',
+                markdown: 'Overloaded methods should not throw new or broader exceptions.'
+            },
+            {
+                id: 'C',
+                markdown: 'Overloaded methods must change the argument list.'
+            },
+            {
+                id: 'D',
+                markdown: 'Overloaded methods may change return type.'
+            },
+            {
+                id: 'E',
+                markdown: 'Overloaded methods may use the more restrictive access modifier.'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Options C, D and E are the correct answers.
+
+Refer the different between Overloaded methods and In Overridden methods.
+
+Property
+
+Overloaded method
+
+Overridden method
+
+Access level
+
+Can Change
+
+Must same or less restrictive
+
+Argument list
+
+Must change
+
+Must not change
+
+Exceptions
+
+Can change
+
+Can throw new or broader runtime exceptions
+
+Return type
+
+Can change
+
+Must not change except for covariant returns
+
+Invocation
+
+Reference type determines which version
+
+Object type determines which version
+
+Reference                : http://docs.oracle.com/javase/tutorial/java/javaOO/methods.html
+
+The correct answers are: Overloaded methods must change the argument list. , Overloaded methods may change return type., Overloaded methods may use the more restrictive access modifier.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'unknown'
+            },
+            {
+                id: 'B',
+                markdown: 'parrot'
+            },
+            {
+                id: 'C',
+                markdown: 'Unknown parrot'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error at line 18.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to an error at line 3.'
+            },
+        ],
+        codeString: `class Animal {
+    Animal() {
+        super();
+    }
+}
+
+class Bird extends Animal {
+    Bird(String name) {
+        System.out.print(name);
+    }
+    Bird() {
+        System.out.print("unknown");
+    }
+}
+
+class Program {
+    public static void main(String args[]) {
+        new Bird("parrot");
+    }
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+Option B is correct as class Bird has only one constructor that can take the string in and when it invoked passed string printed. Hence, here parrot will be printed as the output.
+
+Options A and C are incorrect since the no argument constructor is not invoked since we passed the string when creating an object.
+
+The code compiles fine. So, options D and E are incorrect.
+
+Reference                : http://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html
+
+ 
+
+The correct answer is: parrot`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output on compiling class B?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Compilation succeeds.'
+            },
+            {
+                id: 'B',
+                markdown: 'Compilation fails due to error at line 5 of class B'
+            },
+            {
+                id: 'C',
+                markdown: 'Compilation fails due to error at line 7 of class B'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to multiple errors.'
+            }
+        ],
+        codeString: `package one;
+
+class A {
+    protected int j = 12;
+}
+
+package two;
+
+import one.*;
+
+class B extends A {
+    public static void main(String[] args) {
+        A a = new A();
+    }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+Class A in package one has default access level. So, when the code tries to extend class A and to create an instance of class A in class B of package two, it cause compilation failure since class A can be only accessed within the first package. So, option D is correct.
+
+Options A is incorrect as code fails to compile, if we mark class A as public then class A can be accessed within package second then the code will compile fine.
+
+Reference                : http://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html
+
+The correct answer is: Compilation fails due to multiple errors.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following statement can be considered true about the given code?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'I only.'
+            },
+            {
+                id: 'B',
+                markdown: 'II only.'
+            },
+            {
+                id: 'C',
+                markdown: 'I and II.'
+            },
+            {
+                id: 'D',
+                markdown: 'I and III.'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these statement is true.'
+            },
+        ],
+        codeString: `I.This code has correctly implemented the encapsulation principles.
+
+II.This“ getNum” method at line 5, has correctly implemented the encapsulation principles but not the variables.
+
+III.Variables in this code have correctly implemented the encapsulation principles but not the“ getNum” method.
+
+class Program {
+    public int i;
+    public char c;
+
+    public int getNum() {
+        return i;
+    }
+
+}`,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '1 2 3 4 5.'
+            },
+            {
+                id: 'B',
+                markdown: '1 2 3 4.'
+            },
+            {
+                id: 'C',
+                markdown: '5 4 3 2 1.'
+            },
+            {
+                id: 'D',
+                markdown: '5 4 3 2.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `class Program {
+    public static void main(String args[]) {
+        String[] x = {“
+            A”,
+            ”B”,
+            ”C”,
+            ”D”,
+            ”E”
+        };
+        nxt(x);
+        for (String s: x)
+            System.out.print(s + " ");
+    }
+
+    static void nxt(Object o) {
+        String[] y = (String[]) o;
+        for (int i = 5, j = 0; i > 0; --i, j++) {
+            y[j] = Integer.toString(i);
+        }
+    }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+Option C is correct. Arrays are also the objects so when they pass to a method, reference to the object is passed. Therefore, the argument variable “y” and the local variable “x” refers to the same array object. In method “nxt” for loop, we assign strings values from 5 to 1 to array positions. So, the final result will be 5 4 3 2 1.
+
+Other options are incorrect as explained above.
+
+Option E is incorrect as the code compiles.
+
+Reference                : http://docs.oracle.com/javase/tutorial/java/javaOO/arguments.html
+
+The correct answer is: 5 4 3 2 1.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program code?',
+        prompt: '',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: '1Z0-808'
+            },
+            {
+                id: 'B',
+                markdown: '1Z0-8108'
+            },
+            {
+                id: 'C',
+                markdown: '1Z0-810'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error at line 6.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to an error at line 7.'
+            },
+        ],
+        codeString: `public class Whiz {
+ 
+                public static void main(String [ ] args) {                  
+                                char[ ] chars = {'1','Z','0','-','8','1'};
+                                StringBuilder sb = new StringBuilder();
+                                sb.append(chars,0,chars.length-1);
+                                sb.append('0');
+                                sb.append(“8”);
+                                System.out.print(sb);
+                }
+}`,
+        answerExplanation: `Option A is the correct answer.
+
+At line 6, we have used one of the overloaded versions of the append method.
+
+public StringBuilder append(char[] str,  int offset,  int len)
+
+Appends the string representation of a subarray of the char array argument to this sequence. Characters of the char array str, starting at index offset, are appended, in order, to the contents of this sequence. The length of this sequence increases by the value of len.
+
+So at line 6, the content of the builder will be “1Z0-8”. Then next two lines we have added 0 and 8, which makes it “1Z0-808”. Hence option A is correct.
+
+REFERNCE          : http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html
+
+The correct answer is: 1Z0-808`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '1Z0-800'
+            },
+            {
+                id: 'B',
+                markdown: '1Z0-808'
+            },
+            {
+                id: 'C',
+                markdown: '1Z0-810'
+            },
+            {
+                id: 'D',
+                markdown: 'A StringIndexOutOfBoundsException'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `public class Whiz{
+ 
+                public static void main(String [ ] args) {                  
+                                char [ ] chars = {'1','Z','0','-','8','1'};
+                                StringBuilder sb = new StringBuilder();
+                                sb.append(chars,0,chars.length-1);
+               
+                                sb.append("08");
+                                sb.setLength(4);
+                                sb.insert(5, "10");
+                               
+                                System.out.print(sb);
+                }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+At line 6, we have used one of the overloaded version of the append method.
+
+public StringBuilder append(char[] str,  int offset,  int len)
+
+Appends the string representation of a subarray of the char array argument to this sequence. Characters of the char array str, starting at index offset, are appended, in order, to the contents of this sequence. The length of this sequence increases by the value of len.
+
+So at line 6, the content of the builder will be “1Z0-8”. Then adding “08”, will result in the content of the string builder to 1Z0-808, then we have set the size of array 4, so there won’t be index position with value 5. Trying to insert with index position 5, will throw StringIndexOutOfBoundsException, hence option D is correct.
+
+REFERNCE                           : http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html
+
+ 
+
+The correct answer is: A StringIndexOutOfBoundsException`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following indexOf method declaration for String class is invalid?',
+        prompt: '',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'indexOf(CharSequence str, int fromIndex)'
+            },
+            {
+                id: 'B',
+                markdown: 'indexOf(int ch)'
+            },
+            {
+                id: 'C',
+                markdown: 'indexOf(int ch, int fromIndex)'
+            },
+            {
+                id: 'D',
+                markdown: 'indexOf(String str, int fromIndex)'
+            },
+            {
+                id: 'E',
+                markdown: 'indexOf(String str)'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option A is the correct answer.
+
+The String has four indexOf method declarations which are mentioned in Options B, C, D and E. Option A method declaration is invalid.
+
+The String, StringBuffer, and StringBuilder all declare their own indexOf methods. The method declaration including indexOf(CharSequence str, int fromIndex) is invalid. CharSequence is not used as an argument in any indexOf method. So, option A is correct.
+
+REFERENCE                           : https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
+
+The correct answer is: indexOf(CharSequence str, int fromIndex)`,
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program code?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'false'
+            },
+            {
+                id: 'B',
+                markdown: 'true'
+            },
+            {
+                id: 'C',
+                markdown: 'An exception is thrown.'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error at line 5.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors.'
+            },
+        ],
+        codeString: `public class Whiz {
+ 
+                public static void main(String [ ] args) {                  
+                                 Comparable s1 = "Abc";
+                                 Comparable s2 = new String("Abc");
+                                System.out.print(s1.equals(s2));
+                }
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+String class implements the Comparable interface, so we can use Comparable reference for Strings. Also, invoking the equals method will invoke the overridden version of the object type. Hence, here correct string comparison will occur and print true since both comparable contains Strings with the same content. Hence, option B is correct.
+
+REFERNCE                           : http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html
+
+The correct answer is: true`,
+        referenceImage: ''
     }
 ];
 

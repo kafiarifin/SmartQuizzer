@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01ad5570-6fb8-49fb-82f1-950ac29ba23d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/QuizWrapper/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QuizWrapper/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/question-components/QuestionBody/CodeDisplay/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/question-components/QuestionBody/CodeDisplay/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/question-components/QuestionNavigation/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/question-components/QuestionNavigation/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/question-components/QuestionOptions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/question-components/QuestionOptions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-data.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -91,7 +86,7 @@
         <counts>
           <entry key="css" value="36" />
           <entry key="html" value="4" />
-          <entry key="js" value="9000" />
+          <entry key="js" value="9136" />
           <entry key="txt" value="92" />
         </counts>
       </usages-collector>
@@ -99,7 +94,7 @@
         <counts>
           <entry key="CSS" value="36" />
           <entry key="HTML" value="4" />
-          <entry key="JavaScript" value="9000" />
+          <entry key="JavaScript" value="9136" />
           <entry key="PLAIN_TEXT" value="92" />
         </counts>
       </usages-collector>
@@ -171,7 +166,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="768">
+            <state relative-caret-position="715">
               <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -180,11 +175,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/question-components/QuestionNavigation/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+            <state relative-caret-position="395">
+              <caret line="23" column="14" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -192,11 +187,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test-data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="6553" lean-forward="true" selection-start-line="6553" selection-end-line="6553" />
+            <state relative-caret-position="401">
+              <caret line="10074" column="26" lean-forward="true" selection-start-line="10074" selection-start-column="26" selection-end-line="10074" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -258,12 +253,12 @@
         <option value="$PROJECT_DIR$/src/reducers/questionReducer.js" />
         <option value="$PROJECT_DIR$/src/components/question-components/AnswerExplanation/index.js" />
         <option value="$PROJECT_DIR$/src/components/QuizLogic/index.js" />
-        <option value="$PROJECT_DIR$/src/test-data.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/QuizWrapper/index.js" />
         <option value="$PROJECT_DIR$/src/components/question-components/QuestionBody/CodeDisplay/index.js" />
         <option value="$PROJECT_DIR$/src/components/question-components/QuestionOptions/index.js" />
         <option value="$PROJECT_DIR$/src/components/question-components/QuestionNavigation/index.js" />
+        <option value="$PROJECT_DIR$/src/test-data.js" />
       </list>
     </option>
   </component>
@@ -284,7 +279,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1680" />
+    <option name="x" value="850" />
+    <option name="width" value="830" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -467,7 +463,7 @@
       <option name="presentableId" value="Default" />
       <updated>1542334504197</updated>
       <workItem from="1542334506850" duration="1040000" />
-      <workItem from="1542335658777" duration="58291000" />
+      <workItem from="1542335658777" duration="65855000" />
     </task>
     <task id="LOCAL-00001" summary="Installed Bootstrap and created a simple component">
       <created>1542337246939</created>
@@ -487,7 +483,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59331000" />
+    <option name="totallyTimeSpent" value="66895000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -502,7 +498,7 @@
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info active="true" anchor="bottom" content_ui="combo" id="Project" order="6" sideWeight="0.49668476" visible="true" weight="0.37551868" />
+      <window_info anchor="bottom" content_ui="combo" id="Project" order="6" sideWeight="0.49668476" weight="0.37551868" />
       <window_info anchor="bottom" id="Run" order="7" weight="0.31431535" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
@@ -703,39 +699,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test-data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="6553" lean-forward="true" selection-start-line="6553" selection-end-line="6553" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/QuizLogic/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="395">
           <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/question-components/QuestionExplanation/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -789,11 +758,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/question-components/QuestionNavigation/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        <state relative-caret-position="395">
+          <caret line="23" column="14" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="715">
+          <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/question-components/QuestionExplanation/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test-data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="10074" column="26" lean-forward="true" selection-start-line="10074" selection-start-column="26" selection-end-line="10074" selection-end-column="26" />
         </state>
       </provider>
     </entry>
