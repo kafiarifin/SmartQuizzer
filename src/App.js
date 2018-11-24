@@ -47,7 +47,7 @@ class App extends Component {
                         position: 'fixed',
                         width: '100vw',
                         height: '100vh',
-                        backgroundColor: '#6c757d'
+                        backgroundColor: 'rgb(43, 48, 59)'
                     }}
                 />
                 {this.props.testBank ? <QuizLogic quizData={this.props.testBank}/> : <Loader/>}

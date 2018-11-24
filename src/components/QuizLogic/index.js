@@ -54,7 +54,8 @@ class QuizLogic extends Component {
                             <QuestionProgress
                                 percent={(this.props.questionsAttempted / (this.state.totalQuestionsInInterval - 1)) * 100}/>
                             <QuizWrapper attempts={this.props.questionsAttempted}
-                                         questionObject={this.HandleNextQuestion()}/>
+                                         questionObject={this.HandleNextQuestion()}
+                                         totalQuestionsInInterval={this.state.totalQuestionsInInterval}/>
                         </div>
                     </div>
                 </div>

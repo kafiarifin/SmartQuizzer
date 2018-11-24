@@ -130,7 +130,7 @@ class QuizWrapper extends Component {
         return (
             <div className="quizWrapper text-light">
                 <div className="container">
-                    <QuestionHeader title={'Title'} name={`Total Questions Attempted: ${attempts}`}/>
+                    <QuestionHeader title={`Remaining Questions in this round: ${this.props.totalQuestionsInInterval - attempts - 1}`}/>
                     <QuestionExplanation wrongAnswer={wrongAnswer} complete={complete} isIncorrect={isIncorrect}
                                          explanation={explanation}/>
                     {codeString.length > 1 && <CodeHighlighter codeString={codeString}/>}
