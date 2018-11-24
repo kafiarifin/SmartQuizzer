@@ -5,6 +5,7 @@ import {Loader} from "./components/Loader";
 import {connect} from 'react-redux';
 import {retrieveData} from './actions'
 import {bindActionCreators} from "redux";
+import './index.css';
 import {questionDataSetTest} from './test-data'
 import {updateTest} from './fireStoreLogicLayer';
 
@@ -33,12 +34,11 @@ class App extends Component {
                             line_linked: {
                                 shadow: {
                                     enable: true,
-                                    color: "#777777",
-                                    blur: 5
+                                    color: "#777777"
                                 }
                             },
                             move: {
-                                speed: 0.4,
+                                speed: 0.3,
                                 bounce: true
                             }
                         }
@@ -47,7 +47,8 @@ class App extends Component {
                         position: 'fixed',
                         width: '100vw',
                         height: '100vh',
-                        backgroundColor: 'rgb(43, 48, 59)'
+                        backgroundColor: 'rgb(43, 48, 59)',
+                        filter: 'blur(1px)'
                     }}
                 />
                 {this.props.testBank ? <QuizLogic quizData={this.props.testBank}/> : <Loader/>}
