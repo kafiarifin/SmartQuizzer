@@ -48,8 +48,8 @@ class QuizLogic extends Component {
     render() {
         return (
             <div className="App">
-                <div className="container p-3 text-center">
-                    <div className="row">
+                <div className="container p-0">
+                    <div className="row text-center">
                         <div className="col-12">
                             <QuestionProgress
                                 percent={(this.props.questionsAttempted / (this.state.totalQuestionsInInterval - 1)) * 100}/>

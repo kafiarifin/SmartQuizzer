@@ -7,15 +7,15 @@ import {nextQuestion} from "../../../actions";
 const QuestionNavigation = ({attemptsRemaining, callBack, isCorrect, complete, nextQuestion}) => {
     return (
         <div className="row m-3">
-            <div className="col-7 text-left">
-                <button type="button" className="btn btn-outline-light">Review</button>
-            </div>
-            <div className="col-3">
+            {/*<div className="col-sm-3 col-md-7 text-left">*/}
+                {/*<button type="button" className="btn btn-outline-light">Review</button>*/}
+            {/*</div>*/}
+            <div className="col-6 text-left">
                 {!complete && <button type="button" className="btn btn-outline-light disabled">
                     Attempts Remaining <span className="badge badge-light">{attemptsRemaining}</span>
                 </button>}
             </div>
-            <div className="col-2 text-right">
+            <div className="col-6 text-right">
                 {!complete ?
                     <button type="button" onClick={callBack} className="btn btn-primary">Submit</button> :
                     <button type="button" onClick={() => nextQuestion(isCorrect)} className="btn btn-primary">Next</button>

@@ -27,19 +27,12 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="App" style={{overflow: 'hidden'}}>
                 <Particles
                     params={{
                         particles: {
-                            line_linked: {
-                                shadow: {
-                                    enable: true,
-                                    color: "#777777"
-                                }
-                            },
                             move: {
                                 speed: 0.3,
-                                bounce: true
                             }
                         }
                     }}

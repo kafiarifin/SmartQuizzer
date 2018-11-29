@@ -22,7 +22,7 @@ class QuestionOptions extends Component {
             <li key={option.id} onClick={() => !this.props.complete && this.handleSelected(option.id)}
                 className={`list-group-item list-group-item-action ${this.props.questionData.selectedQuestionID && this.props.questionData.selectedQuestionID.includes(option.id) ? 'active' : ''} ${this.props.complete ? 'disabled' : null}`}>
                 <div className="row">
-                    <div className="col-1">{option.id}</div>
+                    <div className="col-1"><b>{option.id}</b></div>
                     <div className="col-11">
                         <ReactMarkdown escapeHtml={false}
                                        source={option.markdown}/>
