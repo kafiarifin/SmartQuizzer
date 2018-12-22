@@ -10073,6 +10073,2186 @@ REFERNCE                           : http://docs.oracle.com/javase/7/docs/api/ja
 
 The correct answer is: true`,
         referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which of the following is valid array declaration?',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'String strs[][] = new String[][1];'
+            },
+            {
+                id: 'B',
+                markdown: 'String strs[][] = new String[3][];'
+            },
+            {
+                id: 'C',
+                markdown: 'String strs[2][] = new String[][];'
+            },
+            {
+                id: 'D',
+                markdown: 'String strs[][] = new String[3];'
+            },
+            {
+                id: 'E',
+                markdown: 'String strs[][] = new String[][];'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Your answer is correct.
+
+Explanation:
+
+Option B is the correct answer.
+
+When we create multi-dimensional arrays, we need to give first dimension size. So, when you create a two-dimensional array, we must give the number of rows when we initialize it. So, here options A and E are incorrect.
+
+Option B is correct since it creates a two-dimensional array without passing the size for columns which is legal, then we can define a different number of columns for each row.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: String strs[][] = new String[3][];`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What is the total number of integers that array nums can hold in this code fragment?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '6'
+            },
+            {
+                id: 'B',
+                markdown: '8'
+            },
+            {
+                id: 'C',
+                markdown: '9'
+            },
+            {
+                id: 'D',
+                markdown: 'Not valid array statement'
+            }
+        ],
+        codeString: `int nums[][] = new int[3][3];
+
+nums[0] = new int[2];`,
+        answerExplanation: `Your answer is incorrect.
+
+Explanation:
+
+Option B is the correct answer.
+
+Here we have created a two-dimensional array with three rows and each of row will have three columns, so nums array can hold total 9 values. But then we have changed the first row of the two-dimensional array to refer array which can hold only two values. So, now total elements allowed will be 8. Hence, option B is correct.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: 8`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Which of the following is a correct anonymous array?',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'new Integer[4]{1,2,3,4};'
+            },
+            {
+                id: 'B',
+                markdown: 'new Integer{1,2,3,4};'
+            },
+            {
+                id: 'C',
+                markdown: 'new Integer[3]{1,2,3,4};'
+            },
+            {
+                id: 'D',
+                markdown: 'new Integer[]{1,2,3,4};'
+            },
+            {
+                id: 'E',
+                markdown: 'None of the above.'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Your answer is incorrect.
+
+Explanation:
+
+Option D is the correct answer.
+
+Following is the correct syntax for creating the anonymous array.
+
+                type[]{ elements separated by comma.}              
+
+Remember that you do not specify a size when using anonymous array creation syntax. The size is derived from the number of items (comma-separated) between the curly braces. So, option D is correct.
+
+As explained above options A and C incorrect.
+
+Option B is incorrect as [] is missing.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+ 
+
+The correct answer is: new Integer[]{1,2,3,4};`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '000'
+            },
+            {
+                id: 'B',
+                markdown: '100'
+            },
+            {
+                id: 'C',
+                markdown: '010'
+            },
+            {
+                id: 'D',
+                markdown: 'An Exception is thrown.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to an error at line 6.'
+            },
+        ],
+        codeString: `       public class Whiz{
+           public static void main(String[] args) {
+        
+                       final int [ ]ints = new int[3];
+                       int len = ints.length;
+                       ints[1]++;
+                       for(int i : ints)
+                                       System.out.print(i);
+           }
+   }     `,
+        answerExplanation: `Your answer is incorrect.
+
+Explanation:
+
+Option C is the correct answer.
+
+At line 4, we have defined an integer array with final, but it doesn’t mean that all values in the array are final. It means only the reference is final, so at line 6, there won’t be any error. All array elements are initialized to their default values when array initialized, hence all elements of the array will be 0, at line 6 second element will be increased by one. So, when using enhanced for loop, 010 will be printed. Hence, option C is correct.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+ 
+
+The correct answer is: 010`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: '4'
+            },
+            {
+                id: 'B',
+                markdown: '5'
+            },
+            {
+                id: 'C',
+                markdown: '6'
+            },
+            {
+                id: 'D',
+                markdown: 'An ArrayIndexOutOfBoundsException is thrown'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `       public class Whiz{
+        
+                       public static void main(String[] args) {
+        
+                                       int [][]ints = new int[3][2];
+                                       ints[0] = new int[3];
+                                       ints[2] = {1,2,3};
+                                       System.out.print(ints[0].length + ints[2].length);
+                       }
+   }     `,
+        answerExplanation: `Your answer is incorrect.
+
+Explanation:
+
+Option E is the correct answer.
+
+This code fails to compile due to an error at line 7, because the array constants can only be used in initializers. So, we can’t use “{1,2,3}” at line 7.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: Compilation fails`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
     }
 ];
 
