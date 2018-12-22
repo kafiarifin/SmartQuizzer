@@ -12854,363 +12854,552 @@ The correct answer is: Compilation fails due to an error at line 3`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
-        explanation: '',
+        explanation: 'What will be the output of this program?',
         prompt: '',
-        correctAnswerId: '',
+        correctAnswerId: 'B',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'C'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'D'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: '68'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'An Exception is thrown'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'Compilation fails due to an error at line 5'
+            },
+        ],
+        codeString: `    class Whiz {
+              public static void main(String args[]) {
+                       char a = 'C';
+                       a++;
+                       System.out.print(a);
+              } 
+    } `,
+        answerExplanation: `Option B is the correct answer.
+
+Primitive char type is int-compatible, so at line 4 using increment operator will change it is ASCII value by one, which will result in the next character. Hence, D will be printed, so option B is correct.
+
+REFERNCE                           : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: D`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '00'
+            },
+            {
+                id: 'B',
+                markdown: '80'
+            },
+            {
+                id: 'C',
+                markdown: '88'
+            },
+            {
+                id: 'D',
+                markdown: '864'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to an error at line 5'
+            },
+        ],
+        codeString: `    class Whiz {
+              public static void main(String args[]) {
+                       Double d = 0.0;                
+                       System.out.print(d.BYTES);
+                       System.out.print(d.SIZE);           
+              } 
+    }`,
+        answerExplanation: `Option D is the correct answer.
+
+
+This code shows usage of BYTES, SIZE are the constant fields in Double class. 
+
+BYTES : The number of bytes used to represent a double value which is 8 .
+SIZE   : The number of bits used to represent a double value.
+REFERENCE        : https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html
+
+The correct answer is: 864`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'AA'
+            },
+            {
+                id: 'B',
+                markdown: 'CC'
+            },
+            {
+                id: 'C',
+                markdown: 'AC'
+            },
+            {
+                id: 'D',
+                markdown: 'An exception is thrown'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `       class Whiz{
+                       public static void main(String args[]){
+                            A ab = new B();
+                            ab.print();
+                            ab.print("C");
+                       }
+       }
+        
+       class A{
+                   public void print(){
+                                   System.out.print("A");
+                   }
+   }
+    
+   class B extends A{
+                   public void print(String s){
+                                   System.out.print(s);
+                   }
+   }    `,
+        answerExplanation: `Option E is the correct answer.
+
+When compiling the code, Compiler looks only at the reference and sees that A doesn’t have a print() method that takes a String. The compiler doesn’t care that the actual object might be a B at runtime. So, it will result in a compile-time error, so option E is correct.
+
+REFERENCE        :http://docs.oracle.com/javase/tutorial/java/javaOO/returnvalue.html
+
+The correct answer is: Compilation fails`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'You are asked to create a method which should satisfy the following requirements.\n' +
+            '\n' +
+            'The method should be a non-abstract method. It should take no parameters. It shouldn’t return anything. Name of the method should be “print”. And it should be an instance Method. This method is used in an interface.',
+        prompt: 'Which is the correct method signature?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'void print()'
+            },
+            {
+                id: 'B',
+                markdown: 'static void print()'
+            },
+            {
+                id: 'C',
+                markdown: 'default void print()'
+            },
+            {
+                id: 'D',
+                markdown: 'public void print()'
+            },
+            {
+                id: 'E',
+                markdown: 'public abstract print()'
             },
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `Option C is the correct answer.
+
+According to the given requirement, the method should be a default method since the method supposed to be used in an interface and it should be a non-abstract and an instance method. Since we used the method in an interface it is implicitly public, so option C is correct.
+
+Reference:
+
+http://docs.oracle.com/javase/tutorial/java/javaOO/returnvalue.html
+
+The correct answer is: default void print()`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'Which of the following is not a part of the method signature?',
+        correctAnswerId: 'A',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'Return type'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'Method name'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'Type of parameters'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'Number of parameters'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'Order of the parameters'
             },
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `Option A is the correct answer.
+
+The signature of a method is used to uniquely identify a method. A signature consists of:
+
+                • Method name
+
+                • Number of parameters
+
+                • Type of the parameters
+
+                • Order of the parameter
+
+Even a return type is not part of the method signature. The return type is a must for a method, if a method doesn’t expect to return anything then we need to use void. So, option A is correct.
+
+Reference  : http://docs.oracle.com/javase/tutorial/java/javaOO/returnvalue.html
+
+The correct answer is: Return type`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
-        explanation: '',
+        explanation: 'What will be the output of this program?',
         prompt: '',
-        correctAnswerId: '',
+        correctAnswerId: 'D',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: '21'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: '22'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: '23'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'Compilation fails due to an error at line 6'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'Compilation fails due to multiple errors'
             },
         ],
-        codeString: ``,
-        answerExplanation: ``,
+        codeString: `      public class Program{
+                       int x = 10;
+                      
+                       public static void main(String args[]){
+                                       int y = 12;
+                                       System.out.print(y+x);
+                                       int x = 11;
+                       }             
+       }  `,
+        answerExplanation: `Option D is the correct answer.
+
+We can’t access non-static content from static content, it will result in a compile-time error. So, at line 6, trying to access variable x in main method results compile-time error, since the variable x is not static.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html
+
+The correct answer is: Compilation fails due to an error at line 6`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
-        explanation: '',
+        explanation: 'What is the output while compiling class B?',
         prompt: '',
-        correctAnswerId: '',
+        correctAnswerId: 'D',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'Compilation succeeds'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'Compilation fails due to an error at line 10'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'Compilation fails due to an error at line 12'
             },
             {
                 id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
+                markdown: 'Compilation fails due to multiple errors'
+            }
         ],
-        codeString: ``,
-        answerExplanation: ``,
+        codeString: `       package one;
+        
+       class A{
+            protected int j = 12;
+       }
+      package two;
+        
+       import one.*;
+        
+      class B extends A{
+              public static void main(String [ ] args) {
+                       A a = new A();
+              }
+      }`,
+        answerExplanation: `Option D is the correct answer.
+
+Class A in package one has default access level so when the code tried to extends class A and to create an instance of class A in class B of package two, it cause compilation failure since class A can be only accessed within the one package. So option D is correct.
+
+Options A is incorrect as the code fails to compile, if we mark class A as public then class A can be accessed within package two, so then the code will compile fine.
+
+Reference : http://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html
+
+The correct answer is: Compilation fails due to multiple errors`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
-        explanation: '',
+        explanation: 'Which of the following statement(s) is/are correct?',
         prompt: '',
-        correctAnswerId: '',
+        correctAnswerId: 'A',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'I only'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'II only'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'I and II only'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'I and III only'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'None of these'
             },
         ],
-        codeString: ``,
-        answerExplanation: ``,
+        codeString: `  I.  Private members of a class can only be accessed by the members of the same class.
+
+ II.  Protected members of a class can be inherited only by a subclass of another package.
+
+III.  Protected members of a class can be inherited by a subclass of an another package, and become private members of that subclass.`,
+        answerExplanation: `Option A is the correct answer.
+
+The statement I is correct as the private members can be only accessed by the members of the enclosing class.
+
+Statement III is incorrect . Let us consider Test1 is in package one, Test2 is in package two and Test3 is in package three. Test2 is a subclass of Test1 and Test3 is a  subclass of Test2. Here both Test2, Test3 can access Test1 class protected members. Here statement III is not valid.
+
+Statement II is incorrect since protected members are inherited by subclasses for same package as well as other packages.
+
+Option A is correct since only the statement I is correct.
+
+Reference  : http://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html
+
+The correct answer is: I only`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
-        explanation: '',
+        explanation: 'What will be the output of this program?',
         prompt: '',
-        correctAnswerId: '',
+        correctAnswerId: 'B',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: '2'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: '3'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: '4'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'Compilation fails'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'An exception is thrown at runtime'
             },
         ],
-        codeString: ``,
-        answerExplanation: ``,
+        codeString: `class Whiz {
+         public static void main(String args[]){
+                  int x = 1;
+                  int y = new Whiz().change(x);
+                 System.out.print(x+y);
+         }
+         int change(int x) {
+                 x = 2;
+                 return x;
+         }
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+When you are passing a primitive variable, you are passing a copy of the bits representing the variable. Here we have passed the variable x to change method which will pass the bit patter of 1, not the reference, so the value of x in the main method will remain unchanged. So, the output will be 3, hence option B is correct.
+
+Reference                :http://docs.oracle.com/javase/tutorial/java/javaOO/arguments.html
+
+The correct answer is: 3`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
-        explanation: '',
+        explanation: 'What will be the output of this program?',
         prompt: '',
-        correctAnswerId: '',
+        correctAnswerId: 'A',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: '1Z0-808'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: '1Z0-8108'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: '1Z0-810'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'Compilation fails due to an error at line 6'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'Compilation fails due to an error at line 7'
             },
         ],
-        codeString: ``,
-        answerExplanation: ``,
+        codeString: `public class Whiz{
+ 
+                public static void main(String[] args) {                  
+                                char[] chars = {'1','Z','0','-','8','1'};
+                                StringBuilder sb = new StringBuilder();
+                                sb.append(chars,0,chars.length-1);
+                                sb.append('0');
+                                sb.append(“8”);
+                                System.out.print(sb);
+                }
+}`,
+        answerExplanation: `Option A is the correct answer.
+
+At line 6, we have used one of the overloaded version of the append method.
+
+public StringBuilder append(char[] str,  int offset,  int len)
+
+Appends the string representation of a subarray of the char array argument to this sequence. Characters of the char array str, starting at index offset, are appended in order to the contents of this sequence. The length of this sequence increases by the value of len.
+
+ 
+
+So at line 6, the content of the builder will be “1Z0-8”. Then in next two lines, we have added 0 and 8, which makes it “1Z0-808”. Hence, option A is correct.
+
+REFERNCE          : http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html
+
+The correct answer is: 1Z0-808`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
-        explanation: '',
+        explanation: 'What will be the output of this program?',
         prompt: '',
-        correctAnswerId: '',
+        correctAnswerId: 'C',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: '16'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: '40'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: '28'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: '24'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'Compilation fails'
             },
         ],
-        codeString: ``,
-        answerExplanation: ``,
+        codeString: `class Whiz {
+                   public static void main(String [ ] args) {
+                         StringBuilder sb = new StringBuilder("Whiz");
+                         sb.append("Labs");
+                         System.out.print(sb.length() + sb.capacity());
+                   }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+As the length of the String “WhizLabs” is eight, so the length method will return 8. And we have used StringBuilder class’ “public StringBuilder(String str)” constructor, when we construct a string builder initialized to the contents of the specified string. The initial capacity of the string builder is 16 plus the length of the string argument.   So, here we have initially passed “Whiz” to constructor and length of it; is 4. Therefore, the initial capacity is 20. So, 20 will be returned when capacity method invoked and output will be 28. Hence, option C is correct.
+
+REFERENCE  : http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html
+
+The correct answer is: 28`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
-        explanation: '',
+        explanation: 'What will be the output of this program?',
         prompt: '',
-        correctAnswerId: '',
+        correctAnswerId: 'C',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: '1Z01-808'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: '1Z0-808'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: '1Z1-808'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'An Exception is thrown at runtime'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'Compilation fails'
             },
         ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
+        codeString: `   class Whiz {
+             public static void main(String args[]) {
+                      String s = "1Z";
+                      s.concat("0");
+                      s += "1";
+                      System.out.println(s + "-808");
+           }
+   }`,
+        answerExplanation: `Option C is the correct answer. 
+
+Strings are immutable, so at line 4 concatenating “0” will not add “0” to s, instead it will return new String with value “1Z0”. At line 5, using assignment operator will add “1” to s, so output will be 1Z1-808. Hence, option C is correct.
+
+REFERNCE                           : http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html
+
+The correct answer is: 1Z1-808`,
         referenceImage: ''
     }
 ];

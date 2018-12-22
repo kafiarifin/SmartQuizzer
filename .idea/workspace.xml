@@ -28,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test-data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="10265" column="14" lean-forward="true" selection-start-line="10265" selection-start-column="14" selection-end-line="10265" selection-end-column="14" />
+            <state relative-caret-position="138">
+              <caret line="13388" column="53" lean-forward="true" selection-start-line="13388" selection-start-column="53" selection-end-line="13388" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -125,7 +125,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="x" value="850" />
     <option name="width" value="830" />
     <option name="height" value="1050" />
@@ -248,7 +248,7 @@
       <workItem from="1545438649529" duration="45000" />
       <workItem from="1545438744689" duration="420000" />
       <workItem from="1545439581851" duration="49000" />
-      <workItem from="1545439645526" duration="2957000" />
+      <workItem from="1545439645526" duration="7389000" />
     </task>
     <task id="LOCAL-00001" summary="Installed Bootstrap and created a simple component">
       <created>1542337246939</created>
@@ -278,14 +278,28 @@
       <option name="project" value="LOCAL" />
       <updated>1545503051990</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added 5 Questions">
+      <created>1545503663572</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1545503663572</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added More Questions">
+      <created>1545507440067</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1545507440067</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77486000" />
+    <option name="totallyTimeSpent" value="81918000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="850" y="0" width="830" height="1050" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="npm" order="0" side_tool="true" weight="0.32971668" />
@@ -338,7 +352,9 @@
     <MESSAGE value="Started Work on the Layout" />
     <MESSAGE value="Added Total Completed" />
     <MESSAGE value="Updated When the Options are shown" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated When the Options are shown" />
+    <MESSAGE value="Added 5 Questions" />
+    <MESSAGE value="Added More Questions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added More Questions" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -600,8 +616,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test-data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="10265" column="14" lean-forward="true" selection-start-line="10265" selection-start-column="14" selection-end-line="10265" selection-end-column="14" />
+        <state relative-caret-position="138">
+          <caret line="13388" column="53" lean-forward="true" selection-start-line="13388" selection-start-column="53" selection-end-line="13388" selection-end-column="53" />
         </state>
       </provider>
     </entry>
