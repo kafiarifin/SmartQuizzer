@@ -3494,37 +3494,8 @@ Reference                :http://docs.oracle.com/javase/tutorial/java/javaOO/acc
 
 The correct answer is: Compilation fails due to error on line 14`,
         referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
+    },
+    {
         questionComplexityIndex: 0,
         explanation: 'Which is correct?',
         prompt: '',
@@ -8865,36 +8836,6 @@ If it is not abstract implementing we have to concrete all methods declared in a
 Reference            : http://docs.oracle.com/javase/tutorial/java/IandI/usinginterface.html
 
 The correct answer is: Methods in interfaces are always public but not always abstract.`,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,

@@ -28,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test-data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="13388" column="53" lean-forward="true" selection-start-line="13388" selection-start-column="53" selection-end-line="13388" selection-end-column="53" />
+            <state relative-caret-position="141">
+              <caret line="13346" lean-forward="true" selection-start-line="13346" selection-end-line="13346" />
             </state>
           </provider>
         </entry>
@@ -76,6 +76,8 @@
       <find>console</find>
       <find>explanation</find>
       <find>explanation:</find>
+      <find>correctAnswerId</find>
+      <find>correctAnswerId: ''</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src</dir>
@@ -248,7 +250,7 @@
       <workItem from="1545438649529" duration="45000" />
       <workItem from="1545438744689" duration="420000" />
       <workItem from="1545439581851" duration="49000" />
-      <workItem from="1545439645526" duration="7389000" />
+      <workItem from="1545439645526" duration="7451000" />
     </task>
     <task id="LOCAL-00001" summary="Installed Bootstrap and created a simple component">
       <created>1542337246939</created>
@@ -292,11 +294,18 @@
       <option name="project" value="LOCAL" />
       <updated>1545507440067</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added More Questions">
+      <created>1545512981824</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1545512981824</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81918000" />
+    <option name="totallyTimeSpent" value="81980000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
@@ -616,8 +625,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test-data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="13388" column="53" lean-forward="true" selection-start-line="13388" selection-start-column="53" selection-end-line="13388" selection-end-column="53" />
+        <state relative-caret-position="141">
+          <caret line="13346" lean-forward="true" selection-start-line="13346" selection-end-line="13346" />
         </state>
       </provider>
     </entry>
