@@ -14,7 +14,7 @@ class QuizLogic extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            totalQuestionsInInterval: 5,
+            totalQuestionsInInterval: 9,
             quizData: props.quizData.sort((a, b) => a.questionComplexityIndex - b.questionComplexityIndex),
             completionRate: this.getPercentComplete(props.quizData)
         }

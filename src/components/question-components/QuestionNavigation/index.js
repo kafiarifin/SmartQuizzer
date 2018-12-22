@@ -17,7 +17,7 @@ const QuestionNavigation = ({attemptsRemaining, callBack, isCorrect, complete, n
             </div>
             <div className="col-6 text-right">
                 {!complete ?
-                    <button type="button" onClick={callBack} className="btn btn-primary">Submit</button> :
+                    <button type="button" onClick={callBack} className="btn btn-primary">Test</button> :
                     <button type="button" onClick={() => nextQuestion(isCorrect)} className="btn btn-primary">Next</button>
                 }
             </div>
