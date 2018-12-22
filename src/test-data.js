@@ -10305,1593 +10305,2552 @@ The correct answer is: Compilation fails`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
-        explanation: '',
+        explanation: 'What will be the output of this program?',
         prompt: '',
-        correctAnswerId: '',
+        correctAnswerId: 'D',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: '[0, 0, 0]'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: '[null,null,null]'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'null'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'NullPointerException'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'Compilation fails'
             },
         ],
-        codeString: ``,
-        answerExplanation: ``,
+        codeString: `       import java.util.Arrays;
+        
+       public class Whiz {
+                public static void main(String[] args) {
+                          int [ ][ ] ints = new int[2][];
+        
+                          Arrays.sort(ints[1]);
+                      
+                          System.out.print(Arrays.toString(ints[1]));
+                }
+      }      `,
+        answerExplanation: `Option D is the correct answer.
+
+Methods in the Arrays class throw a NullPointerException, if the specified array reference is null. So, here we haven't initialized the ints[1], so it is null. Hence, passing it to Arrays sort method throws a NullPointerException. So, option D is correct.
+
+Reference:
+
+http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: NullPointerException`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: '0'
+            },
+            {
+                id: 'B',
+                markdown: '1'
+            },
+            {
+                id: 'C',
+                markdown: '-1'
+            },
+            {
+                id: 'D',
+                markdown: 'true'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `       import java.util.Arrays;
+        
+       public class Program{
+           public static void main(String[] args) {
+                      
+                       int[] ints = {2,-1,4,5,3};
+                       Arrays.sort(ints);
+                       System.out.print(Arrays.binarySearch(ints, -1));
+           }
+   }      `,
+        answerExplanation: `Option A is the correct answer.
+
+Arrays class has binary Search method which can use to search elements in a sorted array.
+
+ 
+
+                public static int binarySearch(int[] a,int key)
+
+               
+
+This method searches the specified array of ints for the specified value using the binary search algorithm. The array must be sorted (as by the sort(int[]) method) prior to making this call. If it is not sorted, the results are undefined.
+
+ 
+
+Since we have sorted the array, binary search will function properly. Since the array is sorted, index position of -1 will be 0, so the binary search will return 0. Hence, option A is correct.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+The correct answer is: 0`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '01234'
+            },
+            {
+                id: 'B',
+                markdown: 'An exception is thrown at runtime.'
+            },
+            {
+                id: 'C',
+                markdown: 'Code will cause a never ending loop'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails'
+            },
+            {
+                id: 'E',
+                markdown: 'No output'
+            },
+        ],
+        codeString: `       class Whiz{
+       public static void main(String args[]){
+                       new Whiz().meth();                      
+                       }
+                      
+       public void meth()throws Exception{
+                       for(int x=0;x>5;x++)
+                                       System.out.print(x);
+                       }
+   }`,
+        answerExplanation: `Option D is the correct answer.
+
+The method meth() is declared as an exception, so when we call that method within another method, the calling method must handle or declare the exception. Otherwise, compilation will not succeed.
+
+REFERENCE                        :http://docs.oracle.com/javase/tutorial/essential/io/fileOps.html#exception
+
+The correct answer is: Compilation fails`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'error finally'
+            },
+            {
+                id: 'B',
+                markdown: 'error'
+            },
+            {
+                id: 'C',
+                markdown: 'Compilation fails'
+            },
+            {
+                id: 'D',
+                markdown: 'finally'
+            },
+            {
+                id: 'E',
+                markdown: 'No output'
+            },
+        ],
+        codeString: `       class Whiz {
+                public static void main(String args[]){
+                          int x = 5, y=10;                                                                  
+                                  try {
+                                             y /=x;
+                                       }
+                                       catch(Exception e){
+                                             System.out.print("error");
+                                       } finally {
+                                             System.out.print("finally");
+                                       }
+                }
+      }`,
+        answerExplanation: `Option D is the correct answer.
+
+There will be no error occurred in try box, so catch clause won’t run but finally runs as always. Hence, finally will be printed; so option D is correct.
+
+REFERENCE        :http://docs.oracle.com/javase/tutorial/essential/exceptions/catch.html
+
+The correct answer is: finally`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'Which of the following exception is thrown by JVM when code uses a negative size while initializing an array?',
+        correctAnswerId: 'D',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'NullPointerException'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'NumberFormatException'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'IllegalArgumentException'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'NegativeArraySizeException'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'ArrayIndexOutOfBoundsException'
             },
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `Option D is the correct answer.
+
+Option D is correct since the NegativeArraySizeException is thrown when we tried to initialize an array with negative size.
+
+The NullPointerException is thrown by the JVM when there is a null reference where an object is required. So, option A is incorrect.
+
+The NumberFormatException thrown by the programmer when an attempt is made to convert a string to a numeric type but the string doesn’t have an appropriate format. So option B is incorrect.
+
+Option C is incorrect since the IllegalArgumentException thrown by the programmer to indicate that a method has been passed an illegal or inappropriate argument.
+
+REFERENCE:
+
+http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html
+
+The correct answer is: NegativeArraySizeException `,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Arithmetic final 1'
+            },
+            {
+                id: 'B',
+                markdown: 'Exception final 2'
+            },
+            {
+                id: 'C',
+                markdown: 'Arithmetic final 2'
+            },
+            {
+                id: 'D',
+                markdown: 'Exception'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `       class Whiz {
+                 public static void main(String args[ ]) {
+                           try {
+                                     new Whiz().meth();
+                           } catch(ArithmeticException e) {
+                                     System.out.print("Arithmetic");
+                           } finally {
+                                     System.out.print("final 1");
+                           } catch(Exception e) {
+                                     System.out.print("Exception");
+                           } finally {
+                                     System.out.print("final 2");
+                           }
+                 }
+                  
+                public void meth()throws  ArithmeticException {
+                         for(int x = 0; x < 5; x++) {
+                               int y = (int) 5/x;
+                               System.out.print(x);
+                         }
+                }
+      }`,
+        answerExplanation: `Option E is the correct answer.
+
+You can’t have multiple finally clauses. In this code, the first finally clause causes the end of the try clause. So, other catch clause appeared like a catch clause without a try clause, so compilation fails.
+
+REFERENCE        :http://docs.oracle.com/javase/tutorial/essential/exceptions/catch.html
+
+The correct answer is: Compilation fails`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'A'
+            },
+            {
+                id: 'B',
+                markdown: 'C'
+            },
+            {
+                id: 'C',
+                markdown: 'An exception will be thrown at runtime'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error at line 6'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors'
+            },
+        ],
+        codeString: `       interface I{
+       void meth();
+       }
+        
+       class A implements I{
+                       void A(String s){
+                                       }
+                       public void meth(){
+                                       System.out.print("A");
+                   }
+   }
+    
+   class C extends A implements I{
+                   public void meth(){
+                                   System.out.print("C");
+                   }
+   }
+    
+   class Whiz{
+                   public static void main(String args[]){
+                                    A a = new A();
+                                   C c1 = (C)a;
+                                   c1.meth();
+                    }
+   }`,
+        answerExplanation: `Option C is the correct answer.
+
+Here, we try to cast a superclass reference to lower class reference, but superclass reference refers to the superclass object. So, casting will cause a ClassCastException.
+
+REFERENCE        :http://docs.oracle.com/javase/tutorial/essential/exceptions/catch.html
+
+The correct answer is: An exception will be thrown at runtime`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Java source code will be compiled in to ______________ file.',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'java'
+            },
+            {
+                id: 'B',
+                markdown: 'class'
+            },
+            {
+                id: 'C',
+                markdown: 'exe'
+            },
+            {
+                id: 'D',
+                markdown: 'byte'
+            },
+            {
+                id: 'E',
+                markdown: 'None of the above'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option B is the correct answer.
+
+When we compile the java source we get the bytecode. Java bytecode is the instruction set of the Java virtual machine. Each bytecode is composed by one, or in some cases two, bytes that represent the instruction (opcode), along with zero or more bytes for passing parameters. So, option B is correct.
+
+REFERENCE        :https://docs.oracle.com/javase/tutorial/getStarted/application/index.html
+
+The correct answer is: class`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'Which of the following command can be used to compile the code?',
+        correctAnswerId: 'A',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'javac'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'java'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'javadoc'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'jar'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'compile'
             },
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `Option A is the correct answer.
+
+The compiler is invoked by the javac command. When compiling a java class, you must include the filename with .java extension. Hence, the option A is correct.
+
+To execute java program we can use java command but can’t use it for compiling.
+
+REFERENCE:
+
+https://docs.oracle.com/javase/tutorial/getStarted/application/index.html
+
+The correct answer is: javac`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Answer is : 22'
+            },
+            {
+                id: 'B',
+                markdown: 'Answer is : 1012'
+            },
+            {
+                id: 'C',
+                markdown: 'Answer is :'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails'
+            }
+        ],
+        codeString: `public class Whiz{
+               
+                public static void main(String args[]){
+                                int x = 10, y = 12;
+                                System.out.println(“Answer is :“ + x +y);
+                }
+}        `,
+        answerExplanation: `Option B is the correct answer.
+
+In the printing statement at line 5, we have used the string value first, so the + will work as the concatenation operator in “x+y” hence 1012 will be printed. So, option B is correct.
+
+REFERENCE        :https://docs.oracle.com/javase/tutorial/getStarted/application/index.html
+
+The correct answer is: Answer is : 1012`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following statement is true?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'class declaration should come before import statement.'
+            },
+            {
+                id: 'B',
+                markdown: 'Package statement should come after class statement.'
+            },
+            {
+                id: 'C',
+                markdown: 'Comments can come before package statement.'
+            },
+            {
+                id: 'D',
+                markdown: 'Constructor should appear before any other statement of a class.'
+            },
+            {
+                id: 'E',
+                markdown: 'None of the above.'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option C is the correct answer.
+
+The correct order of the statements should be
+
+                package statement
+
+                import statement
+
+class statement
+
+Except above comments can be appeared on any place. So option C is correct.
+
+ 
+
+Option D is incorrect since we can place constructors before or after other statements, also middle of other statements.
+
+ REFERENCE        :https://docs.oracle.com/javase/tutorial/getStarted/application/index.html
+
+The correct answer is: Comments can come before package statement.`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'which of the following statement compiles successfully?',
+        correctAnswerId: 'C',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'final int / array[] = {1,2,3};'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'final int // array[] = {1,2,3};'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'final int   /**   */  array[] =   {1,2,3} ;'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'All of these'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'None of these'
             },
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `Option C is the correct answer.
+
+We can have following comments in java
+
+/* text */            -              The compiler ignores everything from /* to */.
+
+// text                   -              The compiler ignores everything from // to the end of the line.
+
+/** documentation */  
+
+This is a documentation comment and in general, it's called doc comment. The JDK javadoc tool uses doc comments when preparing automatically generated documentation.
+
+Option C is correct since it doesn’t affect the complete statement. Option A is incorrect since using / for comments is invalid in java. Option B is incorrect since because of // the statement will be incomplete.
+
+REFERENCE        :https://docs.oracle.com/javase/tutorial/getStarted/application/index.html
+
+The correct answer is: final int   /**   */  array[] =   {1,2,3} ;`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '2'
+            },
+            {
+                id: 'B',
+                markdown: '3'
+            },
+            {
+                id: 'C',
+                markdown: '4'
+            },
+            {
+                id: 'D',
+                markdown: '10'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz{
+               
+                static int x = 2;
+                public static void main(String args[]){   
+                                if( x > 1){
+                                                x++;
+                                                int x = 4;
+                                }
+                                System.out.println(x);
+                                final int x = 10;
+                }
+} `,
+        answerExplanation: `Option B is the correct answer.
+
+In the given code, we have defined a static variable x with value 2 hence at line 5 if block will be executed, and increment the value of x by one, at line 7, defining new integer with the same name will shadow the class variable x, but the scope of that variable is limited to the if block. Hence, the value of the class variable will be printed which is 3. So, option B is correct.
+
+The integer variable x at line 10 is declared after the printing statement, so it won’t affect any statement above the line 10, but if there was more code after line 10, then that x would shadow the class variable x.
+
+REFERENCE        :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+ 
+
+The correct answer is: 3`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '2'
+            },
+            {
+                id: 'B',
+                markdown: '4'
+            },
+            {
+                id: 'C',
+                markdown: '5'
+            },
+            {
+                id: 'D',
+                markdown: '6'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz{
+               
+                static int x = 2;
+                static int z;
+                public static void main(String args[]){   
+                                System.out.println(x+z);
+                }
+               
+                static{
+                                int x = 3;
+                                z = x;
+                }
+}           `,
+        answerExplanation: `Option C is the correct answer.
+
+At line 10, we have defined new integer with value 3, it shadows the class variable x. Hence, the value of z will be 3. So, 2+3 will print 5 as the output. Hence, option C is correct.
+
+REFERENCE        :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: 5`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'You need to create a class to store information about Books contained in a library. The library class has provided a static method to add Book. When each book is added, the library should update the number of books field, which records the total number of books.',
+        prompt: 'Which of the following variable scope is best suited for that field?',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Method parameter'
+            },
+            {
+                id: 'B',
+                markdown: 'Instance variable'
+            },
+            {
+                id: 'C',
+                markdown: 'Static variable'
+            },
+            {
+                id: 'D',
+                markdown: 'Global variable'
+            },
+            {
+                id: 'E',
+                markdown: 'Local variable'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option C is the correct answer.
+
+To store the number of books in the library, you can't use an instance variable. Because Library class uses a static method to add a book in the library. The static method can't access the instance variable. So, you must take static variable to store the number of books in the library.  The static variable in Library class will be incremented when static method of Library class gets called. when you create an object for Book class, Book class constructor calls Library class static method which adds a book to the library and updates the number of the books. To know the number of books in library, just call static variable of Library class which gives the number of books. So, option C is correct.
+
+REFERENCE : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: Static variable`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'Which of the following is correct static import statement?',
+        correctAnswerId: 'E',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'import java.lang.Math.*;'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'import static java.lang.Math.abs();'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'static import java.lang.Math.abs();'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'static import java.lang.Math;'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'import static java.lang.Math.abs;'
             },
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `Option E is the correct answer.
+
+Correct syntax for static import is
+
+                import static [class member/s]
+
+Option A is incorrect since it is non-static import as we haven’t used static there.
+
+Option B is incorrect since to import a specific static method it is illegal to use parentheses, a just name should be used.
+
+Options C and D are incorrect since we have used static before import there, which makes them invalid.
+
+Option E is correct since we have followed correct syntax there.
+
+Reference                            :http://docs.oracle.com/javase/tutorial/java/javaOO/classes.html
+
+The correct answer is: import static java.lang.Math.abs;`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'E',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: '65'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: '654'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: '123'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'Compilation fails'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'Will print 654 and then goes to never ending loop.'
             },
         ],
-        codeString: ``,
-        answerExplanation: ``,
+        codeString: `       class Whiz {
+                public static void main(String args[ ]) {
+                         int [ ] a = {1,2,3,4,5,6};
+                         int i = a.length – 1;
+                      
+                         while (i >= 0) {
+                                 if (i == 2) continue;
+                                       System.out.print(a[i]);
+                                        i--;         
+                          }
+                }
+       }
+`,
+        answerExplanation: `Option E is the correct answer.
+
+When the value of i is 2, the “if statement” will call continue. After that, every time the value of i will be 2 as it can’t reach to i-- statement, where it cause a never ending loop.
+
+Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html
+
+ 
+
+The correct answer is: Will print 654 and then goes to never ending loop.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '123'
+            },
+            {
+                id: 'B',
+                markdown: '123123'
+            },
+            {
+                id: 'C',
+                markdown: '123123123'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails'
+            },
+            {
+                id: 'E',
+                markdown: 'Will print 123 and then goes to never ending loop'
+            },
+        ],
+        codeString: `       class Whiz {
+                  public static void main(String args[ ]) {
+                           int [ ] a = {1,2,3};
+                                                                      
+                           for(int j : a) {
+                                  if (j == 2) continue;
+                                          for(int x = 0; x < 3; System.out.print(x)) {
+                                                  x++;
+                                          }
+                          }
+                 }
+       }`,
+        answerExplanation: `Option B is the correct answer.
+
+This is a nested loop. When j is equal to two, current iteration stops as if calls continue. So, there will be 123 on first and third iteration process.
+
+Reference                            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html
+
+ 
+
+The correct answer is: 123123`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following will print all the elements of the array when inserted at line 10?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'if (k == 3) break outer;'
+            },
+            {
+                id: 'B',
+                markdown: 'if (k == 3) break inner ;'
+            },
+            {
+                id: 'C',
+                markdown: 'if (k > 3) break;'
+            },
+            {
+                id: 'D',
+                markdown: 'break;'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these.'
+            },
+        ],
+        codeString: `class Whiz{
+                public static void main(String args[]){
+ 
+                                int array[][] = {{3,2,1},{5,4,2},{0,8,7}};
+               
+                                                outer:for(int x = 0, k=0; x<3; x++){
+                                                k=0;
+                                                inner:while(true){
+                                                System.out.print(array[x][k++]);
+                                                // insert here
+                                                }
+                                }
+                }
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+Option B is correct as it will print all the elements of the array. As every array has three elements we should break the inner loop as soon as k becomes 3, as then it will cause an exception.
+
+Option A is incorrect as the output will only contain elements of the array[0] because it breaks the outer loop.
+
+Options C and E are incorrect as they cause an ArrayIndexOutOfBoundsException.
+
+Option D is incorrect as the output will only contain the first elements for each array.
+
+Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html
+
+The correct answer is: if (k == 3) break inner ;`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'Which of the following statement is true?',
+        correctAnswerId: 'E',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'When we need to execute a certain section, we can use the “while” or the “for” statements.'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'The “do/while” loop allows is allowed for any number of possible execution paths.'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'The “while” and the “do-while” are equivalent.'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'The “while” evaluates its conditional expression at the bottom of the loop'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'The “for” loops has two forms, one of them was designed for looping through collections and arrays'
             },
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `Option E is the correct answer.
+
+Option E is correct as “for” loops has two forms, for and enhanced for. The later one is designed to iterate through elements of a collection or array.
+
+Option A is incorrect because to execute a certain section of code then we have to use “if” of “switch”.
+
+Option B is incorrect as we can't use loops to select different execution paths, for that we need to use control statements like if, switch.
+
+Option C is incorrect as “while” and “do-while” are not same.
+
+Option D is incorrect since the “while” loop evaluates its expression at the top of the loop.
+
+Reference                            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html
+
+The correct answer is: The “for” loops has two forms, one of them was designed for looping through collections and arrays`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '1234'
+            },
+            {
+                id: 'B',
+                markdown: '4321'
+            },
+            {
+                id: 'C',
+                markdown: '4321 and will create never ending loop'
+            },
+            {
+                id: 'D',
+                markdown: 'No output'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `class Whiz{
+          public static void main(String args[]){
+                      int []a = {1,2,3,4};
+                      int i = a.length - 1;
+ 
+                      while(true){
+                                while(i>=0){
+                                       System.out.print(a[i]);
+                                        i--;
+                                }
+                      }
+           }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+Using “while(true)” at line 6, will create an endless loop, but in its first iteration, all the elements of the array will be printed in descending order since the initial value of the variable “i” is 3.
+
+Option C is correct as the output will be 4321 followed by endless loop because of “while(true)”.
+
+Options A and B are incorrect since a never ending loop is created.
+
+Option D is incorrect as “4321” is produced in the first iteration of the first while loop.
+
+Option E is incorrect as the code compiles successfully.
+
+Reference:
+
+http://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html
+
+The correct answer is: 4321 and will create never ending loop`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '1'
+            },
+            {
+                id: 'B',
+                markdown: '3'
+            },
+            {
+                id: 'C',
+                markdown: '10'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error at line 6.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors.'
+            },
+        ],
+        codeString: `       public class Whiz {
+                       public static void main(String [ ] args) {
+                                       int x = 1;
+                                       int y = 10;
+                                      
+                                       if((x*=3) == y) {
+                                                       System.out.println(y);
+                                       } else {
+                                                       System.out.println(x);
+                                   }
+                   }
+   }`,
+        answerExplanation: `Option B is the correct answer.
+
+At line 6, we have used parentheses to change the value of x. Inside the parentheses, we have used assignment operator which will result in x multiplied by 3. But the condition of the if block won’t be true since the value of y, is 10. Hence, else block executes and print 3, so option B is correct.
+
+REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
+
+The correct answer is: 3`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following will compile successfully when inserted at line 4?',
+        prompt: '',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'final int x = -1;'
+            },
+            {
+                id: 'B',
+                markdown: 'int x = -1;'
+            },
+            {
+                id: 'C',
+                markdown: 'nt x = 1;'
+            },
+            {
+                id: 'D',
+                markdown: 'final int x = 1;'
+            },
+            {
+                id: 'E',
+                markdown: 'All of these'
+            },
+        ],
+        codeString: `public class Whiz {
+         public static void main(String args[ ]) {
+                               
+                   // insert here
+                   final int y = 2;
+               
+                   switch(x+y) {
+                                          case x+1    : {System.out.print("A");}
+                                          case 1        : System.out.print("B");
+                                          default       : System.out.print("default"); break;
+                                          case y        : System.out.print("C");
+                   }
+          }
+  }`,
+        answerExplanation: `Option A is the correct answer.
+
+If we use a variable for the case, it needs to be a compile time constant, so options B and C are incorrect.
+
+Option D is incorrect as there is a case with value 2, so if we use 1 as the value of x then there will be two cases with value 2, which is illegal.
+
+Option A is correct since there if we use -1 then the case x+1 will be 0, so there won’t be any duplicate cases.
+
+Reference                :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html
+
+The correct answer is: final int x = -1;`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'ABdefault'
+            },
+            {
+                id: 'B',
+                markdown: 'default'
+            },
+            {
+                id: 'C',
+                markdown: 'Bdefault'
+            },
+            {
+                id: 'D',
+                markdown: 'C'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz {
+         public static void main(String args[]) {
+                               
+                   final int array [] = {1,2,3};
+                               
+                   switch(2) {
+                          case array[0]      : {System.out.print("A");}
+                          case array[1]      : System.out.print("B");
+                          default                : System.out.print("default"); break;
+                          case array[2]      : System.out.print("C");
+                   }
+         }
+}`,
+        answerExplanation: `Option E is the correct answer.
+
+Option E is correct as the code fails to compile due to line case statements. When using a primitive or reference type variables as case constants, we should keep in mind that they should be compile-time constant. But in given code, we have used variables from the primitive array, even the array is final, the elements of the array are not final hence code fails to compile.
+
+Reference                :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html
+
+ 
+
+The correct answer is: Compilation fails`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '01'
+            },
+            {
+                id: 'B',
+                markdown: '02'
+            },
+            {
+                id: 'C',
+                markdown: '03'
+            },
+            {
+                id: 'D',
+                markdown: '04'
+            },
+            {
+                id: 'E',
+                markdown: 'Compile time error.'
+            },
+        ],
+        codeString: `public class Whiz {
+        public static void main(String [ ] args) {
+                 String out = "0";
+                  int i = -1, j = -5;
+                  if (i < 5)
+                      if (j > 0)
+                         if (i > j)
+                             out += "1";
+                         else out += "2";
+                     else out += "3";
+                 else out += "4";
+                System.out.println(out);
+        }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+While using if, we need to remember when there is no curly braces to group the if statements. The if consider only the next line as statement related to the if. So, in given code, first if consider next if condition as its statement, and that if at line 6 consider if at line 7 as its statement to execute.
+
+At line 5, if test becomes true hence next if at line 6 is tested and it becomes false, so its else block at line 10 is executed and concat 3 to string. So, option C is correct.
+
+REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
+
+ 
+
+The correct answer is: 03`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'A'
+            },
+            {
+                id: 'B',
+                markdown: 'B'
+            },
+            {
+                id: 'C',
+                markdown: 'A B'
+            },
+            {
+                id: 'D',
+                markdown: 'No output'
+            },
+            {
+                id: 'E',
+                markdown: 'Compile fails'
+            },
+        ],
+        codeString: `public class Whiz {
+         public static void main(String args[ ]) {
+                               
+                  int whiz = 0;
+                               
+                  if (whiz > 0) {
+                        System.out.print("A");
+                  }
+                  System.out.println();
+                  else
+                  System.out.print("B");
+        }
+}
+`,
+        answerExplanation: `Option E is the correct answer.
+
+This code fails to compile since we can’t include other statements between if and else. So, line 9 printing statement included between if and else results in a compile time error.
+
+REFERENCE        :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
+
+The correct answer is: Compile fails`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'A'
+            },
+            {
+                id: 'B',
+                markdown: 'B'
+            },
+            {
+                id: 'C',
+                markdown: 'C'
+            },
+            {
+                id: 'D',
+                markdown: 'D'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz{
+                public static void main(String args[]){
+                                int marks = 60;
+                               
+                                if(marks >= 40) System.out.println("C");
+                                else if(marks >= 60) System.out.println("B");
+                                else if(marks >= 75) System.out.println("A");
+                                else System.out.println("D");  
+                }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+This code compiles successfully and prints C as the output so option C is correct. But if you have a look carefully you can see that logic of using if else here is incorrect since any value greater than 40 will end up printing C which it is not supposed to. To fix this we need to use check for greater values first.
+
+REFERENCE        :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
+
+ 
+
+The correct answer is: C`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'the variable “point” is an integer and based on its value you need to print “n” or “p”, here “n” for negative number while “p” for positive number, which of the following printing statement you can use for that?',
+        prompt: 'Assume zero is a positive integer.',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'System.out.println(point >= 0 ?"p":"n");'
+            },
+            {
+                id: 'B',
+                markdown: 'System.out.println(point >= 0 :"p"?"n");'
+            },
+            {
+                id: 'C',
+                markdown: 'System.out.println(if(point >= 0 ) "p";else "n";);'
+            },
+            {
+                id: 'D',
+                markdown: 'System.out.println(point >= 0 :"p";"n");'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Option A is the correct answer.
+
+The correct syntax of using the ternary operator is
+
+                [condition]?[statement to execute when true]:[statement to execute when false]
+
+So, option A is correct since it follows the correct syntax.
+
+Options B and D are incorrect since we have used incorrect syntax for the ternary operator.
+
+Option C is incorrect since we are not allowed to use if inside a printing statement.
+
+REFERENCE        :https://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
+
+The correct answer is: System.out.println(point >= 0 ?"p":"n");`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following will produce output 8 when inserted at line 7?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'System.out.println((z / y) + z*2);'
+            },
+            {
+                id: 'B',
+                markdown: 'System.out.println(z / (y + z)*2);'
+            },
+            {
+                id: 'C',
+                markdown: 'System.out.println((z / y + z)*2);'
+            },
+            {
+                id: 'D',
+                markdown: 'System.out.println(z / y + z*2);'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `public class Whiz {
+         public static void main(String args[ ]) {
+                  int x = 1;
+                  int y = 2;
+                  int z = 3;
+                               
+                  // insert here   
+         }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+In given code, we need to use parentheses to change the operator’s precedence.
+
+Option A is incorrect since (z/y) will result in 1 and then z*2 will result in 6, so 7 will be printed.
+
+Option B is incorrect since (y+z) will happen first and then it will divide z which returns 0. So, the final output will be 0.
+
+Option C is correct since it will print 8. In statement(z / y + z)*2, (z / y + z) will result 4, (1+3) and then it will be multiplied by 2 which result 8.
+
+REFERENCE        :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/expressions.html
+
+ 
+
+The correct answer is: System.out.println((z / y + z)*2);`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'true true'
+            },
+            {
+                id: 'B',
+                markdown: 'true false'
+            },
+            {
+                id: 'C',
+                markdown: 'false false'
+            },
+            {
+                id: 'D',
+                markdown: 'false true'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `public class Whiz{
+                public static void main(String args[]){
+                                Integer i = 10;
+                                Double d = 10.0;
+                                int ii = 10;
+                                double dd = 10.0;
+                               
+                                System.out.print(i.equals(d) + " ");
+                                System.out.print(ii == dd);
+                }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+While using equals method of wrappers, it checks the wrapper type and the wrapper primitive value. Hence, line 8 will result in false since i and d are not the same types. Comparison of primitives using ‘==’ will check the actual value of the variable refer not the type. Hence, at line 9, true will be printed. Hence, option D is correct.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/IandI/objectclass.html
+
+The correct answer is: false true`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '10 12 13'
+            },
+            {
+                id: 'B',
+                markdown: '12 13'
+            },
+            {
+                id: 'C',
+                markdown: '10 12'
+            },
+            {
+                id: 'D',
+                markdown: '12 13 followed by an exception'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `class Whiz {
+          public static void main(String args[]) {
+                   new Whiz().iterator(new int [ ]{10,12,13});
+          }
+          void iterator(int [ ]i) {
+                   for(int x=0;x<i.length;System.out.print(i[x] + " "))x++;                
+          }
+}`,
+        answerExplanation: `Option D is the correct answer.
+
+We have passed the anonymous array to the iterator method which uses a for loop to iterate through array elements and print them. In given for loop, we have used the printing statement in update part and we have done the increment part inside the loop. So, in the first iteration, it will increase the value of x and then print the second element. But when it does two iteration value of x will become 3, so in final iteration trying to access element will index position 3, will result in an exception. Hence, option D is correct.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html
+
+The correct answer is: 12 13 followed by an exception`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Consider this given program:',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'I only'
+            },
+            {
+                id: 'B',
+                markdown: 'II only'
+            },
+            {
+                id: 'C',
+                markdown: 'III only'
+            },
+            {
+                id: 'D',
+                markdown: 'I and II only'
+            },
+            {
+                id: 'E',
+                markdown: 'All the statements will compile successfully.'
+            },
+        ],
+        codeString: `       class Whiz {
+                 public static void main(String args[ ]) {
+                          int [ ] a = {1,2,3,4,5,6};
+                      
+                           // insert code here
+                                 System.out.print(i + " ");
+                           }
+                }
+       }
+       Which of the following statement will compile successfully when inserted at line 5?
+
+ I.      for (int i = 0, j = 0; i < a.length; j++) { i = a[j];
+
+II.      for (int i : a) {
+
+III.     for (a : int i) {`,
+        answerExplanation: `Option D is the correct answer.
+
+The first one is the correct way of using for loop to iterate the array elements and the second one is called an enhance for loop. It can also be used to iterate the array elements. The third one is the incorrect use of the enhance for loop since the variable declaration should come before the collection inside for.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html
+
+The correct answer is: I and II only`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following is true regarding this given program code?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Inserting the code statement II at line 6, will produce output “true true”'
+            },
+            {
+                id: 'B',
+                markdown: 'Inserting the code statement I at line 6, will produce output “true false”'
+            },
+            {
+                id: 'C',
+                markdown: 'Inserting the code statement I at line 6, will produce output “false false” '
+            },
+            {
+                id: 'D',
+                markdown: 'Inserting the code statement II at line 6, will produce output “true false”'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ` public class Whiz{
+          
+           public static void main(String[] args) {
+                       String s1 = "Rekha";
+                       //insert here
+          
+                       System.out.print(s1.equals(s2)+" ");
+                       System.out.print(s1 == s2);
+                                      
+       }
+   } 
+    I. String s2 = "Rekha";
+
+II. String s2 = new String("Rekha");`,
+        answerExplanation: `Option D is the correct answer.
+
+When creating Strings without using “new” keyword, compiler search for equal String literal in the String pool, if equal found then the reference will refer to it without creating new String. So, in this case with the statement I, new String won’t be created, so both “s1” and “s2” refer to the same String object. Therefore with the statement I, we will have “true true” as result. So, options B and C are incorrect.
+
+When using “new” to create a String, a new String object will be created even there is an equal String literal in the pool, so here “==” check will return false since “s1” and “s2” refer to two different objects. But the “equals()” method will return true since the String literal are equal. So, the option A is incorrect and D is correct.
+
+Reference        :http://docs.oracle.com/javase/tutorial/java/IandI/objectclass.html
+
+The correct answer is: Inserting the code statement II at line 6, will produce output “true false”`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'Which of the following statement is correct about switch?',
+        correctAnswerId: 'A',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'Switch statement is more efficient than a set of nested ifs.'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'Two case constants in the same switch might be identical.'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'Switch uses equalsIgnoreCase method when working with strings.'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'It is not possible to create a nested switch statements.'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'None of these'
             },
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `Option A is the correct answer.
+
+Option A is correct since the switch is efficient than if, as it will directly execute the statements based on the input, where ifs have to check one by one till match found.
+
+Option B is incorrect as in a switch all cases should be unique.
+
+Option C is incorrect as the switch uses equals method when working with Strings.
+
+Option D is incorrect since we can have nested switches.
+
+Reference                :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html
+
+ 
+
+The correct answer is: Switch statement is more efficient than a set of nested ifs.`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following will override the method run correctly when inserted at line 8?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'private void run(){System.out.print("B");} '
+            },
+            {
+                id: 'B',
+                markdown: 'void run(){System.out.print("B");}'
+            },
+            {
+                id: 'C',
+                markdown: 'public void run(){System.out.print("B");}'
+            },
+            {
+                id: 'D',
+                markdown: 'private void run(String s){System.out.print(s);}'
+            },
+            {
+                id: 'E',
+                markdown: 'We can’t override the method run'
+            },
+        ],
+        codeString: `      class A{
+                       private void run(){
+                                       System.out.print("A");
+                       }
+       }
+        
+       class B extends A{
+                       //override method() here
+       }   `,
+        answerExplanation: `Option E is the correct answer.
+
+To override a method, that method needs to inherited. So, in this case, we have defined the method run as private hence we can’t override the method run at line 8. Hence, option E is correct.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html
+
+The correct answer is: We can’t override the method run`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Bark Dog runs'
+            },
+            {
+                id: 'B',
+                markdown: 'Bark Animal runs'
+            },
+            {
+                id: 'C',
+                markdown: 'Compilation fails due to an error at line 10'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error at line 21'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors'
+            },
+        ],
+        codeString: `    abstract class Animal{
+        void run(){
+                    System.out.print("Animal run");
+        }
+    abstract void sound();  
+    }
+     
+    class Dog extends Animal{
+     
+        void sound(){
+                  System.out.print("Bark");
+        }
+                 
+         public void run(){
+                  System.out.print(" Dog runs");
+         }
+   }
+  public class Whiz{
+                  public static void main(String [] args){
+                                  Animal dog =  new Dog();
+                                  dog.sound();
+                                  dog.run();
+                  }
+  }`,
+        answerExplanation: `Option A is the correct answer.
+
+Here at line 20, we have created Dog instance and have used a superclass Animal reference, so we can invoke any method of superclass Animal even the actual object is Dog. When invoking the overridden method at run time, the overridden version of the actual object will be invoked, so sound and run method of Dog class will be invoked. So, option A is correct.
+
+Reference:
+
+http://docs.oracle.com/javase/tutorial/java/javaOO/objectcreation.html
+
+http://docs.oracle.com/javase/tutorial/java/javaOO/usingobject.html
+
+The correct answer is: Bark Dog runs`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Animal eats Animal eats'
+            },
+            {
+                id: 'B',
+                markdown: 'Dog eats Animal eats'
+            },
+            {
+                id: 'C',
+                markdown: 'Dog eats Dog eats'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error at line 6'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to an error at line 12'
+            },
+        ],
+        codeString: `   class Animal {
+                    public void eat() throws Exception { System.out.print("Animal eats");}
+    }
+     
+    class Dog extends Animal{
+                    public void eat() { System.out.print("Dog eats");}
+     
+                    public static void main(String [] args) {
+                                    Animal a = new Dog();
+                                  Dog d = new Dog();
+                                  d.eat();
+                                  a.eat();
+                  }
+  }  `,
+        answerExplanation: `Option E is the correct answer.
+
+If a method is overridden but we use a polymorphic (super type) reference to refer to the subtype object with the overriding method, the compiler assumes we are calling the supertype version of the method. If the supertype version declares a checked exception but the overriding subtype method does not, the compiler still thinks you are calling a method that declares an exception.
+
+So, above code fails to compile due to line 12 since compiler sees calling the eat method of superclass and fails to catch or declare the exception.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/javaOO/objectcreation.html
+
+The correct answer is: Compilation fails due to an error at line 12`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Choose the option that has correct method signature for overridden version of this method.',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'private Number number()'
+            },
+            {
+                id: 'B',
+                markdown: 'public void number()'
+            },
+            {
+                id: 'C',
+                markdown: 'public Integer number()throws NumberFormatException'
+            },
+            {
+                id: 'D',
+                markdown: 'public Integer number(Integer i)'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: `abstract Number number();`,
+        answerExplanation: `Option C is the correct answer.
+
+Option A is incorrect since we can’t use more restrictive access level when overriding methods so using private is incorrect.
+
+Option B is incorrect since we can’t change the return type of overriding method except for covariant types. (Subtype of superclass method return type)
+
+Option C is correct since there we have used Integer as return type which is a subtype of Number, and also it is legal to throw a new or boarder unchecked exception in overriding method. Hence, option C is correct.
+
+While overriding, we can’t change the argument list. Hence, option D is incorrect.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/javaOO/objectcreation.html
+
+The correct answer is: public Integer number()throws NumberFormatException`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'Which of the following is an advantage of using inheritance?',
+        correctAnswerId: 'D',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'It increases reusability'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'We can access both super class content and sub class content at the same time'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'It increases the extensibility'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'All of these'
+            }
+        ],
+        codeString: ``,
+        answerExplanation: `Option D is the correct answer.
+
+Inheritance can also make application code more flexible to change because classes that inherit from a common superclass can be used interchangeably. If the return type of a method is superclass
+
+Reusability -- facility to use public methods of base class without rewriting the same
+
+Extensibility -- extending the base class logic as per business logic of the derived class
+
+Overriding-- With inheritance, we will be able to override the methods of the base class so that meaningful implementation of the base class method can be designed in the derived class.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
+
+The correct answer is: All of the above`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following can be inserted at line 10 to invoke the read method?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'stu.read();'
+            },
+            {
+                id: 'B',
+                markdown: '(Student)stu.read();'
+            },
+            {
+                id: 'C',
+                markdown: '(Student)(stu).read();'
+            },
+            {
+                id: 'D',
+                markdown: '((Student)stu).read();'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'None of these'
             },
         ],
-        codeString: ``,
-        answerExplanation: ``,
+        codeString: `       class Person{}
+        
+       class Student extends Person{
+                       public void read(){System.out.println("Reading");}
+       }
+                      
+       public class Whiz{
+                       public static void main(String [] args){
+                                       Person stu =  new Student();
+                                   //insert here
+                    }
+   } `,
+        answerExplanation: `Option D is the correct answer.
+
+At line 9, we have created a Student instance with reference Person, so it is impossible to invoke the read method using that reference directly even the actual object is Student compiler tries to find the read method of reference type. Hence, the option A is incorrect. Options B and C will do the same thing since the “.” operator has higher precedence if we use them then it will try to see the return value of the read method and tries to cast it which is illegal.
+
+Option D is correct since we have correctly cast the object to Student using correct order of parentheses.
+
+Reference  : http://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
+
+The correct answer is: ((Student)stu).read();`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following will produce the output “Cat” when inserted at line 5?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Cat(String s) { super();System.out.print(s); }\n' +
+                    'Cat(){ this("Cat"); }'
+            },
+            {
+                id: 'B',
+                markdown: 'Cat(String s) { super(null);System.out.print(s); }       \n' +
+                    'Cat(){ this("Cat"); }'
+            },
+            {
+                id: 'C',
+                markdown: 'Cat(String s) { super(“ ”);System.out.print(s); }\n' +
+                    'Cat(){ super("Cat"); }'
+            },
+            {
+                id: 'D',
+                markdown: 'Cat(String s) { super(null);System.out.print(“Cat”); }'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ` class Animal {
+           Animal(String s){ super(); }
+ }
+ class Cat extends Animal {
+           // insert code here
+ }
+ 
+ public class Whiz {
+          public static void main(String [] args) {
+                   Animal ab = new Cat();
+          }
+ }`,
+        answerExplanation: `Option B is the correct answer.
+
+Option B is correct as we have used the keyword “this” to invoke the “Cat(String s)” constructor. And the print statement in that constructor produces the expected output.
+
+Option A is incorrect as the superclass has only one constructor which can take String as the argument so calling “super()” with empty parameters causes a compile time error.
+
+Option C is incorrect as the expected output can only be achieved by invoking the “Cat(String s)” constructor so using super will skip the needed constructor and will invoke the super class constructor. Therefore, the expected output won’t produce.
+
+Option D will cause compile time error as we need to have “Cat()” constructor which doesn’t take any parameter as we used “new Cat()” at line 10.
+
+Reference : http://docs.oracle.com/javase/tutorial/java/javaOO/thiskey.html
+
+ 
+
+The correct answer is: Cat(String s) { super(null);System.out.print(s); }       
+Cat(){ this("Cat"); }`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'Which of the following statement is true?',
+        correctAnswerId: 'D',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'Abstract classes can contain default methods'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'Abstract classes can be final'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'Abstract classes do not have constructors'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'Abstract classes can’t be instantiated'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'None of these'
             },
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `Option D is the correct answer.
+
+Option A is incorrect as only interfaces can have default method.
+
+Option B is incorrect as abstract classes can’t be final, they meant to be extended and concreted, so if we could mark them final then there will be no way to concrete them.
+
+Option C is incorrect as every class abstract or not should have a constructor.
+
+Option D is correct, it is illegal to instantiate abstract classes.
+
+eference            :http://docs.oracle.com/javase/tutorial/java/IandI/usinginterface.html
+
+The correct answer is: Abstract classes can’t be instantiated`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: 'true true'
+            },
+            {
+                id: 'B',
+                markdown: 'false false'
+            },
+            {
+                id: 'C',
+                markdown: 'true false'
+            },
+            {
+                id: 'D',
+                markdown: 'An Exception'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `          interface I{
+                          default boolean equals(Object O){
+                                          return true;
+                          }
+          }
+                         
+          class A implements I{
+                          public boolean equals(Object O){
+                                          return false;
+                      }
+      }
+                     
+      public class Whiz{
+                      public static void main(String [] args){
+                                      A a =  new A();
+                                      I ia =  new A();
+                                      I i =  new I(){};
+                                     
+                                      System.out.println(a.equals(ia) + " " + i.equals(ia));
+                      }
+      }`,
+        answerExplanation: `Option E is the correct answer.
+
+ 
+
+From java se 8, we can have default and static non-abstract methods in interfaces but there are some rules, such a rule is we can’t override Object class methods using default method, it will result in a compile time error. Hence at line 2 trying to override equals method of the Object class results into a compile time error.
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/IandI/abstract.html
+
+ 
+
+The correct answer is: Compilation fails`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'IStatic'
+            },
+            {
+                id: 'B',
+                markdown: 'An exception is thrown'
+            },
+            {
+                id: 'C',
+                markdown: 'Compilation fails due to an error at line 2'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error at line 15'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors'
+            },
+        ],
+        codeString: `       interface I{
+                       public default void print(){
+                                       System.out.print("I");
+                       }
+                                      
+                       static void method(){
+                                       System.out.print("Static");
+                       }
+       }
+                  
+    
+                  
+   public class Whiz{
+                   public static void main(String [] args){
+                                   I i =  new I(){};                  
+                                   i.print();
+                                   I.method();
+                   }
+   }`,
+        answerExplanation: `Option A is the correct answer.
+
+From java se 8, we can have default and static non-abstract methods in interfaces but there are some rules. Both static and default methods in interfaces are public. At line 15, we have initialized an instance of type I. So, using it we can invoke the default method, which prints “I”. Then we can invoke the static method using the interface name or using the object reference, here we have to use Interface name to invoke its static method, which will print “Static”. Hence, option A is correct.
+
+Reference : http://docs.oracle.com/javase/tutorial/java/IandI/abstract.html
+
+The correct answer is: IStatic`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'Which of the following is a valid long literal?',
+        correctAnswerId: 'A',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: '0x99ffCl'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: '12'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: '12.8'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: '11.2l'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'None of these'
             },
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `Option A is the correct answer.
+
+Using L suffix will make literal long, as long as it is valid non-fraction number hence option D is incorrect. Also, we can use decimal, hexadecimal, octal or binary literals, so option A is correct.
+
+Option B is a valid integer literal but it can be assigned to long since long can store integers.
+
+REFERENCE   : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: 0x99ffCl`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'Which operator is used by Java run time implementations to free the memory of an object when it is no longer needed?',
+        correctAnswerId: 'E',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'delete'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'free'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'new'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'clear'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'None of these'
             },
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `Option E is the correct answer.
+
+Java handles deallocation of memory automatically, we do not need to explicitly clear an element. The GC only occurs during execution of the program. When no references to the object exist, that object is assumed to be no longer needed, and the memory occupied by the object can be reclaimed.
+
+REFERNCE                           : http://docs.oracle.com/javase/tutorial/java/javaOO/usingobject.html
+
+The correct answer is: None of the above   `,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: '31'
+            },
+            {
+                id: 'B',
+                markdown: '32'
+            },
+            {
+                id: 'C',
+                markdown: '34'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error on line 4'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to an error at line 5'
+            },
+        ],
+        codeString: `public class Whiz{
+               
+                static int x = 0b1;
+                static int y = 0xF;
+                static int z = 018;
+ 
+                public static void main(String args[]){   
+                               
+                                System.out.println(x+z+y);
+                }
+ 
+}`,
+        answerExplanation: `
+Option E is the correct answer.
+
+We can use various literal types for numeric type variables, i.e.
+
+                binary literal – 0b11
+
+Octal literal – 012
+
+Decimal literal – 11
+
+Hexadecimal literal – 0xff
+
+At line 5, we have used octal literal, for an octal literal, we can use only 0-7 digits, so using 8 will result in compile time error. Hence option E is correct.
+
+REFERNCE                           : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: Compilation fails due to an error at line 5`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'E',
+        options: [
+            {
+                id: 'A',
+                markdown: '6'
+            },
+            {
+                id: 'B',
+                markdown: '6.0'
+            },
+            {
+                id: 'C',
+                markdown: '3.0'
+            },
+            {
+                id: 'D',
+                markdown: 'An exception is thrown'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `class Whiz {
+    public static void main(String args[])  {
+                int array[] = {1,2,3};
+                double dbls[] = array;
+                double sum = 0;
+                for (int i = 0; i < array.length; ++i)
+                                sum += dbls[i];
+                System.out.println(sum);
+        }
+}`,
+        answerExplanation: `Option E is the correct answer.
+
+At line 3, we have defined an integer array. Then at line 4, we have tried to assign array at line 3 to double type array so code fails to compile. So, option E is correct.
+
+REFERNCE                           : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+                                                http://docs.oracle.com/javase/tutorial/java/javaOO/usingobject.html
+
+The correct answer is: Compilation fails`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'How many objects are eligible for GC when line 10 is reached?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '1'
+            },
+            {
+                id: 'B',
+                markdown: '2'
+            },
+            {
+                id: 'C',
+                markdown: '3'
+            },
+            {
+                id: 'D',
+                markdown: '4'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails'
+            },
+        ],
+        codeString: `class Wrap {
+         Double d = 10.0;
+         int x = 10;
+         int [ ] s = new int[10];
+}
+public class Whiz {
+         public static void main(String [] args){
+                  Wrap w =new Wrap();
+                  w = null;
+         }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+At line 8, we have created a wrap instance, in that wrapper, there are two objects, one is an array of ints and other is a Double. So, making w reference null will result in Wrap object unreachable and also its enclosing two objects. Hence, total three objects eligible for GC. Hence, option C is correct.
+
+REFERNCE                           : http://docs.oracle.com/javase/tutorial/java/javaOO/usingobject.html
+
+The correct answer is: 3`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following will compile successfully when inserted at line 4?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Print.p2();'
+            },
+            {
+                id: 'B',
+                markdown: 'p.p2(6);'
+            },
+            {
+                id: 'C',
+                markdown: 'System.out.print(p.print(6));'
+            },
+            {
+                id: 'D',
+                markdown: 'Print.print(3);'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: `class Program{
+                public static void main(String args[]){
+                                Print p = new Print();
+                                //insert here
+                }
+}
+ 
+class Print{
+                static void p2(int i){
+                                System.out.print(i*2);
+                }
+                void print(int i){
+                                System.out.print(i);
+                }
+}`,
+        answerExplanation: `Option B is correct.
+
+We can invoke a static method using a class name or via an instance of the class.  So, here option B is correct since we have used an object reference to invoke the p2 method by passing an integer as the argument.
+
+Option A is incorrect since the p2 method expects an integer as the argument.
+
+Option C is incorrect since print returns nothing so using it in printing statement is invalid.
+
+The print method is an instance method so we can’t invoke it using a class name. So, option D is incorrect.
+
+EXAM OBJECTIVE             : Working with Java Data Types - Know how to read or write to object fields
+
+REFERNCE                           : http://docs.oracle.com/javase/tutorial/java/javaOO/usingobject.html
+
+The correct answer is: p.p2(6);`,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following will print true?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: 'System.out.print((wi == d)); '
+            },
+            {
+                id: 'B',
+                markdown: 'System.out.print(d == i);'
+            },
+            {
+                id: 'C',
+                markdown: 'System.out.print(d.equals(i));'
+            },
+            {
+                id: 'D',
+                markdown: 'System.out.print(d.equals(wi));'
+            },
+            {
+                id: 'E',
+                markdown: 'System.out.print(wi.equals(d));'
+            },
+        ],
+        codeString: `Double d = 10.0;
+
+int i = 10;
+
+Integer wi = 10;`,
+        answerExplanation: `Option B is the correct answer.
+
+Option B is correct since it returns true. Comparison of Wrapper and primitive using “==” will unwrap the wrapper to primitive and compare, hence “d==I” return true.
+
+ 
+
+Option A is incorrect since it results in a compile-time error because we can’t use “==” with two different wrappers.
+
+ 
+
+Other options are incorrect since equals method of the wrapper will first check if the wrapper is of the same type, hence others will return false.
+
+REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: System.out.print(d == i);`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'Which of the following can be used to get the maximum possible value for an integer?',
+        correctAnswerId: 'B',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'Integer.max;'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'Integer.MAX_VALUE;'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'new Integer().max();'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'new Integer().MAX;'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'None of these'
             },
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `Option B is the correct answer.
+
+Integer wrapper as a static field called MAX_VALUE which represents the maximum value of Integer type can hold. Hence, option B is correct.
+
+REFERENCE        : https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html
+
+ 
+
+The correct answer is: Integer.MAX_VALUE;`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
-        explanation: '',
+        explanation: 'What will be the output of this program?',
         prompt: '',
-        correctAnswerId: '',
+        correctAnswerId: 'D',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'true false'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'false false'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'true true'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'Compilation fails due to an error at line 3'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'Compilation fails due to an error at line 7'
             },
         ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    }, {
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
+        codeString: `    class Whiz {
+              public static void main(String args[]) {
+                       Double d = 10;
+                       int i = 10;
+                       Integer wi = 10;
+                       System.out.print((wi == i) + " ");
+                       System.out.print(d == i);
+              }
+  }`,
+        answerExplanation: `Option D is the correct answer.
+
+While assigning literals to wrapper we need to assign wrapper or primitive in wrapper type since assignment can’t unwrap and then wide the literal. So, here at line 3, we have tried to assign an integer primitive literal to the Double wrapper which results in a compile time error. So, option D is correct.
+
+REFERENCE        : https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html
+
+The correct answer is: Compilation fails due to an error at line 3`,
         referenceImage: ''
     }, {
         questionComplexityIndex: 0,
