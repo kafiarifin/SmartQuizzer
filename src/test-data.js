@@ -19025,513 +19025,862 @@ The correct answer is: Square s = new Square();`,
         referenceImage: ''
     },{
         questionComplexityIndex: 0,
-        explanation: '',
+        explanation: 'What will be the output of this program?',
         prompt: '',
-        correctAnswerId: '',
+        correctAnswerId: 'B',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: '2'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: '4'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'Compilation fails due to an error at line 2.'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'Compilation fails due to an error at line 5.'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'Compilation fails due to multiple errors.'
+            },
+        ],
+        codeString: `public class WhizLab {
+    int _ = $;
+    static int $ = 2;
+    public static void main(String[] args) {
+        System.out.print($ + new WhizLab()._);
+    }
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+ 
+
+In given code, we have used _ and $ as field names. It is perfectly legal since we can use _ and $ for variable names and also can use them to start variable name. Hence, there is no compile-time error.
+
+ 
+
+However it is illegal to access non static variable in a static content, so at line 5 we created anonymous instance and then accessed instance variable _ so result will be 4 hence option B is correct.
+
+ 
+
+Reference            : http://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html
+
+The correct answer is: 4`,
+        referenceImage: ''
+    },{
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following is a valid statement about this interface?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: 'new Movable().s;'
+            },
+            {
+                id: 'B',
+                markdown: 'Movable.speed  = 10;'
+            },
+            {
+                id: 'C',
+                markdown: 'System.out.println(Movable.s);'
+            },
+            {
+                id: 'D',
+                markdown: 'Given interface is invalid.'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: `interface Movable{
+                static int speed = 12;
+                String s = "speed: ";
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+Interface variables are implicitly public, static and final. So, even we haven’t declared without them, they can be considered as implicitly public, static and final.
+
+Option A is incorrect since we can’t instantiate an interface.
+
+Option B is incorrect since we can’t change the value of final fields.
+
+Option C is correct since field is static we can refer it using class or interface name.
+
+REFERENCE                           : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+                                                    http://docs.oracle.com/javase/tutorial/java/javaOO/usingobject.html
+
+The correct answer is: System.out.println(Movable.s);`,
+        referenceImage: ''
+    },{
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: 'null'
+            },
+            {
+                id: 'B',
+                markdown: 'false'
+            },
+            {
+                id: 'C',
+                markdown: 'true'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error at line 10.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors.'
+            },
+        ],
+        codeString: `    public class Whizlab {
+          
+              static boolean b = false;
+                    
+                       public static void main(String args[]) {
+                                String str;
+                                                                                    
+                                 if (b = true) { str = "true"; }
+                                                    
+                                 str = b?str:"false";
+                                                 
+                                 System.out.println(str);
+                      }                                             
+      }`,
+        answerExplanation: `Option D is the correct answer.
+
+At line 6, we haven’t initialized the variable str. So, before using it, we need to initialize it somehow since local variable should initialize before using. If statement doesn’t guarantee that str gets initialized. Hence, the compiler complains that str might not be initialized when it tries to use str at line 10. so code fails to compile due to line 10. Hence, option D is correct.
+
+REFERENCE  :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
+The correct answer is: Compilation fails due to an error at line 10.`,
+        referenceImage: ''
+    },{
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '3'
+            },
+            {
+                id: 'B',
+                markdown: '11'
+            },
+            {
+                id: 'C',
+                markdown: '35'
+            },
+            {
+                id: 'D',
+                markdown: '36'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: `        public class Whizlab{
+                                    public static void main(String args[]){
+                                                    Integer x = 8;                                    
+                                                    System.out.println(x.SIZE +x.BYTES);
+                                    }                                             
+        }`,
+        answerExplanation: `Option D is correct.
+
+Integer wrapper class has following two constant fields;
+
+BYTES    : The number of bytes used to represent an int value in two's complement binary form.
+
+SIZE        : The number of bits used to represent an int value in two's complement binary form.
+
+We know that int has 32 bit, so Integer has 32 bit, and if we convert it to bytes then it would be 4, so summation at line 4 will print 36. Hence, option D is correct.
+
+REFERENCE        : https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html
+
+The correct answer is: 36`,
+        referenceImage: ''
+    },{
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following will create a valid Boolean object without auto-boxing?',
+        prompt: '',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Boolean b = Boolean.valueOf(true);'
+            },
+            {
+                id: 'B',
+                markdown: 'Boolean b = Boolean.parseBoolean("yes");'
+            },
+            {
+                id: 'C',
+                markdown: 'boolean b = Boolean.getBoolean("FALSE");'
+            },
+            {
+                id: 'D',
+                markdown: 'All of these'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
             },
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `Option A is correct.
+
+Here only the valueOf method returns a Boolean wrapper, while others return a boolean primitive, so before assigning autoboxing is occurred; so option A is correct.
+
+        public static boolean getBoolean(String name)
+
+Returns true if and only if the system property named by the argument exists and is equal to the string "true".
+
+       public static boolean parseBoolean(String s)
+
+Parses the string argument as a boolean. The boolean returned represents the value true if the string argument is not null and is equal, ignoring case, to the string "true".
+
+      Example: Boolean.parseBoolean("True") returns true.
+
+Example: Boolean.parseBoolean("yes") returns false.
+
+public static Boolean valueOf(boolean b)
+
+Returns a Boolean instance representing the specified boolean value.
+
+REFERENCE         : http://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html 
+
+The correct answer is: Boolean b = Boolean.valueOf(true);`,
         referenceImage: ''
     },{
         questionComplexityIndex: 0,
         explanation: '',
         prompt: '',
-        correctAnswerId: '',
+        correctAnswerId: 'B',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: '2013/2/SATURDAY'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: '2015/2/SATURDAY'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: '2015/2/21'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'An exception is thrown.'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'Compilation fails'
             },
         ],
-        codeString: ``,
-        answerExplanation: ``,
+        codeString: `import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
+public class Whiz {
+    public static void main(String[] args) {
+        LocalTime lt = LocalTime.of(12, 30);
+        LocalDate ld = LocalDate.of(2015, 2, 21);
+        LocalDateTime ldt = lt.atDate(ld);
+        ldt.minusYears(2);
+        ldt.minusDays(2);
+        System.out.println(ldt.getYear() + "/" + ldt.getMonthValue() + "/" + ldt.getDayOfWeek());
+    }
+}`,
+        answerExplanation: `Option B is correct.
+
+At line 7 we have created local time instance with value 12 hours and 30 minutes, then at line 8 we have created local date instance with 2015 as the year, 2 as the month and 21 as the day.
+
+At line 9 we have combined those two instance and get LocalDateTime instance. At lines 10 and 11 we have invoked various methods on LocalDateTimeinstance,butLocalDateTime are immutable, hence there won’t be any change of the LocalDateTime instance.
+
+At line 12, getyear will return 2015, and then getMonthValue will return the int value of the month which is 2, the getDayOfWeek method will return the day name, so option B is correct.
+
+Exam objective:Working with Selected classes from the Java API - Create and manipulate calendar data using classes from java.time.LocalDateTime, java.time.LocalDate, java.time.LocalTime, java.time.format.DateTimeFormatter, java.time.Period
+
+ORACLE REFERENCE        :https://docs.oracle.com/javase/8/docs/api/java/time/Period.html
+
+The correct answer is: 2015/2/SATURDAY`,
+        referenceImage: ''
+    },{
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'D',
+        options: [
+            {
+                id: 'A',
+                markdown: '5'
+            },
+            {
+                id: 'B',
+                markdown: '10'
+            },
+            {
+                id: 'C',
+                markdown: 'Compilation fails due to an error at line 2.'
+            },
+            {
+                id: 'D',
+                markdown: 'Compilation fails due to an error at line 5.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails due to multiple errors.'
+            },
+        ],
+        codeString: `       public class Whizlab{
+       int _ = $;
+       static int $ = 5;
+               public static void main(String[] args) {
+                               System.out.print($ +_);
+               }
+       }`,
+        answerExplanation: `Option D is the correct answer.
+
+ 
+
+In given code, we have used _ and $ as field names. It is perfectly legal since we can use _ and $ for variable names and also can use them to start variable name. Hence, there is no compile-time error because of line 2.
+
+ 
+
+However it is illegal to access a non-static variable in a static content, so at line 5 trying to access instance variable _ at line 5 result a compile-time error. So, option D is correct.
+
+ 
+
+Reference            :http://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html
+
+The correct answer is: Compilation fails due to an error at line 5.`,
+        referenceImage: ''
+    },{
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '[A, C, E, F] '
+            },
+            {
+                id: 'B',
+                markdown: '[A, B, C, F, E]'
+            },
+            {
+                id: 'C',
+                markdown: '[A, B, C, E, F]'
+            },
+            {
+                id: 'D',
+                markdown: 'An Exception is thrown.s'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `public class Whizlab {
+         public static void main(String[] args) {   
+                  java.util.List<String> list = new java.util.ArrayList<String>();
+                               
+                                list.add("A");
+                                list.add("C");
+                                list.add("E");
+                                list.add("D");
+                               
+                                list.add(1, "B");
+                                list.set(4, "F");
+ 
+                                System.out.println(list);
+         }
+}   `,
+        answerExplanation: `Option C is correct.
+
+There are few versions of add method, at line 10 we have used following version,
+
+ public void add(int index, E element)
+
+ This inserts the specified element at the specified position in this list. Shifts the element currently at that position (if any) and any subsequent elements to the right (adds one to their indices).
+
+So, here B will be added after A, and remain elements will be shifted accordingly.
+
+ At line 11, the set method will change the element of the given index position, so here D will be replaced by F, hence list will contain A, B, C, E, and F. Hence, option C is correct.
+
+Reference   : http://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
+
+The correct answer is: [A, B, C, E, F]`,
+        referenceImage: ''
+    },{
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '397'
+            },
+            {
+                id: 'B',
+                markdown: '396'
+            },
+            {
+                id: 'C',
+                markdown: '0'
+            },
+            {
+                id: 'D',
+                markdown: 'An Exception will be thrown.s'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `import java.time.Period;
+
+public class Whizlab {
+
+    public static void main(String[] args) {
+        Period p1 = Period.ofYears(1);
+        Period p2 = Period.of(0, 1, 0);
+        Period p3 = p1.plus(p2);
+        System.out.println(p3.getDays());
+    }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+Period models a quantity or amount of time in terms of years, months and days. The getDays method returns only the amount which is in the day portion of the Period. Here first we created Period with one year and then added 1 month to it, so at the end, period contained one year and one month but zero days, hence option C is correct.
+
+Reference : https://docs.oracle.com/javase/8/docs/api/java/time/Period.html
+
+The correct answer is: 0`,
+        referenceImage: ''
+    },{
+        questionComplexityIndex: 0,
+        explanation: 'Given scenario',
+        prompt: '',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'System.out.println(x==0?"0":x>0?">":"<"); '
+            },
+            {
+                id: 'B',
+                markdown: 'System.out.println(x==0?"0",x>0?">":"<");'
+            },
+            {
+                id: 'C',
+                markdown: 'System.out.println(x==0?"0",x>0?">","<");'
+            },
+            {
+                id: 'D',
+                markdown: 'System.out.println(x==0:"0"?x>0:">"?"<");'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: ` Value of the integer variable x is equal to 0 then “0” should be printed.
+Value of the integer variable x is greater than 0 then “>” should be printed.
+Value of the integer variable x is less than 0 then “<” should be printed.`,
+        answerExplanation: `Option A is the correct answer.
+
+The correct syntax of using the ternary operator is
+
+                [condition]?[statement to execute when true]:[statement to execute when false]
+
+Here according to given scenario we have to combine two turnery operators. First one is to check values is equal to zero then other one is to check greater than zero if first condition not meant. So in given syntax we have to use another turnery for the”[statement to execute when false]” part. Hence option A is correct.
+
+ORACLE REFERENCE        :https://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
+
+ 
+
+ 
+
+The correct answer is: System.out.println(x==0?"0":x>0?">":"<");`,
+        referenceImage: ''
+    },{
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'match'
+            },
+            {
+                id: 'B',
+                markdown: 'not match'
+            },
+            {
+                id: 'C',
+                markdown: 'Compiler error at line 7.'
+            },
+            {
+                id: 'D',
+                markdown: 'Compiler error at line 10.'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: `import java.util.function.*;
+public class Employee {
+    int id;
+    public static void main(String[] args) {
+        Employee e = new Employee();
+        e.id = 3;
+        check(e, p - > p.id < 10);
+    }
+    private static void check(Employee e, Predicate < Employee > pr) {
+        String result = pr.test(e) ? "match" : "not match";
+        System.out.print(result);
+    }
+}`,
+        answerExplanation: `Option A is the correct answer. 
+
+This code compiles successfully. Line 7 creates a lambda expression that checks if the "id" is less than 10. 
+Since there is only one parameter and it does not specify a type, the parentheses around the type parameter are optional in the lambda expression at line 7.
+
+Line 10 uses the Predicate interface, which has a test() method.
+p.id<10 => 3<10 => true, so test method returns true.
+The condition becomes true at line 10. So, "match" will be stored in the result.
+
+Hence, option A is correct.
+
+Reference : https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html
+                    http://www.whizlabs.com/blog/ocajp-8-lambda-expressions/
+
+ 
+
+ 
+
+The correct answer is: match`,
+        referenceImage: ''
+    },{
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following are the correct syntax to overload the method on line 4?\n' +
+            '(Choose three options.)',
+        prompt: '',
+        correctAnswerId: ['A', 'B', 'C'],
+        options: [
+            {
+                id: 'A',
+                markdown: 'public String greet() {//more codes}'
+            },
+            {
+                id: 'B',
+                markdown: 'public void greet() {String greeting,name;}'
+            },
+            {
+                id: 'C',
+                markdown: 'public void greet(Object greeting){}'
+            },
+            {
+                id: 'D',
+                markdown: 'private void greet(String greeting) {}'
+            },
+            {
+                id: 'E',
+                markdown: 'private String greet(String greet) {}'
+            },
+        ],
+        codeString: `…
+ public void greet(String greeting) {
+  /* more codes */
+ }
+…
+`,
+        answerExplanation: `Correct answers are options A, B, and C.
+
+Method overloading is determined by the number and type of the arguments and not by the return type or access or non-access modifiers.
+
+Options A, B, and C are correct because the argument is different in all these three methods.
+Option D is incorrect because the argument is the same. Changing the access modifier has no impact on overloading.
+Option E is also incorrect because the type and number of argument/s are the same. Changing the return type or the access modifier has no impact on overloading.
+
+References:
+http://docs.oracle.com/javase/tutorial/java/javaOO/methods.html
+
+
+The correct answers are: public String greet() {//more codes}, public void greet() {String greeting,name;}, public void greet(Object greeting){}`,
+        referenceImage: ''
+    },{
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'C',
+        options: [
+            {
+                id: 'A',
+                markdown: '1/3/2000'
+            },
+            {
+                id: 'B',
+                markdown: '01/03/2000'
+            },
+            {
+                id: 'C',
+                markdown: '01/3/2000'
+            },
+            {
+                id: 'D',
+                markdown: 'An Exception is thrown.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+
+public class Whizlab {
+    public static void main(String[] args) {
+        LocalDate ldt = LocalDate.of(2000, 3, 1);
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/M/yyyy");
+        System.out.println(ldt.format(format));
+    }
+}`,
+        answerExplanation: `Option C is the correct answer.
+
+In Java 8 this can be accomplished by using the format() and parse() methods. In above code, we used the ‘ofPattern’ method of the DateTimeFormatter to create custom formatter.
+
+public static DateTimeFormatter ofPattern(String pattern)
+
+This method creates a formatter using the specified pattern. This will create a formatter based on a simple pattern of letters and symbols as described in the class documentation. For example, d MMM uuuu will format 2011-12-03 as '3 Dec 2011'. In above code, we have used one ‘M’ so when there is one digit for the month only one digit will be displayed, hence option C is correct.
+
+For more information on letters that you can use please visit the given reference.
+
+Reference :  https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
+
+The correct answer is: 01/3/2000`,
+        referenceImage: ''
+    },{
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following formatting string can be used to format date string to following format?',
+        prompt: '',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'd MMM uuuu'
+            },
+            {
+                id: 'B',
+                markdown: 'dd M yy'
+            },
+            {
+                id: 'C',
+                markdown: 'dd MM uuuu'
+            },
+            {
+                id: 'D',
+                markdown: 'd MM yyyy'
+            },
+            {
+                id: 'E',
+                markdown: 'None of these'
+            },
+        ],
+        codeString: `25 Dec 2015`,
+        answerExplanation: `Option A is the correct answer.
+
+According to the given format, we need to have a day, a three letter month followed by a full year. So for that, we need to use
+
+uuuu -                year     (four u’s, we have to use since the year is in 4 digit format)    
+
+MMM –               to present a month in the three-letter format.
+
+d –                     for the day
+
+Hence, option A is correct.
+
+ 
+
+Reference : https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
+
+The correct answer is: d MMM uuuu`,
+        referenceImage: ''
+    },{
+        questionComplexityIndex: 0,
+        explanation: 'What will be the output of this program?',
+        prompt: '',
+        correctAnswerId: 'B',
+        options: [
+            {
+                id: 'A',
+                markdown: '2015-12-12'
+            },
+            {
+                id: 'B',
+                markdown: '2015-01-30'
+            },
+            {
+                id: 'C',
+                markdown: '2015-12-30'
+            },
+            {
+                id: 'D',
+                markdown: 'An Exception will be thrown.'
+            },
+            {
+                id: 'E',
+                markdown: 'Compilation fails.'
+            },
+        ],
+        codeString: `import java.time.LocalDate;
+import java.time.temporal.ChronoField;
+ 
+public class Whizlab{
+                  public static void main(String[] args) {
+                                LocalDate ld = LocalDate.of(2015, 12, 12);
+                                ld = ld.with(ChronoField.DAY_OF_YEAR,30);
+                                System.out.println(ld);
+                  }   
+}`,
+        answerExplanation: `Option B is the correct answer.
+
+With the method of the LocalDate class returns a copy of this date with the specified field set to a new value.
+
+public LocalDate with(TemporalField field, long newValue)
+
+So, here this will change the day to 30th day of the year so the month will also be changed since the 1/30 is the 30th day of the year result will be 2015-01-30; hence option B is correct.
+
+Reference            :https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html
+
+The correct answer is: 2015-01-30`,
         referenceImage: ''
     },{
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'What is the output?',
+        correctAnswerId: 'A',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: '122'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: '842'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: '2'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'An Exception.'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'Compilation fails.'
             },
         ],
-        codeString: ``,
-        answerExplanation: ``,
+        codeString: `import java.time.LocalTime;
+import java.time.temporal.ChronoField;
+ 
+public class Whizlab{
+                  public static void main(String[] args) {
+                                LocalTime lt = LocalTime.of(2,2,15);
+                                System.out.println(lt.getLong(ChronoField.valueOf("MINUTE_OF_DAY")));
+                  }   
+} `,
+        answerExplanation: `Option A is the correct answer.
+
+The getLong method of the LocalTime class returns the value of the specified field from this time as a long.
+
+                public long getLong(TemporalField field)
+
+This queries this time for the value of the specified field. If it is not possible to return the value, because the field is not supported or for some other reason, an exception is thrown.
+
+So in this case it will be 2 hours and 2 minutes form the day started. So it will be converted in to minutes and return hence option A is correct.
+
+Reference            :https://docs.oracle.com/javase/8/docs/api/java/time/LocalTime.html
+
+The correct answer is: 122`,
         referenceImage: ''
     },{
         questionComplexityIndex: 0,
-        explanation: '',
+        explanation: 'What will be the output of this program?',
         prompt: '',
-        correctAnswerId: '',
+        correctAnswerId: 'A',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: '4'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: '3'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: '-1'
             },
             {
                 id: 'D',
-                markdown: ''
+                markdown: 'An Exception is thrown.'
             },
             {
                 id: 'E',
-                markdown: ''
+                markdown: 'Compilation fails.'
             },
         ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    },{
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    },{
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    },{
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    },{
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    },{
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    },{
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    },{
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    },{
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    },{
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    },{
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    },{
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    },{
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
-        referenceImage: ''
-    },{
-        questionComplexityIndex: 0,
-        explanation: '',
-        prompt: '',
-        correctAnswerId: '',
-        options: [
-            {
-                id: 'A',
-                markdown: ''
-            },
-            {
-                id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
-        ],
-        codeString: ``,
-        answerExplanation: ``,
+        codeString: `import java.util.ArrayList;
+import java.util.List;
+ 
+public class Whizlab{
+               
+                public static void main(String[] args){   
+                                List<String> list = new ArrayList<String>();
+                                list.add(“1”);
+                                list.add(“2”);
+                                list.add(“3”);
+                                list.add(“4”);
+                               
+                                System.out.println(list.set(3,”3”));
+                }
+}`,
+        answerExplanation: `Option A is the correct answer.
+
+We have used ArrayList class set method at line 13,
+
+public E set(int index,    E element)
+
+This method replaces the element at the specified position in this list with the specified element and returns the element which is removed. So, in this case 4 will be returned since 4 is located in the position we are going to remove. So, option A is correct.
+
+Reference            :http://docs.oracle.com/javase/tutorial/collections/interfaces/List.html
+
+The correct answer is: 4`,
         referenceImage: ''
     }
 ];
