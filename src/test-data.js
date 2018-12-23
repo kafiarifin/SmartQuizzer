@@ -378,8 +378,8 @@ The correct answer is: Java Runtime Environment (JRE)`
     }, {
         questionComplexityIndex: 0,
         explanation: 'the following class in the file programs/mine/whiz/Fan.java:',
-        prompt: 'C',
-        correctAnswerId: 'Which of the following replaces INSERT CODE HERE if we compile from programs ( root folder ) ?',
+        prompt: 'Which of the following replaces INSERT CODE HERE if we compile from programs ( root folder ) ?',
+        correctAnswerId: 'C',
         options: [
             {
                 id: 'A',

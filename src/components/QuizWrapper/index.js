@@ -55,7 +55,7 @@ class QuizWrapper extends Component {
                 isMultiAnswer
             }
         } = this;
-        if (isMultiAnswer) {
+        if (isMultiAnswer && correctAnswerId.sort()) {
             if (correctAnswerId.sort().toString() === id.sort().toString()) {
                 questionObject.questionComplexityIndex = questionComplexityIndex + 0.5;
                 this.setState({
