@@ -15,7 +15,7 @@ export const QuestionExplanation = ({complete, isIncorrect, explanation, wrongAn
                 {wrongAnswer ? <div className="alert alert-danger" role="alert">Incorrect, Please Try Again</div> : null}
             </div>
             <div className="col-12 text-left">
-                <h6>Consider:</h6>
+                {/*<h6>Consider:</h6>*/}
             </div>
             <div className="col-12 text-left">
                 {/*<ReactMarkdown escapeHtml={false}*/}
