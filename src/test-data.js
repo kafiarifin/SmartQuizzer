@@ -154,11 +154,11 @@ The correct answers are: An object is eligible for GC when there is no reference
             },
         ],
         codeString: `public class Whiz {
-         public static void main(String [ ] a) {
-                 int [ ] a = {1,2,3};
-                 System.out.print(a[3]);
-         }
- }`,
+    public static void main(String[] a) {
+        int[] a = {1, 2, 3};
+        System.out.print(a[3]);
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
 
 Option E is correct as the code fails due to error on line 3 because the main method argument name and line 3 int array name are same. Trying to declare two variables with same name in same scope causes a compile time error.
@@ -322,17 +322,16 @@ The correct answer is: javac command compiles a .java file into a .class file.`
                 markdown: 'Compilation fails.'
             },
         ],
-        codeString: `
-       public class Whiz{
-                                      
-           public static void main(String[] args) {
-                       int x = 0;
-                       do{
-                                       int y = x++;
-                                       System.out.print(y);
-                       }while(y<5);
-           }
-   }`,
+        codeString: `public class Whiz {
+
+    public static void main(String[] args) {
+        int x = 0;
+        do {
+            int y = x++;
+            System.out.print(y);
+        } while (y < 5);
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
 
 Here inside the do block we have defined a variable called y and its scope limited to the do block only, since we try to access it out of that block inside while code results a compile time error, hence option E is correct.
@@ -474,15 +473,15 @@ The correct answer is: Default methods introduced in interfaces.`
                 markdown: 'Compilation fails due to multiple errors'
             },
         ],
-        codeString: `       public class Whiz{
-                       static int x = 9;
-                                      
-                       public static void main(String[] args) {
-                                       int x = 8;
-                                       for(;x>-1;x--)
-                                                       System.out.print(x);
-                       }
-        }`,
+        codeString: `public class Whiz {
+    static int x = 9;
+
+    public static void main(String[] args) {
+        int x = 8;
+        for (; x > -1; x--)
+            System.out.print(x);
+    }
+}`,
         answerExplanation: `Option B is the correct answer.
 
 When there are two variables declared with same name in two different scopes, the closest scope variable shadowed other variable. In this code at line 6, for loop use local variable at line 5 because it is closer to for loop at line 6 than the static variable at line 2.
@@ -525,14 +524,14 @@ The correct answer is: 876543210`
                 markdown: 'Compilation fails'
             },
         ],
-        codeString: `       public class Whiz{
-                                      
-           public static void main(String[] args) {
-        
-                                       for(int x = 3;x>-1;x--);
-                                                       System.out.print(x);
-                       }
-       }`,
+        codeString: `public class Whiz {
+
+    public static void main(String[] args) {
+
+        for (int x = 3; x > -1; x--) ;
+        System.out.print(x);
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
 
 The code fails to compile due to line 6. At line 5 we have ended the for loop by using semicolon so the variable scope of ‘x’ ends at line 5, and line 6 printing statement is not part of the for loop. Hence option E is correct.
@@ -567,11 +566,9 @@ The correct answer is: Compilation fails`
                 markdown: 'All'
             },
         ],
-        codeString: `   I.            We can use "#” symbol for single line comment in java.
-
-      II.            We can use “//” for multi line comments in java.
-
-    III.            We can use” /*”, “*/” for multi line comments in java.`,
+        codeString: `// I. We can use"#” symbol for single line comment in java.
+// II. We can use “//” for multi line comments in java.
+// III. We can use” /*”, “*/” for multi line comments in java.`,
         answerExplanation: `Option C is the correct answer.
 
 Statement I is incorrect since we can’t use “#” for any commenting purposes in java. But some other languages like PHP allow this.
@@ -659,18 +656,17 @@ The correct answer is: class If{}`
                 markdown: 'None of these'
             },
         ],
-        codeString: `   public class Whiz {
-            static
-                    {
-                       System.out.println("This java program will run without the main method");
-                       System.exit(0);
-                    }
-   }
-   Command line invocation:
-
-                javac Whiz.java
-
-                java Whiz`,
+        codeString: `public class Whiz {
+    static {
+        System.out.println("This java program will run without the main method");
+        System.exit(0);
+    }
+}
+//    Command line invocation:
+//
+//        javac Whiz.java
+//
+//        java Whiz`,
         answerExplanation: `Option E is the correct answer.
 
 In Java 6 or earlier version, JVM first loads the byte code into memory. Static blocks will be executed at the time of class loading and then looks for the main method. But there is System.exit(0) statement which terminates JVM.So you don't get any error with this program. 
@@ -708,15 +704,14 @@ The correct answer is: None of the above.`
                 markdown: 'Compilation fails due to multiple errors'
             }
         ],
-        codeString: `
-       import static java.lang.System.*;
-       public class Whiz{
-        
-                     public static void main(String[] args){
-                                     out.print("A");
-                     }
-                                    
-       }`,
+        codeString: `import static java.lang.System.*;
+public class Whiz{
+
+    public static void main(String[] args){
+        out.print("A");
+    }
+
+}`,
         answerExplanation: `Option A is the correct answer.
 
 Option A is correct as the “A” will produce as the output.
@@ -755,14 +750,14 @@ The correct answer is: A`
                 markdown: 'We should add “static import java.lang.Math;” statement before line 1 to make this code compile'
             },
         ],
-        codeString: `       public class Whiz {
-        
-                     public static void main(String[ ] args) {
-                                     System.out.print(PI);
-                     }
-                                    
-       }
-       // The java.lang package has a class called Math, and this class has static field called “PI”.`,
+        codeString: `public class Whiz {
+
+    public static void main(String[] args) {
+        System.out.print(PI);
+    }
+
+}
+// The java.lang package has a class called Math, and this class has static field called “PI”.`,
         answerExplanation: `Option C is the correct answer.
 
 We can use static keyword for importing only the static member of a class; in this case we have import the static field “PI” from java.lang.Math class.
@@ -895,16 +890,16 @@ The correct answer is: None of above`
                 markdown: 'Compilation fails due to error at line 5'
             },
         ],
-        codeString: `             public class Whiz{
-              
-                         public static void main(String args[]){
-                                         Integer i1 = Integer.decode("10");
-                                         Integer i2 = new Integer("20");
-                                         Integer i3 = Integer.valueOf("30");
-              
-                                         System.out.print(i1 + i2 + i3);
-                         }
-         }      `,
+        codeString: `public class Whiz {
+
+    public static void main(String args[]) {
+        Integer i1 = Integer.decode("10");
+        Integer i2 = new Integer("20");
+        Integer i3 = Integer.valueOf("30");
+
+        System.out.print(i1 + i2 + i3);
+    }
+}    `,
         answerExplanation: `Option B is the correct answer.
 
 There are few ways to create Integer wrapper. Following legal ways have used in above code correctly.
@@ -989,13 +984,13 @@ The correct answer is: double d1 = 1_22.7;`
             },
         ],
         codeString: `public class Whiz{
-                int y = 10;
-                public static void main(String[] args){   
-                                int y;
-                                final int x;
-                                 x = 10;
-                                System.out.print(x*y);
-                }
+    int y = 10;
+    public static void main(String[] args){
+        int y;
+        final int x;
+        x = 10;
+        System.out.print(x*y);
+    }
 }`,
         answerExplanation: `Option E is the correct answer.
 
@@ -1079,12 +1074,12 @@ The correct answer is: Boolean b3 = new Boolean("T");`
             }
         ],
         codeString: `class Whiz{
-                static Integer i;
-                public static void main(String args[]){
-                                Double j = 0.25;
-                                Double z = j +i;
-                                System.out.print(z);
-                }
+    static Integer i;
+    public static void main(String args[]){
+        Double j = 0.25;
+        Double z = j +i;
+        System.out.print(z);
+    }
 }`,
         answerExplanation: `Option C is the correct answer.
 
@@ -1194,13 +1189,13 @@ The correct answer is: When all references to an object are gone, the memory use
             },
         ],
         codeString: `public class Whiz{
-                public static void main(String[] args){   
-                                short s = 10;
-                                s += 10;
-                                s++;
-                                s = s+1;
-                                System.out.println(s);
-                }
+    public static void main(String[] args){
+        short s = 10;
+        s += 10;
+        s++;
+        s = s+1;
+        System.out.println(s);
+    }
 }`,
         answerExplanation: `Option D is the correct answer.
 
@@ -1331,10 +1326,9 @@ The correct answer is: 1.2D, 1f, ‘c’`
                 markdown: 'None'
             },
         ],
-        codeString: `                    I.            Reference variables can’t be declared as static.
-                  II.            Reference variables haven’t got default values
-                III.            String variables are examples of reference variables.
-`,
+        codeString: `// I. Reference variables can’t be declared as static.
+// II. Reference variables haven’t got default values
+// III. String variables are examples of reference variables.`,
         answerExplanation: `Option B is the correct answer.
 
 Statement I is incorrect since it is legal to declare static reference variables, static String class variable is a simple example for this.
@@ -1579,32 +1573,32 @@ The correct answer is: System.out.print(x++ + --i);`,
                 markdown: 'Compilation fails.'
             },
         ],
-        codeString: `  class Whiz {
+        codeString: `class Whiz {
 
-      public static void main(String args[]) {
-          final int x;
-          x = 0;
-          final int y = 2;
+    public static void main(String args[]) {
+        final int x;
+        x = 0;
+        final int y = 2;
 
-          int i = (int)(Math.random() * 4);
+        int i = (int)(Math.random() * 4);
 
-          switch (i) {
-              case x:
-                  {
-                      System.out.print("A");
-                  }
-                  break;
-              case 1:
-                  System.out.print("B");
-              case 4:
-                  System.out.print("D");
-                  break;
-              case y:
-                  System.out.print("C");
-          }
+        switch (i) {
+            case x:
+            {
+                System.out.print("A");
+            }
+            break;
+            case 1:
+                System.out.print("B");
+            case 4:
+                System.out.print("D");
+                break;
+            case y:
+                System.out.print("C");
+        }
 
-      }
-  }`,
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
 
 Option E is correct as this code fails to compile because the “case x”s “x” is not a compile time constant.
@@ -1682,16 +1676,16 @@ The correct answer is: A break sends execution immediately to the end of the swi
                 markdown: 'Compilation fails due to line 6.'
             },
         ],
-        codeString: `    public class Whizlab {
-        public static void main(String[] args) {
-            boolean f = true;
-            if (f = false) {
-                System.out.println("false");
-            } else if (f) {
-                System.out.println("true");
-            }
+        codeString: `public class Whizlab {
+    public static void main(String[] args) {
+        boolean f = true;
+        if (f = false) {
+            System.out.println("false");
+        } else if (f) {
+            System.out.println("true");
         }
-    }`,
+    }
+}`,
         answerExplanation: `Option C is the correct answer.
 
 One common mistake programmers make (and that can be difficult to spot), is assigning a boolean variable when you meant to test a boolean variable. Look out for code like the following:
@@ -1932,9 +1926,9 @@ The correct answer is: ==`,
 
     }
 }
- I.String name2 = "Rekha";
+// I.String name2 = "Rekha";
 
- II.String name2 = new String("Rekha");`,
+// II.String name2 = new String("Rekha");`,
         answerExplanation: `Option E is the correct answer.
 
 When creating Strings without using “new” keyword, compiler search for equal String literal in the String pool, if equal found then the reference will refer to it without creating new String. So in this case with statement I, new String won’t be created, so both “name1” and “name2” refer to same String object, therefore with statement I, we will have “true true” as result. So options B and C are incorrect.
@@ -1975,21 +1969,21 @@ The correct answer is: None of above`,
             },
         ],
         codeString: `public class Whiz {
-     public static void main(String[] args) {
-              String out = "0";
-               int x = 6, y = 6;
-    
-               if (x <= 6)
-                 if (y > 0)
-                   if(x > y)
-                      out += "1";
-                   else out += "2";
-                 else out += "3";
-               else out += "4";
+    public static void main(String[] args) {
+        String out = "0";
+        int x = 6, y = 6;
 
-              System.out.println(out);
-      }
- }     `,
+        if (x <= 6)
+            if (y > 0)
+                if (x > y)
+                    out += "1";
+                else out += "2";
+            else out += "3";
+        else out += "4";
+
+        System.out.println(out);
+    }
+}     `,
         answerExplanation: `Option B is the correct answer.
 
 This is badly organized code but still this code is legal. Remember when there is a nested if-else branching like in this code, “else” belongs to closest “if”. So here “else” at line 10 belongs to line 8 “if”, “else” at line 11 belongs to line 7 “if” and “else” at line 12 belongs to line 6 “if”.
@@ -2032,19 +2026,19 @@ The correct answer is: 02`,
             },
         ],
         codeString: `public class Whiz{
-                    
-                     public static void main(String[] args) {
-                    
-                                     String s = "AB";
-                                     String ss = "";
-                                     if (ss.length() != 0)
-                                                     ss += "C";
-                                                     ss += "D";
-                                                   s +=  ss;
-                                                 
-                                  System.out.println(s);
-                  }
-  }     `,
+
+    public static void main(String[] args) {
+
+        String s = "AB";
+        String ss = "";
+        if (ss.length() != 0)
+            ss += "C";
+        ss += "D";
+        s +=  ss;
+
+        System.out.println(s);
+    }
+}     `,
         answerExplanation: `Option C is the correct answer.
 
 The curly braces are optional if you have only one statement to execute within the body of the conditional block. If there are no curly braces only the next statement considers as the if block content.
@@ -2127,18 +2121,18 @@ The correct answer is: String result = marks<=50?"fail":"pass";`,
             },
         ],
         codeString: `class Whiz {
-            public static void main(String args[]) {
-                     final int x = 0;
-                     final int y = 2;
-                     int i = x;
-                     switch(i) {
-                            // insert code here
-                            case 1    : System.out.print("B");
-                            default : System.out.print("default"); break;
-                            case y    : System.out.print("C");
-                    }
-           }
-   }      `,
+    public static void main(String args[]) {
+        final int x = 0;
+        final int y = 2;
+        int i = x;
+        switch(i) {
+            // insert code here
+            case 1    : System.out.print("B");
+            default : System.out.print("default"); break;
+            case y    : System.out.print("C");
+        }
+    }
+}     `,
         answerExplanation: `Option D is the correct answer
 
 When using switch we need to remember two important things about cases
@@ -2186,11 +2180,11 @@ The correct answer is: case x-1                : {System.out.print("A");}`,
             },
         ],
         codeString: `public class Whiz {
-   static int i;
-   public static void main(String [ ] args) {
-               int array [ ] = new int [ ] {10,12,11};
-               System.out.print(array[i++]);
-   }
+    static int i;
+    public static void main(String [ ] args) {
+        int array [ ] = new int [ ] {10,12,11};
+        System.out.print(array[i++]);
+    }
 } `,
         answerExplanation: `Option B is the correct answer.
 
@@ -2234,16 +2228,16 @@ The correct answer is: The output will be 10`,
             },
         ],
         codeString: `public class Whiz{
-          
-           public static void main(String[] args) {
-                       int i = 2;
-                       char array[] = new char[i];
-                       array[0] = 65;
-                       array[1] = 66;
-                       array[2] = 67;
-                       System.out.print(array[2]);
-       }
-   }     `,
+
+    public static void main(String[] args) {
+        int i = 2;
+        char array[] = new char[i];
+        array[0] = 65;
+        array[1] = 66;
+        array[2] = 67;
+        System.out.print(array[2]);
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
 
 Option D is correct as at line 5, we created an array which can hold only 2 elements but we have tried to insert 3 elements to it. So it will cause an ArrayIndexOutOfBoundsException. 
@@ -2284,14 +2278,14 @@ The correct answer is: An Exception will be thrown at the runtime`,
             },
         ],
         codeString: `public class Whiz {
-          
-            public static void main(String[] args) {
-                      int i = 2;
-                      int array[ ][ ][ ] = {{{1,2},{3,4}},{{83,12,19},{26,51}},{{0},{10}}};
-                                      
-                     System.out.print(array[1][1][1]);
-           }
-   }  `,
+
+    public static void main(String[] args) {
+        int i = 2;
+        int array[][][] = {{{1, 2}, {3, 4}}, {{83, 12, 19}, {26, 51}}, {{0}, {10}}};
+
+        System.out.print(array[1][1][1]);
+    }
+}  `,
         answerExplanation: `Option C is the correct answer.
 
 At line 5, we have created a three dimensional array. Here we have used the shortcut syntax to create and initialize an array. It is equal to create and initialize an array using general way.
@@ -2336,21 +2330,21 @@ The correct answer is: The output will be 51.`,
             },
         ],
         codeString: `public class Whiz{
-          
-           public static void main(String[] args){
-                      
-                       int array[][] = new int[2][];
-                       array[0][0] = 0;
-                       array[0][1] = 1;
-                       array[0][2] = 2;
-                      
-                   array[1][0] = 0;
-                   array[1][1] = 10;
-                   array[1][2] = 20;               
-    
-                   System.out.print(array[1][1]);
-       }
-   }     `,
+
+    public static void main(String[] args){
+
+        int array[][] = new int[2][];
+        array[0][0] = 0;
+        array[0][1] = 1;
+        array[0][2] = 2;
+
+        array[1][0] = 0;
+        array[1][1] = 10;
+        array[1][2] = 20;
+
+        System.out.print(array[1][1]);
+    }
+}    `,
         answerExplanation: `Option C is the correct answer.
 
 Option C is correct as we have failed to create one dimensional array for “array[0]”, so there, we try to initialize array elements without creating the array. Therefore it will cause a NullPointerException.
@@ -2397,17 +2391,17 @@ The correct answer is: A NullPointerException is thrown at the runtime`,
             },
         ],
         codeString: `public class Whiz{
-                      
-                       public static void main(String[] args) {
-        
-                                       int array[][] = new int[2][];
-                                      
-                                       array[0] = new int[3];
-                                       array[1] = new int[2];
-                                      
-                                   System.out.print(array.length + array[1].length);
-                   }
-   }   `,
+
+    public static void main(String[] args) {
+
+        int array[][] = new int[2][];
+
+        array[0] = new int[3];
+        array[1] = new int[2];
+
+        System.out.print(array.length + array[1].length);
+    }
+}    `,
         answerExplanation: `Option B is the correct answer.
 
 At line 5 we have created a two dimensional array with number of rows 2, so array.length will return 2. Then at line 8 we have assigned one dimensional array of size 2 to second row, so array[1].length will return 2. So at line 10 printing statement will print 4 as the output hence option B is correct.
@@ -2444,15 +2438,15 @@ The correct answer is: 4`,
             },
         ],
         codeString: `import java.util.Arrays;
-        
+
 public class Whiz {
-                  
-       public static void main(String[] args) {
-                  
-                 int array[ ] = {2,5,9,5,0,3};
-                 Arrays.sort(array,2,6);
-                 System.out.print(array[2]+array[5]);
-        }
+
+    public static void main(String[] args) {
+
+        int array[ ] = {2,5,9,5,0,3};
+        Arrays.sort(array,2,6);
+        System.out.print(array[2]+array[5]);
+    }
 }       `,
         answerExplanation: `Option B is the correct answer.
 
@@ -2496,13 +2490,13 @@ The correct answer is: 9`,
             },
         ],
         codeString: `class Whizlab {
-                
-                 public static void main(String args[]){                   
-                                 int[] arr = {1,2,3};
-                                 arr = new int[6];
-                                 System.out.println(arr[2]);
-                 }
- }     `,
+
+    public static void main(String args[]){
+        int[] arr = {1,2,3};
+        arr = new int[6];
+        System.out.println(arr[2]);
+    }
+}     `,
         answerExplanation: `Option A is the correct answer.
 
 At line 4 we create an array of three elements. Then at line 5 we assign new array of size 6 to the same reference so previous array is dereferenced. Since the new array elements are not initialized they take default value of the integer hence option A is correct.
@@ -2539,15 +2533,15 @@ The correct answer is: 0`,
             },
         ],
         codeString: `public class Whizlab{
-           public static void main(String[] args) {
-                       long len = 8;
-                       int []ints = new int[len];
-        
-                       ints[8] = 10;
-                      
-                       System.out.print(ints[7] + ints[8]);
-           }
-   }      `,
+    public static void main(String[] args) {
+        long len = 8;
+        int []ints = new int[len];
+
+        ints[8] = 10;
+
+        System.out.print(ints[7] + ints[8]);
+    }
+}     `,
         answerExplanation: `Option E is the correct answer.
 
 Code fails as we have passed long value instead int as the size of array, which is illegal, so option E is correct.
@@ -2585,19 +2579,19 @@ The correct answer is: Compilation fails.`,
         ],
         codeString: `import java.util.ArrayList;
 import java.util.List;
- 
+
 public class Whiz {
-         public static void main(String [ ] args) {
-                   List<String>ints = new ArrayList<>();
-               
-                                ints.add("a");
-                                ints.add("b");  
-                                ints.add("c");
-                               
-                                while(!ints.isEmpty()){
-                                                System.out.print(ints.remove(0));
-                                }
-          }
+    public static void main(String [ ] args) {
+        List<String>ints = new ArrayList<>();
+
+        ints.add("a");
+        ints.add("b");
+        ints.add("c");
+
+        while(!ints.isEmpty()){
+            System.out.print(ints.remove(0));
+        }
+    }
 }`,
         answerExplanation: `Option B is the Correct answer
 
@@ -2635,18 +2629,18 @@ The correct answer is: abc`,
             },
         ],
         codeString: `public class Whiz {
-         public static void main(String [ ] args) {
-                   
-                      int ar[ ][ ] = {{1,0},{-4},{3,1}};
-                   
-                      f1: for(int[ ] a : ar) {
-                                 for (int x = 0; x < a.length; x++) {
-                                              if (a[x] < 0) break f1;
-                                                   System.out.print(a[x]);
-                                 }
-                     }
-          }
- }`,
+    public static void main(String [ ] args) {
+
+        int ar[ ][ ] = {{1,0},{-4},{3,1}};
+
+        f1: for(int[ ] a : ar) {
+            for (int x = 0; x < a.length; x++) {
+                if (a[x] < 0) break f1;
+                System.out.print(a[x]);
+            }
+        }
+    }
+}`,
         answerExplanation: `Option A is the correct answer.
 
 Here we have a nested loop. Outer loop has a label named “f1” so when using break or continue we can refer which loop to choose using loop label. At line 8 we have if which checks whether the current number is negative, if condition met then it will break the outer loop which causes stopping of outer and inner loops. So here only 1 and 0 will be printed. So option A is correct.
@@ -2681,13 +2675,13 @@ The correct answer is: 10`,
             }
         ],
         codeString: `class Whiz {
-          public static void main(String [ ] args) {
-                   for (int x = 10; x>5; x++) {
-                             if (x == 16) x -= 11;
-                                      System.out.print(x + " ");
-                   }
-         }
- }`,
+    public static void main(String [ ] args) {
+        for (int x = 10; x>5; x++) {
+            if (x == 16) x -= 11;
+            System.out.print(x + " ");
+        }
+    }
+}`,
         answerExplanation: `Option C is the correct answer.
 
 Option C is correct, first code will produce 10 11 12 13 14 15 and then when x= 16 the value of x will change to 5 so again loop will start from 6. This process will repeat and creates an endless loop.
@@ -2770,18 +2764,18 @@ The correct answers are: The "switch" statement allows for any number of possibl
             },
         ],
         codeString: `public class Whizlab{
-               
-                public static void main(String[] args) {                  
-                                int x = 10;
-                                while(x>0) {
-                                                do {
-                                                                x -= 2;
-                                                } while (x>3);
-                                                x--;
-                                                System.out.print(x);
-                                }
-                }
-               
+
+    public static void main(String[] args) {
+        int x = 10;
+        while(x>0) {
+            do {
+                x -= 2;
+            } while (x>3);
+            x--;
+            System.out.print(x);
+        }
+    }
+
 }`,
         answerExplanation: `Option C is the correct answer.
 
@@ -2855,15 +2849,15 @@ The correct answer is: for`,
             },
         ],
         codeString: `class Whizlab {
-           public static void main(String[] args) {
-                    byte i = 1, j = 1;
-                    while (i == 3 && j < 5) {
-                                System.out.print (i +" "+j+" ");
-                                 i++;
-                                 j += 2;
-                     }
-          }
- }`,
+    public static void main(String[] args) {
+        byte i = 1, j = 1;
+        while (i == 3 && j < 5) {
+            System.out.print (i +" "+j+" ");
+            i++;
+            j += 2;
+        }
+    }
+}`,
         answerExplanation: `Option C is the correct answer.
 
 The condition in while loop (i ==3 && j < 5) fails in the first attempt, so there is no output. The whole expression fails because i == 3 fails, the initial condition is (1==3) is false. Then the interpreter will not check the second condition.
@@ -2900,14 +2894,14 @@ The correct answer is: No output`,
             },
         ],
         codeString: `class Whizlab{
-             public static void main(String[] args){
-                       int i = 10;
-                       while (false) {
-                                i = 20;
-                               System.out.println(i);
-                       }
-             }
-   }`,
+    public static void main(String[] args){
+        int i = 10;
+        while (false) {
+            i = 20;
+            System.out.println(i);
+        }
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
 
 The compiler complains “error: unreachable statement” at line 4. All statements inside while loop will never execute. So the answer will be option E.
@@ -2986,13 +2980,13 @@ The correct answer is: We can use return to return a value from a method.`,
             },
         ],
         codeString: `public class Whiz {
-         public static void main(String [ ] args) {
-                  int x = 0;
-                  while ((x = 0) <= 1) {
-                             System.out.print(x);
-                             x++;
-                  }
-         }
+    public static void main(String [ ] args) {
+        int x = 0;
+        while ((x = 0) <= 1) {
+            System.out.print(x);
+            x++;
+        }
+    }
 }`,
         answerExplanation: `Option D is the correct answer.
 
@@ -3030,13 +3024,13 @@ The correct answer is: 0 will be print endlessly.`,
             },
         ],
         codeString: `public class Whiz {
-                               
-         public static void main(String [ ] args) {
-                   int x = 0;
-                   for (; x < 5; x += 3) {
-                             System.out.print(x);
-                   }
-         }
+
+    public static void main(String [ ] args) {
+        int x = 0;
+        for (; x < 5; x += 3) {
+            System.out.print(x);
+        }
+    }
 }`,
         answerExplanation: `Option C is the correct answer.
 
@@ -3090,12 +3084,12 @@ The correct answer is: 03`,
             },
         ],
         codeString: `public class Whiz {
-         public static void main(String [ ] args) {
-                  int ar [ ][ ] = {{1,11},{1},{1,11}};
-                  for (int x = 0; x < ar.length; x++) {
-                                //insert code here
-                  }
-         }
+    public static void main(String [ ] args) {
+        int ar [ ][ ] = {{1,11},{1},{1,11}};
+        for (int x = 0; x < ar.length; x++) {
+            //insert code here
+        }
+    }
 }`,
         answerExplanation: `Option C is the correct answer.
 
@@ -3137,12 +3131,12 @@ The correct answer is: for (int y : ar[x]) System.out.print(y);`,
             },
         ],
         codeString: `public class Whiz {
-         public static void main(String [ ] args) {
-                  int x = 0;
-                  do {
-                                System.out.println(x);
-                  }while(x++ > 0);
-         }
+    public static void main(String[] args) {
+        int x = 0;
+        do {
+            System.out.println(x);
+        } while (x++ > 0);
+    }
 }`,
         answerExplanation: `Option A is the correct answer.
 
@@ -3216,14 +3210,14 @@ The correct answer is: do-while`,
             },
         ],
         codeString: `public class Whiz {
-    public static void main(String [ ] args) {
-                int x = 0;
-                do{
-                                System.out.print(x);
-                }while(x++ < 2);
-               
-                for(x = 0;x++<2;) System.out.print(x);
-     }
+    public static void main(String[] args) {
+        int x = 0;
+        do {
+            System.out.print(x);
+        } while (x++ < 2);
+
+        for (x = 0; x++ < 2; ) System.out.print(x);
+    }
 }`,
         answerExplanation: `Option D is the correct answer.
 
@@ -3305,13 +3299,13 @@ The correct answer is: iteration`,
             },
         ],
         codeString: `public class Whiz {
-             public static void main(String [ ] args) {
-                       for (int x = 1; x < 10; x++) {
-                                    //insert here
-                                    System.out.print(x);
-                        }
-              }
-      }     `,
+    public static void main(String[] args) {
+        for (int x = 1; x < 10; x++) {
+            //insert here
+            System.out.print(x);
+        }
+    }
+}     `,
         answerExplanation: `Option C is the correct answer.
 
 According the given requirement either we need to skip printing odd numbers or print only the even numbers. So if we choose first way, which is to skip printing which are not even, while not ending the for loop iteration. So at line 4 we can use continue statement to stop executing next statements and skip to next iteration. So option C is correct since it skips printing statement when the number is odd.
@@ -3348,16 +3342,16 @@ The correct answer is: if (x % 2 == 1) continue;`,
             },
         ],
         codeString: `class Whiz {
-        
-             public static void main(String args[]) {
-                       Integer in = 10;
-                       System.out.print( method(in) );              
-             }
-                      
-             // insert here
-                      return c.toString();
-             }
-   }`,
+
+    public static void main(String args[]) {
+        Integer in = 10;
+        System.out.print(method(in));
+    }
+
+    // insert here
+        return c.toString();
+    }
+}`,
         answerExplanation: `Option A is the correct answer.
 
 According to the method call on line 5, we could assume following things about the method we are trying to invoke;
@@ -3604,19 +3598,19 @@ The correct answer is: A static nested class is behaviorally a top-level class. 
                 markdown: 'public char aval(){'
             },
         ],
-        codeString: ` class Ex1 {
+        codeString: `class Ex1 {
 
-     public static void main(String args[]) {
-         char c = 'A'; //ASCII value of 'A'is 65.
-         System.out.print(aval(c));
-     }
+    public static void main(String args[]) {
+        char c = 'A'; //ASCII value of 'A'is 65.
+        System.out.print(aval(c));
+    }
 
-     //here
-         int x = c;
-         return x;
-     }
+    //here
+        int x = c;
+        return x;
+    }
 
- }`,
+}`,
         answerExplanation: `Option A is the correct answer.
 
 According to the method call on line 5, we could assume following things about the method we are trying to invoke-
@@ -3668,21 +3662,21 @@ The correct answer is: private static int aval(char c){`,
             },
         ],
         codeString: `public class Whiz{
- 
-                public static void main(String args[]){
-                                int []ary = {1,2,3};
-                                change(ary[2]);
-                                change(ary);
-                                System.out.println(ary[1]+ary[2]);
-                }
- 
-                public static void change(int x){
-                                x = 1;
-                }
-               
-                public static void change(int x[]){
-                                x[1] = 0;
-                }
+
+    public static void main(String args[]){
+        int []ary = {1,2,3};
+        change(ary[2]);
+        change(ary);
+        System.out.println(ary[1]+ary[2]);
+    }
+
+    public static void change(int x){
+        x = 1;
+    }
+
+    public static void change(int x[]){
+        x[1] = 0;
+    }
 }`,
         answerExplanation: `Option B is the correct answer.
 
@@ -3731,11 +3725,10 @@ The correct answer is: 3`,
         return i;
     }
 }
-I.  This code has correctly implemented the encapsulation principals.
 
-II. This “getI” method at line 7, has correctly implemented the encapsulation principals but not the variables.
-
-III. Variables in this code have correctly implemented the encapsulation principals but not the “getI” method.`,
+// I.  This code has correctly implemented the encapsulation principals.
+// II. This “getI” method at line 7, has correctly implemented the encapsulation principals but not the variables.
+// III. Variables in this code have correctly implemented the encapsulation principals but not the “getI” method.`,
         answerExplanation: `Option E is the correct answer.
 
 Statement I and III are incorrect as both methods and variables in this class doesn’t implement the encapsulation principals. Here all variables are declared as public which allows anyone to modify variables without using methods and also methods have declared to be private which should have declared as public.
@@ -4294,23 +4287,23 @@ The correct answer is: Code compiles and prints true`,
             },
         ],
         codeString: `public class Whiz {
-          public static void main(String[] args) {   
-                   I i = new I() { };   
-                  System.out.println(I.x + i.getValue() +""+ i);
-          }
- } 
-        
- interface I {
-          int x = 10;
-                  
-          public default int getValue() {
-                   return 5;
-          }
-                  
-          public default String toString() {
-                   return "I";
-          }             
- }`,
+    public static void main(String[] args) {
+        I i = new I() { };
+        System.out.println(I.x + i.getValue() +""+ i);
+    }
+}
+
+interface I {
+    int x = 10;
+
+    public default int getValue() {
+        return 5;
+    }
+
+    public default String toString() {
+        return "I";
+    }
+}`,
         answerExplanation: `Option D is the correct answer
 
 From Java SE 8, we are allowed to have non-abstract default and static methods but there are some limitations. Such limitation is that we cannot override methods of Objects class. So the code fails to compile due to line 15 since toString is Object class method. Hence option D is correct.
@@ -4645,22 +4638,22 @@ The correct answer is: Compilation fails due to error on line 16.`,
             }
         ],
         codeString: `class Bird extends Animal {
-        public void print(){ System.out.print("Bird"); }
-        void fly(){ System.out.print("Bird flies");   }
+    public void print(){ System.out.print("Bird"); }
+    void fly(){ System.out.print("Bird flies");   }
 }
-    
+
 class Animal {
-       public void print(){ System.out.print("Animal"); }
+    public void print(){ System.out.print("Animal"); }
 }
-    
+
 class Whiz {
-  
-         public static void main(String []args) {
-                  Animal b = new Bird();
-                  b.print();
-                  b.fly();
-         }
-} `,
+
+    public static void main(String []args) {
+        Animal b = new Bird();
+        b.print();
+        b.fly();
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
 
 Option D is correct as the code fails to compile. At line 15, we have tried to invoke the “fly()” method of the “Bird” class but it causes a compile time error because the reference type of the object is “Animal” and there is no such a method declared inside the Animal class.
@@ -4706,7 +4699,7 @@ The correct answer is: Compilation fails`,
 
 class A implements I {
     void A(String s) {}
-    
+
     public void meth() {
         System.out.print("A");
     }
@@ -4950,8 +4943,8 @@ The correct answer is: Checked Exceptions must be handled or declared to be thro
             },
         ],
         codeString: `public void method() _______ Exception {
-                     _____________ Exception();
-    }`,
+    _____________ Exception();
+}`,
         answerExplanation: `Option E is the correct answer.
 
 In a method declaration, the keyword throws is used. To actually throw an exception, the keyword throw is used and a new exception is created. So line 1 should be "public void method() throws Exception {" while line 2 should be "throw new Exception();". Hence option E is correct.
@@ -5088,13 +5081,13 @@ The correct answer is: Compilation fails.`,
                 markdown: 'catch (NullPointerException || ArithmeticException e){ /*codes */}'
             },
         ],
-        codeString: `catch (NullPointerException e){
+        codeString: `catch(NullPointerException e){
 
-                //codes               
+    // codes
 
 }catch(ArithmeticException ex){
 
-                //codes
+    // codes
 
 }`,
         answerExplanation: `Option B is the correct answer.
@@ -5244,13 +5237,13 @@ The correct answer is: ABC`,
                 markdown: 'All'
             },
         ],
-        codeString: `I.        Java.lang.Exception class has only 4 constructors.
+        codeString: `// I. Java.lang.Exception class has only 4 constructors.
 
-II.       One constructor of Java.lang.Exception takes a String as the parameter.
+// II. One constructor of Java.lang.Exception takes a String as the parameter.
 
-III.      If we invoke the “Exception()” constructor of the Java.lang.Exception class, we can Construct a new exception with the specified detail message.
+// III. If we invoke the “Exception()” constructor of the Java.lang.Exception class, we can Construct a new exception with the specified detail message.
 
-IV.      If we invoke the “Exception(String message)” constructor of the Java.lang.Exception class, we can Construct a new exception with the specified detail message.`,
+// IV. If we invoke the “Exception(String message)” constructor of the Java.lang.Exception class, we can Construct a new exception with the specified detail message.`,
         answerExplanation: `Option E is the correct answer.
 
 In java.lang.Exception class, there are 5 constructors, you can go to following url to see what they are: 
@@ -6307,10 +6300,10 @@ The correct answer is: All of above.`,
             },
         ],
         codeString: `public class Whiz {
-         public static void main(String [ ] args) {
-                  String s = String.join("-", "1", "1");
-                  System.out.println(s);
-         }
+    public static void main(String [ ] args) {
+        String s = String.join("-", "1", "1");
+        System.out.println(s);
+    }
 }`,
         answerExplanation: `Option A is the correct answer
 
@@ -6632,12 +6625,12 @@ The correct answer is:  chars[chars.length-1];`,
             },
         ],
         codeString: `class Program {
-                public static void main(String [ ] args) {
-                 int a [ ] = { 1,2,053,4};
-                 int b [ ][ ] = { {1,2,4} , {2,2,1},{0,43,2}};
-                 System.out.print(a[3] == b[0][2] );
-                 System.out.print(" " + (a[2] == b[2][1]));
-                }
+    public static void main(String [ ] args) {
+        int a [ ] = { 1,2,053,4};
+        int b [ ][ ] = { {1,2,4} , {2,2,1},{0,43,2}};
+        System.out.print(a[3] == b[0][2] );
+        System.out.print(" " + (a[2] == b[2][1]));
+    }
 }`,
         answerExplanation: `Option D is the correct answer.
 
@@ -6677,13 +6670,13 @@ The correct answer is: true true`,
             },
         ],
         codeString: `class Program {
-                public static void main(String [ ] args) {
-                                 int ints [ ][ ] = new int[3][ ];
-                                 ints[1] = new int[ ]{1,2,3};
-                                 ints[2] = new int[ ]{4,5};
-                                 System.out.print(ints[1][1]);
-                }
- }`,
+    public static void main(String [ ] args) {
+        int ints [ ][ ] = new int[3][ ];
+        ints[1] = new int[ ]{1,2,3};
+        ints[2] = new int[ ]{4,5};
+        System.out.print(ints[1][1]);
+    }
+}`,
         answerExplanation: `Option A is the correct answer.
 
 We can use several steps to complete the creation of multi-dimensional array using anonymous arrays. We have assigned 2 one-dimensional int arrays to the two-dimensional array ints. So, the code compiles properly and produces the output 2. So, the answer A is correct while B and C are incorrect.
@@ -6720,15 +6713,15 @@ The correct answer is: 2`,
             },
         ],
         codeString: `public class Program {
-           public static void main(String [ ] args) {
-        
-                       int []ints = new int[0b101];
-                       int len = ints.length;
-                      
-                       for(int i : ints)
-                       System.out.print(i);
-           }
-   }`,
+    public static void main(String [ ] args) {
+
+        int []ints = new int[0b101];
+        int len = ints.length;
+
+        for(int i : ints)
+            System.out.print(i);
+    }
+}`,
         answerExplanation: `Option A is the correct answer.
 
 Option A is correct as when we create an array, elements of the array are initialized to default values. Since the default value of int is zero, all elements will be 0 here. At line 4, while initializing the array, we have passed binary literal which is perfectly legal. Passed binary value is 5 in decimal; so, the array will store 5 elements and the output will contain 5 zeros i.e. 00000.
@@ -6764,26 +6757,26 @@ The correct answer is: 00000`,
                 markdown: 'An ArrayIndexOutOfBoundsException is thrown.'
             },
         ],
-        codeString: ` public class Program {
-     public static void main(String[] args) {
-         String[][] strings = {
-             {
-                 "1",
-                 "0"
-             },
-             {
-                 "Z",
-                 "8",
-                 "1"
-             },
-             {
-                 "-"
-             }
-         };
-         System.out.print(strings[0][0] + strings[1][0] + strings[0][1] +
-             strings[2][0] + strings[1][1] + strings[1][2] + strings[0][1]);
-     }
- }c`,
+        codeString: `public class Program {
+    public static void main(String[] args) {
+        String[][] strings = {
+            {
+                    "1",
+                    "0"
+            },
+            {
+                    "Z",
+                    "8",
+                    "1"
+            },
+            {
+                    "-"
+            }
+        };
+        System.out.print(strings[0][0] + strings[1][0] + strings[0][1] +
+                strings[2][0] + strings[1][1] + strings[1][2] + strings[0][1]);
+    }
+}`,
         answerExplanation: `Option B is the correct answer. 
 
 Here, we have two-dimensional array, and each index of array refers to strings as follows;
@@ -6839,16 +6832,16 @@ public class Program {
     public static void main(String[] args) {
         String[][] strings = {
             {
-                "A",
-                "Z"
+                    "A",
+                    "Z"
             },
             {
-                "C",
-                "D",
-                "S"
+                    "C",
+                    "D",
+                    "S"
             },
             {
-                "L"
+                    "L"
             }
         };
         Arrays.sort(strings);
@@ -7144,12 +7137,12 @@ The correct answer is: IllegalArgumentException`,
             },
         ],
         codeString: `public class Program {
-              public static void main(String [ ] args) {
-                        Object obj = new Double(3);
-                         Number num = (Number) obj;
-                         System.out.println(num);
-              }
-    }`,
+    public static void main(String [ ] args) {
+        Object obj = new Double(3);
+        Number num = (Number) obj;
+        System.out.println(num);
+    }
+}`,
         answerExplanation: `Option A is the correct answer.
 
 At line 4, class cast exception will not be thrown since the Number is a superclass of wrappers.  So, casting will occur without any issue. So, option A is correct.
@@ -7405,16 +7398,16 @@ The correct answer is: Compilation fails.`,
             },
         ],
         codeString: `public class Whiz {
-               
-         static int x = 10;
-               
-         public static void main(String args [ ]) {
-                  for ( x = 1; x < 3; x++ ) {
-                          System.out.print(x);
-                  }             
-                  System.out.println(x);
-          }
- }             `,
+
+    static int x = 10;
+
+    public static void main(String args [ ]) {
+        for ( x = 1; x < 3; x++ ) {
+            System.out.print(x);
+        }
+        System.out.println(x);
+    }
+}             `,
         answerExplanation: `Option C is the correct answer.
 
 In for loop at line 6, we have used the static variable x in the for loop. In the for loop, we have changed the value of variable x to 1. So, it will print integers from 1 to 2 in for loop. Finally, once x reaches to value 3, for loop will end. So, when it reaches to line 9, the value of the variable x is 3,  and the output is 123.
@@ -7664,16 +7657,15 @@ The correct answer is: All of the above.`,
             },
         ],
         codeString: `public class Whiz {
-               
-         public static void main(String [ ] args) {                  
-                  for ( int x = 9; x > 0; x--) {                              
-                          for (int y = 8; x > y; y++ )  {                                                                                  
-                                       System.out.print(x+y);
-                          }             
-                  }             
+
+    public static void main(String [ ] args) {
+        for ( int x = 9; x > 0; x--) {
+            for (int y = 8; x > y; y++ )  {
+                System.out.print(x+y);
+            }
         }
-               
- }`,
+    }
+}`,
         answerExplanation: `Option A is the correct answer.
 
 For loop at line 4, start with x value 9 and iterate till the value of x reaches to 0, in each iteration inner for loop, will start from, and iterate till the value of x is greater than y. In first iteration value of the x will be 9, so it will pass the for loop condition and print 17, but then it will stop iterating. Since incrementing will make inner for loop condition false. In next iterations, only the outer for loop will iterate since for each iteration value of the variable y is greater than x. So option A is correct.
@@ -7760,20 +7752,20 @@ The correct answer is: None of the above.`,
             },
         ],
         codeString: `public class Whiz {
-               
-          static String o = "";
-               
-          public static void main(String [ ] args) {  
-                               
-                   z: for (int x = 3; x < 8; x++) {                        
-                           if (x == 4)
-                               continue;
-                           if (x == 4)
-                                break z;
-                                o += x;
-                    }
-                    System.out.println(o);
-           }
+
+    static String o = "";
+
+    public static void main(String [ ] args) {
+
+        z: for (int x = 3; x < 8; x++) {
+            if (x == 4)
+                continue;
+            if (x == 4)
+                break z;
+            o += x;
+        }
+        System.out.println(o);
+    }
 }`,
         answerExplanation: `Option B is the correct answer.
 
@@ -7817,18 +7809,18 @@ The correct answer is: 3567`,
             },
         ],
         codeString: `public class Whiz {
-               
-          static int x = 1;
-            
-          public static void main(String args [ ]) { 
-                   int[ ] nums = {0,1,2,3,4};
-                   for(int x : nums) {
-                          System.out.print(x);
-                          continue;
-                          System.out.print(x + Whiz.x);
-                   }
-          }
- }`,
+
+    static int x = 1;
+
+    public static void main(String args [ ]) {
+        int[ ] nums = {0,1,2,3,4};
+        for(int x : nums) {
+            System.out.print(x);
+            continue;
+            System.out.print(x + Whiz.x);
+        }
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
 
 We have declared three statements Inside enhanced for loop. Between two print statements, we have declared a  continue statement, due to that the compiler can never reach the statement at line 10. So, compiler complains as follows
@@ -7872,19 +7864,18 @@ The correct answer is: Compilation fails due to error at line 10.`,
             },
         ],
         codeString: `public class Whiz {
-               
-         public static void main(String [ ] args) {                  
-                  int x = 20;
-                  while( x > 0 ) {
-                          do {
-                                   x -= 2;
-                          } while ( x > 5 );
-                          x--;
-                          System.out.print(x);
-                   }
-         }
-               
- }`,
+
+    public static void main(String [ ] args) {
+        int x = 20;
+        while( x > 0 ) {
+            do {
+                x -= 2;
+            } while ( x > 5 );
+            x--;
+            System.out.print(x);
+        }
+    }
+}`,
         answerExplanation: `Option B is the correct answer.
 
 When this loop executes for the first time, the inner loop repeats until the value of x is 4. The value will then be decremented to 3 and that will be the output at the end of the first iteration of the outer loop. On the second iteration of the outer loop, the inner do-while will be executed once, even though x is already not greater than 5. As you may recall, do-while statements always execute the body at least once. This will reduce the value to 1, which will be further lowered by the decrement operator in the outer loop to 0. Once the value reaches 0, the outer loop will terminate. So, the output is 30. Because "print" method  prints values in the same line, output looks like thirty. It is actually three zero.Hence, option B is correct.
@@ -7923,16 +7914,16 @@ The correct answer is: 30`,
             },
         ],
         codeString: `public class Whiz {
-               
-         public static void main(String [ ] args) {                  
-                               
-                   do{
-                             int i = 1;
-                            System.out.print(i++ + "");
-                   } while(i <= 5);
-        }
-               
- }`,
+
+    public static void main(String [ ] args) {
+
+        do{
+            int i = 1;
+            System.out.print(i++ + "");
+        } while(i <= 5);
+    }
+
+}`,
         answerExplanation: `Option E is the correct answer.
 
 The variable i is declared within the body of the do-while statement, so it is out of scope on line 8. Line 8 generates a compiler error. Hence, option E is correct answer.
@@ -7969,16 +7960,16 @@ The correct answer is: Compilation fails`,
             },
         ],
         codeString: `public class Whizlabs {
-                      
-                public static void main(String args[ ]) {
-                         int x = 10;
-                      
-                         if (x > 10);
-                                  System.out.println(">");
+
+    public static void main(String args[ ]) {
+        int x = 10;
+
+        if (x > 10);
+        System.out.println(">");
                          else if(x < 10)
-                                  System.out.println("<");
-                }
-      }`,
+            System.out.println("<");
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
 
 At line 6, we have used a semi-colon at the end of if statement, which signifies that if statement ends here. Also, it doesn’t contain any statement to execute. As a result, else if block at line 8 become invalid since it has no if statement. So, the code fails to compile.
@@ -8023,9 +8014,9 @@ The correct answer is: Compilation fails`,
 
         switch (x + y) {
             case x:
-                {
-                    System.out.print("A");
-                }
+            {
+                System.out.print("A");
+            }
             case 1:
                 System.out.print("B");
             default:
@@ -8081,9 +8072,9 @@ The correct answer is: C`,
 
         switch (x) {
             case x:
-                {
-                    System.out.print("A");
-                }
+            {
+                System.out.print("A");
+            }
             case 1:
                 System.out.print("B");
             default:
@@ -8174,18 +8165,18 @@ The correct answer is: long`,
             },
         ],
         codeString: `public class Whiz {
-         public static void main(String[ ] args) {
-                  String out = "0";
-                  int i = -1, j = -5;
-                  if(i < 5)
-                  if(j > 0)
-                  if(i > j)
-                  out += "1";
-                  else out += "2";
-                  else out += "3";
-                  else out += "4";
-                  System.out.println(out);
-         }
+    public static void main(String[ ] args) {
+        String out = "0";
+        int i = -1, j = -5;
+        if(i < 5)
+            if(j > 0)
+                if(i > j)
+                    out += "1";
+                else out += "2";
+            else out += "3";
+        else out += "4";
+        System.out.println(out);
+    }
 }`,
         answerExplanation: `Option C is the correct answer.
 
@@ -8227,18 +8218,18 @@ The correct answer is: 03`,
             },
         ],
         codeString: `public class Whiz {
-               
-        public static void main(String args [ ]) {
-                 
-                 int _6 = 6;
-                              
-                 if(_6 > 6)
-                      System.out.print(">6");              
-                      System.out.print(" or ");
+
+    public static void main(String args [ ]) {
+
+        int _6 = 6;
+
+        if(_6 > 6)
+            System.out.print(">6");
+        System.out.print(" or ");
                  else {
-                      System.out.print("<6");
-                 }
+            System.out.print("<6");
         }
+    }
 }`,
         answerExplanation: `Option E is the correct answer.
 
@@ -8277,11 +8268,9 @@ The correct answer is: Compilation fails`,
                 markdown: 'Only II and III.'
             },
         ],
-        codeString: `I.            If statement must contain else or else if.
-
-II.           We can’t place any other statements between if and else (or else if) blocks.
-
-III.          If statement may have more than one else statements.`,
+        codeString: `// I. If statement must contain else or else if.
+// II. We can’t place any other statements between if and else (or else if) blocks.
+// III. If statement may have more than one else statements.`,
         answerExplanation: `Option A is the correct answer.
 
 Statement I is incorrect because if statement may or may not contain else and/or else if.
@@ -8379,10 +8368,10 @@ The correct answer is: System.out.println(x>1?">":x<1?"<":"=");`,
             },
         ],
         codeString: `public class Whiz {
-                public static void main(String args [ ]) {
-                                System.out.print("" + 1 + 2);
-                                System.out.print("" + (1 + 2));
-                }
+    public static void main(String args [ ]) {
+        System.out.print("" + 1 + 2);
+        System.out.print("" + (1 + 2));
+    }
 }`,
         answerExplanation: `Option D is correct.
 
@@ -8468,8 +8457,8 @@ The correct answer is: true ^ (false | true)`,
 
     }
 }
-I.      String s2 = "Rekha";
-II.     String s2 = new String("Rekha");`,
+// I. String s2 = "Rekha";
+// II. String s2 = new String("Rekha");`,
         answerExplanation: `Option D is the correct answer.
 
 When creating Strings without using “new” keyword, compiler search for equal String literal in the String pool, if found equal, then the reference will refer to it without creating new String. So in this case with the statement I, new String won’t be created, so both “s1” and “s2” refer to the same String object, therefore with the statement I, we will have “true true” as result. So, options B and C are incorrect.
@@ -8507,9 +8496,9 @@ The correct answer is: Inserting the statement II at line 6, will produce the ou
                 markdown: 'All of these'
             },
         ],
-        codeString: `I.     “y.hashCode()” must be equal to “x.hashCode()”
-II.     Both “x” and “y” objects should have same field status.
-III.     “y.hashCode()” may be equal to “x.hashCode()”`,
+        codeString: `// I. “y.hashCode()” must be equal to “x.hashCode()”
+// II. Both “x” and “y” objects should have same field status.
+// III. “y.hashCode()” may be equal to “x.hashCode()”`,
         answerExplanation: `Option A is the correct answer.
 
 If “x.equals(y)” return true, then the hashcodes of both objects must equal. So, the statement I is correct.
@@ -9130,20 +9119,20 @@ The correct answer is: An object is eligible for GC when there is no reference t
             },
         ],
         codeString: `class Capacitor {
-          int [ ] array = {1,2,3};
+    int [ ] array = {1,2,3};
 }
 class Pc {
-          Capacitor cap;
- }
+    Capacitor cap;
+}
 public class Ex4 {
-         public static void main(String [ ] args) {
-                  Capacitor c = new Capacitor();
-                  Pc p        = new Pc();
-                  Pc p1     = p;
-                  p1 = null;
-                  p = null;
-                  //line 14
-          }
+    public static void main(String [ ] args) {
+        Capacitor c = new Capacitor();
+        Pc p        = new Pc();
+        Pc p1     = p;
+        p1 = null;
+        p = null;
+        //line 14
+    }
 }`,
         answerExplanation: `Option B is the correct answer.
 
@@ -9412,11 +9401,9 @@ The correct answer is: Compilation fails due to error at line 3.`,
                 markdown: 'I and III'
             },
         ],
-        codeString: `I. public int[] method(double x, int y)
-
-II. public int, double method(int x)
-
-III. public method(int x)`,
+        codeString: `// I. public int[] method(double x, int y)
+// II. public int, double method(int x)
+// III. public method(int x)`,
         answerExplanation: `Option A is the correct answer.
 
 The signature of a method is used to uniquely identify a method. A signature consists of:
@@ -9746,11 +9733,9 @@ The correct answer is: Compilation fails due to multiple errors.`,
                 markdown: 'None of these statement is true.'
             },
         ],
-        codeString: `I.This code has correctly implemented the encapsulation principles.
-
-II.This“ getNum” method at line 5, has correctly implemented the encapsulation principles but not the variables.
-
-III.Variables in this code have correctly implemented the encapsulation principles but not the“ getNum” method.
+        codeString: `// I. This code has correctly implemented the encapsulation principles.
+// II. This“ getNum” method at line 5, has correctly implemented the encapsulation principles but not the variables.
+// III. Variables in this code have correctly implemented the encapsulation principles but not the“ getNum” method.
 
 class Program {
     public int i;
@@ -9792,8 +9777,8 @@ class Program {
         ],
         codeString: `class Program {
     public static void main(String args[]) {
-        String[] x = {“
-            A”,
+        String[] x = {
+            “A”,
             ”B”,
             ”C”,
             ”D”,
@@ -9851,15 +9836,15 @@ The correct answer is: 5 4 3 2 1.`,
             },
         ],
         codeString: `public class Whiz {
- 
-                public static void main(String [ ] args) {                  
-                                char[ ] chars = {'1','Z','0','-','8','1'};
-                                StringBuilder sb = new StringBuilder();
-                                sb.append(chars,0,chars.length-1);
-                                sb.append('0');
-                                sb.append(“8”);
-                                System.out.print(sb);
-                }
+
+    public static void main(String [ ] args) {
+        char[ ] chars = {'1','Z','0','-','8','1'};
+        StringBuilder sb = new StringBuilder();
+        sb.append(chars,0,chars.length-1);
+        sb.append('0');
+        sb.append(“8”);
+        System.out.print(sb);
+    }
 }`,
         answerExplanation: `Option A is the correct answer.
 
@@ -9903,18 +9888,18 @@ The correct answer is: 1Z0-808`,
             },
         ],
         codeString: `public class Whiz{
- 
-                public static void main(String [ ] args) {                  
-                                char [ ] chars = {'1','Z','0','-','8','1'};
-                                StringBuilder sb = new StringBuilder();
-                                sb.append(chars,0,chars.length-1);
-               
-                                sb.append("08");
-                                sb.setLength(4);
-                                sb.insert(5, "10");
-                               
-                                System.out.print(sb);
-                }
+
+    public static void main(String [ ] args) {
+        char [ ] chars = {'1','Z','0','-','8','1'};
+        StringBuilder sb = new StringBuilder();
+        sb.append(chars,0,chars.length-1);
+
+        sb.append("08");
+        sb.setLength(4);
+        sb.insert(5, "10");
+
+        System.out.print(sb);
+    }
 }`,
         answerExplanation: `Option D is the correct answer.
 
@@ -9999,12 +9984,12 @@ The correct answer is: indexOf(CharSequence str, int fromIndex)`,
             },
         ],
         codeString: `public class Whiz {
- 
-                public static void main(String [ ] args) {                  
-                                 Comparable s1 = "Abc";
-                                 Comparable s2 = new String("Abc");
-                                System.out.print(s1.equals(s2));
-                }
+
+    public static void main(String [ ] args) {
+        Comparable s1 = "Abc";
+        Comparable s2 = new String("Abc");
+        System.out.print(s1.equals(s2));
+    }
 }`,
         answerExplanation: `Option B is the correct answer.
 
@@ -10080,7 +10065,6 @@ The correct answer is: String strs[][] = new String[3][];`,
             }
         ],
         codeString: `int nums[][] = new int[3][3];
-
 nums[0] = new int[2];`,
         answerExplanation: `Your answer is incorrect.
 
@@ -10171,16 +10155,16 @@ The correct answer is: new Integer[]{1,2,3,4};`,
                 markdown: 'Compilation fails due to an error at line 6.'
             },
         ],
-        codeString: `       public class Whiz{
-           public static void main(String[] args) {
-        
-                       final int [ ]ints = new int[3];
-                       int len = ints.length;
-                       ints[1]++;
-                       for(int i : ints)
-                                       System.out.print(i);
-           }
-   }     `,
+        codeString: `public class Whiz{
+    public static void main(String[] args) {
+
+        final int [ ]ints = new int[3];
+        int len = ints.length;
+        ints[1]++;
+        for(int i : ints)
+            System.out.print(i);
+    }
+}     `,
         answerExplanation: `Your answer is incorrect.
 
 Explanation:
@@ -10222,16 +10206,16 @@ The correct answer is: 010`,
                 markdown: 'Compilation fails'
             },
         ],
-        codeString: `       public class Whiz{
-        
-                       public static void main(String[] args) {
-        
-                                       int [][]ints = new int[3][2];
-                                       ints[0] = new int[3];
-                                       ints[2] = {1,2,3};
-                                       System.out.print(ints[0].length + ints[2].length);
-                       }
-   }     `,
+        codeString: `public class Whiz{
+
+    public static void main(String[] args) {
+
+        int [][]ints = new int[3][2];
+        ints[0] = new int[3];
+        ints[2] = {1,2,3};
+        System.out.print(ints[0].length + ints[2].length);
+    }
+}     `,
         answerExplanation: `Your answer is incorrect.
 
 Explanation:
@@ -10271,17 +10255,17 @@ The correct answer is: Compilation fails`,
                 markdown: 'Compilation fails'
             },
         ],
-        codeString: `       import java.util.Arrays;
-        
-       public class Whiz {
-                public static void main(String[] args) {
-                          int [ ][ ] ints = new int[2][];
-        
-                          Arrays.sort(ints[1]);
-                      
-                          System.out.print(Arrays.toString(ints[1]));
-                }
-      }      `,
+        codeString: `import java.util.Arrays;
+
+public class Whiz {
+    public static void main(String[] args) {
+        int [ ][ ] ints = new int[2][];
+
+        Arrays.sort(ints[1]);
+
+        System.out.print(Arrays.toString(ints[1]));
+    }
+}      `,
         answerExplanation: `Option D is the correct answer.
 
 Methods in the Arrays class throw a NullPointerException, if the specified array reference is null. So, here we haven't initialized the ints[1], so it is null. Hence, passing it to Arrays sort method throws a NullPointerException. So, option D is correct.
@@ -10319,16 +10303,16 @@ The correct answer is: NullPointerException`,
                 markdown: 'Compilation fails'
             },
         ],
-        codeString: `       import java.util.Arrays;
-        
-       public class Program{
-           public static void main(String[] args) {
-                      
-                       int[] ints = {2,-1,4,5,3};
-                       Arrays.sort(ints);
-                       System.out.print(Arrays.binarySearch(ints, -1));
-           }
-   }      `,
+        codeString: `import java.util.Arrays;
+
+public class Program{
+    public static void main(String[] args) {
+
+        int[] ints = {2,-1,4,5,3};
+        Arrays.sort(ints);
+        System.out.print(Arrays.binarySearch(ints, -1));
+    }
+}      `,
         answerExplanation: `Option A is the correct answer.
 
 Arrays class has binary Search method which can use to search elements in a sorted array.
@@ -10376,16 +10360,16 @@ The correct answer is: 0`,
                 markdown: 'No output'
             },
         ],
-        codeString: `       class Whiz{
-       public static void main(String args[]){
-                       new Whiz().meth();                      
-                       }
-                      
-       public void meth()throws Exception{
-                       for(int x=0;x>5;x++)
-                                       System.out.print(x);
-                       }
-   }`,
+        codeString: `class Whiz{
+    public static void main(String args[]){
+        new Whiz().meth();
+    }
+
+    public void meth()throws Exception{
+        for(int x=0;x>5;x++)
+            System.out.print(x);
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
 
 The method meth() is declared as an exception, so when we call that method within another method, the calling method must handle or declare the exception. Otherwise, compilation will not succeed.
@@ -10421,19 +10405,19 @@ The correct answer is: Compilation fails`,
                 markdown: 'No output'
             },
         ],
-        codeString: `       class Whiz {
-                public static void main(String args[]){
-                          int x = 5, y=10;                                                                  
-                                  try {
-                                             y /=x;
-                                       }
-                                       catch(Exception e){
-                                             System.out.print("error");
-                                       } finally {
-                                             System.out.print("finally");
-                                       }
-                }
-      }`,
+        codeString: `class Whiz {
+    public static void main(String args[]){
+        int x = 5, y=10;
+        try {
+            y /=x;
+        }
+        catch(Exception e){
+            System.out.print("error");
+        } finally {
+            System.out.print("finally");
+        }
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
 
 There will be no error occurred in try box, so catch clause won’t run but finally runs as always. Hence, finally will be printed; so option D is correct.
@@ -10513,28 +10497,28 @@ The correct answer is: NegativeArraySizeException `,
                 markdown: 'Compilation fails'
             },
         ],
-        codeString: `       class Whiz {
-                 public static void main(String args[ ]) {
-                           try {
-                                     new Whiz().meth();
-                           } catch(ArithmeticException e) {
-                                     System.out.print("Arithmetic");
-                           } finally {
-                                     System.out.print("final 1");
-                           } catch(Exception e) {
-                                     System.out.print("Exception");
-                           } finally {
-                                     System.out.print("final 2");
-                           }
-                 }
-                  
-                public void meth()throws  ArithmeticException {
-                         for(int x = 0; x < 5; x++) {
-                               int y = (int) 5/x;
-                               System.out.print(x);
-                         }
-                }
-      }`,
+        codeString: `class Whiz {
+    public static void main(String args[ ]) {
+        try {
+            new Whiz().meth();
+        } catch(ArithmeticException e) {
+            System.out.print("Arithmetic");
+        } finally {
+            System.out.print("final 1");
+        } catch(Exception e) {
+            System.out.print("Exception");
+        } finally {
+            System.out.print("final 2");
+        }
+    }
+
+    public void meth()throws  ArithmeticException {
+        for(int x = 0; x < 5; x++) {
+            int y = (int) 5/x;
+            System.out.print(x);
+        }
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
 
 You can’t have multiple finally clauses. In this code, the first finally clause causes the end of the try clause. So, other catch clause appeared like a catch clause without a try clause, so compilation fails.
@@ -10570,31 +10554,31 @@ The correct answer is: Compilation fails`,
                 markdown: 'Compilation fails due to multiple errors'
             },
         ],
-        codeString: `       interface I{
-       void meth();
-       }
-        
-       class A implements I{
-                       void A(String s){
-                                       }
-                       public void meth(){
-                                       System.out.print("A");
-                   }
-   }
-    
-   class C extends A implements I{
-                   public void meth(){
-                                   System.out.print("C");
-                   }
-   }
-    
-   class Whiz{
-                   public static void main(String args[]){
-                                    A a = new A();
-                                   C c1 = (C)a;
-                                   c1.meth();
-                    }
-   }`,
+        codeString: `interface I{
+    void meth();
+}
+
+class A implements I{
+    void A(String s){
+    }
+    public void meth(){
+        System.out.print("A");
+    }
+}
+
+class C extends A implements I{
+    public void meth(){
+        System.out.print("C");
+    }
+}
+
+class Whiz{
+    public static void main(String args[]){
+        A a = new A();
+        C c1 = (C)a;
+        c1.meth();
+    }
+}`,
         answerExplanation: `Option C is the correct answer.
 
 Here, we try to cast a superclass reference to lower class reference, but superclass reference refers to the superclass object. So, casting will cause a ClassCastException.
@@ -10703,12 +10687,12 @@ The correct answer is: javac`,
             }
         ],
         codeString: `public class Whiz{
-               
-                public static void main(String args[]){
-                                int x = 10, y = 12;
-                                System.out.println(“Answer is :“ + x +y);
-                }
-}        `,
+
+    public static void main(String args[]){
+        int x = 10, y = 12;
+        System.out.println(“Answer is :“ + x +y);
+    }
+}`,
         answerExplanation: `Option B is the correct answer.
 
 In the printing statement at line 5, we have used the string value first, so the + will work as the concatenation operator in “x+y” hence 1012 will be printed. So, option B is correct.
@@ -10839,16 +10823,16 @@ The correct answer is: final int   /**   */  array[] =   {1,2,3} ;`,
             },
         ],
         codeString: `public class Whiz{
-               
-                static int x = 2;
-                public static void main(String args[]){   
-                                if( x > 1){
-                                                x++;
-                                                int x = 4;
-                                }
-                                System.out.println(x);
-                                final int x = 10;
-                }
+
+    static int x = 2;
+    public static void main(String args[]){
+        if( x > 1){
+            x++;
+            int x = 4;
+        }
+        System.out.println(x);
+        final int x = 10;
+    }
 } `,
         answerExplanation: `Option B is the correct answer.
 
@@ -10890,18 +10874,18 @@ The correct answer is: 3`,
             },
         ],
         codeString: `public class Whiz{
-               
-                static int x = 2;
-                static int z;
-                public static void main(String args[]){   
-                                System.out.println(x+z);
-                }
-               
-                static{
-                                int x = 3;
-                                z = x;
-                }
-}           `,
+
+    static int x = 2;
+    static int z;
+    public static void main(String args[]){
+        System.out.println(x+z);
+    }
+
+    static{
+        int x = 3;
+        z = x;
+    }
+}`,
         answerExplanation: `Option C is the correct answer.
 
 At line 10, we have defined new integer with value 3, it shadows the class variable x. Hence, the value of z will be 3. So, 2+3 will print 5 as the output. Hence, option C is correct.
@@ -11019,19 +11003,18 @@ The correct answer is: import static java.lang.Math.abs;`,
                 markdown: 'Will print 654 and then goes to never ending loop.'
             },
         ],
-        codeString: `       class Whiz {
-                public static void main(String args[ ]) {
-                         int [ ] a = {1,2,3,4,5,6};
-                         int i = a.length – 1;
-                      
-                         while (i >= 0) {
-                                 if (i == 2) continue;
-                                       System.out.print(a[i]);
-                                        i--;         
-                          }
-                }
-       }
-`,
+        codeString: `class Whiz {
+    public static void main(String args[ ]) {
+        int [ ] a = {1,2,3,4,5,6};
+        int i = a.length – 1;
+
+        while (i >= 0) {
+            if (i == 2) continue;
+            System.out.print(a[i]);
+            i--;
+        }
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
 
 When the value of i is 2, the “if statement” will call continue. After that, every time the value of i will be 2 as it can’t reach to i-- statement, where it cause a never ending loop.
@@ -11069,18 +11052,18 @@ The correct answer is: Will print 654 and then goes to never ending loop.`,
                 markdown: 'Will print 123 and then goes to never ending loop'
             },
         ],
-        codeString: `       class Whiz {
-                  public static void main(String args[ ]) {
-                           int [ ] a = {1,2,3};
-                                                                      
-                           for(int j : a) {
-                                  if (j == 2) continue;
-                                          for(int x = 0; x < 3; System.out.print(x)) {
-                                                  x++;
-                                          }
-                          }
-                 }
-       }`,
+        codeString: `class Whiz {
+    public static void main(String args[ ]) {
+        int [ ] a = {1,2,3};
+
+        for(int j : a) {
+            if (j == 2) continue;
+            for(int x = 0; x < 3; System.out.print(x)) {
+                x++;
+            }
+        }
+    }
+}`,
         answerExplanation: `Option B is the correct answer.
 
 This is a nested loop. When j is equal to two, current iteration stops as if calls continue. So, there will be 123 on first and third iteration process.
@@ -11119,18 +11102,18 @@ The correct answer is: 123123`,
             },
         ],
         codeString: `class Whiz{
-                public static void main(String args[]){
- 
-                                int array[][] = {{3,2,1},{5,4,2},{0,8,7}};
-               
-                                                outer:for(int x = 0, k=0; x<3; x++){
-                                                k=0;
-                                                inner:while(true){
-                                                System.out.print(array[x][k++]);
-                                                // insert here
-                                                }
-                                }
-                }
+    public static void main(String args[]){
+
+        int array[][] = {{3,2,1},{5,4,2},{0,8,7}};
+
+        outer:for(int x = 0, k=0; x<3; x++){
+            k=0;
+            inner:while(true){
+                System.out.print(array[x][k++]);
+                // insert here
+            }
+        }
+    }
 }`,
         answerExplanation: `Option B is the correct answer.
 
@@ -11218,17 +11201,17 @@ The correct answer is: The “for” loops has two forms, one of them was design
             },
         ],
         codeString: `class Whiz{
-          public static void main(String args[]){
-                      int []a = {1,2,3,4};
-                      int i = a.length - 1;
- 
-                      while(true){
-                                while(i>=0){
-                                       System.out.print(a[i]);
-                                        i--;
-                                }
-                      }
-           }
+    public static void main(String args[]){
+        int []a = {1,2,3,4};
+        int i = a.length - 1;
+
+        while(true){
+            while(i>=0){
+                System.out.print(a[i]);
+                i--;
+            }
+        }
+    }
 }`,
         answerExplanation: `Option C is the correct answer.
 
@@ -11275,18 +11258,18 @@ The correct answer is: 4321 and will create never ending loop`,
                 markdown: 'Compilation fails due to multiple errors.'
             },
         ],
-        codeString: `       public class Whiz {
-                       public static void main(String [ ] args) {
-                                       int x = 1;
-                                       int y = 10;
-                                      
-                                       if((x*=3) == y) {
-                                                       System.out.println(y);
-                                       } else {
-                                                       System.out.println(x);
-                                   }
-                   }
-   }`,
+        codeString: `public class Whiz {
+    public static void main(String [ ] args) {
+        int x = 1;
+        int y = 10;
+
+        if((x*=3) == y) {
+            System.out.println(y);
+        } else {
+            System.out.println(x);
+        }
+    }
+}`,
         answerExplanation: `Option B is the correct answer.
 
 At line 6, we have used parentheses to change the value of x. Inside the parentheses, we have used assignment operator which will result in x multiplied by 3. But the condition of the if block won’t be true since the value of y, is 10. Hence, else block executes and print 3, so option B is correct.
@@ -11323,19 +11306,19 @@ The correct answer is: 3`,
             },
         ],
         codeString: `public class Whiz {
-         public static void main(String args[ ]) {
-                               
-                   // insert here
-                   final int y = 2;
-               
-                   switch(x+y) {
-                                          case x+1    : {System.out.print("A");}
-                                          case 1        : System.out.print("B");
-                                          default       : System.out.print("default"); break;
-                                          case y        : System.out.print("C");
-                   }
-          }
-  }`,
+    public static void main(String args[ ]) {
+
+        // insert here
+        final int y = 2;
+
+        switch(x+y) {
+            case x+1    : {System.out.print("A");}
+            case 1        : System.out.print("B");
+            default       : System.out.print("default"); break;
+            case y        : System.out.print("C");
+        }
+    }
+}`,
         answerExplanation: `Option A is the correct answer.
 
 If we use a variable for the case, it needs to be a compile time constant, so options B and C are incorrect.
@@ -11376,17 +11359,17 @@ The correct answer is: final int x = -1;`,
             },
         ],
         codeString: `public class Whiz {
-         public static void main(String args[]) {
-                               
-                   final int array [] = {1,2,3};
-                               
-                   switch(2) {
-                          case array[0]      : {System.out.print("A");}
-                          case array[1]      : System.out.print("B");
-                          default                : System.out.print("default"); break;
-                          case array[2]      : System.out.print("C");
-                   }
-         }
+    public static void main(String args[]) {
+
+        final int array [] = {1,2,3};
+
+        switch(2) {
+            case array[0]      : {System.out.print("A");}
+            case array[1]      : System.out.print("B");
+            default                : System.out.print("default"); break;
+            case array[2]      : System.out.print("C");
+        }
+    }
 }`,
         answerExplanation: `Option E is the correct answer.
 
@@ -11426,18 +11409,18 @@ The correct answer is: Compilation fails`,
             },
         ],
         codeString: `public class Whiz {
-        public static void main(String [ ] args) {
-                 String out = "0";
-                  int i = -1, j = -5;
-                  if (i < 5)
-                      if (j > 0)
-                         if (i > j)
-                             out += "1";
-                         else out += "2";
-                     else out += "3";
-                 else out += "4";
-                System.out.println(out);
-        }
+    public static void main(String [ ] args) {
+        String out = "0";
+        int i = -1, j = -5;
+        if (i < 5)
+            if (j > 0)
+                if (i > j)
+                    out += "1";
+                else out += "2";
+            else out += "3";
+        else out += "4";
+        System.out.println(out);
+    }
 }`,
         answerExplanation: `Option C is the correct answer.
 
@@ -11479,19 +11462,18 @@ The correct answer is: 03`,
             },
         ],
         codeString: `public class Whiz {
-         public static void main(String args[ ]) {
-                               
-                  int whiz = 0;
-                               
-                  if (whiz > 0) {
-                        System.out.print("A");
-                  }
-                  System.out.println();
-                  else
-                  System.out.print("B");
+    public static void main(String args[ ]) {
+
+        int whiz = 0;
+
+        if (whiz > 0) {
+            System.out.print("A");
         }
-}
-`,
+        System.out.println();
+                  else
+        System.out.print("B");
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
 
 This code fails to compile since we can’t include other statements between if and else. So, line 9 printing statement included between if and else results in a compile time error.
@@ -11528,14 +11510,14 @@ The correct answer is: Compile fails`,
             },
         ],
         codeString: `public class Whiz{
-                public static void main(String args[]){
-                                int marks = 60;
-                               
-                                if(marks >= 40) System.out.println("C");
-                                else if(marks >= 60) System.out.println("B");
-                                else if(marks >= 75) System.out.println("A");
-                                else System.out.println("D");  
-                }
+    public static void main(String args[]){
+        int marks = 60;
+
+        if(marks >= 40) System.out.println("C");
+        else if(marks >= 60) System.out.println("B");
+        else if(marks >= 75) System.out.println("A");
+        else System.out.println("D");
+    }
 }`,
         answerExplanation: `Option C is the correct answer.
 
@@ -11619,13 +11601,13 @@ The correct answer is: System.out.println(point >= 0 ?"p":"n");`,
             },
         ],
         codeString: `public class Whiz {
-         public static void main(String args[ ]) {
-                  int x = 1;
-                  int y = 2;
-                  int z = 3;
-                               
-                  // insert here   
-         }
+    public static void main(String args[ ]) {
+        int x = 1;
+        int y = 2;
+        int z = 3;
+
+        // insert here
+    }
 }`,
         answerExplanation: `Option C is the correct answer.
 
@@ -11671,15 +11653,15 @@ The correct answer is: System.out.println((z / y + z)*2);`,
             },
         ],
         codeString: `public class Whiz{
-                public static void main(String args[]){
-                                Integer i = 10;
-                                Double d = 10.0;
-                                int ii = 10;
-                                double dd = 10.0;
-                               
-                                System.out.print(i.equals(d) + " ");
-                                System.out.print(ii == dd);
-                }
+    public static void main(String args[]){
+        Integer i = 10;
+        Double d = 10.0;
+        int ii = 10;
+        double dd = 10.0;
+
+        System.out.print(i.equals(d) + " ");
+        System.out.print(ii == dd);
+    }
 }`,
         answerExplanation: `Option D is the correct answer.
 
@@ -11717,12 +11699,12 @@ The correct answer is: false true`,
             },
         ],
         codeString: `class Whiz {
-          public static void main(String args[]) {
-                   new Whiz().iterator(new int [ ]{10,12,13});
-          }
-          void iterator(int [ ]i) {
-                   for(int x=0;x<i.length;System.out.print(i[x] + " "))x++;                
-          }
+    public static void main(String args[]) {
+        new Whiz().iterator(new int [ ]{10,12,13});
+    }
+    void iterator(int [ ]i) {
+        for(int x=0;x<i.length;System.out.print(i[x] + " "))x++;
+    }
 }`,
         answerExplanation: `Option D is the correct answer.
 
@@ -11759,22 +11741,19 @@ The correct answer is: 12 13 followed by an exception`,
                 markdown: 'All the statements will compile successfully.'
             },
         ],
-        codeString: `       class Whiz {
-                 public static void main(String args[ ]) {
-                          int [ ] a = {1,2,3,4,5,6};
-                      
-                           // insert code here
-                                 System.out.print(i + " ");
-                           }
-                }
-       }
-       Which of the following statement will compile successfully when inserted at line 5?
+        codeString: `class Whiz {
+    public static void main(String args[]) {
+        int[] a = {1, 2, 3, 4, 5, 6};
 
- I.      for (int i = 0, j = 0; i < a.length; j++) { i = a[j];
-
-II.      for (int i : a) {
-
-III.     for (a : int i) {`,
+        // insert code here
+            System.out.print(i + " ");
+        }
+    }
+}
+// Which of the following statement will compile successfully when inserted at line 5?
+// I. for (int i = 0, j = 0; i < a.length; j++) { i = a[j];
+// II. for (int i : a) {
+// III. for (a : int i) {`,
         answerExplanation: `Option D is the correct answer.
 
 The first one is the correct way of using for loop to iterate the array elements and the second one is called an enhance for loop. It can also be used to iterate the array elements. The third one is the incorrect use of the enhance for loop since the variable declaration should come before the collection inside for.
@@ -11810,20 +11789,19 @@ The correct answer is: I and II only`,
                 markdown: 'None of these'
             },
         ],
-        codeString: ` public class Whiz{
-          
-           public static void main(String[] args) {
-                       String s1 = "Rekha";
-                       //insert here
-          
-                       System.out.print(s1.equals(s2)+" ");
-                       System.out.print(s1 == s2);
-                                      
-       }
-   } 
-    I. String s2 = "Rekha";
+        codeString: `public class Whiz {
 
-II. String s2 = new String("Rekha");`,
+    public static void main(String[] args) {
+        String s1 = "Rekha";
+        //insert here
+
+        System.out.print(s1.equals(s2) + " ");
+        System.out.print(s1 == s2);
+
+    }
+}
+// I. String s2 = "Rekha";
+// II. String s2 = new String("Rekha");`,
         answerExplanation: `Option D is the correct answer.
 
 When creating Strings without using “new” keyword, compiler search for equal String literal in the String pool, if equal found then the reference will refer to it without creating new String. So, in this case with the statement I, new String won’t be created, so both “s1” and “s2” refer to the same String object. Therefore with the statement I, we will have “true true” as result. So, options B and C are incorrect.
@@ -11905,15 +11883,15 @@ The correct answer is: Switch statement is more efficient than a set of nested i
                 markdown: 'We can’t override the method run'
             },
         ],
-        codeString: `      class A{
-                       private void run(){
-                                       System.out.print("A");
-                       }
-       }
-        
-       class B extends A{
-                       //override method() here
-       }   `,
+        codeString: `class A{
+    private void run(){
+        System.out.print("A");
+    }
+}
+
+class B extends A{
+    //override method() here
+}   `,
         answerExplanation: `Option E is the correct answer.
 
 To override a method, that method needs to inherited. So, in this case, we have defined the method run as private hence we can’t override the method run at line 8. Hence, option E is correct.
@@ -11949,30 +11927,30 @@ The correct answer is: We can’t override the method run`,
                 markdown: 'Compilation fails due to multiple errors'
             },
         ],
-        codeString: `    abstract class Animal{
-        void run(){
-                    System.out.print("Animal run");
-        }
-    abstract void sound();  
+        codeString: `abstract class Animal{
+    void run(){
+        System.out.print("Animal run");
     }
-     
-    class Dog extends Animal{
-     
-        void sound(){
-                  System.out.print("Bark");
-        }
-                 
-         public void run(){
-                  System.out.print(" Dog runs");
-         }
-   }
-  public class Whiz{
-                  public static void main(String [] args){
-                                  Animal dog =  new Dog();
-                                  dog.sound();
-                                  dog.run();
-                  }
-  }`,
+    abstract void sound();
+}
+
+class Dog extends Animal{
+
+    void sound(){
+        System.out.print("Bark");
+    }
+
+    public void run(){
+        System.out.print(" Dog runs");
+    }
+}
+public class Whiz{
+    public static void main(String [] args){
+        Animal dog =  new Dog();
+        dog.sound();
+        dog.run();
+    }
+}`,
         answerExplanation: `Option A is the correct answer.
 
 Here at line 20, we have created Dog instance and have used a superclass Animal reference, so we can invoke any method of superclass Animal even the actual object is Dog. When invoking the overridden method at run time, the overridden version of the actual object will be invoked, so sound and run method of Dog class will be invoked. So, option A is correct.
@@ -12012,20 +11990,20 @@ The correct answer is: Bark Dog runs`,
                 markdown: 'Compilation fails due to an error at line 12'
             },
         ],
-        codeString: `   class Animal {
-                    public void eat() throws Exception { System.out.print("Animal eats");}
+        codeString: `class Animal {
+    public void eat() throws Exception { System.out.print("Animal eats");}
+}
+
+class Dog extends Animal{
+    public void eat() { System.out.print("Dog eats");}
+
+    public static void main(String [] args) {
+        Animal a = new Dog();
+        Dog d = new Dog();
+        d.eat();
+        a.eat();
     }
-     
-    class Dog extends Animal{
-                    public void eat() { System.out.print("Dog eats");}
-     
-                    public static void main(String [] args) {
-                                    Animal a = new Dog();
-                                  Dog d = new Dog();
-                                  d.eat();
-                                  a.eat();
-                  }
-  }  `,
+}  `,
         answerExplanation: `Option E is the correct answer.
 
 If a method is overridden but we use a polymorphic (super type) reference to refer to the subtype object with the overriding method, the compiler assumes we are calling the supertype version of the method. If the supertype version declares a checked exception but the overriding subtype method does not, the compiler still thinks you are calling a method that declares an exception.
@@ -12143,18 +12121,18 @@ The correct answer is: All of the above`,
                 markdown: 'None of these'
             },
         ],
-        codeString: `       class Person{}
-        
-       class Student extends Person{
-                       public void read(){System.out.println("Reading");}
-       }
-                      
-       public class Whiz{
-                       public static void main(String [] args){
-                                       Person stu =  new Student();
-                                   //insert here
-                    }
-   } `,
+        codeString: `class Person{}
+
+class Student extends Person{
+    public void read(){System.out.println("Reading");}
+}
+
+public class Whiz{
+    public static void main(String [] args){
+        Person stu =  new Student();
+        //insert here
+    }
+} `,
         answerExplanation: `Option D is the correct answer.
 
 At line 9, we have created a Student instance with reference Person, so it is impossible to invoke the read method using that reference directly even the actual object is Student compiler tries to find the read method of reference type. Hence, the option A is incorrect. Options B and C will do the same thing since the “.” operator has higher precedence if we use them then it will try to see the return value of the read method and tries to cast it which is illegal.
@@ -12195,18 +12173,18 @@ The correct answer is: ((Student)stu).read();`,
                 markdown: 'None of these'
             },
         ],
-        codeString: ` class Animal {
-           Animal(String s){ super(); }
- }
- class Cat extends Animal {
-           // insert code here
- }
- 
- public class Whiz {
-          public static void main(String [] args) {
-                   Animal ab = new Cat();
-          }
- }`,
+        codeString: `class Animal {
+    Animal(String s){ super(); }
+}
+class Cat extends Animal {
+    // insert code here
+}
+
+public class Whiz {
+    public static void main(String [] args) {
+        Animal ab = new Cat();
+    }
+}`,
         answerExplanation: `Option B is the correct answer.
 
 Option B is correct as we have used the keyword “this” to invoke the “Cat(String s)” constructor. And the print statement in that constructor produces the expected output.
@@ -12293,27 +12271,27 @@ The correct answer is: Abstract classes can’t be instantiated`,
                 markdown: 'Compilation fails'
             },
         ],
-        codeString: `          interface I{
-                          default boolean equals(Object O){
-                                          return true;
-                          }
-          }
-                         
-          class A implements I{
-                          public boolean equals(Object O){
-                                          return false;
-                      }
-      }
-                     
-      public class Whiz{
-                      public static void main(String [] args){
-                                      A a =  new A();
-                                      I ia =  new A();
-                                      I i =  new I(){};
-                                     
-                                      System.out.println(a.equals(ia) + " " + i.equals(ia));
-                      }
-      }`,
+        codeString: `interface I{
+    default boolean equals(Object O){
+        return true;
+    }
+}
+
+class A implements I{
+    public boolean equals(Object O){
+        return false;
+    }
+}
+
+public class Whiz{
+    public static void main(String [] args){
+        A a =  new A();
+        I ia =  new A();
+        I i =  new I(){};
+
+        System.out.println(a.equals(ia) + " " + i.equals(ia));
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
 
  
@@ -12353,25 +12331,25 @@ The correct answer is: Compilation fails`,
                 markdown: 'Compilation fails due to multiple errors'
             },
         ],
-        codeString: `       interface I{
-                       public default void print(){
-                                       System.out.print("I");
-                       }
-                                      
-                       static void method(){
-                                       System.out.print("Static");
-                       }
-       }
-                  
-    
-                  
-   public class Whiz{
-                   public static void main(String [] args){
-                                   I i =  new I(){};                  
-                                   i.print();
-                                   I.method();
-                   }
-   }`,
+        codeString: `interface I{
+    public default void print(){
+        System.out.print("I");
+    }
+
+    static void method(){
+        System.out.print("Static");
+    }
+}
+
+
+
+public class Whiz{
+    public static void main(String [] args){
+        I i =  new I(){};
+        i.print();
+        I.method();
+    }
+}`,
         answerExplanation: `Option A is the correct answer.
 
 From java se 8, we can have default and static non-abstract methods in interfaces but there are some rules. Both static and default methods in interfaces are public. At line 15, we have initialized an instance of type I. So, using it we can invoke the default method, which prints “I”. Then we can invoke the static method using the interface name or using the object reference, here we have to use Interface name to invoke its static method, which will print “Static”. Hence, option A is correct.
@@ -12482,16 +12460,16 @@ The correct answer is: None of the above   `,
             },
         ],
         codeString: `public class Whiz{
-               
-                static int x = 0b1;
-                static int y = 0xF;
-                static int z = 018;
- 
-                public static void main(String args[]){   
-                               
-                                System.out.println(x+z+y);
-                }
- 
+
+    static int x = 0b1;
+    static int y = 0xF;
+    static int z = 018;
+
+    public static void main(String args[]){
+
+        System.out.println(x+z+y);
+    }
+
 }`,
         answerExplanation: `
 Option E is the correct answer.
@@ -12541,13 +12519,13 @@ The correct answer is: Compilation fails due to an error at line 5`,
         ],
         codeString: `class Whiz {
     public static void main(String args[])  {
-                int array[] = {1,2,3};
-                double dbls[] = array;
-                double sum = 0;
-                for (int i = 0; i < array.length; ++i)
-                                sum += dbls[i];
-                System.out.println(sum);
-        }
+        int array[] = {1,2,3};
+        double dbls[] = array;
+        double sum = 0;
+        for (int i = 0; i < array.length; ++i)
+            sum += dbls[i];
+        System.out.println(sum);
+    }
 }`,
         answerExplanation: `Option E is the correct answer.
 
@@ -12587,15 +12565,15 @@ The correct answer is: Compilation fails`,
             },
         ],
         codeString: `class Wrap {
-         Double d = 10.0;
-         int x = 10;
-         int [ ] s = new int[10];
+    Double d = 10.0;
+    int x = 10;
+    int [ ] s = new int[10];
 }
 public class Whiz {
-         public static void main(String [] args){
-                  Wrap w =new Wrap();
-                  w = null;
-         }
+    public static void main(String [] args){
+        Wrap w =new Wrap();
+        w = null;
+    }
 }`,
         answerExplanation: `Option C is the correct answer.
 
@@ -12633,19 +12611,19 @@ The correct answer is: 3`,
             },
         ],
         codeString: `class Program{
-                public static void main(String args[]){
-                                Print p = new Print();
-                                //insert here
-                }
+    public static void main(String args[]){
+        Print p = new Print();
+        //insert here
+    }
 }
- 
+
 class Print{
-                static void p2(int i){
-                                System.out.print(i*2);
-                }
-                void print(int i){
-                                System.out.print(i);
-                }
+    static void p2(int i){
+        System.out.print(i*2);
+    }
+    void print(int i){
+        System.out.print(i);
+    }
 }`,
         answerExplanation: `Option B is correct.
 
@@ -12691,9 +12669,7 @@ The correct answer is: p.p2(6);`,
             },
         ],
         codeString: `Double d = 10.0;
-
 int i = 10;
-
 Integer wi = 10;`,
         answerExplanation: `Option B is the correct answer.
 
@@ -12776,15 +12752,15 @@ The correct answer is: Integer.MAX_VALUE;`,
                 markdown: 'Compilation fails due to an error at line 7'
             },
         ],
-        codeString: `    class Whiz {
-              public static void main(String args[]) {
-                       Double d = 10;
-                       int i = 10;
-                       Integer wi = 10;
-                       System.out.print((wi == i) + " ");
-                       System.out.print(d == i);
-              }
-  }`,
+        codeString: `class Whiz {
+    public static void main(String args[]) {
+        Double d = 10;
+        int i = 10;
+        Integer wi = 10;
+        System.out.print((wi == i) + " ");
+        System.out.print(d == i);
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
 
 While assigning literals to wrapper we need to assign wrapper or primitive in wrapper type since assignment can’t unwrap and then wide the literal. So, here at line 3, we have tried to assign an integer primitive literal to the Double wrapper which results in a compile time error. So, option D is correct.
@@ -12820,13 +12796,13 @@ The correct answer is: Compilation fails due to an error at line 3`,
                 markdown: 'Compilation fails due to an error at line 5'
             },
         ],
-        codeString: `    class Whiz {
-              public static void main(String args[]) {
-                       char a = 'C';
-                       a++;
-                       System.out.print(a);
-              } 
-    } `,
+        codeString: `class Whiz {
+    public static void main(String args[]) {
+        char a = 'C';
+        a++;
+        System.out.print(a);
+    }
+} `,
         answerExplanation: `Option B is the correct answer.
 
 Primitive char type is int-compatible, so at line 4 using increment operator will change it is ASCII value by one, which will result in the next character. Hence, D will be printed, so option B is correct.
@@ -12862,13 +12838,13 @@ The correct answer is: D`,
                 markdown: 'Compilation fails due to an error at line 5'
             },
         ],
-        codeString: `    class Whiz {
-              public static void main(String args[]) {
-                       Double d = 0.0;                
-                       System.out.print(d.BYTES);
-                       System.out.print(d.SIZE);           
-              } 
-    }`,
+        codeString: `class Whiz {
+    public static void main(String args[]) {
+        Double d = 0.0;
+        System.out.print(d.BYTES);
+        System.out.print(d.SIZE);
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
 
 
@@ -12907,25 +12883,25 @@ The correct answer is: 864`,
                 markdown: 'Compilation fails'
             },
         ],
-        codeString: `       class Whiz{
-                       public static void main(String args[]){
-                            A ab = new B();
-                            ab.print();
-                            ab.print("C");
-                       }
-       }
-        
-       class A{
-                   public void print(){
-                                   System.out.print("A");
-                   }
-   }
-    
-   class B extends A{
-                   public void print(String s){
-                                   System.out.print(s);
-                   }
-   }    `,
+        codeString: `class Whiz{
+    public static void main(String args[]){
+        A ab = new B();
+        ab.print();
+        ab.print("C");
+    }
+}
+
+class A{
+    public void print(){
+        System.out.print("A");
+    }
+}
+
+class B extends A{
+    public void print(String s){
+        System.out.print(s);
+    }
+}    `,
         answerExplanation: `Option E is the correct answer.
 
 When compiling the code, Compiler looks only at the reference and sees that A doesn’t have a print() method that takes a String. The compiler doesn’t care that the actual object might be a B at runtime. So, it will result in a compile-time error, so option E is correct.
@@ -13047,15 +13023,15 @@ The correct answer is: Return type`,
                 markdown: 'Compilation fails due to multiple errors'
             },
         ],
-        codeString: `      public class Program{
-                       int x = 10;
-                      
-                       public static void main(String args[]){
-                                       int y = 12;
-                                       System.out.print(y+x);
-                                       int x = 11;
-                       }             
-       }  `,
+        codeString: `public class Program{
+    int x = 10;
+
+    public static void main(String args[]){
+        int y = 12;
+        System.out.print(y+x);
+        int x = 11;
+    }
+}  `,
         answerExplanation: `Option D is the correct answer.
 
 We can’t access non-static content from static content, it will result in a compile-time error. So, at line 6, trying to access variable x in main method results compile-time error, since the variable x is not static.
@@ -13087,20 +13063,20 @@ The correct answer is: Compilation fails due to an error at line 6`,
                 markdown: 'Compilation fails due to multiple errors'
             }
         ],
-        codeString: `       package one;
-        
-       class A{
-            protected int j = 12;
-       }
-      package two;
-        
-       import one.*;
-        
-      class B extends A{
-              public static void main(String [ ] args) {
-                       A a = new A();
-              }
-      }`,
+        codeString: `package one;
+
+class A{
+    protected int j = 12;
+}
+package two;
+
+import one.*;
+
+class B extends A{
+    public static void main(String [ ] args) {
+        A a = new A();
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
 
 Class A in package one has default access level so when the code tried to extends class A and to create an instance of class A in class B of package two, it cause compilation failure since class A can be only accessed within the one package. So option D is correct.
@@ -13138,11 +13114,9 @@ The correct answer is: Compilation fails due to multiple errors`,
                 markdown: 'None of these'
             },
         ],
-        codeString: `  I.  Private members of a class can only be accessed by the members of the same class.
-
- II.  Protected members of a class can be inherited only by a subclass of another package.
-
-III.  Protected members of a class can be inherited by a subclass of an another package, and become private members of that subclass.`,
+        codeString: `// I.  Private members of a class can only be accessed by the members of the same class.
+// II.  Protected members of a class can be inherited only by a subclass of another package.
+// III.  Protected members of a class can be inherited by a subclass of an another package, and become private members of that subclass.`,
         answerExplanation: `Option A is the correct answer.
 
 The statement I is correct as the private members can be only accessed by the members of the enclosing class.
@@ -13185,15 +13159,15 @@ The correct answer is: I only`,
             },
         ],
         codeString: `class Whiz {
-         public static void main(String args[]){
-                  int x = 1;
-                  int y = new Whiz().change(x);
-                 System.out.print(x+y);
-         }
-         int change(int x) {
-                 x = 2;
-                 return x;
-         }
+    public static void main(String args[]){
+        int x = 1;
+        int y = new Whiz().change(x);
+        System.out.print(x+y);
+    }
+    int change(int x) {
+        x = 2;
+        return x;
+    }
 }`,
         answerExplanation: `Option B is the correct answer.
 
@@ -13231,15 +13205,15 @@ The correct answer is: 3`,
             },
         ],
         codeString: `public class Whiz{
- 
-                public static void main(String[] args) {                  
-                                char[] chars = {'1','Z','0','-','8','1'};
-                                StringBuilder sb = new StringBuilder();
-                                sb.append(chars,0,chars.length-1);
-                                sb.append('0');
-                                sb.append(“8”);
-                                System.out.print(sb);
-                }
+
+    public static void main(String[] args) {
+        char[] chars = {'1','Z','0','-','8','1'};
+        StringBuilder sb = new StringBuilder();
+        sb.append(chars,0,chars.length-1);
+        sb.append('0');
+        sb.append(“8”);
+        System.out.print(sb);
+    }
 }`,
         answerExplanation: `Option A is the correct answer.
 
@@ -13285,11 +13259,11 @@ The correct answer is: 1Z0-808`,
             },
         ],
         codeString: `class Whiz {
-                   public static void main(String [ ] args) {
-                         StringBuilder sb = new StringBuilder("Whiz");
-                         sb.append("Labs");
-                         System.out.print(sb.length() + sb.capacity());
-                   }
+    public static void main(String [ ] args) {
+        StringBuilder sb = new StringBuilder("Whiz");
+        sb.append("Labs");
+        System.out.print(sb.length() + sb.capacity());
+    }
 }`,
         answerExplanation: `Option C is the correct answer.
 
@@ -13326,14 +13300,14 @@ The correct answer is: 28`,
                 markdown: 'Compilation fails'
             },
         ],
-        codeString: `   class Whiz {
-             public static void main(String args[]) {
-                      String s = "1Z";
-                      s.concat("0");
-                      s += "1";
-                      System.out.println(s + "-808");
-           }
-   }`,
+        codeString: `class Whiz {
+    public static void main(String args[]) {
+        String s = "1Z";
+        s.concat("0");
+        s += "1";
+        System.out.println(s + "-808");
+    }
+}`,
         answerExplanation: `Option C is the correct answer. 
 
 Strings are immutable, so at line 4 concatenating “0” will not add “0” to s, instead it will return new String with value “1Z0”. At line 5, using assignment operator will add “1” to s, so output will be 1Z1-808. Hence, option C is correct.
@@ -13408,11 +13382,11 @@ The correct answer is: int [ ] one = new int [6];`,
             },
         ],
         codeString: `class Whiz {
-           public static void main(String[] args) {
-                     int a[ ] [] = { {1,2,4} , {5,2,1},{0,43,2}};
-                     int b[ ] = a[2];
-                    System.out.print(b[1]);
-           }
+    public static void main(String[] args) {
+        int a[ ] [] = { {1,2,4} , {5,2,1},{0,43,2}};
+        int b[ ] = a[2];
+        System.out.print(b[1]);
+    }
 }        `,
         answerExplanation: `Option C is the correct answer.
 
@@ -13450,12 +13424,12 @@ The correct answer is: 43`,
             },
         ],
         codeString: `class Whiz {
-          public static void main(String[] args) {
-                     int a[ ] = { 1,2,053,4};
-                     int b[ ][ ] = { {1,2,4} , {2,2,1},{0,43,2}};
-                    System.out.print(a[3]==b[0][2] );
-                    System.out.print(" " + (a[2]==b[2][1]));
-          }
+    public static void main(String[] args) {
+        int a[ ] = { 1,2,053,4};
+        int b[ ][ ] = { {1,2,4} , {2,2,1},{0,43,2}};
+        System.out.print(a[3]==b[0][2] );
+        System.out.print(" " + (a[2]==b[2][1]));
+    }
 }`,
         answerExplanation: `Option D is the correct answer.
 
@@ -13493,13 +13467,13 @@ The correct answer is: true true`,
             },
         ],
         codeString: `class Whiz {
-                public static void main(String[] args) {
-                                int a[ ][ ] = new int[3][];
-                                 a[1] = new int[]{1,2,3};
-                                 a[2] = new int[]{4,5};
-                                System.out.print(a[1][2]);
-                }
-}             `,
+    public static void main(String[] args) {
+        int a[ ][ ] = new int[3][];
+        a[1] = new int[]{1,2,3};
+        a[2] = new int[]{4,5};
+        System.out.print(a[1][2]);
+    }
+}`,
         answerExplanation: `Option B is the correct answer.
 
 At line 3, we created a two-dimensional array with the first dimension as 3 so there can be three rows, then at lines 4 and 5, we assigned two anonymous one-dimensional arrays to last two rows of the two-dimensional array. At line 6, we tried to print the second-row third element which is 3.  Note here we haven’t given any value to the first row of the two-dimensional array. So, option B is correct.
@@ -13535,17 +13509,17 @@ The correct answer is: 3`,
                 markdown: 'Compilation fails'
             },
         ],
-        codeString: `       import java.util.Arrays;
-        
-       public class Whiz {
-                public static void main(String[] args) {
-                         int [ ][ ] ints = new int[2][];
-        
-                         Arrays.sort(ints[1]);
-                      
-                        System.out.print(Arrays.toString(ints[1]));
-                }
-       }    `,
+        codeString: `import java.util.Arrays;
+
+public class Whiz {
+    public static void main(String[] args) {
+        int [ ][ ] ints = new int[2][];
+
+        Arrays.sort(ints[1]);
+
+        System.out.print(Arrays.toString(ints[1]));
+    }
+}    `,
         answerExplanation: `Option D is the correct answer.
 
 Methods in the Arrays class throw a NullPointerException, if the specified array reference is null. Here we haven’t initialized the ints[1], so it is null. Hence passing it to Arrays sort method throws a NullPointerException and option D is correct.
@@ -13581,16 +13555,16 @@ The correct answer is: NullPointerException`,
                 markdown: 'Compilation fails.'
             },
         ],
-        codeString: `       public class Whiz{
-           public static void main(String[] args) {
-                       long size = 0xB;
-                       int []ints = new int[size];
-        
-                       ints[5] = 10;
-                      
-                       System.out.print(ints[5] + 10);
-           }
-   } `,
+        codeString: `public class Whiz{
+    public static void main(String[] args) {
+        long size = 0xB;
+        int []ints = new int[size];
+
+        ints[5] = 10;
+
+        System.out.print(ints[5] + 10);
+    }
+} `,
         answerExplanation: `Option E is the correct answer.
 
 The code fails as we have passed long value instead int as the size of the array, which is illegal, so option E is correct.
@@ -13630,11 +13604,11 @@ The correct answer is: Compilation fails.`,
 public class Whiz {
     public static void main(String[] args) {
         int[] ints = {
-            3,
-            6,
-            1,
-            4,
-            0
+                3,
+                6,
+                1,
+                4,
+                0
         };
         Arrays.sort(ints, 0, 4);
         for (int i: ints) {
@@ -13687,13 +13661,13 @@ class B extends A {}
 
 class C extends B {}
 
- 
+
 
 // What is the correct sequence of catch blocks for the following try block?
 
 try {
 
- // codes
+// codes
 
 }`,
         answerExplanation: `Option D is the correct answer.
@@ -13769,16 +13743,16 @@ The correct answers are: StackOverflowError  , ArrayIndexOutOfBoundsException`,
             }
         ],
         codeString: `class Whiz {
-          public static void main(String [] args)throws Exception {
-                   try {
-                            System.out.print("try Started ");
-                             throw new Exception();
-                    } catch(Exception e) {       
-                             throw e;
-                    } finally {
-                             System.out.print("Finally Completed");
-                    }
-         }
+    public static void main(String [] args)throws Exception {
+        try {
+            System.out.print("try Started ");
+            throw new Exception();
+        } catch(Exception e) {
+            throw e;
+        } finally {
+            System.out.print("Finally Completed");
+        }
+    }
 }`,
         answerExplanation: `Option B is the correct answer.
 
@@ -13816,26 +13790,27 @@ The correct answer is: try Started Finally Completed followed by an exception .`
             },
         ],
         codeString: `class Whiz{
-public static void main(String [] args){
-                try{
-                                int i = Integer.parseInt(args[0]);
-                                System.out.print(i);
-                }catch(ArrayIndexOutOfBoundsException e){
-                                System.out.println("Array Index Out Of Bounds Exception");
-                }catch(NumberFormatException e){
-                                System.out.println("Number Format Exception");
-                }
+    public static void main(String [] args){
+        try{
+            int i = Integer.parseInt(args[0]);
+            System.out.print(i);
+        }catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("Array Index Out Of Bounds Exception");
+        }catch(NumberFormatException e){
+            System.out.println("Number Format Exception");
+        }
+    }
 }
-}
- 
 
-And the command-line invocations are                        
+/*
+And the command-line invocations are
 
-                            java Whiz
-                            java Whiz 12
-                            java Whiz A
-                            java Whiz 12 24 
-Which of the following are true? (Choose 3)`,
+    java Whiz
+    java Whiz 12
+    java Whiz A
+    java Whiz 12 24
+Which of the following are true? (Choose 3)
+*/`,
         answerExplanation: `Options A, B and D are the correct answers.
 
 Integer.parseInt method is used to convert a String to an int. If the String is not a valid number then the method throws a NumberFormatException.  ArrayIndexOutOfBoundsException occurs if you use a bad index value.
@@ -13973,26 +13948,26 @@ The correct answer is: None of the above`,
                 markdown: 'Compilation fails.'
             },
         ],
-        codeString: `       public class Whiz{
-                public static void main(String[] args) {
-                          try {
-                                 print();
-                          }catch(Exception e){}
-                }
-                                      
-                static void print() {
-                         try {
-                                throw new ClassCastException();
-                         }catch(ClassCastException e) {
-                                 System.out.print("A  ");
-                         }finally {
-                                 System.out.print("B ");
-                         } finally {
-                                 System.out.print("B 2");
-                         }
-                         System.out.print("OCAJP ");
-                }
-      }`,
+        codeString: `public class Whiz{
+    public static void main(String[] args) {
+        try {
+            print();
+        }catch(Exception e){}
+    }
+
+    static void print() {
+        try {
+            throw new ClassCastException();
+        }catch(ClassCastException e) {
+            System.out.print("A  ");
+        }finally {
+            System.out.print("B ");
+        } finally {
+            System.out.print("B 2");
+        }
+        System.out.print("OCAJP ");
+    }
+}`,
         answerExplanation: `Option F is the correct answer.
 
 While using finally block, we need to remember that, for each try, there could be zero or one finally block but not more than one, hence code fails to compile. However, it is possible to have more than one catch blocks per try.
@@ -14025,14 +14000,14 @@ The correct answer is: Compilation fails.`,
             }
         ],
         codeString: `class Whiz{
-                int a=10;
-                public static void main(String[] args) {
-                                new Whiz().print();
-                }
-                public void print(){
-                                int a = 8;
-                                System.out.print(a + " ");
-                }
+    int a=10;
+    public static void main(String[] args) {
+        new Whiz().print();
+    }
+    public void print(){
+        int a = 8;
+        System.out.print(a + " ");
+    }
 }    `,
         answerExplanation: `Option C is the correct answer.
 
@@ -14070,10 +14045,10 @@ The correct answer is: 8`,
             },
         ],
         codeString: `abstract interface Movable{
-                int x = 10;
-                  //insert code here
-                void run();
- }`,
+    int x = 10;
+        //insert code here
+    void run();
+}`,
         answerExplanation: `Option D is the correct answer.
 
 Option A is incorrect since at line 2 we already defined a variable calls ‘x’ so we can’t have another variable with the same name in the same scope. Also, the private variables are not allowed in interfaces.
@@ -14155,13 +14130,13 @@ The correct answer is: class MyDate extends java.util.Date{
                 markdown: 'Compile Error at line 5.'
             }
         ],
-        codeString: `    import java.util.*;
-        
-    class Whiz {
-              public static void main(String args[]){
-                       System.out.println(new Date());
-              }
-    }`,
+        codeString: `import java.util.*;
+
+class Whiz {
+    public static void main(String args[]){
+        System.out.println(new Date());
+    }
+}`,
         answerExplanation: `Option A is the correct answer.
 
 Date class is present in Java since JDK 1.0. It is present in java.util package.  It will contain current date, time, day name, time, and zone information. So, at line 5, statement prints current date, time, day name, time, and zone information.
@@ -14197,13 +14172,13 @@ The correct answer is: Prints today date`,
                 markdown: 'No import statement is needed.'
             },
         ],
-        codeString: `      // insert here
-        
-      public class Whiz {
-               public static void main(String args[ ]) {   
-                        System.out.println(pow(5,5));
-               }
-      }`,
+        codeString: `// insert here
+
+public class Whiz {
+    public static void main(String args[ ]) {
+        System.out.println(pow(5,5));
+    }
+}`,
         answerExplanation: `Option C is the correct answer.
 
 In given code, we have used the static pow method of Math class directly, so we have to import statically that method or all static members of the class. Correct syntax to import pow method statically is;
@@ -14282,11 +14257,11 @@ The correct answer is: Methods with same names in different classes`,
             },
         ],
         codeString: `class Whiz{
-                public static void main(String[] args){
-                                int n = 808;
-                                System.out.format("%d", n);     
-                                System.out.format("%06d", n); 
-                }
+    public static void main(String[] args){
+        int n = 808;
+        System.out.format("%d", n);
+        System.out.format("%06d", n);
+    }
 } `,
         answerExplanation: `Option A is the correct answer.
 
@@ -14324,18 +14299,18 @@ The correct answer is: 808000808`,
             },
         ],
         codeString: `class Whiz {
- 
-          static int i;          
-          int j;
-          Whiz() { j=i++; }
- 
-          public static void main(String args[]) {
-                    Whiz s = new Whiz();
-                    Whiz s1= new Whiz();
-                     Whiz s2= new Whiz();
-                    System.out.print( "i = "+s.i);
-                    System.out.print( ", j = "+s.j);
-          }
+
+    static int i;
+    int j;
+    Whiz() { j=i++; }
+
+    public static void main(String args[]) {
+        Whiz s = new Whiz();
+        Whiz s1= new Whiz();
+        Whiz s2= new Whiz();
+        System.out.print( "i = "+s.i);
+        System.out.print( ", j = "+s.j);
+    }
 }`,
         answerExplanation: `Option C is the correct answer.
 
@@ -14429,21 +14404,22 @@ The correct answer is: Compile-time Error.`,
             },
         ],
         codeString: `class Whiz {
-          public static void main(String [ ] args) {
-                    for (int x = 0; args.length > x++;) {
-                                System.out.print(args[x]+ " ");
-                    }
-          }
+    public static void main(String[] args) {
+        for (int x = 0; args.length > x++; ) {
+            System.out.print(args[x] + " ");
+        }
+    }
 }
- 
 
+/*
 And the command-line invocations are?
 
- I.             java Whiz
+    I. java Whiz
 
- II.            java Whiz 10
+    II. java Whiz 10
 
-III.            java Whiz 10 11`,
+    III. java Whiz 10 11
+*/`,
         answerExplanation: `Option A is the correct answer.
 
 Here if we provide any command line argument it will throw an exception at the last iteration since we used args.length>x++. In the final iteration when it reaches to line 4, args[x] will throw ArrayIndexOutOfBoundsException as it tries to accept one argument more than provided. But in the first invocation args.length is equal to zero so for loop condition is false, and never reach to line 4. Hence, option A is correct.
@@ -14480,12 +14456,12 @@ The correct answer is: Only the invocation I will complete without throwing exce
             },
         ],
         codeString: `class Whiz{
-         public static void main(String args[]) {
-                  new Whiz().iterator(new int[]{10,12,13});
-          }
-          void iterator(int [ ]i) {
-                  for(int x=0;x<i.length;System.out.print(i[x] + " "))x++;                
-          }
+    public static void main(String args[]) {
+        new Whiz().iterator(new int[]{10,12,13});
+    }
+    void iterator(int [ ]i) {
+        for(int x=0;x<i.length;System.out.print(i[x] + " "))x++;
+    }
 }`,
         answerExplanation: `Option D is the correct answer.
 
@@ -14524,16 +14500,16 @@ The correct answer is: 12 13 followed by an exception`,
                 markdown: 'Will print 123 and then goes to never ending loop.'
             },
         ],
-        codeString: ` class Whiz {
-           public static void main(String args[ ]) {
-                    int [ ] a = {1,2,3,4};
-                                                                      
-                    for (int j : a) {
-                            if ( j==2 ) continue;
-                                     for (int x = 0; x < 3; System.out.print(x)) { x++;  }
-                    }
-           }
-   }`,
+        codeString: `class Whiz {
+    public static void main(String args[ ]) {
+        int [ ] a = {1,2,3,4};
+
+        for (int j : a) {
+            if ( j==2 ) continue;
+            for (int x = 0; x < 3; System.out.print(x)) { x++;  }
+        }
+    }
+}`,
         answerExplanation: `Option C is the correct answer.
 
 In each iteration of the outer loop, inner loop prints elements of a. In the inner loop, we have placed printing statement in for loop updating portion which is legal.  When j is equal to two, current iteration stops as if calls continue. So when the j is 2 it won’t print anything and skip to next iteration. Hence there will be 123 on first, third and fourth iteration process. So, option C is correct.
@@ -14569,18 +14545,18 @@ The correct answer is: 123123123`,
                 markdown: 'Will print 123 and then goes to never ending loop.'
             },
         ],
-        codeString: `   class Whiz {
-              public static void main(String args [ ]) {
-                                                                                                                                      
-                        Loop1: for (int x = 0;x<5; x++) {
-                                    if (y==3) break Loop1;
-                                    for (int y = 0; y<3; y++) {
-                                             if (y==2) continue Loop1;
-                                                 System.out.print(y);
-                                     }
-                          }
-              }
-    }`,
+        codeString: `class Whiz {
+    public static void main(String args [ ]) {
+
+        Loop1: for (int x = 0;x<5; x++) {
+            if (y==3) break Loop1;
+            for (int y = 0; y<3; y++) {
+                if (y==2) continue Loop1;
+                System.out.print(y);
+            }
+        }
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
 
 This is nested loop. In outer for loop, there is no variable defined as y. Outer loop can’t see the variables in inner loop so trying to use inner loop variable y at line 5 causes a compile time error. Hence, option D is correct.
@@ -14616,18 +14592,18 @@ The correct answer is: Compilation fails.`,
                 markdown: 'Will print 000 and then goes to never ending loop.'
             },
         ],
-        codeString: `  class Whiz {
-             public static void main(String args [ ]) {
-                                                                                                                                      
-                       Loop1:for (int x = 0; x < 5 ;x++) {
-                                 if (x == 3) continue;
-                                 for (int y = 0; y < 3; y++) {
-                                        if (y == 1) continue Loop1;
-                                            System.out.print(y);
-                                  }
-                       }
-             }
-   }`,
+        codeString: `class Whiz {
+    public static void main(String args [ ]) {
+
+        Loop1:for (int x = 0; x < 5 ;x++) {
+            if (x == 3) continue;
+            for (int y = 0; y < 3; y++) {
+                if (y == 1) continue Loop1;
+                System.out.print(y);
+            }
+        }
+    }
+}`,
         answerExplanation: `Option B is the correct answer.
 
 There is a labeled loop called Loop1 as the outer loop and it won’t iterate the inner for loop when variable x is 3. So, it causes the inner for loop to iterate only 4 times. In inner for loop, every time when y equals to 0, it will stop iterating and continue Loop1.
@@ -14659,18 +14635,18 @@ The correct answer is: 0000`,
                 markdown: 'Compilation fails.'
             }
         ],
-        codeString: `  class Whiz {
-             public static void main(String args [ ]) {
-                                                                                                                                      
-                       Loop1: for (int x = 0; x < 3; x++) {
-                                 for (int y = 0; y < 3; y++) {
-                                          if ( y==2 ) continue;
-                                            if ( y==2 && x==2 ) break Loop1;
-                                               System.out.print(y);
-                                  }
-                       }
-              }
-    }`,
+        codeString: `class Whiz {
+    public static void main(String args [ ]) {
+
+        Loop1: for (int x = 0; x < 3; x++) {
+            for (int y = 0; y < 3; y++) {
+                if ( y==2 ) continue;
+                if ( y==2 && x==2 ) break Loop1;
+                System.out.print(y);
+            }
+        }
+    }
+}`,
         answerExplanation: `Option C is the correct answer.
 
 Every time y equals 2, the loop will not reach to second if statement. So, there is no influence of second if statement to the output. So, “01” will be printed three times.
@@ -14706,7 +14682,7 @@ The correct answer is: 010101`,
                 markdown: 'for(double d : dlbs){ }'
             },
         ],
-        codeString: ` double [] dlbs = {1,5.1,2.0,7};`,
+        codeString: `double [] dlbs = {1,5.1,2.0,7};`,
         answerExplanation: `Option E is the correct answer.
 
 Syntax for enhanced for loop is
@@ -14749,12 +14725,12 @@ The correct answer is: for(double d : dlbs){ }`,
             },
         ],
         codeString: `public class Whiz {
-          public static void main(String [ ] args) {          
-                   do {
-                             int i = 3;
-                             System.out.print(i++);
-                         } while (i <= 6);
-          }
+    public static void main(String [ ] args) {
+        do {
+            int i = 3;
+            System.out.print(i++);
+        } while (i <= 6);
+    }
 }`,
         answerExplanation: `Option E is the correct answer.
 
@@ -14792,18 +14768,18 @@ The correct answer is: Compilation fails`,
             },
         ],
         codeString: `public class Whiz {
-               
-         public static void main(String [ ] args) {  
-                  String out = "";
-                   z: for (int i = 3; i< 8; i++) {                            
-                             if (i == 3)
-                                 continue;
-                              if (i== 3)
-                                   break z;
-                              out += i;
-                     }
-                     System. out .println(out);
-          }
+
+    public static void main(String [ ] args) {
+        String out = "";
+        z: for (int i = 3; i< 8; i++) {
+            if (i == 3)
+                continue;
+            if (i== 3)
+                break z;
+            out += i;
+        }
+        System. out .println(out);
+    }
 }`,
         answerExplanation: `Option B is the correct answer. 
 
@@ -14840,14 +14816,14 @@ The correct answer is: 4567`,
                 markdown: 'Compilation fails due to multiple errors.'
             },
         ],
-        codeString: `  class Whiz {
-            public static void main(String [ ] args) {
-                     for (int x = 10; x > 5; x++) {
-                             if (x == 16) x -= 11;
-                                System.out.print(x + “ “);
-                      }             
-            }
-  }`,
+        codeString: `class Whiz {
+    public static void main(String [ ] args) {
+        for (int x = 10; x > 5; x++) {
+            if (x == 16) x -= 11;
+            System.out.print(x + “ “);
+        }
+    }
+}`,
         answerExplanation: `Option C is the correct answer.
 
 Option C is correct since the code will produce 10 11 12 13 14 15 and when x= 16, the value of x will change to 5. So, that will create an endless loop.
@@ -14923,19 +14899,19 @@ The correct answer is: --`,
                 markdown: 'None of these'
             },
         ],
-        codeString: `  class Whiz {
-             public static void main(String [ ] args) {
-                       final int s = 2;
-                       // insert code here
-                       switch(s) {
-                               case 1       : System.out.print("A");break;
-                               case x-1    :System.out.print("B");
-                               case x       : System.out.print("C");break;
-                               case x+1   : System.out.print("D");break;
-                               default      : System.out.print("F");
-                      }
-           }
-  }`,
+        codeString: `class Whiz {
+    public static void main(String [ ] args) {
+        final int s = 2;
+        // insert code here
+        switch(s) {
+            case 1       : System.out.print("A");break;
+            case x-1    :System.out.print("B");
+            case x       : System.out.print("C");break;
+            case x+1   : System.out.print("D");break;
+            default      : System.out.print("F");
+        }
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
 
 The case constant has to be a compile-time constant, so we can’t use option A and C. Option D is incorrect since we can’t use private access modifier inside the local scope.
@@ -15012,20 +14988,20 @@ The correct answer is: %`,
                 markdown: 'Compilation fails.'
             },
         ],
-        codeString: `  class Whiz {
-            public static void main(String args[ ]) {
-                      final int i = 0;
-                      final int j;
-                      j=2;
-                      int x= (int)(Math.random() * 3);
-          
-                      switch(x) {
-                                case i : {System.out.print("A");}
-                                case 1: System.out.print("B");break;
-                                case j : System.out.print("C");
-                      }
-            }
-   }`,
+        codeString: `class Whiz {
+    public static void main(String args[ ]) {
+        final int i = 0;
+        final int j;
+        j=2;
+        int x= (int)(Math.random() * 3);
+
+        switch(x) {
+            case i : {System.out.print("A");}
+            case 1: System.out.print("B");break;
+            case j : System.out.print("C");
+        }
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
 
 A case constant must be a compile-time constant. Here integer j is not a compile time constant.
@@ -15101,11 +15077,9 @@ The correct answer is: The only legal expression in an if statement is a Boolean
                 markdown: 'All of these'
             },
         ],
-        codeString: `I.     The overridden equals method of a class checks reference equality.
-
-II.     The “==” invokes the equals method when used to check objects equality.
-
-III.     The equals method is defined in the Object class.`,
+        codeString: `// I. The overridden equals method of a class checks reference equality.
+// II. The “==” invokes the equals method when used to check objects equality.
+// III. The equals method is defined in the Object class.`,
         answerExplanation: `Option B is the correct answer.
 
 Statement I is incorrect since equals() method is overridden. It checks two objects for equality as per its implementation. The equals() method provided in the Object class uses the identity operator (==) to determine whether two objects are equal. For primitive data types, this gives the correct result. For objects, however, it does not. The equals() method provided by Object tests whether the object references are equal—that is, if the objects compared are the exact same object so statement III is correct.
@@ -15143,16 +15117,16 @@ The correct answer is: Only III`,
                 markdown: '13'
             },
         ],
-        codeString: `  class Whiz {
-            public static void main(String args[ ]) {
-                     int x = 0, y =10;                                                                  
-        
-                     if (x++ > 1 && ++y >10)
-                             System.out.print(x + y);
-                     if (++y > 10 || ++x >10)
-                              System.out.print(x + y);              
-            }
-   }`,
+        codeString: `class Whiz {
+    public static void main(String args[ ]) {
+        int x = 0, y =10;
+
+        if (x++ > 1 && ++y >10)
+            System.out.print(x + y);
+        if (++y > 10 || ++x >10)
+            System.out.print(x + y);
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
 
 the first if statement evaluates the value of x and when saw it is false it won’t evaluate the value of y. So in this, if statement only the value of x changes but the value of y won’t. In second if statement evaluating the value of y return true so it won’t evaluate the value of x, so the value of x won’t change. So, the final value of x will be 1 and y will be 11.
@@ -15188,12 +15162,12 @@ The correct answer is: 12`,
                 markdown: 'Compilation fails.'
             },
         ],
-        codeString: `   class Whiz {
-              public static void main(String[ ] args) {
-                       int i = 3, j = 2;     
-                       System.out.println(i-- + --j + ++i);
-               }
-    }`,
+        codeString: `class Whiz {
+    public static void main(String[ ] args) {
+        int i = 3, j = 2;
+        System.out.println(i-- + --j + ++i);
+    }
+}`,
         answerExplanation: `Option B is the correct answer.
 
 The increment/decrement operators can be applied before or after the operand. At Line 4   i-- and --j will end in i and j being decremented by one respectively.  Now, i is 2 and j is 1. ++i will increment the value of  i by one. Now, i  is 3 and j is 1. So, the statement at line 4 becomes as follows
@@ -15235,24 +15209,24 @@ The correct answer is: 7`,
                 markdown: 'Compilation fails due to an error at line 17.'
             },
         ],
-        codeString: ` class Animal {
-                public void eat()throws NullPointerException {
-                                       System.out.print("Animal eats "  );
-                }
- }
- class Dog extends Animal {
-                void eat(String s)throws Exception{
-                                System.out.print("Dog eats "+ s);
-                }
- }
- public class Whiz {
-                public static void main (String [ ] args)throws Exception { 
-                                Animal a= new Dog();
-                                Dog d = (Dog)a;
-                                a.eat();
-                                d.eat("Meat");
-                  }
- } `,
+        codeString: `class Animal {
+    public void eat()throws NullPointerException {
+        System.out.print("Animal eats "  );
+    }
+}
+class Dog extends Animal {
+    void eat(String s)throws Exception{
+        System.out.print("Dog eats "+ s);
+    }
+}
+public class Whiz {
+    public static void main (String [ ] args)throws Exception {
+        Animal a= new Dog();
+        Dog d = (Dog)a;
+        a.eat();
+        d.eat("Meat");
+    }
+} `,
         answerExplanation: `Option A is the correct answer.
 
 When we overload a method we must change the argument list and we can throw different exceptions. We can have different access modifiers. So the eat method doesn’t cause any problem. Though variable has Animal reference type, it is Dog object and there is no issue when we cast it to be a dog object.
@@ -15374,22 +15348,21 @@ The correct answer is: The down casting can’t be occurred implicitly.`,
                 markdown: 'All of the statements are true.'
             },
         ],
-        codeString: `       class A { }
-       class B extends A { }
-       class Whiz {
-                 public static void main(String [ ] args) {
-                       A aa = new B();
-                       A bb = new B();
-                       A aaa = new A();
-                 }
-         }
+        codeString: `class A { }
+class B extends A { }
+class Whiz {
+    public static void main(String [ ] args) {
+        A aa = new B();
+        A bb = new B();
+        A aaa = new A();
+    }
+}
+/*
 Which of the following statement is true about the above code fragment?
-
-I.            Object type of the variable “aa” is B.
-
-II.           Reference type of the variable “bb” is B.
-
-III.          Object type of the variable “aaa” is A.`,
+I. Object type of the variable “aa” is B.
+II. Reference type of the variable “bb” is B.
+III. Object type of the variable “aaa” is A.
+*/`,
         answerExplanation: `Option D is the correct answer.
 
 Statement I is correct as the object type of the variable “aa” is “B” since we have used “new B()” for initializing the object.
@@ -15429,15 +15402,15 @@ The correct answer is: Only I and III.`,
                 markdown: 'Compilation fails due to an error at line 3.'
             },
         ],
-        codeString: `class Access{     
-         native int AccessCode;
-         transient Integer AccessCode2 = 1000;
-         Access(int i){
-                AccessCode = i;
-         }
-          public static void main(String args[]){   
-                System.out.print(new Access(1020).AccessCode);
-          }             
+        codeString: `class Access{
+    native int AccessCode;
+    transient Integer AccessCode2 = 1000;
+    Access(int i){
+        AccessCode = i;
+    }
+    public static void main(String args[]){
+        System.out.print(new Access(1020).AccessCode);
+    }
 }`,
         answerExplanation: `Option C is the correct answer.
 
@@ -15482,16 +15455,16 @@ The correct answer is: Compilation fails due to an error at line 2.`,
             },
         ],
         codeString: `class Whiz{
-                int i = 10;
-                public static void main(String args[]){
-                                int i;
-                                if(new Whiz().go(10))   i = 5;
-                                                System.out.print(i);
-                }
-                boolean go(int y){
-                                if(y>5) return true;
-                                else return false;
-                }
+    int i = 10;
+    public static void main(String args[]){
+        int i;
+        if(new Whiz().go(10))   i = 5;
+        System.out.print(i);
+    }
+    boolean go(int y){
+        if(y>5) return true;
+        else return false;
+    }
 }`,
         answerExplanation: `Option E is the correct answer.
 
@@ -15529,31 +15502,31 @@ The correct answer is: Compilation fails due to an error at line 6.`,
             },
         ],
         codeString: `class Person{
-                int age;
-                String name;
-                public void read(){
-                                System.out.print("Person is reading ");
-                }
-                private void other(){}
- }
+    int age;
+    String name;
+    public void read(){
+        System.out.print("Person is reading ");
+    }
+    private void other(){}
+}
 class Livera extends Person{
-                Livera(String s ,int i){
-                                age = i;
-              name = s;
-                }
-                public void read(){
-                                System.out.print(name +" is reading ");
-                }             
-                 public void other()throws Exception{} 
- }
+    Livera(String s ,int i){
+        age = i;
+        name = s;
+    }
+    public void read(){
+        System.out.print(name +" is reading ");
+    }
+    public void other()throws Exception{}
+}
 public class Whiz{
-                public static void main(String [] args){
-                                Livera s = new Livera("Livera" , 22);
-                                Person p =s;
-                                s.read();
-                                p.read();
-                }
-  }`,
+    public static void main(String [] args){
+        Livera s = new Livera("Livera" , 22);
+        Person p =s;
+        s.read();
+        p.read();
+    }
+}`,
         answerExplanation: `Option A is the correct answer.
 
 Variable p and s refer to same object type Livera at though they have the different reference type. So, invoking read methods invokes the same overridden method.  The other method is not overridden because the other method in the SuperClass (Person) is marked as private.
@@ -15590,22 +15563,22 @@ The correct answer is: Livera is reading Livera is reading`,
             },
         ],
         codeString: `class SuperClass{
-                public void method(){
-                                System.out.print("SuperClass");
-                }
+    public void method(){
+        System.out.print("SuperClass");
+    }
 }
 final class Sub extends SuperClass{
-                public void method(){
-                                System.out.print("SubClass");
-                }
+    public void method(){
+        System.out.print("SubClass");
+    }
 }
 public class SubSub extends Sub{
-                public static void main(String args[]){
-                                ((SuperClass)new SubSub()).method();
-                }
-                public void method(){
-                                System.out.print("SubsubClass");
-                }
+    public static void main(String args[]){
+        ((SuperClass)new SubSub()).method();
+    }
+    public void method(){
+        System.out.print("SubsubClass");
+    }
 }`,
         answerExplanation: `Option E is the correct answer.
 
@@ -15643,13 +15616,13 @@ The correct answer is: Compilation fails.`,
             },
         ],
         codeString: `class Whiz{
-        public static void main(String args[]) throws Exception{
-                 System.out.print(new Whiz().check(10));
-        }
-        boolean check(short x){
-               if(x<10) return true;
-               else return false;
-        }
+    public static void main(String args[]) throws Exception{
+        System.out.print(new Whiz().check(10));
+    }
+    boolean check(short x){
+        if(x<10) return true;
+        else return false;
+    }
 }`,
         answerExplanation: `Option D is the correct answer.
 
@@ -15685,10 +15658,10 @@ The correct answer is: Compilation fails due to an error at line 3`,
             }
         ],
         codeString: `class Whiz{
-         public static void main(String[] args) {
-                  Double d = 8.08;
-                  System.out.print(d instanceof Object);
-         }
+    public static void main(String[] args) {
+        Double d = 8.08;
+        System.out.print(d instanceof Object);
+    }
 }`,
         answerExplanation: `Option A is the correct answer.
 
@@ -15726,16 +15699,16 @@ The correct answer is: true`,
             },
         ],
         codeString: `class Whiz{
-                public static void main(String args[]){
-                                double d = new Divider().divide(30,3);
-                                System.out.print(d);
-                }
+    public static void main(String args[]){
+        double d = new Divider().divide(30,3);
+        System.out.print(d);
+    }
 }
- 
+
 class Divider{
-                double divide(int i, int j){
-                                return i/j;
-                }
+    double divide(int i, int j){
+        return i/j;
+    }
 }`,
         answerExplanation: `Option A is the correct answer.
 
@@ -15902,30 +15875,30 @@ The correct answer is: 2`,
             },
         ],
         codeString: `class MainClass{
-                MainClass(){    System.out.print("MainClass ");                                }             
+    MainClass(){    System.out.print("MainClass ");                                }
 }
 class SubClass extends MainClass{
-                {System.out.print("I ");}
-                static{System.out.print("S ");}
-                SubClass(int i){
-                                this();
-                                System.out.print("SubClass ");
-                }
-                                                               
-                SubClass(){
-                                super();
-                                System.out.print("SubClass ");
-                }
- }
+    {System.out.print("I ");}
+    static{System.out.print("S ");}
+    SubClass(int i){
+        this();
+        System.out.print("SubClass ");
+    }
+
+    SubClass(){
+        super();
+        System.out.print("SubClass ");
+    }
+}
 public class SubSubClass extends SubClass{
-                SubSubClass(String s){
-                                super();
-                                System.out.print("SubSubClass ");
-                }
-                public static void main(String [] args){
-                                new SubSubClass("ABC");
-                }
- }`,
+    SubSubClass(String s){
+        super();
+        System.out.print("SubSubClass ");
+    }
+    public static void main(String [] args){
+        new SubSubClass("ABC");
+    }
+}`,
         answerExplanation: `Option B is the correct answer.
 
 To get the correct answer, you should know, Static initialization blocks run once when the class is first loaded. Instance initialization blocks run every time a new instance is created. They run after all super-constructors and before the constructor’s code have run.
@@ -16003,34 +15976,34 @@ The correct answer is: Overloaded methods may change the argument list.  `,
                 markdown: 'Compilation fails.'
             },
         ],
-        codeString: `   class Person{
-             Person() {
-                     System.out.print("CP ");
-             }
-             static{ System.out.print("SP ");}
+        codeString: `class Person{
+    Person() {
+        System.out.print("CP ");
     }
-        
-    class Student extends Person {
-               Student() {
-                      System.out.print("CS ");
-                }
-     }
-    
-    class Teacher extends Person {
-               Teacher() {
-                        System.out.print("CT ");
-                }
-                private Teacher(String s){
-                        System.out.print("OCT ");
-                }
-     }
-    
-     class Whiz {
-               public static void main(String [ ] args) {
-                        Person p1 = new Teacher(“name”);
-                        Student s1 = new Student();
-               }
-      } `,
+    static{ System.out.print("SP ");}
+}
+
+class Student extends Person {
+    Student() {
+        System.out.print("CS ");
+    }
+}
+
+class Teacher extends Person {
+    Teacher() {
+        System.out.print("CT ");
+    }
+    private Teacher(String s){
+        System.out.print("OCT ");
+    }
+}
+
+class Whiz {
+    public static void main(String [ ] args) {
+        Person p1 = new Teacher(“name”);
+        Student s1 = new Student();
+    }
+} `,
         answerExplanation: `Option E is the correct answer.
 
 Teacher class has a constructor which can take String as an argument but it is marked as private so it can’t be seen by the Whiz class. So, this code fails to compile.
@@ -16102,20 +16075,20 @@ The correct answer is: private int method(String s)`,
                 markdown: 'Compilation fails.'
             },
         ],
-        codeString: ` public class Whiz {
-                      
-           int x = 10;
-           static int y = x;
-                      
-           Whiz() {
-                    y++;
-           }
-                      
-           public static void main(String args[ ]) {
-                    System.out.println(y + new Whiz().x);
-                  
-           }
-   }`,
+        codeString: `public class Whiz {
+
+    int x = 10;
+    static int y = x;
+
+    Whiz() {
+        y++;
+    }
+
+    public static void main(String args[ ]) {
+        System.out.println(y + new Whiz().x);
+
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
 
 Static content can’t access instance content, so at line 4, trying to access instance variable to assign a value for static variable y, results in a compile-time error, hence option E is correct.
@@ -16151,23 +16124,23 @@ The correct answer is: Compilation fails.`,
                 markdown: 'Compilation fails due to multiple errors.'
             },
         ],
-        codeString: ` class Whiz {
-     static {
-         x = 10;
-         y = 5;
-     }
-     int x;
-     final static int y;
-     public static void main(String args[]) {
-         try {
-             Whiz pr = new Whiz();
-             int c = pr.x / y;
-             System.out.print(c);
-         } catch (ArithmeticException E) {
-             System.out.print("Arithmetic Exception");
-         }
-     }
- }`,
+        codeString: `class Whiz {
+    static {
+        x = 10;
+        y = 5;
+    }
+    int x;
+    final static int y;
+    public static void main(String args[]) {
+        try {
+            Whiz pr = new Whiz();
+            int c = pr.x / y;
+            System.out.print(c);
+        } catch (ArithmeticException E) {
+            System.out.print("Arithmetic Exception");
+        }
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
 
 Option D is correct since there is an error at line 3, we tried to access the non-static variable x inside a static block is illegal since static content can’t access non-static content.
@@ -16204,12 +16177,12 @@ The correct answer is: Compilation fails due to an error an line 3.`,
             },
         ],
         codeString: `class Whiz{
-        public static void main(String[] args){
-                    StringBuilder sb =new StringBuilder("OCAJP");
-                    String s = new String(sb.toCharArray());
-                    s = s.concat(" 8");
-                    System.out.print(s);
-         }
+    public static void main(String[] args){
+        StringBuilder sb =new StringBuilder("OCAJP");
+        String s = new String(sb.toCharArray());
+        s = s.concat(" 8");
+        System.out.print(s);
+    }
 }`,
         answerExplanation: `Option E is the correct answer.
 
@@ -16249,11 +16222,11 @@ The correct answer is: Compilation fails.`,
             },
         ],
         codeString: `class Whiz{
-        public static void main(String[] args){
-                  StringBuilder sb = new StringBuilder("aAaA");
-                  sb.insert(sb.lastIndexOf("A"),true);
-                  System.out.print(sb);
-        }
+    public static void main(String[] args){
+        StringBuilder sb = new StringBuilder("aAaA");
+        sb.insert(sb.lastIndexOf("A"),true);
+        System.out.print(sb);
+    }
 }`,
         answerExplanation: `Option B is the correct answer.
 
@@ -16303,12 +16276,12 @@ The correct answer is: aAatrueA`,
             },
         ],
         codeString: `class Whiz{
-          public static void main(String[] args){
-                    String str = "1Z0-808";
-                     str = str.replace("80", "81");
-                     str = str.substring(str.indexOf("80"), str.lastIndexOf("80"));
-                     System.out.print(str);
-          }
+    public static void main(String[] args){
+        String str = "1Z0-808";
+        str = str.replace("80", "81");
+        str = str.substring(str.indexOf("80"), str.lastIndexOf("80"));
+        System.out.print(str);
+    }
 }`,
         answerExplanation: `Option D is the correct answer.
 
@@ -16474,16 +16447,16 @@ The correct answer is: spliterator`,
             },
         ],
         codeString: `public class Whiz{
-         public static void main(String[] args){   
-                   java.util.List<String> list = new java.util.ArrayList<>();
-                   list.add("A");
-                   list.add("C");
-                   list.add("E");
-                   list.add("D");
-                   list.add(1, "B");
-                   list.set(4, "F");
-                  System.out.println(list);
-       }
+    public static void main(String[] args){
+        java.util.List<String> list = new java.util.ArrayList<>();
+        list.add("A");
+        list.add("C");
+        list.add("E");
+        list.add("D");
+        list.add(1, "B");
+        list.set(4, "F");
+        System.out.println(list);
+    }
 } `,
         answerExplanation: `Option A is the correct answer.
 
@@ -16614,16 +16587,16 @@ The correct answer is: size()`,
                 markdown: 'Compilation fails. '
             },
         ],
-        codeString: `public class Whizlab{
-           public static void main(String[] args) {
-                       
-                       double []dbls;
-                       dbls = {1.0,2.1,3.5};
-        
-                       dbls[1] = 10.5;
-                       System.out.print(dbls[1] + dbls[2]);
-          }
-   } `,
+        codeString: `public class Whizlab {
+    public static void main(String[] args) {
+
+        double[] dbls;
+        dbls = {1.0, 2.1, 3.5};
+
+        dbls[1] = 10.5;
+        System.out.print(dbls[1] + dbls[2]);
+    }
+}`,
         answerExplanation: `Option E is the correct answer. 
 The code fails to compile as we tried to use Array constants to initialize the array after declaring the array which is illegal. Array constants can only be used in initializers. Hence, option E is correct.
 Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.htmlThe correct answer is: Compilation fails.`,
@@ -16722,15 +16695,15 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/nut
             },
         ],
         codeString: `import java.util.Arrays;
-        
-       public class Whizlab{
-         
-          public static void main(String args[]){
-                       int []x =  new int[3];
-                       Arrays.fill(x,1);
-                       System.out.println(x[2]);
-           }
-   }     `,
+
+public class Whizlab {
+
+    public static void main(String args[]) {
+        int[] x = new int[3];
+        Arrays.fill(x, 1);
+        System.out.println(x[2]);
+    }
+}`,
         answerExplanation: `Option B is the correct answer. 
 We can use fill method of Arrays class to assign same value for each element in an array.
 public static void fill(int[ ] a, int val)
@@ -16765,15 +16738,15 @@ Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.h
                 markdown: 'Compilation fails.'
             },
         ],
-        codeString: `        public class Whizlab{
-                    public static void main(String args[]){
-                                    args = {"1","2","3"};
-                                    for(String s : args){
-                                                    if(s.equals("1")) continue;
-                                                    System.out.print(s);
-                                    }
-                    }                                              
-        }  `,
+        codeString: `public class Whizlab {
+    public static void main(String args[]) {
+        args = {"1", "2", "3"};
+        for (String s : args) {
+            if (s.equals("1")) continue;
+            System.out.print(s);
+        }
+    }
+}`,
         answerExplanation: `Option E is the correct answer. 
 When we use array constants, they can be used only in initializes. Simply, you can’t declare an array in one statement and then assign array values with array constants (i.e. {1,2,3}) in another statement. So, code fails to compile due to line 3. Hence, option E is correct.
 Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.htmlThe correct answer is: Compilation fails.`,
@@ -16805,12 +16778,12 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/nut
                 markdown: 'System.out.print(array[2][1]);'
             },
         ],
-        codeString: `       public class Whizlab{
-               public static void main(String[] args) {
-                               int [][]array = {{},{1,2,3}, {4,5}};
-                               // insert here
-               }
-       }`,
+        codeString: `public class Whizlab {
+    public static void main(String[] args) {
+        int[][] array = {{}, {1, 2, 3}, {4, 5}};
+        // insert here
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
  
 Array indexes are started from 0. So, we can summarize the array content as follows:
@@ -16849,12 +16822,12 @@ Reference            : http://docs.oracle.com/javase/tutorial/java/nu
                 markdown: 'System.out.print(array[2][1]);'
             },
         ],
-        codeString: `       public class Whizlab{
-               public static void main(String[] args) {
-                               int [][]array = {{},{1,2,3}, {4,5}};
-                               // insert here
-               }
-       }`,
+        codeString: `public class Whizlab {
+    public static void main(String[] args) {
+        int[][] array = {{}, {1, 2, 3}, {4, 5}};
+        // insert here
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
  
 Array indexes start from 0. So, we can summarize the array content as follows;
@@ -16893,13 +16866,13 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/nut
                 markdown: 'Compilation fails.'
             },
         ],
-        codeString: `       public class Whizlab {
-                static long index = 2;
-                public static void main(String[] args) {
-                         int [ ][ ] array = {{},{1,2,3}, {4,5}};
-                        System.out.print(array[index][1]);
-                }
-       }`,
+        codeString: `public class Whizlab {
+    static long index = 2;
+    public static void main(String[] args) {
+        int[][] array = {{}, {1, 2, 3}, {4, 5}};
+        System.out.print(array[index][1]);
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
 For array positions, we can use only the integer types. Here we have tried to use long to access an element of the array. Hence compilation will fail.
 Reference   :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.htmlThe correct answer is: Compilation fails.`,
@@ -16931,16 +16904,16 @@ Reference   :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/array
                 markdown: 'No output'
             },
         ],
-        codeString: `       class Whizlab{
-       public static void main(String args[]){
-                       new Whizlab().meth();                 
-                       }
-                       
-       public void meth()throws Exception{
-                       for(int x=0;x>5;x++)
-                                       System.out.print(x);
-                       }
-   }`,
+        codeString: `class Whizlab{
+    public static void main(String args[]){
+        new Whizlab().meth();
+    }
+
+    public void meth()throws Exception{
+        for(int x=0;x>5;x++)
+            System.out.print(x);
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
 'meth' method has declared a checked exception. When we are calling a method which declares or throwing a checked exception, the calling method should declare or handle that checked exception otherwise compilation fails. 'main' doesn't declared or handled an Exception . It causes compile time error. Hence Option D is Correct. Remaining options are incorrect as explained above.
 REFERENCE                        :http://docs.oracle.com/javase/tutorial/essential/io/fileOps.html#exceptionThe correct answer is: Compilation fails.`,
@@ -16990,7 +16963,8 @@ REFERENCE                        :http://docs.oracle.com/
 
     public void join(Employee s) {
         e = s;
-    }`,
+    }
+}`,
         answerExplanation: `Option F is the correct answer.
 
 Garbage collection refers to the process of automatically freeing memory on the heap by
@@ -17099,16 +17073,16 @@ The correct answer is: Compilation fails`,
                 markdown: 'Output would be I’m running at position:  0.'
             },
         ],
-        codeString: `public static void main(String[] args){
-                    try{
-                                    test();
-                    }catch(IOException x) {
-                                   
-                    }
-    }
-   public static void test(){
-                   System.out.println(“I’m running at position: ” + 0);
-  }`,
+        codeString: `public static void main(String[]args){
+        try{
+            test();
+        } catch(IOException x){
+
+        }
+}
+public static void test(){
+    System.out.println(“I’m running at position: ” +0);
+}`,
         answerExplanation: `Option D is the correct answer.
 
 Since the IOException is a checked exception, and the method test doesn’t throw this type of exception. Hence, the compiler will complain about that. So, option D is correct and options A and C are incorrect. It’s OK if there is no finally block, so option B is wrong.
@@ -17144,29 +17118,29 @@ The correct answer is: Compiler complains because of the catch block.`,
                 markdown: 'Compilation fails.'
             },
         ],
-        codeString: `    public class Whizlab {
-             public static void main(String[ ] args) {
-                      try {
-                                 int x = args.length;
-                                 int  v = 10 / x;
-                                 System.out.print(x);
-                                 try {
-                                         if (x == 1)
-                                          x = x / x - x;
-                                          if (x == 2) {
-                                                 int [ ] c = {2};
-                                                 c[3] = 3;
-                                          }
-                                 }
-                                 catch (ArrayIndexOutOfBoundsException e) {
-                                           System.out.println("out of bounds.");
-                                  }
-                                  catch (ArithmeticException e) {
-                                           System.out.println("Arithmetic");
-                                   }
-                        }
-               }
-     }`,
+        codeString: `public class Whizlab {
+    public static void main(String[ ] args) {
+        try {
+            int x = args.length;
+            int  v = 10 / x;
+            System.out.print(x);
+            try {
+                if (x == 1)
+                    x = x / x - x;
+                if (x == 2) {
+                    int [ ] c = {2};
+                    c[3] = 3;
+                }
+            }
+            catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("out of bounds.");
+            }
+            catch (ArithmeticException e) {
+                System.out.println("Arithmetic");
+            }
+        }
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
 
 The two catch blocks are associated with the inner try on line 7.  Since the outer try on line 3 has no catch or finally blocks, compilation will fail.
@@ -17208,26 +17182,26 @@ The correct answer is: Compilation fails.`,
                     'Terminated.'
             },
         ],
-        codeString: `     public class Whizlab { 
-      
-              public static void run() {
-                       throw new RuntimeException();
-              }
-      
-              public static void main(String [ ] args) {
-                       try {
-                              run(); 
-                              System.out.println("OK"); 
-                       } catch (RuntimeException runtime) {
-                              System.out.println("Runtime.");
-                       } catch (Exception ex1) {
-                               System.out.println("Exception here.");
-                       } finally {
-                               System.out.println("Finally here.");
-                       }
-                      System.out.println("Terminated.");
-              }
-     }`,
+        codeString: `public class Whizlab {
+
+    public static void run() {
+        throw new RuntimeException();
+    }
+
+    public static void main(String [ ] args) {
+        try {
+            run();
+            System.out.println("OK");
+        } catch (RuntimeException runtime) {
+            System.out.println("Runtime.");
+        } catch (Exception ex1) {
+            System.out.println("Exception here.");
+        } finally {
+            System.out.println("Finally here.");
+        }
+        System.out.println("Terminated.");
+    }
+}`,
         answerExplanation: `Option B is the correct answer.
 
 At line 9 run method is called and it will generate RuntimeException exception that will be caught by the first catch block in main method . So "Runtime" printed first . finally block is executed , So " Finally here " printed  next. Statement at line 18 executed next and prints "Terminated" . So, Option B is correct answer.
@@ -17398,13 +17372,13 @@ The correct answer is: public static void main(String  i[])`,
             },
         ],
         codeString: `public class Whizlab{
-   public static void main(String [ ] args){     
-                   StringBuilder sb = new StringBuilder("Whiz");
-                   sb = sb.append("lab");
-                   sb.append('s');
-                   sb.setLength(7);
-                   System.out.println(sb);
-   }     
+    public static void main(String [ ] args){
+        StringBuilder sb = new StringBuilder("Whiz");
+        sb = sb.append("lab");
+        sb.append('s');
+        sb.setLength(7);
+        System.out.println(sb);
+    }
 }  `,
         answerExplanation: `Option B is correct.
 
@@ -17481,11 +17455,9 @@ The correct answers are: High cohesion makes it easier to maintain program. , Hi
                 markdown: 'All the statements are true.'
             },
         ],
-        codeString: `        I.            We can use "#” symbol for single line comment in java.
-
-      II.            We can use “//” for multi-line comments in java.
-
-    III.            We can use "/*" and “*/” for multi-line comments in java.`,
+        codeString: `// I. We can use "#” symbol for single line comment in java.
+// II. We can use “//” for multi-line comments in java.
+// III. We can use "/*" and “*/” for multi-line comments in java.`,
         answerExplanation: `Option C is the correct answer.
 
 Statement I is incorrect since we can’t use “#” for any commenting purposes in java. But some other languages like PHP allow this.
@@ -17619,12 +17591,12 @@ The correct answer is: None of the above`,
                 markdown: 'By adding the import statement “import static java.util.*;”'
             },
         ],
-        codeString: `        public class Sorter{
-                    public static void main(String []args){
-                                    int[ ] a = {3,1,22,5,11,2};
-                                    sort(a);
-                    }
-        }`,
+        codeString: `public class Sorter{
+    public static void main(String []args){
+        int[ ] a = {3,1,22,5,11,2};
+        sort(a);
+    }
+}`,
         answerExplanation: `Option A is the correct answer.
 
 Option A is correct. We can import static members of the Arrays class for making this code works. In Option A, we have followed the correct way of import statically.
@@ -17665,11 +17637,11 @@ The correct answer is: By adding the import statements “import static java.uti
             },
         ],
         codeString: `class Whizlab {
-         public static void main(String [] args) {
-                 StringBuilder s =new StringBuilder("Java");
-                 s.insert(0, "The latest").append("version is").append(" 1.7").delete(27, 28).append("8").substring(4);
-                System.out.print(s);
-         }
+    public static void main(String [] args) {
+        StringBuilder s =new StringBuilder("Java");
+        s.insert(0, "The latest").append("version is").append(" 1.7").delete(27, 28).append("8").substring(4);
+        System.out.print(s);
+    }
 }`,
         answerExplanation: `Option D is the correct answer.
 
@@ -17712,18 +17684,18 @@ The correct answer is: The latestJavaversion is 1.8`,
                 markdown: '135 followed by an exception'
             },
         ],
-        codeString: `   class Whizlab {
-             public static void main(String args[ ]) {
-                       int [ ] a = {1,2,3,4,5,6};
-                        int i = a.length – 1;
-                        while (i >= 0) {
-                                    if (i%2 != 0) {
-                                            System.out.print(a[i]);
-                                             i--;
-                                    }
-                        }
-              }
-    }`,
+        codeString: `class Whizlab {
+    public static void main(String args[ ]) {
+        int [ ] a = {1,2,3,4,5,6};
+        int i = a.length – 1;
+        while (i >= 0) {
+            if (i%2 != 0) {
+                System.out.print(a[i]);
+                i--;
+            }
+        }
+    }
+}`,
         answerExplanation: `Option A is the correct answer.
 
 In given code, we use while loop to iterate trough all elements in the array while only printing elements in the odd index positions. So, when code first executes it will print 6 since index position 5 is odd and reduce the i by one. The issue starts with next iteration, since the if condition become false, loop will not reduce the value of i, so each time value of i remain same. Hence, code will go to an infinite loop after printing 6. As explained option A is correct.
@@ -17759,21 +17731,20 @@ The correct answer is: 6 will be printed and hang in an infinite loop.`,
                 markdown: 'All of these'
             },
         ],
-        codeString: ` class WhizLab {
-           public static void main(String args[ ]) {
-                    int [ ] arr = {1,2,3,4,5,6};
-                     // insert code here
-                             System.out.print(i + " ");
-                     }
-           }
-  }
-Which of the following will compile successfully when inserted at line 4? 
-
-  I.             for (i : arr) {
-
- II.             for (int i : arr) {
-
- III.            for (arr : int i) {`,
+        codeString: `class WhizLab {
+    public static void main(String args[]) {
+        int[] arr = {1, 2, 3, 4, 5, 6};
+        // insert code here
+            System.out.print(i + " ");
+        }
+    }
+}
+/*
+Which of the following will compile successfully when inserted at line 4?
+I.             for (i : arr) {
+II.             for (int i : arr) {
+III.            for (arr : int i) {
+*/`,
         answerExplanation: `Option B is the correct answer.
 
 Correct syntax for using enhance for loop is
@@ -17817,18 +17788,18 @@ The correct answer is: II only`,
                 markdown: 'Will print 13 and then goes to never ending loop.'
             },
         ],
-        codeString: ` class Whizlab {
-           public static void main(String args[ ]) {           
-                     int ints[ ][ ] = {{1,2},{3,5},{6,7}};                                                                   
-                     Loop1: for (int i = 0; i < ints.length; i++) {
-                              if (y == 3) break Loop1;
-                              for (int y = 0;y<ints[i].length;y++) {
-                                      if (y == 1) continue Loop1;
-                                      System.out.print(ints[i][y]);
-                              }
-                     }
+        codeString: `class Whizlab {
+    public static void main(String args[ ]) {
+        int ints[ ][ ] = {{1,2},{3,5},{6,7}};
+        Loop1: for (int i = 0; i < ints.length; i++) {
+            if (y == 3) break Loop1;
+            for (int y = 0;y<ints[i].length;y++) {
+                if (y == 1) continue Loop1;
+                System.out.print(ints[i][y]);
             }
-   }`,
+        }
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
 
 Option D is correct since the code fails to compile due to line 5. At line 5, we have tried to access inner loop variable y, but the scope of that variable is limited to the inner loop. Hence, option D is correct.
@@ -17864,13 +17835,13 @@ The correct answer is: Compilation fails.`,
                 markdown: 'Compilation fails.'
             },
         ],
-        codeString: `      class Whizlab{
-       public static void main(String args[]){
-               int []a= {1,2,3};
-               for(int x = 0;++x <4;x++)
-                               System.out.print(a[x]);
-               }
-       }`,
+        codeString: `class Whizlab{
+    public static void main(String args[]){
+        int []a= {1,2,3};
+        for(int x = 0;++x <4;x++)
+            System.out.print(a[x]);
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
 
  
@@ -17951,13 +17922,13 @@ The correct answer is: 10`,
             },
         ],
         codeString: `public class Whizlab {
-         public static void main(String [ ] args) {
-                  int x = 0;
-                  while((x = 0) <= 1) {
-                          System.out.print(x);
-                          x++;
-                  }
-         }
+    public static void main(String [ ] args) {
+        int x = 0;
+        while((x = 0) <= 1) {
+            System.out.print(x);
+            x++;
+        }
+    }
 }`,
         answerExplanation: `Option D is the Correct answer
 
@@ -17994,15 +17965,15 @@ The correct answer is: 0 will be printed endlessly.`,
                 markdown: 'Compilation fails.'
             },
         ],
-        codeString: ` public class Whizlab {
-                               
-           public static void main(String [ ] args) {
-                    int x = 0;
-                    for ( ; x < 5; x += 3) {
-                            System.out.print(x);
-                    }
-           }
-  }`,
+        codeString: `public class Whizlab {
+
+    public static void main(String [ ] args) {
+        int x = 0;
+        for ( ; x < 5; x += 3) {
+            System.out.print(x);
+        }
+    }
+}`,
         answerExplanation: `Option C is the correct answer.
 
 The general form of the for statement can be expressed as follows:
@@ -18054,11 +18025,11 @@ The correct answer is: 03`,
         ],
         codeString: `public class Whizlab{
     public static void main(String [ ] args) {
-                int ar[][] = {{1,11},{1},{1,11}};
-                for(int x = 0;x < ar.length;x++){
-                                //insert here
-                }
-     }
+        int ar[][] = {{1,11},{1},{1,11}};
+        for(int x = 0;x < ar.length;x++){
+            //insert here
+        }
+    }
 }`,
         answerExplanation: `Option C is the correct answer.
 
@@ -18099,14 +18070,14 @@ The correct answer is: for(int y : ar[x]) System.out.print(y);`,
                 markdown: 'Compilation fails.'
             },
         ],
-        codeString: `       class Whizlab{
-             public static void main(String [] args){
-                         short s=9;
-                         double d = 10;
-                         String str = s==d?"s=d":(s==10)?"s=10":"nothing";
-                         System.out.print(str);
-             }
-       }`,
+        codeString: `class Whizlab{
+    public static void main(String [] args){
+        short s=9;
+        double d = 10;
+        String str = s==d?"s=d":(s==10)?"s=10":"nothing";
+        System.out.print(str);
+    }
+}`,
         answerExplanation: `Option C is the correct answer.
 
 This is just a ternary nested in a ternary. In the first logical test, it will check s and d are equals since it is not it look for false condition and again go to the nested ternary which checks the variable s equals to 10, since again it evaluates as false “nothing” is assigned to the str. Hence, printing statement at line 6 will print as "nothing”. So, option C is correct.
@@ -18143,13 +18114,13 @@ The correct answer is: nothing`,
             },
         ],
         codeString: `class Whizlab{
-                public static void main(String [] args){
-                          int y=10;
-                          int x = 10;
-                          if(x!=10 && y++==1);
-                          if(y==11 | ++x==11) y+=10;
-                                          System.out.print(y);
-                }
+    public static void main(String [] args){
+        int y=10;
+        int x = 10;
+        if(x!=10 && y++==1);
+        if(y==11 | ++x==11) y+=10;
+        System.out.print(y);
+    }
 }`,
         answerExplanation: `Option C is the correct answer.
 
@@ -18186,14 +18157,14 @@ The correct answer is: 20`,
                 markdown: 'Compilation fails.'
             },
         ],
-        codeString: `       class Whizlab{
-       static Integer y;
-             public static void main(String [] args){
-                         int x = 10;
-                         if(x++>10 & y++==1)y+=10;
-                                         System.out.print(y);
-                         }
-       }`,
+        codeString: `class Whizlab{
+    static Integer y;
+    public static void main(String [] args){
+        int x = 10;
+        if(x++>10 & y++==1)y+=10;
+        System.out.print(y);
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
 
 This code compiles successfully. But y is not primitive, it is a wrapper object. So y++ will throw NullPointerException because it is not initialized.
@@ -18234,12 +18205,12 @@ The correct answer is: An exception will be thrown.`,
             },
         ],
         codeString: `class Whizlab{
-          public static void main(String [] args) {
-                    int x = -10;
-                    int y =  10;
-                    //insert here
-                   System.out.print("A");
-          }
+    public static void main(String [] args) {
+        int x = -10;
+        int y =  10;
+        //insert here
+        System.out.print("A");
+    }
 }`,
         answerExplanation: `Options B, C, and E are the correct answers.
 
@@ -18276,19 +18247,19 @@ The correct answers are: if(y>=10 & x%(-3)==-1), if(y>10 |  x%(3)==-1), if( ++y>
                 markdown: 'Compilation fails.'
             },
         ],
-        codeString: `        public class Whizlab{
-               public static void main(String[] args){
-                     int y = 10;
-                   
-                     if(y++ == 10)
-                            if(y-- == 10)
-                                     if(y == 10);
-                                     else y *=3;
-                            else y *=2;
-                                 
-                   System.out.println(y);
-                }
-      }`,
+        codeString: `public class Whizlab{
+    public static void main(String[] args){
+        int y = 10;
+
+        if(y++ == 10)
+            if(y-- == 10)
+                if(y == 10);
+                else y *=3;
+            else y *=2;
+
+        System.out.println(y);
+    }
+}`,
         answerExplanation: `Option B is the correct answer
 
 The “if” statements at lines 6 and 7 checks only when the above if statement becomes true since they work as if block for each above if statements. When we consider “if” statements, each “else” statement belongs to their closet “if” statement. So, in this case, else at line 8 belongs to if at line 7, and then else at line 9 belongs to if at line 6.
@@ -18328,16 +18299,16 @@ The correct answer is: 20`,
                 markdown: 'Compilation fails'
             },
         ],
-        codeString: `   class Whizlab {
-             public static void main(String args[]) {
-                      double in = (double)(Math.random() * 4);
-                      switch(in){
-                               case 1: {System.out.print("A");} break;
-                               case 2: System.out.print("B");
-                               case 3: System.out.print("C");
-                       }
-             }
-    }`,
+        codeString: `class Whizlab {
+    public static void main(String args[]) {
+        double in = (double)(Math.random() * 4);
+        switch(in){
+            case 1: {System.out.print("A");} break;
+            case 2: System.out.print("B");
+            case 3: System.out.print("C");
+        }
+    }
+}`,
         answerExplanation: `Option E is the correct answer.
 
 The switch can’t work with floating point numbers like float, double. Here, trying to use double causes a compile time error. Hence, option E is correct.
@@ -18456,13 +18427,13 @@ The correct answer is: Unary operator.`,
                 markdown: 'Compilation fails'
             },
         ],
-        codeString: `       class Whizlab{
-           public static void main(String[] args){
-                      int y = -10;          
-                       int x = -3;
-                       System.out.println(y%x);
-           }
-       }`,
+        codeString: `class Whizlab{
+    public static void main(String[] args){
+        int y = -10;
+        int x = -3;
+        System.out.println(y%x);
+    }
+}`,
         answerExplanation: `Option A is the correct answer.
 
 When using the % operator, no matter from what value (negative or positive) we use to divider Remainder takes numerator sign. So here the numerator is negative and so reminder will stay negative. So remainder value will be -1.  Hence option A is correct.
@@ -18586,9 +18557,9 @@ The correct answer is: protected void go() throws RuntimeException{ System.out.p
                 markdown: 'None'
             },
         ],
-        codeString: `           You are asked to create two classes(A,B) which should have some behaviors in common and class B is already a subclass of class C
-            You are asked to create two classes (A,B) which should have some behaviors in common and class A is already implements another interface C .
-            You are asked to create two classes (A,B) which should have some behaviors in common and both classes (A,B) are already sub classes of other classes (C,D) .`,
+        codeString: `// You are asked to create two classes(A,B) which should have some behaviors in common and class B is already a subclass of class C
+// You are asked to create two classes (A,B) which should have some behaviors in common and class A is already implements another interface C .
+// You are asked to create two classes (A,B) which should have some behaviors in common and both classes (A,B) are already sub classes of other classes (C,D) .`,
         answerExplanation: `Option D is the correct answer.
 
 Statement I is correct as one class already extend an another class we won’t able to give it the same behavior by extending another class. So, in this case, we have to create an interface and then implements it.
@@ -18679,10 +18650,10 @@ The correct answer is: _`,
             },
         ],
         codeString: `interface Run{
-                static int range = 12;
-                public static double randomize(){
-                                return Math.random()*range;
-                }
+    static int range = 12;
+    public static double randomize(){
+        return Math.random()*range;
+    }
 }`,
         answerExplanation: `Option B is correct.
 
@@ -18757,19 +18728,19 @@ The correct answer is: $_`,
                 markdown: 'An exception is thrown at runtime.'
             }
         ],
-        codeString: `  class Whizlab {
-             int i;
-                      
-             public static void main(String [] args) {
-                      Float F = 1.03f;
-                      new Whizlab().devide(F);
-             }
-        
-             void devide(Double D) {
-                      System.out.print(D/i);
-              }
-                  
-    }`,
+        codeString: `class Whizlab {
+    int i;
+
+    public static void main(String [] args) {
+        Float F = 1.03f;
+        new Whizlab().devide(F);
+    }
+
+    void devide(Double D) {
+        System.out.print(D/i);
+    }
+
+}`,
         answerExplanation: `Option C is the correct answer.
 
 Option C is correct as at line 6, we try to pass Float wrapper to a method which expects Double wrapper. Not like primitives, none of the wrapper classes will widen from one to another. As an example following code fragment will cause the whole code fail from compiling.
@@ -18811,18 +18782,18 @@ The correct answer is: Compilation fails.`,
                 markdown: 'Compilation fails.'
             },
         ],
-        codeString: `       public class Whizlab{
-                       static int x = 1;
-                      
-                       Whizlab( ){x++;}
-                       public static void main(String args[]){
-                                       System.out.print(x + check(2));
-                      }             
-                                                                      
-                       static int check(int i){
-                                   return new Whizlab().x*i;
-                   }
-   }      `,
+        codeString: `public class Whizlab{
+    static int x = 1;
+
+    Whizlab( ){x++;}
+    public static void main(String args[]){
+        System.out.print(x + check(2));
+    }
+
+    static int check(int i){
+        return new Whizlab().x*i;
+    }
+}      `,
         answerExplanation: `Option D is the correct answer.
 
 In Java, primitives are passed by their value but not the reference. At line 6, we are calling check method by passing value 2. Inside check method creating an instance will increase the value of x by one, and then multiplying it by 2 will return 4. Finally, 1+4 will result in output 5. Hence, option D is correct.
@@ -18860,15 +18831,15 @@ The correct answer is: 5`,
         ],
         codeString: `class Exam {
 
-            Exam(String s){System.out.println(s);}
+    Exam(String s){System.out.println(s);}
 
-   }
+}
 
-   class Whizlabs extends Exam {
+class Whizlabs extends Exam {
 
-            // What would be correct constructor for this class
+    // What would be correct constructor for this class
 
-   }   `,
+}   `,
         answerExplanation: `Option C is the correct answer.
 
 Whizlabs class is a subclass of Exam class. Exam class has only one constructor, and it takes String as the parameter. Hence we have to define a constructor of subclass Whizlabs accordingly that is we need to have a constructor which call a superclass by passing String, hence option C is correct.
@@ -18910,14 +18881,14 @@ The correct answer is: Whizlabs(String s){ super(s);}`,
                 markdown: 'Compilation fails due to multiple errors.'
             },
         ],
-        codeString: `       public class Whizlab{
-               int x = 10;
-               static int y = x;
-              public static void main(String[] args) {
-                              int x = 2;
-                               System.out.print(x + y);
-               }
-       }`,
+        codeString: `public class Whizlab{
+    int x = 10;
+    static int y = x;
+    public static void main(String[] args) {
+        int x = 2;
+        System.out.print(x + y);
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
 
  
@@ -18998,21 +18969,21 @@ The correct answer is: System.out.println(Whiz.test(0) + t.test(1999));`,
             },
         ],
         codeString: `public class Rectangle {
-            public int width;
-            public int height;
-            public int area;
-          
-            public Rectangle() { }
-          
-            protected Rectangle(int width, int height) {
-                    this.width  = width;
-                    this.height = height;
-            }
-      
-            private Rectangle(int area){ this.area = area; }
-   }
-    
-   class Square extends Rectangle { }`,
+    public int width;
+    public int height;
+    public int area;
+
+    public Rectangle() { }
+
+    protected Rectangle(int width, int height) {
+        this.width  = width;
+        this.height = height;
+    }
+
+    private Rectangle(int area){ this.area = area; }
+}
+
+class Square extends Rectangle { }`,
         answerExplanation: `Option A is the correct answer.
 
 In java, the constructors are not inherited. After extending the class Rectangle, Square has no constructor declaration, hence it has only default constructor. Therefore all options with constructor parameters are incorrect, so option A is correct.
@@ -19101,8 +19072,8 @@ The correct answer is: 4`,
             },
         ],
         codeString: `interface Movable{
-                static int speed = 12;
-                String s = "speed: ";
+    static int speed = 12;
+    String s = "speed: ";
 }`,
         answerExplanation: `Option C is the correct answer.
 
@@ -19147,20 +19118,20 @@ The correct answer is: System.out.println(Movable.s);`,
                 markdown: 'Compilation fails due to multiple errors.'
             },
         ],
-        codeString: `    public class Whizlab {
-          
-              static boolean b = false;
-                    
-                       public static void main(String args[]) {
-                                String str;
-                                                                                    
-                                 if (b = true) { str = "true"; }
-                                                    
-                                 str = b?str:"false";
-                                                 
-                                 System.out.println(str);
-                      }                                             
-      }`,
+        codeString: `public class Whizlab {
+
+    static boolean b = false;
+
+    public static void main(String args[]) {
+        String str;
+
+        if (b = true) { str = "true"; }
+
+        str = b?str:"false";
+
+        System.out.println(str);
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
 
 At line 6, we haven’t initialized the variable str. So, before using it, we need to initialize it somehow since local variable should initialize before using. If statement doesn’t guarantee that str gets initialized. Hence, the compiler complains that str might not be initialized when it tries to use str at line 10. so code fails to compile due to line 10. Hence, option D is correct.
@@ -19196,12 +19167,12 @@ The correct answer is: Compilation fails due to an error at line 10.`,
                 markdown: 'None of these'
             },
         ],
-        codeString: `        public class Whizlab{
-                                    public static void main(String args[]){
-                                                    Integer x = 8;                                    
-                                                    System.out.println(x.SIZE +x.BYTES);
-                                    }                                             
-        }`,
+        codeString: `public class Whizlab{
+    public static void main(String args[]){
+        Integer x = 8;
+        System.out.println(x.SIZE +x.BYTES);
+    }
+}`,
         answerExplanation: `Option D is correct.
 
 Integer wrapper class has following two constant fields;
@@ -19350,13 +19321,13 @@ The correct answer is: 2015/2/SATURDAY`,
                 markdown: 'Compilation fails due to multiple errors.'
             },
         ],
-        codeString: `       public class Whizlab{
-       int _ = $;
-       static int $ = 5;
-               public static void main(String[] args) {
-                               System.out.print($ +_);
-               }
-       }`,
+        codeString: `public class Whizlab{
+    int _ = $;
+    static int $ = 5;
+    public static void main(String[] args) {
+        System.out.print($ +_);
+    }
+}`,
         answerExplanation: `Option D is the correct answer.
 
  
@@ -19401,20 +19372,20 @@ The correct answer is: Compilation fails due to an error at line 5.`,
             },
         ],
         codeString: `public class Whizlab {
-         public static void main(String[] args) {   
-                  java.util.List<String> list = new java.util.ArrayList<String>();
-                               
-                                list.add("A");
-                                list.add("C");
-                                list.add("E");
-                                list.add("D");
-                               
-                                list.add(1, "B");
-                                list.set(4, "F");
- 
-                                System.out.println(list);
-         }
-}   `,
+    public static void main(String[] args) {
+        java.util.List<String> list = new java.util.ArrayList<String>();
+
+        list.add("A");
+        list.add("C");
+        list.add("E");
+        list.add("D");
+
+        list.add(1, "B");
+        list.set(4, "F");
+
+        System.out.println(list);
+    }
+}`,
         answerExplanation: `Option C is correct.
 
 There are few versions of add method, at line 10 we have used following version,
@@ -19758,13 +19729,13 @@ The correct answer is: d MMM uuuu`,
         ],
         codeString: `import java.time.LocalDate;
 import java.time.temporal.ChronoField;
- 
+
 public class Whizlab{
-                  public static void main(String[] args) {
-                                LocalDate ld = LocalDate.of(2015, 12, 12);
-                                ld = ld.with(ChronoField.DAY_OF_YEAR,30);
-                                System.out.println(ld);
-                  }   
+    public static void main(String[] args) {
+        LocalDate ld = LocalDate.of(2015, 12, 12);
+        ld = ld.with(ChronoField.DAY_OF_YEAR,30);
+        System.out.println(ld);
+    }
 }`,
         answerExplanation: `Option B is the correct answer.
 
@@ -19807,13 +19778,13 @@ The correct answer is: 2015-01-30`,
         ],
         codeString: `import java.time.LocalTime;
 import java.time.temporal.ChronoField;
- 
+
 public class Whizlab{
-                  public static void main(String[] args) {
-                                LocalTime lt = LocalTime.of(2,2,15);
-                                System.out.println(lt.getLong(ChronoField.valueOf("MINUTE_OF_DAY")));
-                  }   
-} `,
+    public static void main(String[] args) {
+        LocalTime lt = LocalTime.of(2,2,15);
+        System.out.println(lt.getLong(ChronoField.valueOf("MINUTE_OF_DAY")));
+    }
+}`,
         answerExplanation: `Option A is the correct answer.
 
 The getLong method of the LocalTime class returns the value of the specified field from this time as a long.
@@ -19857,18 +19828,18 @@ The correct answer is: 122`,
         ],
         codeString: `import java.util.ArrayList;
 import java.util.List;
- 
+
 public class Whizlab{
-               
-                public static void main(String[] args){   
-                                List<String> list = new ArrayList<String>();
-                                list.add(“1”);
-                                list.add(“2”);
-                                list.add(“3”);
-                                list.add(“4”);
-                               
-                                System.out.println(list.set(3,”3”));
-                }
+
+    public static void main(String[] args){
+        List<String> list = new ArrayList<String>();
+        list.add(“1”);
+        list.add(“2”);
+        list.add(“3”);
+        list.add(“4”);
+
+        System.out.println(list.set(3,”3”));
+    }
 }`,
         answerExplanation: `Option A is the correct answer.
 
