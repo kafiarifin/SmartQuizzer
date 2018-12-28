@@ -67,12 +67,12 @@ class QuizWrapper extends Component {
                 if (attemptsRemaining === 1) {
                     this.setState({
                         isIncorrect: true,
-                        attemptsRemaining: attemptsRemaining - 0.75,
+                        attemptsRemaining: attemptsRemaining - 1,
                         wrongAnswer: false
                     })
                 } else {
                     this.setState({
-                        attemptsRemaining: attemptsRemaining - 0.75,
+                        attemptsRemaining: attemptsRemaining - 1,
                         wrongAnswer: true
                     })
                 }
@@ -91,12 +91,12 @@ class QuizWrapper extends Component {
                 if (attemptsRemaining === 1) {
                     this.setState({
                         isIncorrect: true,
-                        attemptsRemaining: attemptsRemaining - 0.75,
+                        attemptsRemaining: attemptsRemaining - 1,
                         wrongAnswer: false
                     })
                 } else {
                     this.setState({
-                        attemptsRemaining: attemptsRemaining - 0.75,
+                        attemptsRemaining: attemptsRemaining - 1,
                         wrongAnswer: true
                     })
                 }

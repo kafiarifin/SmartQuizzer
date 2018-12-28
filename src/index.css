@@ -1,3 +1,6 @@
 body {
     background-color: rgb(43, 48, 59);
 }
+.App {
+    margin-top: 25px;
+}
