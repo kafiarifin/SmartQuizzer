@@ -23,9 +23,9 @@ class QuizLogic extends Component {
     getPercentComplete(data){
         let complete = 0;
         data.map(item => {
-            return item.questionComplexityIndex > 0.5 ? complete += 1 : null;
+            return item.questionComplexityIndex >= 0.5 ? complete += 1 : null;
         });
-        return Math.round(complete / data.length);
+        return Math.round((complete / data.length) * 100) / 100
     }
 
     componentDidUpdate() {
