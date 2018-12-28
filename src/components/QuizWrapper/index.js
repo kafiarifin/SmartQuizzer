@@ -63,16 +63,16 @@ class QuizWrapper extends Component {
                     wrongAnswer: false
                 })
             } else {
-                questionObject.questionComplexityIndex = questionComplexityIndex - 1;
+                questionObject.questionComplexityIndex = questionComplexityIndex - 0.75;
                 if (attemptsRemaining === 1) {
                     this.setState({
                         isIncorrect: true,
-                        attemptsRemaining: attemptsRemaining - 1,
+                        attemptsRemaining: attemptsRemaining - 0.75,
                         wrongAnswer: false
                     })
                 } else {
                     this.setState({
-                        attemptsRemaining: attemptsRemaining - 1,
+                        attemptsRemaining: attemptsRemaining - 0.75,
                         wrongAnswer: true
                     })
                 }
@@ -87,16 +87,16 @@ class QuizWrapper extends Component {
                 })
             } else {
                 console.log('Not Correct');
-                questionObject.questionComplexityIndex = questionComplexityIndex - 1;
+                questionObject.questionComplexityIndex = questionComplexityIndex - 0.75;
                 if (attemptsRemaining === 1) {
                     this.setState({
                         isIncorrect: true,
-                        attemptsRemaining: attemptsRemaining - 1,
+                        attemptsRemaining: attemptsRemaining - 0.75,
                         wrongAnswer: false
                     })
                 } else {
                     this.setState({
-                        attemptsRemaining: attemptsRemaining - 1,
+                        attemptsRemaining: attemptsRemaining - 0.75,
                         wrongAnswer: true
                     })
                 }

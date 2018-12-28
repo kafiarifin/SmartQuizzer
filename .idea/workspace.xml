@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="01ad5570-6fb8-49fb-82f1-950ac29ba23d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/QuizWrapper/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QuizWrapper/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,11 +16,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test-data.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/QuizLogic/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="339" column="41" selection-start-line="339" selection-start-column="41" selection-end-line="339" selection-end-column="41" />
+            <state relative-caret-position="-1051">
+              <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/QuizWrapper/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="63" column="18" lean-forward="true" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -41,6 +53,7 @@
       <find>correctAnswerId:</find>
       <find>correctAnswerId: '</find>
       <find>prompt: ''</find>
+      <find>answerExplanation</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src</dir>
@@ -81,14 +94,14 @@
         <option value="$PROJECT_DIR$/src/components/QuizLogic/index.js" />
         <option value="$PROJECT_DIR$/src/server/auth.js" />
         <option value="$PROJECT_DIR$/src/components/question-components/QuestionExplanation/index.js" />
-        <option value="$PROJECT_DIR$/src/components/QuizWrapper/index.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/Routes.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/test.java" />
         <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/src/test-data.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/components/QuizWrapper/index.js" />
       </list>
     </option>
   </component>
@@ -110,6 +123,31 @@
             <path>
               <item name="tiberius_cougar_alpha" type="b2602c69:ProjectViewProjectNode" />
               <item name="tiberius_cougar_alpha" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tiberius_cougar_alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tiberius_cougar_alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tiberius_cougar_alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tiberius_cougar_alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tiberius_cougar_alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tiberius_cougar_alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="QuizLogic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tiberius_cougar_alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tiberius_cougar_alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="QuizWrapper" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -186,7 +224,7 @@
       <workItem from="1545438649529" duration="45000" />
       <workItem from="1545438744689" duration="420000" />
       <workItem from="1545439581851" duration="49000" />
-      <workItem from="1545439645526" duration="28678000" />
+      <workItem from="1545439645526" duration="30057000" />
     </task>
     <task id="LOCAL-00001" summary="Installed Bootstrap and created a simple component">
       <created>1542337246939</created>
@@ -314,11 +352,25 @@
       <option name="project" value="LOCAL" />
       <updated>1545878207751</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fixed Grammer">
+      <created>1545958758284</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1545958758284</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Fixed Grammer">
+      <created>1545959974691</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1545959974691</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103207000" />
+    <option name="totallyTimeSpent" value="104586000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
@@ -327,7 +379,7 @@
       <window_info id="npm" order="0" side_tool="true" weight="0.32971668" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.4930681" visible="true" weight="0.159132" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.4930681" visible="true" weight="0.159132" />
       <window_info anchor="bottom" id="TypeScript" order="0" />
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
@@ -339,7 +391,7 @@
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.50030136" side_tool="true" visible="true" weight="0.32987553" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.50030136" side_tool="true" visible="true" weight="0.32987553" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -383,7 +435,8 @@
     <MESSAGE value="Updated Routing." />
     <MESSAGE value="Updated Package.json." />
     <MESSAGE value="Fixed Spacing in the test's" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Spacing in the test's" />
+    <MESSAGE value="Fixed Grammer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Grammer" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -547,13 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/QuizLogic/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/question-components/QuestionExplanation/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -574,16 +620,6 @@
           <caret line="18" column="2" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/QuizWrapper/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="135" column="57" selection-start-line="135" selection-start-column="57" selection-end-line="135" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -611,16 +647,6 @@
           <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
           <folding>
             <element signature="e#127#158#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -655,8 +681,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test-data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="339" column="41" selection-start-line="339" selection-start-column="41" selection-end-line="339" selection-end-column="41" />
+        <state relative-caret-position="207">
+          <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/QuizLogic/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1051">
+          <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/QuizWrapper/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="63" column="18" lean-forward="true" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
