@@ -26,10 +26,11 @@
   },
   "scripts": {
     "start": "node src/server/index.js",
+    "start:local": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "react-scripts start"
+    "server": "node src/server/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
