@@ -25,7 +25,7 @@ class QuizLogic extends Component {
         data.map(item => {
             return item.questionComplexityIndex >= 0.5 ? complete += 1 : null;
         });
-        return Math.round((complete / data.length) * 100) / 100
+        return ((complete / data.length) * 100).toFixed(2);
     }
 
     componentDidUpdate() {
