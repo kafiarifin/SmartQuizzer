@@ -63,7 +63,7 @@ class QuizWrapper extends Component {
                     wrongAnswer: false
                 })
             } else {
-                questionObject.questionComplexityIndex = questionComplexityIndex - 0.75;
+                questionObject.questionComplexityIndex = questionComplexityIndex - 0.5;
                 if (attemptsRemaining === 1) {
                     this.setState({
                         isIncorrect: true,
@@ -87,7 +87,7 @@ class QuizWrapper extends Component {
                 })
             } else {
                 console.log('Not Correct');
-                questionObject.questionComplexityIndex = questionComplexityIndex - 0.75;
+                questionObject.questionComplexityIndex = questionComplexityIndex - 0.5;
                 if (attemptsRemaining === 1) {
                     this.setState({
                         isIncorrect: true,

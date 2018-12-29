@@ -15,12 +15,12 @@ class QuizLogic extends Component {
         super(props);
         this.state = {
             totalQuestionsInInterval: 9,
-            quizData: props.quizData.sort((a, b) => a.questionComplexityIndex - b.questionComplexityIndex),
-            completionRate: this.getPercentComplete(props.quizData)
+            quizData: props.quizData.sort((a, b) => a.questionComplexityIndex - b.questionComplexityIndex)
         }
     }
 
-    getPercentComplete(data){
+    getPercentComplete(){
+        const data = this.props.quizData;
         let complete = 0;
         data.map(item => {
             return item.questionComplexityIndex >= 0.5 ? complete += 1 : null;
@@ -64,7 +64,7 @@ class QuizLogic extends Component {
                                 percent={(this.props.questionsAttempted / (this.state.totalQuestionsInInterval - 1)) * 100}/>
                             <QuizWrapper attempts={this.props.questionsAttempted}
                                          questionObject={this.HandleNextQuestion()}
-                                         completionRate={this.state.completionRate}
+                                         completionRate={this.getPercentComplete()}
                                          totalQuestionsInInterval={this.state.totalQuestionsInInterval}/>
                         </div>
                     </div>
