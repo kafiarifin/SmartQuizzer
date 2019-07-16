@@ -1,5 +1,3 @@
-#Tiberius Cougar Alpha
-####The Coding Advantage
 
 This is Project that attempts to implement the Study Techniques 
 applied to Astronaut Chris Hadfield developed by NASA to create 
