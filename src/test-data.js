@@ -19913,32 +19913,38 @@ Reference: https://scrumguides.org/scrum-guide.html#events-review`,
     {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'What happens when a Sprint is cancelled? (Select all that apply)',
+        correctAnswerId: ['A','B','C'],
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'Any completed and “Done” Product Backlog items are reviewed'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'All incomplete Product Backlog Items are re-estimated and put back on the Product Backlog'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'If part of the work is potentially releasable, the Product Owner typically accepts it'
             },
             {
                 id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
-            },
+                markdown: 'Several top Product Backlog Items are taken into the Sprint Backlog to replace the obsolete items'
+            }
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `The correct answer is Options A, B and C.
+
+ 
+
+In the unlikely event where a Sprint is cancelled, the normal course of action includes reviewing of “done” items, re-estimating the incomplete items and placing them back in the backlog and if the work is potentially releasable, the PO usually accepts it.
+
+ 
+
+Reference: The Scrum Guide, Page no 10.
+
+https://www.scrumguides.org/scrum-guide.html#events-sprint`,
         referenceImage: ''
     },
     {
