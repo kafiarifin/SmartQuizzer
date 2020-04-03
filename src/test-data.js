@@ -19973,32 +19973,36 @@ Another example method for estimating user stories is T-Shirt sizing.`,
     {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'Who determines when it is appropriate to update the Sprint Backlog during a Sprint?',
+        correctAnswerId: 'D',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'Product Owner'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'Project Manager'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'Scrum Master'
             },
             {
                 id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
+                markdown: 'Development Team'
             },
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `The correct answer is Option D.
+
+ 
+
+Development team is the owner of the Sprint backlog, and seeing that they are also self-organizing, they decide when it is appropriate to update the Sprint backlog.
+
+ 
+
+Reference: https://scrumguides.org/scrum-guide.html#artifacts-sprintbacklog`,
         referenceImage: ''
     },
     {
