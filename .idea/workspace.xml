@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01ad5570-6fb8-49fb-82f1-950ac29ba23d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-data.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,7 +114,7 @@
       <workItem from="1545438744689" duration="420000" />
       <workItem from="1545439581851" duration="49000" />
       <workItem from="1545439645526" duration="31866000" />
-      <workItem from="1585937581558" duration="4628000" />
+      <workItem from="1585937581558" duration="4694000" />
     </task>
     <task id="LOCAL-00001" summary="Installed Bootstrap and created a simple component">
       <created>1542337246939</created>
@@ -328,25 +327,25 @@
     <option name="LAST_COMMIT_MESSAGE" value="Updated Rounding Logic" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="569" height="953" key="GridCell.Tab.0.bottom" timestamp="1585946195687">
+    <state width="569" height="953" key="GridCell.Tab.0.bottom" timestamp="1585946333181">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="569" height="953" key="GridCell.Tab.0.bottom/-1920.0.1920.1080/0.0.1680.1050@-1920.0.1920.1080" timestamp="1585946195687" />
+    <state width="569" height="953" key="GridCell.Tab.0.bottom/-1920.0.1920.1080/0.0.1680.1050@-1920.0.1920.1080" timestamp="1585946333181" />
     <state width="1659" height="260" key="GridCell.Tab.0.bottom/-1920.0.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1585945335704" />
-    <state width="569" height="953" key="GridCell.Tab.0.center" timestamp="1585946195685">
+    <state width="569" height="953" key="GridCell.Tab.0.center" timestamp="1585946333179">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="569" height="953" key="GridCell.Tab.0.center/-1920.0.1920.1080/0.0.1680.1050@-1920.0.1920.1080" timestamp="1585946195685" />
+    <state width="569" height="953" key="GridCell.Tab.0.center/-1920.0.1920.1080/0.0.1680.1050@-1920.0.1920.1080" timestamp="1585946333179" />
     <state width="1659" height="260" key="GridCell.Tab.0.center/-1920.0.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1585945335702" />
-    <state width="569" height="953" key="GridCell.Tab.0.left" timestamp="1585946195685">
+    <state width="569" height="953" key="GridCell.Tab.0.left" timestamp="1585946333178">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="569" height="953" key="GridCell.Tab.0.left/-1920.0.1920.1080/0.0.1680.1050@-1920.0.1920.1080" timestamp="1585946195684" />
+    <state width="569" height="953" key="GridCell.Tab.0.left/-1920.0.1920.1080/0.0.1680.1050@-1920.0.1920.1080" timestamp="1585946333178" />
     <state width="1659" height="260" key="GridCell.Tab.0.left/-1920.0.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1585945335701" />
-    <state width="569" height="953" key="GridCell.Tab.0.right" timestamp="1585946195686">
+    <state width="569" height="953" key="GridCell.Tab.0.right" timestamp="1585946333180">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="569" height="953" key="GridCell.Tab.0.right/-1920.0.1920.1080/0.0.1680.1050@-1920.0.1920.1080" timestamp="1585946195686" />
+    <state width="569" height="953" key="GridCell.Tab.0.right/-1920.0.1920.1080/0.0.1680.1050@-1920.0.1920.1080" timestamp="1585946333180" />
     <state width="1659" height="260" key="GridCell.Tab.0.right/-1920.0.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1585945335703" />
     <state x="496" y="266" width="687" height="518" key="find.popup" timestamp="1585945263904">
       <screen x="0" y="0" width="1680" height="1050" />
