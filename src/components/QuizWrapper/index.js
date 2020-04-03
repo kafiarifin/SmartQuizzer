@@ -14,7 +14,7 @@ class QuizWrapper extends Component {
     constructor(props) {
         super(props);
         this.shuffledOptions = shuffle(props.questionObject.options);
-        const isMultiAnswer = props.questionObject.correctAnswerId.length > 1;
+        const isMultiAnswer = true //props.questionObject.correctAnswerId.length > 1;
         this.state = {
             isCorrect: false,
             attemptsRemaining: 2,
@@ -29,7 +29,7 @@ class QuizWrapper extends Component {
     componentDidUpdate() {
         if (this.state.questionsAnswered !== this.props.attempts) {
             this.shuffledOptions = shuffle(this.props.questionObject.options);
-            const isMultiAnswer = this.props.questionObject.correctAnswerId.length > 1;
+            const isMultiAnswer = true //this.props.questionObject.correctAnswerId.length > 1;
             this.setState({
                 isCorrect: false,
                 attemptsRemaining: 2,
