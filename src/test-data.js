@@ -27959,6 +27959,2102 @@ export const questionDataSetTest2 = [
         ],
         answerExplanation: '\n                            Explanation:\n                             \n\nCorrect Answer – A\n\nExplanation:\n\nScrum is “A framework within which people can address complex adaptive problems, while productively and creatively delivering products of the highest possible value.”\n\nMore details can be found at link:\n\n\n\thttp://scrumguides.org/scrum-guide.html#definition\n\n\n \n                        ',
         referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What are the topics discussed in the Sprint Planning Meeting? Select all that apply',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'B',
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'What can be done in the Sprint'
+            },
+            {
+                id: 'B',
+                markdown: 'Sprint Goal'
+            },
+            {
+                id: 'C',
+                markdown: 'The Return on Investment for the delivered work'
+            },
+            {
+                id: 'D',
+                markdown: 'How the chosen work will be done'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, B, D\n\nSprint planning meeting is the first event in a sprint, and there are three primary points in the agenda, namely what is the Sprint Goal, what are the requirements that can be “done” in the Sprint to achieve the sprint goal, and how the work on the requirements can be executed to get an increment.\n\nMore details on Sprint planning can be found at\n\nhttps://scrumguides.org/scrum-guide.html#events-planning\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Sprint Backlog\'s ownership lies with __________',
+        prompt: '',
+        correctAnswerId: [
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Scrum Team'
+            },
+            {
+                id: 'B',
+                markdown: 'Product Owner'
+            },
+            {
+                id: 'C',
+                markdown: 'Development Team'
+            },
+            {
+                id: 'D',
+                markdown: 'Scrum Master'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C\n\nSprint Backlog is created by the development team and its ownership lies with them.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The whole development team is not required to join the Sprint Planning meeting, and only few of them to represent the corresponding areas of expertise are required to join the meeting – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B.\n\nSprint planning is the first formal event of a sprint, and as such is an opportunity for the whole team to collaborate on the Sprint. Scrum always maintains that the work of converting a set a requirements to a done increment is the collective responsibility of the team, and therefore it is mandatory for the whole development team to participate in the planning effort.\n\nMore on sprint planning can be found at https://scrumguides.org/scrum-guide.html#events-planning\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Who is responsible to ensure that the Development Team has the Daily Scrum?',
+        prompt: '',
+        correctAnswerId: [
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Development Team'
+            },
+            {
+                id: 'B',
+                markdown: 'Scrum Team'
+            },
+            {
+                id: 'C',
+                markdown: 'Scrum Master'
+            },
+            {
+                id: 'D',
+                markdown: 'Product Owner'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C\n\nAlthough the development team needs to self-organize and have the daily scrum, it is the responsibility of the scrum master to make sure that the development team follows the scrum rules, and have the daily scrum.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The important attributes of a product backlog item are_____. (Select all that apply)',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'B',
+            'C',
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Description'
+            },
+            {
+                id: 'B',
+                markdown: 'Order'
+            },
+            {
+                id: 'C',
+                markdown: 'Value'
+            },
+            {
+                id: 'D',
+                markdown: 'Estimate'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, B, C, D\n\nA PBI is important because it has a description on what it is about, its priority or order relative to other PBIs, what value it might generate on completion and the estimated efforts required.\n\nMore details on Product Backlog can be found at https://scrumguides.org/scrum-guide.html#artifacts-productbacklog\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Scrum is based on ______ process control theory.',
+        prompt: '',
+        correctAnswerId: [
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Defined'
+            },
+            {
+                id: 'B',
+                markdown: 'Simple'
+            },
+            {
+                id: 'C',
+                markdown: 'Complex'
+            },
+            {
+                id: 'D',
+                markdown: 'Empirical'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – D\n\nAccording to the Scrum Guide “Scrum is founded on empirical process control theory, or empiricism.”\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Scrum can be implemented only in its entirety, and specific parts of scrum cannot be implemented independent of scrum – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nFalse, specific parts of scrum can be implemented on their own, but the result will not be scrum.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Velocity includes the story points of completed as well as incomplete user stories at the end of the Sprint – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nFor the calculation of velocity, only the story points of the “done” user stories are considered at the end of the sprint. Velocity is a measure of the average user story points delivered, not the effort expended which may or may not have resulted in a done increment.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Scrum Master is tasked with causing changes that increases the productivity of the Scrum Team – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\n Scrum Master is a servant-leader and one of the key responsibilities associated with this role is to identify and remove any impediments, with the objective of increasing the productivity of the scrum team.\n\nMore details on Scrum Master and his roles and responsibilities can be found at\n\nhttps://scrumguides.org/scrum-guide.html#team-sm\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Who would be the best person to coach the development team in organizational environments in which Scrum is not yet fully adopted or understood?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Product Owner'
+            },
+            {
+                id: 'B',
+                markdown: 'Scrum Master'
+            },
+            {
+                id: 'C',
+                markdown: 'Project Manager'
+            },
+            {
+                id: 'D',
+                markdown: 'None of them'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nScrum Master is supposed to be a master of Scrum, and he is supposed to coach anyone and everyone on the scrum practices. Therefore, Scrum Master would be the best person to coach the development team in organizational environments in which scrum is not yet fully adopted or understood.\n\nMore details on Scrum master can be found at\n\nhttps://scrumguides.org/scrum-guide.html#team-sm\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'A Scrum Team is in the process of defining Product backlog items. The scrum master notices that the team is not using user story format to capture the backlog items. What should the Scrum Master do?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Correct the team\'s behavior by coaching them about user stories'
+            },
+            {
+                id: 'B',
+                markdown: 'Let the team decide the format of the product backlog items'
+            },
+            {
+                id: 'C',
+                markdown: 'Add a business analyst with knowledge of writing user stories to the team, with specific responsibility of documenting backlog in terms of user stories.'
+            },
+            {
+                id: 'D',
+                markdown: '0'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nScrum does not mandate using a specific format to describe the PBIs. It is left to the team to decide which format suits them best. As a Scrum Master, the responsibility is to coach the team in identifying the way to describe the PBI which best caters to their situation.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'A Scrum team must produce the following artifacts. (Select all that apply)',
+        prompt: '',
+        correctAnswerId: [
+            'B',
+            'C',
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Project Plan'
+            },
+            {
+                id: 'B',
+                markdown: 'Product Backlog'
+            },
+            {
+                id: 'C',
+                markdown: 'Sprint Backlog'
+            },
+            {
+                id: 'D',
+                markdown: 'Increment'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B, C, D\n\nScrum mandates creation of only three artifacts, namely Product Backlog, Sprint Backlog, and Increment.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'After a Sprint Review, the Product Owner deems that the Product has come to the end of its life and the Product backlog can be closed. What should be the next step?',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Scrum team\'s availability is communicated to stakeholders'
+            },
+            {
+                id: 'B',
+                markdown: 'Retrospective'
+            },
+            {
+                id: 'C',
+                markdown: 'Transition Documentation'
+            },
+            {
+                id: 'D',
+                markdown: 'None of the above'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nOnce a Product comes to the end of its life, the product backlog ceases to exist. In such a situation the Scrum Team members automatically become available to take on other assignments as required by the organization, and thus their availability should be communicated to the appropriate stakeholders.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What is the purpose of the presentation of the product increment in a sprint review?',
+        prompt: '',
+        correctAnswerId: [
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'To get the Sprint completion sign-off'
+            },
+            {
+                id: 'B',
+                markdown: 'To provide the status of the project'
+            },
+            {
+                id: 'C',
+                markdown: 'There is no specific reason, it is just the process of Scrum'
+            },
+            {
+                id: 'D',
+                markdown: 'To elicit feedback'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – D\n\nThe development team normally demonstrates the done increment in the sprint review, and the primary purpose for this is to elicit feedback from the scrum team, and the other stakeholders who might be present in the sprint review.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'In the first few Sprints, the Development Team is expected to focus on______.',
+        prompt: '',
+        correctAnswerId: [
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Setting up the basic infrastructure needed for subsequent sprint work'
+            },
+            {
+                id: 'B',
+                markdown: 'Reviewing and base-lining the project plan so the changes can be controlled.'
+            },
+            {
+                id: 'C',
+                markdown: 'Iteratively refining the requirements and obtaining sign-off from the Product Owner'
+            },
+            {
+                id: 'D',
+                markdown: 'Delivering a usable and potentially releasable product increment.'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – D\n\nThe primary objective of every development team should be to deliver a useable and potentially releasable product increment at the end of each Sprint. It does not matter if it’s the first sprint, or the 50th sprint for that matter.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'In the middle of the sprint, a team member was required by another department manager to support an important task outside the sprint work. What is recommended for the team member to do?',
+        prompt: '',
+        correctAnswerId: [
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The team member must support since it is important task.'
+            },
+            {
+                id: 'B',
+                markdown: 'The team member should ask the manager to speak with the Scum Master.'
+            },
+            {
+                id: 'C',
+                markdown: 'The team member should politely decline and explain to the manager about his ownership and accountability for the Scrum Team.'
+            },
+            {
+                id: 'D',
+                markdown: 'The team member should report to management'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C\n\nSince it is not mentioned in the question, we are going to assume that the team member was 100% allocated to the scrum team.\n\nSo in that case, the most appropriate option would be C.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What can be the impact of not having Daily Scrum?',
+        prompt: '',
+        correctAnswerId: [
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Reduce the opportunity to create a status report'
+            },
+            {
+                id: 'B',
+                markdown: 'Reduce the speed of development work'
+            },
+            {
+                id: 'C',
+                markdown: 'Reduce the transparency of overall progress'
+            },
+            {
+                id: 'D',
+                markdown: 'None of the above'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C\n\nDaily Scrum is formal opportunity to inspect and adapt on a daily basis. If it is skipped, then it might reduce the transparency of the overall progress.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'One of the Scrum Teams chose to have a development team member also playing the role of scrum master. A development team member cannot also play scrum master\'s role – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nScrum does not prohibit a scrum master to also be part of the development team, so the correct option is “False”.\n\nThough it must be noted, scrum founders prefer that a scrum master be a separate person, but it is not mandatory.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Only the Product Owner can come up with the items that can be considered for the Product Backlog. Others cannot provided input/recommendations/ideas about the new items – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nFalse, Product Owner is the sole person accountable for the Product Backlog, but others can also provide inputs on what can be added to the backlog. Of course, PO takes the final call on whether a certain item can be added or not.\n\nMore details on PO can be found at\n\nhttps://scrumguides.org/scrum-guide.html#team-po\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Scrum Team uses the information of Scrum artifacts to make ongoing decisions. The soundness of these decisions depends on _______.',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Artifacts adaptability'
+            },
+            {
+                id: 'B',
+                markdown: 'Artifacts transparency'
+            },
+            {
+                id: 'C',
+                markdown: 'Artifacts agility'
+            },
+            {
+                id: 'D',
+                markdown: 'Artifacts format'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nThe correct option is B, “artifact transparency”. The more transparent scrum artifacts are, the better position will the scrum team be in taking any decision.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Empiricism provides _______. (Select all that apply)',
+        prompt: '',
+        correctAnswerId: [
+            'B',
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Frequent opportunities to get information using which uncertainty can be completely eliminated'
+            },
+            {
+                id: 'B',
+                markdown: 'Frequent opportunities to discuss different possibilities'
+            },
+            {
+                id: 'C',
+                markdown: 'Frequent opportunities to make informed decisions, reducing risk.'
+            },
+            {
+                id: 'D',
+                markdown: 'None of the above'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B, C\n\nEmpiricism promotes taking decision based on actual experience to reduce the risk, and provides an opportunity to update the forecast to include the new knowledge gained. So the correct options would be both B and C.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Which events does the whole Scrum Team participates in? Select all that apply',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'C',
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Sprint Planning'
+            },
+            {
+                id: 'B',
+                markdown: 'Daily Scrum'
+            },
+            {
+                id: 'C',
+                markdown: 'Sprint Review'
+            },
+            {
+                id: 'D',
+                markdown: 'Sprint Retrospective'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, C, D\n\nThe whole Scrum Team, i.e., PO, SM and Development team, participate in Sprint Planning, Sprint Review and Sprint Retrospective. In the Daily Scrum, only the development team participates, though other can attend as observers without disrupting the development team.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Since the Development Team is self-organizing, it can create an additional role to represent the organization within Scrum – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nNo, no additional roles are allowed in a Scrum Team except the ones prescribed by the Scrum Guide.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Sprint longer than one calendar month may result in?',
+        prompt: '',
+        correctAnswerId: [
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Too much to inspect in short meetings'
+            },
+            {
+                id: 'B',
+                markdown: 'Detached stakeholders'
+            },
+            {
+                id: 'C',
+                markdown: 'Increased complexity needing more traditional controls like documentation'
+            },
+            {
+                id: 'D',
+                markdown: 'All of the above'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – D\n\nLonger Sprints may result is a large backlog of items that may need inspection, leading to reduced quality of the process. It may also result in a longer gap when stakeholders are shown the progress, and it might also increase a lot of process complexity.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What is the leadership model followed by Scrum Master?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Micro management'
+            },
+            {
+                id: 'B',
+                markdown: 'Servant leadership'
+            },
+            {
+                id: 'C',
+                markdown: 'Command & control'
+            },
+            {
+                id: 'D',
+                markdown: '0'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nThe leadership model followed by Scrum Master is that of Servant Leader.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What can be the primary objective behind a Scrum Master ensuring that the Scrum Team and those interacting with the Team from the outside adhere to the Scrum rules?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'To preserve the hierarchy of reporting and communication protocol'
+            },
+            {
+                id: 'B',
+                markdown: 'To maximize the value created by the Scrum Team'
+            },
+            {
+                id: 'C',
+                markdown: 'To avoid the likelihood of future audits finding any violations in implementing Scrum'
+            },
+            {
+                id: 'D',
+                markdown: 'Because it is written in the Scrum Guide.'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nAny team works best if they are able to focus on the task at hand and do not have unnecessary interruptions. Same goes for Scrum team, where the unnecessary interactions are avoided, while also giving every stakeholder a platform to bring in their valuable input. This all results in maximizing the value created by the Scrum Team.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What most accurately describes the role of Scrum Master in Sprint Retrospective?',
+        prompt: '',
+        correctAnswerId: [
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Auditor'
+            },
+            {
+                id: 'B',
+                markdown: 'Silent Observer'
+            },
+            {
+                id: 'C',
+                markdown: 'Peer Team Member'
+            },
+            {
+                id: 'D',
+                markdown: 'None of the above'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C\n\nScrum Master is also on the journey with the rest of the team, and Sprint Retrospective is one such opportunity where he/she can also bring to the table any learnings he had during the sprint, or any idea that can benefit the team. As such the behavior is similar to that of a peer team member.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The Scrum team gathers for Sprint Planning meeting. The product owner has some stories but the team finds that the stories do not provide enough information to make forecast. What can be the next best immediate thing to do?',
+        prompt: '',
+        correctAnswerId: [
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The Scrum Master cancelling the sprint'
+            },
+            {
+                id: 'B',
+                markdown: 'The development team proceeds with starting with whatever is known'
+            },
+            {
+                id: 'C',
+                markdown: 'The development team makes it transparent that they cannot make a forecast with insufficient information and negotiates with Product Owner on refining the stories to ready state'
+            },
+            {
+                id: 'D',
+                markdown: 'The scrum team discusses the root cause in the retrospective'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C\n\nThe purpose of Sprint Planning meeting is to bring in more transparency on the exact nature of requirements. So the best option would be to refine the user stories to bring at least some of them to ready state for the work to start for the first few days. So the correct option is C.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The senior management or organization does not influence the Product Owner on how the product evolves in any way – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nProduct Owner is influenced by the other stakeholders of the product and the organization on how the Product evolves.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The Sprint Goal provides the following?',
+        prompt: '',
+        correctAnswerId: [
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Guidance to the team on why it is building the Increment'
+            },
+            {
+                id: 'B',
+                markdown: 'Flexibility to the team about the functionalities implemented in this Sprint'
+            },
+            {
+                id: 'C',
+                markdown: 'Coherence so that the team members can work together'
+            },
+            {
+                id: 'D',
+                markdown: 'All of the above'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – D\n\nSprint Goal serves multiple purposes. Details on Sprint Goal can be found at\n\nhttps://scrumguides.org/scrum-guide.html#events-planning\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The time-box for a Sprint Review is independent on the length of the Sprint. True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nAccording to the Scrum guide, the time-box of Sprint Review is 4 hours for a month long sprint, and is “usually” shorter for shorter sprints. Therefore it is a recommendation that shorter sprints can have shorter sprint reviews, but the time-box cannot extend beyond 4 hours, irrespective of the Sprint duration.\n\nThis topic has also been discussed on the scrum.org forums.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'At any point in time, the total work remaining to reach a goal can be summed. True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nThe total work remaining can be simply summed by considering the done user stories. It is also effectively reflected in Burn-down charts.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What is an Increment?',
+        prompt: '',
+        correctAnswerId: [
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The sum of all the Product Backlog items completed during the Sprint'
+            },
+            {
+                id: 'B',
+                markdown: 'The sum of all the Sprint Backlog items completed during the Sprint'
+            },
+            {
+                id: 'C',
+                markdown: 'The items in the Sprint Backlog which are "Done" and can be released'
+            },
+            {
+                id: 'D',
+                markdown: 'The sum of all the Product Backlog items completed during the Sprint and the value of the increments of all previous Sprints'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – D\n\nAccording to the Scrum Guide, an increment is the sum of all the Product Backlog items completed during the Sprint and the value of the increments of all previous Sprints\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'If the Scrum Master is also part of the Development Team, then the maximum number of allowed members in the Development team can be 10?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nThe maximum number of development team members allowed according to scrum is 9. If Scrum Master is a part of the development team, he is also included in the count.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The Definition of Done can be different for different the testers and the developers of the Development Team – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nDefinition of done is the same for everyone in the development team. Also, development team does not have any sub-titles such as testers.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Scrum Master serves the __________ (Select all that apply)',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'B',
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Product Owner'
+            },
+            {
+                id: 'B',
+                markdown: 'Development Team'
+            },
+            {
+                id: 'C',
+                markdown: 'Organization'
+            },
+            {
+                id: 'D',
+                markdown: 'Shareholders'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, B, C\n\nScrum Master serves the Product Owner, the development team and the organization.\n\nMore details on Scrum Master can be found at https://scrumguides.org/scrum-guide.html#team-sm\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The user stories are taken up by the development team using which mechanism?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Push mechanism, in which the user stories are allocated to individual development team member during the Sprint Planning meeting'
+            },
+            {
+                id: 'B',
+                markdown: 'Pull mechanism, in which the development team members pull the user stories they want to work on.'
+            },
+            {
+                id: 'C',
+                markdown: '0'
+            },
+            {
+                id: 'D',
+                markdown: '0'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nThis is paradigm shift in Scrum, where the development team members are empowered to pull the user stories they want to work on, rather than being allocated.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Development Team should not have all the skills necessary to create a product increment, because that might increase the size of a team beyond the limits specified by Scrum – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nDevelopment is cross-functional, and should have all the skills necessary to create a product increment. The team size though needs to be kept less than 10 members.\n\nMore information on the development team can be found at\n\nhttps://scrumguides.org/scrum-guide.html#team-dev\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The best size for a Development team is seven people – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nThere is no single “one shoe fits all solution”, but over the years of gathering actual data to see what numbers work, Scrum prescribes development team to have between 3 and 9 members.\n\nMore on development team can be found at\n\nhttps://scrumguides.org/scrum-guide.html#team-dev\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What is defined by the Scrum framework? (Select all that apply)',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'C',
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Rules and roles'
+            },
+            {
+                id: 'B',
+                markdown: 'document guidelines'
+            },
+            {
+                id: 'C',
+                markdown: 'artifacts'
+            },
+            {
+                id: 'D',
+                markdown: 'events'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, C, D\n\nScrum Framework defines the roles, artifacts and events, and the rules that bind them together and guide the interactions.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'If a user story is partially completed, then the story points associated with it are partially considered completed in the same Sprint – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nUser Stories have only two states as far as the using of their story points for velocity calculation or any information radiator, it is either ‘done’ or ‘not done’. If it is partially completed, or not started, or blocked, etc., it means it is ‘not done’, and only ‘done’ user stories’ points are associated with a sprint.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Scrum should be used for all kinds of projects to improve performance and consistency – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nScrum is not a single solution to all the problems, in fact in certain cases, it can be counter-productive. So using Scrum is case specific, but it has been found to work well in a variety of situations, and from simple to very complex environments.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Who should attend the daily Scrum?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The Scrum Team'
+            },
+            {
+                id: 'B',
+                markdown: 'Development Team'
+            },
+            {
+                id: 'C',
+                markdown: 'Scrum Master'
+            },
+            {
+                id: 'D',
+                markdown: 'Business Stakeholders'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nDaily Scrum is an event for the development team, so they should attend it. Others like scrum master, Product Owner, and even silent observers are allowed to attend, optional of course, but they are not allowed to participate in it, which can cause disruption.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Once the product is released, product backlog ceases to exist – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nProduct backlog exists till the product exists, so even after the product is released, the product backlog remains.\n\nMore details on product backlog can be found at\n\nhttps://scrumguides.org/scrum-guide.html#artifacts-productbacklog\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'When can the development team self-organize to undertake the work in the Sprint Backlog?',
+        prompt: '',
+        correctAnswerId: [
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Product Backlog Grooming session'
+            },
+            {
+                id: 'B',
+                markdown: 'Sprint Review'
+            },
+            {
+                id: 'C',
+                markdown: 'As needed throughout the Sprint'
+            },
+            {
+                id: 'D',
+                markdown: 'Daily Scrum'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C\n\nSelf-organization of the development is a continuous process, and the development team does it throughout the sprint to undertake work in the Sprint backlog.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Backlog grooming should be done with only the senior members of the Development Team, so that other can keep working on their tasks – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nScrum guide does not provide any details on how the backlog refinement meeting should be held. It is left to the scrum team how they want it to be, and who do they want to participate in it. It is although a good practice to include everyone in the development team to be a part of the backlog refinement, along with the Product Owner and Scrum Master(for facilitation), but there can also be a representation of the development team, if the whole team cannot participate so as not to endanger achieving the Sprint goal.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Scrum Master is only responsible to provide service to the members of the Scrum Team and not the organization – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nScrum Master serves not only the Scrum Team, but also the organization to promote Scrum. More details on his responsibilities to the organization can be found at\n\nhttps://scrumguides.org/scrum-guide.html#team-sm\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Who is primarily responsible for maximizing the value of the work of the Development Team?',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Product Owner'
+            },
+            {
+                id: 'B',
+                markdown: 'Scrum Master'
+            },
+            {
+                id: 'C',
+                markdown: 'Development Team'
+            },
+            {
+                id: 'D',
+                markdown: 'All of them'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nWhilst the Scrum Master works to improve the productivity of the development team, and remove impediments wherever possible, it is the primary responsibility of the PO to maximize the value of the work of the development team.\n\nMore on PO and his responsibilities can be found at\n\nhttps://scrumguides.org/scrum-guide.html#team-po\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Who manages the work of the Development Team?',
+        prompt: '',
+        correctAnswerId: [
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Product Owner'
+            },
+            {
+                id: 'B',
+                markdown: 'Scrum Master'
+            },
+            {
+                id: 'C',
+                markdown: 'Project/Program Manager'
+            },
+            {
+                id: 'D',
+                markdown: 'Development Team themselves'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – D\n\nDevelopment team is self-organizing, and they manage their own work. Nobody tells them how to work. They can consult external members like architects, BA’s etc., but they manage their own work so as to meet the Sprint Goal in the Sprint time-box.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Product Owner can change the priority of items in ______ at any time.',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Sprint Backlog'
+            },
+            {
+                id: 'B',
+                markdown: 'Product Backlog'
+            },
+            {
+                id: 'C',
+                markdown: 'Both Sprint and Product Backlog'
+            },
+            {
+                id: 'D',
+                markdown: 'Cannot change the priority once it is decided'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nProduct Owner can change the priority of Product Backlog Items in PBI at any time. The priority in Product Backlog is based primarily on business value.\n\nIn Sprint backlog though, the development team prioritizes the items based on their own parameters, and they re-prioritize it themselves.\n\nIt must be noted though that the PO has the authority to de-scope any item in Sprint backlog if he/she feels that it does not add any value to the Sprint Goal.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Which activities will a Product Owner likely engage in during a Sprint? (Select all that apply)',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'C',
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Answer questions from the Development Team about items in the current Sprint'
+            },
+            {
+                id: 'B',
+                markdown: 'Update the Sprint burndown chart'
+            },
+            {
+                id: 'C',
+                markdown: 'Work with the stakeholders'
+            },
+            {
+                id: 'D',
+                markdown: 'Provide feedback'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, C, D\n\nA PO has a lot of responsibilities during the sprint, and they are also focused to maximize the value of the work being done by the development team. The one thing that he does not do is micromanage, or update the information radiators.\n\nMore details on what the PO does can be found at https://scrumguides.org/scrum-guide.html#team-po\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Planned user stories for a sprint that is in progress are fixed and cannot be removed/modified/swapped with a different user story – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nThe very nature of Scrum is dynamic and open to change. Planned user stories which do not make any sense any more can be removed, or if a higher priority user story comes up, some planned user stories from the sprint can be swapped if needed. It is also common to see user stories being updated during the sprint when more knowledge is gained about them.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Which metrics are mandated by Scrum to be used for tracking Sprint progress?',
+        prompt: '',
+        correctAnswerId: [
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Burn up chart'
+            },
+            {
+                id: 'B',
+                markdown: 'Burn down chart'
+            },
+            {
+                id: 'C',
+                markdown: 'Either of these'
+            },
+            {
+                id: 'D',
+                markdown: 'None of these'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – D\n\nScrum does not mandate using any specific metrics to track the Sprint progress. It is left to the Scrum Team which metric they want to use and what caters to their needs the best.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Scrum should not be used for support and maintenance related work. – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nScrum has been seen to work even in support and maintenance projects. Though the decision to use Scrum should be done after evaluating the case and making an implementation plan.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following might the Scrum Team discuss during a Sprint Retrospective? Select all that apply.',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'B',
+            'C',
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Methods of communication'
+            },
+            {
+                id: 'B',
+                markdown: 'The way the Scrum Team does Sprint Planning'
+            },
+            {
+                id: 'C',
+                markdown: 'Skills needed to improve the Development Team\'s ability to deliver'
+            },
+            {
+                id: 'D',
+                markdown: 'Its Definition of Done'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, B, C, D\n\nScrum Team can discuss anything and everything related to the Sprint that they found helpful, or they think needs some attention. They can also update their Definition of Done to include the learnings from the Sprint.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'In Scrum, tracking hours is a good way to get better at estimation – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nTracking hours is generally not a good way to get better at estimation, because as the team matures, and changes, this might change. Relative estimation is promoted by Scrum, which takes into account not only the time spent, but also other variables like complexity, clarity, etc. of the user story.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Roles allowed in the development team are: (Select all that apply)',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Development team members'
+            },
+            {
+                id: 'B',
+                markdown: 'Testers'
+            },
+            {
+                id: 'C',
+                markdown: 'Architects'
+            },
+            {
+                id: 'D',
+                markdown: 'Managers'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nIn Scrum, the development team is made of development team members or developers. No other role is allowed within it. There is no exception to this.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Who assigns the User Stories to the Development team members in a Sprint?',
+        prompt: '',
+        correctAnswerId: [
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Product Owner'
+            },
+            {
+                id: 'B',
+                markdown: 'Scrum Master'
+            },
+            {
+                id: 'C',
+                markdown: 'Team Lead'
+            },
+            {
+                id: 'D',
+                markdown: 'No one'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – D\n\nNo one assigns the user stories to the development team members. Development team is self-organizing and they pick up the user stories for themselves.\n\nMore on Development team can be found at https://scrumguides.org/scrum-guide.html#team-dev\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Scrum Master has no role in Sprint Planning meeting and only Product Owner and Development Team participate in the Sprint Planning Meeting – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nScrum Master can be considered as a facilitator in the Sprint Planning meeting. He makes sure that the team keeps the Sprint Planning event within the time-box and that they stick to the agenda and that they are not distracted.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'People external to the Scrum Team can participate in which Scrum Events? (Select all that apply)',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Sprint Planning'
+            },
+            {
+                id: 'B',
+                markdown: 'Daily Scrum'
+            },
+            {
+                id: 'C',
+                markdown: 'Sprint Review'
+            },
+            {
+                id: 'D',
+                markdown: 'Sprint Retrospective'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, C\n\nWhile people external to the scrum team can attend all the scrum events, their participation is limited to Sprint Planning and Sprint Review. In the other events, they can attend as silent observers.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The Definition of Done can be different for different members of the Development Team, i.e., testers can have a different DoD and developers can have a different DoD – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nDefinition of done is for the whole development team, and not for individuals. In Scrum, Development team is considered one entity, the responsibility is always collective. They rise and fall as a single unit.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Scrum Master should plan scrum implementations within the organization – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nOne of the ways Scrum Master promotes Scrum within an organization is by planning scrum implementations.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Scrum Master and Product Owner roles are not added in the count of members of Development Team even if they are executing the work of Sprint Backlog – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nIf the PO and SM are executing work in the Sprint backlog, they are to be included in the count of members of the development team.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'According to Scrum guide, Scrum Values include __________ (Select all that apply)',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'B',
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Commitment'
+            },
+            {
+                id: 'B',
+                markdown: 'Courage'
+            },
+            {
+                id: 'C',
+                markdown: 'Diversity'
+            },
+            {
+                id: 'D',
+                markdown: 'Openness'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, B, D\n\nThe five Scrum values are Commitment, Courage, Focus, Openness and Respect.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'If a user story is partially completed in a Sprint, and is placed in the next Sprint Backlog, the story points are reduced to represent the remaining effort required to complete the user story – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nStory points not only indicate the effort and complexity of a user story, but it also represents the value. So unless a story is completed, its value is not realized and thus points are not reduced from an incomplete user-story being brought into a new Sprint.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The name "Scrum" has been borrowed from which game?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Hockey'
+            },
+            {
+                id: 'B',
+                markdown: 'Rugby'
+            },
+            {
+                id: 'C',
+                markdown: 'Baseball'
+            },
+            {
+                id: 'D',
+                markdown: 'Gymnastics'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nThe name “Scrum” has been borrowed from the game of rugby.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Scrum does not prohibit documentation, but it values working software more – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nScrum follows agile manifesto and one of the values of agile manifesto is - we value comprehensive documentation, but we value working software more.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What is important in all Scrum Projects? Select all that apply',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'C',
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Self-organization'
+            },
+            {
+                id: 'B',
+                markdown: 'Clear hierarchies in the company'
+            },
+            {
+                id: 'C',
+                markdown: 'Communication'
+            },
+            {
+                id: 'D',
+                markdown: 'Continuous improvement'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, C, D\n\nSelf-organization, open communication and continuous improvement are some of the important attributes of all Scrum projects.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'In Scrum, where are the customer requirements stored?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'In Sprint Backlog'
+            },
+            {
+                id: 'B',
+                markdown: 'In Product backlog'
+            },
+            {
+                id: 'C',
+                markdown: 'In a database'
+            },
+            {
+                id: 'D',
+                markdown: 'In a Business Requirement Specification document(BRS)'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nProduct Backlog is the place where all the requirements are stored, usually in the form of user stories.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What does MVP stands for in Scrum?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Most Valuable Player'
+            },
+            {
+                id: 'B',
+                markdown: 'Minimum Viable Product'
+            },
+            {
+                id: 'C',
+                markdown: 'Maximum Valuable Product'
+            },
+            {
+                id: 'D',
+                markdown: 'Minimal Verifiable Product'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nMinimum Viable Product.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Maximum time that can be spent on the Daily Scrum meeting is dependent on which of the following factors? Select all that apply',
+        prompt: '',
+        correctAnswerId: [
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Sprint Length'
+            },
+            {
+                id: 'B',
+                markdown: 'Team size'
+            },
+            {
+                id: 'C',
+                markdown: 'Project complexity'
+            },
+            {
+                id: 'D',
+                markdown: 'It is fixed, independent of any factor'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – D\n\nThe time-box for the daily scrum is 15 minutes, irrespective of the Sprint duration or the team size.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What happens when the Sprint is cancelled?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The Scrum Team disbands immediately'
+            },
+            {
+                id: 'B',
+                markdown: 'The completed Sprint Backlog items are evaluated for a release and incomplete items are put back to the Product Backlog'
+            },
+            {
+                id: 'C',
+                markdown: 'The complete Sprint Backlog is put back to the Product Backlog'
+            },
+            {
+                id: 'D',
+                markdown: 'The completed Sprint Backlog items are evaluated for a release and incomplete items are discarded'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nIn the unlikely event where a Sprint is cancelled, the completed items are evaluated and are typically accepted by the PO if they are done, and the incomplete items are put back in the Product Backlog.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The Product Owner can either be one person or a committee – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nThe PO is always a single person, though he may represent a larger group of people which may include different business stakeholders.\n\nMore details on PO can be found at https://scrumguides.org/scrum-guide.html#team-po\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Velocity can be used for ____________________.',
+        prompt: '',
+        correctAnswerId: [
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'comparing teams working on the same product backlog'
+            },
+            {
+                id: 'B',
+                markdown: 'To show to the external stakeholders how the work is being done'
+            },
+            {
+                id: 'C',
+                markdown: 'Forecasting the capacity of the development team'
+            },
+            {
+                id: 'D',
+                markdown: 'Comparing performance of the same over previous sprints'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C\n\nVelocity can be used for forecasting the capacity of the development team. It must be noted that it changes over time.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'It is a good practice to have multiple Product Owners for the same product in multiple team environment – True or False',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nIt is generally not a good practice to have multiple POs for the same product or product backlog.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Who decides how and when the product backlog refinement can be done?',
+        prompt: '',
+        correctAnswerId: [
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Product Owner'
+            },
+            {
+                id: 'B',
+                markdown: 'Development Team'
+            },
+            {
+                id: 'C',
+                markdown: 'External Stakeholders'
+            },
+            {
+                id: 'D',
+                markdown: 'Scrum Team'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – D\n\nThe Scrum Team collectively decide when they see it best for the product backlog refinement.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What is the primary way a Scrum Master keeps a Development Team working at its highest level of productivity?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'By ensuring the meetings start and end at the proper time'
+            },
+            {
+                id: 'B',
+                markdown: 'By facilitating Development Team decisions and removing impediments'
+            },
+            {
+                id: 'C',
+                markdown: 'By preventing changes to the Backlog once the Sprint begins'
+            },
+            {
+                id: 'D',
+                markdown: 'By keeping high value features high in the Product Backlog'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nA Scrum Master makes sure that the development team keeps working at its highest level of productivity by facilitating development team decision and removing impediments. He does other things as well, but this is the most important of them with respect to the given scenario.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The Scrum Master assigns the tasks to the Team Members – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nFalse, the development team members assign tasks to themselves, they are self-organizing.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What is the primary purpose of a Sprint?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'To complete all the tasks in the Product Backlog'
+            },
+            {
+                id: 'B',
+                markdown: 'To produce a "Done" increment of working product'
+            },
+            {
+                id: 'C',
+                markdown: 'To improve the process of Product Development'
+            },
+            {
+                id: 'D',
+                markdown: 'To optimize on resource utilization'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nThe primary purpose of a Sprint is to create a working increment of the product.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Any stakeholder wanting to modify the product backlog can follow this step.',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Can request the Scrum Master to make the necessary modifications'
+            },
+            {
+                id: 'B',
+                markdown: 'Can request the Product Owner to make the necessary modifications'
+            },
+            {
+                id: 'C',
+                markdown: 'Can modify the Product Backlog directly'
+            },
+            {
+                id: 'D',
+                markdown: 'Stakeholders do not have any rights to ask for any modifications in the Product Backlog'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nPO is the owner of the product backlog, so it is only natural for the stakeholders to request him/her if they want to make any change in the product backlog.\n                        ',
+        referenceImage: ''
     }
 ]
 
