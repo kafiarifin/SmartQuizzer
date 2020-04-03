@@ -19950,32 +19950,24 @@ https://www.scrumguides.org/scrum-guide.html#events-sprint`,
     {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'User story point system is the best method for estimating user stories for all the scrum teams?',
+        correctAnswerId: 'B',
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'True'
             },
             {
                 id: 'B',
-                markdown: ''
-            },
-            {
-                id: 'C',
-                markdown: ''
-            },
-            {
-                id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
+                markdown: 'False'
             },
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `The correct answer is Option B (False).
+
+User story point system is one of the popular ways for estimating user stories, but it depends on the individual scrum teams which method suits them the best.
+
+Another example method for estimating user stories is T-Shirt sizing.`,
         referenceImage: ''
     },
     {
