@@ -13314,7 +13314,7 @@ REFERNCE                           : http://docs.oracle.com/javase/7/docs/api/ja
 
 The correct answer is: 1Z1-808`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: '',
         prompt: 'Which of the following(s) is/are valid array initialization/s?',
@@ -13352,7 +13352,7 @@ Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.htm
 
 The correct answer is: int [ ] one = new int [6];`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -13394,7 +13394,7 @@ Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.htm
 
 The correct answer is: 43`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program code?',
         prompt: '',
@@ -13437,7 +13437,7 @@ Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.htm
 
 The correct answer is: true true`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program code?',
         prompt: '',
@@ -13480,7 +13480,7 @@ Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.htm
 
 The correct answer is: 3`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program code?',
         prompt: '',
@@ -13526,7 +13526,7 @@ Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.htm
 
 The correct answer is: NullPointerException`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program code?',
         prompt: '',
@@ -13571,7 +13571,7 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/a
 
 The correct answer is: Compilation fails.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program code?',
         prompt: '',
@@ -13626,7 +13626,7 @@ Reference            : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/
 
 The correct answer is: 13460`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Given the following set of classes:',
         prompt: '',
@@ -13682,7 +13682,7 @@ REFERENCE        :http://docs.oracle.com/javase/tutorial/essential/exceptions/ca
 
 The correct answer is: Catch C, B, A and Exception`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: '',
         prompt: 'Which of the following error/exception is typically thrown by JVM? Pick 2 ',
@@ -13717,7 +13717,7 @@ REFERENCE : http://docs.oracle.com/javase/tutorial/essential/exceptions/catchOrD
 
 The correct answers are: StackOverflowError  , ArrayIndexOutOfBoundsException`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program code?',
         prompt: '',
@@ -13760,7 +13760,7 @@ REFERENCE        :http://docs.oracle.com/javase/tutorial/essential/exceptions/ca
 
 The correct answer is: try Started Finally Completed followed by an exception .`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Consider the following code:',
         prompt: '',
@@ -13817,7 +13817,7 @@ REFERENCE        :http://docs.oracle.com/javase/tutorial/essential/exceptions/ca
 
 The correct answers are: Invocation 1 will print Array Index Out Of Bounds Exception., Invocation 2 will print will print 12., Invocation 3 will print Number Format Exception.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: '',
         prompt: 'Which of the following is checked exception?',
@@ -13871,7 +13871,7 @@ REFERENCE        :http://docs.oracle.com/javase/tutorial/essential/exceptions/ca
 
 The correct answer is: None of the above.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: '',
         prompt: 'Which of the following will be thrown by the JVM when a method calls itself too many times?',
@@ -13915,7 +13915,7 @@ REFERENCE        : http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.
 
 The correct answer is: None of the above`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program code?',
         prompt: '',
@@ -13974,7 +13974,7 @@ REFERENCE        :http://docs.oracle.com/javase/tutorial/essential/exceptions/ca
 
 The correct answer is: Compilation fails.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program code?',
         prompt: '',
@@ -14015,7 +14015,7 @@ REFERENCE  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.
 
 The correct answer is: 8`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which will compile successfully when inserted at line 3?',
         prompt: '',
@@ -14061,7 +14061,7 @@ REFERNCE          : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/var
 
 The correct answer is: final short s=10;`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: '',
         prompt: 'Which of the following uses a fully qualified name in java?',
@@ -14105,7 +14105,7 @@ The correct answer is: class MyDate extends java.util.Date{
 //statement; 
 }`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program code?',
         prompt: '',
@@ -14143,7 +14143,7 @@ REFERENCE : http://docs.oracle.com/javase/tutorial/java/package/packages.html
 
 The correct answer is: Prints today date`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following import statement will be inserted at line 1?',
         prompt: '',
@@ -14189,7 +14189,7 @@ REFERNCE       :  http://docs.oracle.com/javase/tutorial/java/package/packages.h
 
 The correct answer is: import static java.lang.Math.pow;`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: '',
         prompt: 'A java source code file can have -',
@@ -14227,7 +14227,7 @@ REFERNCE          :               http://docs.oracle.com/javase/tutorial/getStar
 
 The correct answer is: Methods with same names in different classes`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -14269,7 +14269,7 @@ REFERNCE          : http://docs.oracle.com/javase/tutorial/getStarted/applicatio
 
 The correct answer is: 808000808`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: 'What is the result?',
@@ -14318,7 +14318,7 @@ REFERENCE          : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/va
 
 The correct answer is: i = 3, j = 0`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -14374,7 +14374,7 @@ REFERENCE          : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/va
 
 The correct answer is: Compile-time Error.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Consider this program -',
         prompt: 'Which of the following is true?',
@@ -14426,7 +14426,7 @@ REFERNCE          : http://docs.oracle.com/javase/tutorial/getStarted/applicatio
 
 The correct answer is: Only the invocation I will complete without throwing exceptions`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -14471,7 +14471,7 @@ Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html
 
 The correct answer is: 12 13 followed by an exception`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -14516,7 +14516,7 @@ Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.htm
 
 The correct answer is: 123123123`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -14563,7 +14563,7 @@ Reference   :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.h
 
 The correct answer is: Compilation fails.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -14610,7 +14610,7 @@ Reference :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html
 
 The correct answer is: 0000`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -14653,7 +14653,7 @@ Reference  :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html
 
 The correct answer is: 010101`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following can be used to iterate through all elements of this array?',
         prompt: '',
@@ -14695,7 +14695,7 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/f
 
 The correct answer is: for(double d : dlbs){ }`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -14738,7 +14738,7 @@ Reference   :    http://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.
 
 The correct answer is: Compilation fails`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -14787,7 +14787,7 @@ Reference :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.htm
 
 The correct answer is: 4567`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -14830,7 +14830,7 @@ Reference :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html
 
 The correct answer is: The program will hang without ever completing.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following has higher precedence than “==”?',
         prompt: '',
@@ -14870,7 +14870,7 @@ Reference : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/operators.h
 
 The correct answer is: --`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following will compile and produce BC when inserted at line 4?',
         prompt: '',
@@ -14921,7 +14921,7 @@ Reference   :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.h
 The correct answer is: None of the above.
 `,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: '',
         prompt: 'Which of the following is an arithmetic operator?',
@@ -14959,7 +14959,7 @@ Reference : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/expressions
 
 The correct answer is: %`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Consider this given program code and choose the correct option.',
         prompt: 'Note: Math.random() * 3 will assign value 0,1 or 2 x.',
@@ -15008,7 +15008,7 @@ Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.htm
 
 The correct answer is: Compilation fails.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: '',
         prompt: 'Select the correct statement.',
@@ -15048,7 +15048,7 @@ Reference   : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.ht
 
 The correct answer is: The only legal expression in an if statement is a Boolean expression`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following statement(s) is/are true?',
         prompt: '',
@@ -15088,7 +15088,7 @@ Reference   :  http://docs.oracle.com/javase/tutorial/java/IandI/objectclass.htm
 
 The correct answer is: Only III`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -15133,7 +15133,7 @@ Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
 
 The correct answer is: 12`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -15180,7 +15180,7 @@ Reference   : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/op2.html
 
 The correct answer is: 7`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -15235,7 +15235,7 @@ Reference            :               http://docs.oracle.com/javase/tutorial/java
 
 The correct answer is: Animal eats Dog eats Meat`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of following represents a correct interface?',
         prompt: '',
@@ -15277,7 +15277,7 @@ REFERENCE        :http://docs.oracle.com/javase/tutorial/java/IandI/abstract.htm
 
 The correct answer is: abstract interface I{ default void print(){ } }`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following statement is true?',
         prompt: '',
@@ -15319,7 +15319,7 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/IandI/subclass
 
 The correct answer is: The down casting can’t be occurred implicitly.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: '',
         prompt: '',
@@ -15377,7 +15377,7 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/javaOO/objectc
 
 The correct answer is: Only I and III.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -15425,7 +15425,7 @@ https://stackoverflow.com/questions/6101311/what-is-the-native-keyword-in-java-f
 
 The correct answer is: Compilation fails due to an error at line 2.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -15472,7 +15472,7 @@ REFERNCE                           : http://docs.oracle.com/javase/tutorial/java
 
 The correct answer is: Compilation fails due to an error at line 6.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -15533,7 +15533,7 @@ REFERENCE : http://docs.oracle.com/javase/tutorial/java/javaOO/usingobject.html
 
 The correct answer is: Livera is reading Livera is reading`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -15586,7 +15586,7 @@ REFERNCE                           : http://docs.oracle.com/javase/tutorial/java
 
 The correct answer is: Compilation fails.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -15632,7 +15632,7 @@ REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/vari
 
 The correct answer is: Compilation fails due to an error at line 3`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -15669,7 +15669,7 @@ REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/vari
 
 The correct answer is: true`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -15716,7 +15716,7 @@ REFERNCE                           : http://docs.oracle.com/javase/tutorial/java
 
 The correct answer is: 10.0`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following is/are true?',
         prompt: '',
@@ -15758,7 +15758,7 @@ REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/vari
 
 The correct answer is: Only I.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following set contains only primitive literals?',
         prompt: '',
@@ -15800,7 +15800,7 @@ REFERNCE                           : http://docs.oracle.com/javase/tutorial/java
 
 The correct answer is: 1.2D, 1f, ‘c’`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -15845,7 +15845,7 @@ REFERENCE        : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/vari
 
 The correct answer is: 2`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -15907,7 +15907,7 @@ Reference                :http://docs.oracle.com/javase/tutorial/java/javaOO/arg
 
 The correct answer is: S MainClass I SubClass SubSubClass`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following statement is invalid?',
         prompt: '',
@@ -15947,7 +15947,7 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/javaOO/returnv
 
 The correct answer is: Overloaded methods may change the argument list.  `,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -16010,7 +16010,7 @@ Reference   :  http://docs.oracle.com/javase/tutorial/java/javaOO/arguments.html
 
 The correct answer is: Compilation fails.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following is the correct method signature of overloaded version of this method?',
         prompt: '',
@@ -16046,7 +16046,7 @@ Reference  : http://docs.oracle.com/javase/tutorial/java/javaOO/returnvalue.html
 
 The correct answer is: private int method(String s)`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -16095,7 +16095,7 @@ Reference  : http://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html
 
 The correct answer is: Compilation fails.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -16147,7 +16147,7 @@ Reference    : http://docs.oracle.com/javase/tutorial/java/javaOO/returnvalue.ht
 
 The correct answer is: Compilation fails due to an error an line 3.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -16192,7 +16192,7 @@ REFERNCE                           : http://docs.oracle.com/javase/7/docs/api/ja
 
 The correct answer is: Compilation fails.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -16246,7 +16246,7 @@ REFERNCE                           : http://docs.oracle.com/javase/7/docs/api/ja
 
 The correct answer is: aAatrueA`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -16291,7 +16291,7 @@ REFERNCE                           : http://docs.oracle.com/javase/tutorial/java
 
 The correct answer is: An Exception is thrown.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following can be used to get the number of characters in a string object?',
         prompt: '',
@@ -16333,7 +16333,7 @@ REFERENCE  : http://docs.oracle.com/javase/tutorial/java/data/strings.html
 
 The correct answer is: length()`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following method of String class has been introduced in java SE 8?',
         prompt: '',
@@ -16379,7 +16379,7 @@ REFERENCE : http://docs.oracle.com/javase/tutorial/java/data/strings.html
 
 The correct answer is: join`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following method was introduced in ArrayList in java SE 8?',
         prompt: '',
@@ -16417,7 +16417,7 @@ REFERENCE : https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
 
 The correct answer is: spliterator`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -16472,7 +16472,7 @@ REFERENCE   : https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
 
 The correct answer is: [A, B, C, E, F]`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following statement can be used to declare and instantiate an ArrayList to hold only Book instances with a default capacity of 10 elements?',
         prompt: '',
@@ -16518,7 +16518,7 @@ REFERENCE  : https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
 
 The correct answer is: All of the above.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following can be used to get the number of elements in an ArrayList object?',
         prompt: '',
@@ -16558,7 +16558,7 @@ REFERENCE: https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
 
 The correct answer is: size()`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -16599,7 +16599,7 @@ The correct answer is: size()`,
 The code fails to compile as we tried to use Array constants to initialize the array after declaring the array which is illegal. Array constants can only be used in initializers. Hence, option E is correct.
 Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.htmlThe correct answer is: Compilation fails.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following inbuilt java class contains methods to do various functions on an array?',
         prompt: '',
@@ -16632,7 +16632,7 @@ Arrays class in the java.util package contains various methods for manipulating 
  
 Reference            :https://docs.oracle.com/javase/7/docs/api/java/util/Arrays.htmlThe correct answer is: java.util.Arrays`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following statement(s) is/are false about the arrays?',
         prompt: '',
@@ -16665,7 +16665,7 @@ An array is considered as an object; also their number of elements that can hold
  
 Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.htmlThe correct answer is: None of the above.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -16709,7 +16709,7 @@ This assigns the specified int value to each element of the specified array of i
 Here, all elements of the array x will be 1, so option B is correct.
 Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.htmlThe correct answer is: 1`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -16749,7 +16749,7 @@ Reference  : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.h
 When we use array constants, they can be used only in initializes. Simply, you can’t declare an array in one statement and then assign array values with array constants (i.e. {1,2,3}) in another statement. So, code fails to compile due to line 3. Hence, option E is correct.
 Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.htmlThe correct answer is: Compilation fails.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following will print 4 as the output when inserted at line 4?',
         prompt: '',
@@ -16793,7 +16793,7 @@ So, to get an expected output, we need to access the first element of the thir
  
 Reference            : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.htmlThe correct answer is: System.out.print(array[2][0]);`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following will print output 5 when inserted at line 4?',
         prompt: '',
@@ -16837,7 +16837,7 @@ So, to get an expected output we need to access the last element of the second
  
 Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.htmlThe correct answer is: System.out.print(array[2][1]);`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -16875,7 +16875,7 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/nut
 For array positions, we can use only the integer types. Here we have tried to use long to access an element of the array. Hence compilation will fail.
 Reference   :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.htmlThe correct answer is: Compilation fails.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: '',
         prompt: 'What is the output?',
@@ -16916,7 +16916,7 @@ Reference   :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/array
 'meth' method has declared a checked exception. When we are calling a method which declares or throwing a checked exception, the calling method should declare or handle that checked exception otherwise compilation fails. 'main' doesn't declared or handled an Exception . It causes compile time error. Hence Option D is Correct. Remaining options are incorrect as explained above.
 REFERENCE                        :http://docs.oracle.com/javase/tutorial/essential/io/fileOps.html#exceptionThe correct answer is: Compilation fails.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'After which line the object created at line 1 is eligible for garbage collection?',
         prompt: '',
@@ -16989,7 +16989,7 @@ Reference : http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/
 
 The correct answer is: Line 6`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -17044,7 +17044,7 @@ Reference  :  http://www.oracle.com/technetwork/articles/java/java7exceptions-48
 
 The correct answer is: Compilation fails`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following is true about this given code fragment?',
         prompt: '',
@@ -17089,7 +17089,7 @@ REFERENCE        :http://docs.oracle.com/javase/tutorial/essential/exceptions/ca
 
 The correct answer is: Compiler complains because of the catch block.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output while running the program with args as the array [“0”, “2”]?',
         prompt: '',
@@ -17147,7 +17147,7 @@ REFERENCE        :http://docs.oracle.com/javase/tutorial/essential/exceptions/ca
 
 The correct answer is: Compilation fails.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -17210,7 +17210,7 @@ The correct answer is: Runtime.
 Finally here.
 Terminated.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What happens when the following code compiles and executes ?',
         prompt: '',
@@ -17258,7 +17258,7 @@ REFERENCE        :http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.h
 
 The correct answer is: A`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following exception is thrown by the programmer when trying to convert a string to a number which is not in appropriate number format?',
         prompt: '',
@@ -17300,7 +17300,7 @@ REFERENCE        : http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.
 
 The correct answer is: NumberFormatException`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following represents the main method signature?',
         prompt: '',
@@ -17342,7 +17342,7 @@ Reference  : http://docs.oracle.com/javase/tutorial/getStarted/application/index
 
 The correct answer is: public static void main(String  i[])`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -17386,11 +17386,11 @@ Reference : http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.htm
 
 The correct answer is: Whizlab`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What are the correct statements?',
         prompt: 'Select 2 options.',
-        correctAnswerId: ['D','E'],
+        correctAnswerId: ['D', 'E'],
         options: [
             {
                 id: 'A',
@@ -17426,7 +17426,7 @@ Reference : http://www.coderanch.com/t/411693/java/java/coupling-cohesion-java
 
 The correct answers are: High cohesion makes it easier to maintain program. , High coupling is bad.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following statement is true?',
         prompt: '',
@@ -17476,7 +17476,7 @@ Reference                            :http://docs.oracle.com/javase/tutorial/get
 
 The correct answer is: Only III.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following is highly required for a class file?',
         prompt: '',
@@ -17516,7 +17516,7 @@ Reference                            :http://docs.oracle.com/javase/tutorial/get
 
 The correct answer is: A constructor. `,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following is a valid top level class declaration?',
         prompt: '',
@@ -17560,7 +17560,7 @@ Reference : http://docs.oracle.com/javase/tutorial/getStarted/application/index.
 
 The correct answer is: None of the above`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Given the following method from the java.util.Arrays\n' +
             '\n' +
@@ -17607,7 +17607,7 @@ Reference            :https://docs.oracle.com/javase/tutorial/java/package/usepk
 
 The correct answer is: By adding the import statements “import static java.util.Arrays.sort;”`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: '',
         prompt: 'What is the result? ',
@@ -17655,7 +17655,7 @@ Reference             :http://docs.oracle.com/javase/tutorial/java/data/buffers.
 
 The correct answer is: The latestJavaversion is 1.8`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -17702,7 +17702,7 @@ Reference   :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.ht
 
 The correct answer is: 6 will be printed and hang in an infinite loop.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Consider, this given program:',
         prompt: '',
@@ -17759,7 +17759,7 @@ Reference  :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html
 
 The correct answer is: II only`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -17806,7 +17806,7 @@ Reference    : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html
 
 The correct answer is: Compilation fails.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -17856,10 +17856,10 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/f
 
 The correct answer is: 2 followed by an ArrayIndexOutOfBoundsException`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Consider this given statement:',
-        prompt:  'What is the default size?',
+        prompt: 'What is the default size?',
         correctAnswerId: 'D',
         options: [
             {
@@ -17892,7 +17892,7 @@ REFERNCE          : https://docs.oracle.com/javase/8/docs/api/java/util/ArrayLis
 
 The correct answer is: 10`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -17936,7 +17936,7 @@ REFERENCE  :   http://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.ht
 
 The correct answer is: 0 will be printed endlessly.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -17994,7 +17994,7 @@ REFERENCE  : https://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html
 
 The correct answer is: 03`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: '',
         prompt: 'Which of the following can be inserted at line 5, will print all elements of the array?',
@@ -18041,7 +18041,7 @@ REFERNCE          : https://docs.oracle.com/javase/tutorial/java/nutsandbolts/fo
 
 The correct answer is: for(int y : ar[x]) System.out.print(y);`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -18084,7 +18084,7 @@ Reference : http://docs.oracle.com/javase/tutorial/java/nutsandbolts/op2.html
 
 The correct answer is: nothing`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -18128,7 +18128,7 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/o
 
 The correct answer is: 20`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -18171,7 +18171,7 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/o
 
 The correct answer is: An exception will be thrown.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following will compile successfully and produce output A when  inserted independently at line 5?(Choose 3 options)',
         prompt: '',
@@ -18218,7 +18218,7 @@ Reference   :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/operators.
 
 The correct answers are: if(y>=10 & x%(-3)==-1), if(y>10 |  x%(3)==-1), if( ++y>10 | x%(-3)==1)`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -18270,7 +18270,7 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/i
 
 The correct answer is: 20`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: 'Note: Math.random() * 4 will assign value between  0 – 3 to in.',
@@ -18315,7 +18315,7 @@ Reference  :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.ht
 
 The correct answer is: Compilation fails`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Choose the correct statement.',
         prompt: '',
@@ -18361,7 +18361,7 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/s
 
 The correct answer is: None of the above.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: '',
         prompt: 'In above code “-“operator has used as?',
@@ -18398,7 +18398,7 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/o
 
 The correct answer is: Unary operator.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: '',
         prompt: 'What is the output?',
@@ -18440,7 +18440,7 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/nutsandbolts/o
 
 The correct answer is: -1`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following method can be inserted to an interface? ',
         prompt: 'Select 2 options.',
@@ -18477,7 +18477,7 @@ Option C is incorrect because abstract method should not contain body.
 Reference : http://docs.oracle.com/javase/tutorial/java/IandI/abstract.html
 The correct answers are: static int method() {return 1; }, public void method();`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following will override the go method of Parent class when inserted independently at line 8?',
         prompt: '',
@@ -18528,7 +18528,7 @@ Reference   : https://docs.oracle.com/javase/tutorial/java/IandI/override.html
 
 The correct answer is: protected void go() throws RuntimeException{ System.out.print("Child");         }`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'In which of the following situations,you must choose interface inheritance over class inheritance?',
         prompt: '',
@@ -18578,7 +18578,7 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/IandI/usingint
 
 The correct answer is: Only I and III`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following is a valid identifier?',
         prompt: '',
@@ -18620,7 +18620,7 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/javaOO/initial
 
 The correct answer is: _`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following can be used to invoke randomize() method?',
         prompt: '',
@@ -18667,7 +18667,7 @@ REFERNCE                           :http://docs.oracle.com/javase/tutorial/java/
 
 The correct answer is: Run.randomize();`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following is a valid identifier?',
         prompt: '',
@@ -18703,7 +18703,7 @@ Reference            : http://docs.oracle.com/javase/tutorial/java/javaOO/initia
 
 The correct answer is: $_`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -18753,7 +18753,7 @@ Reference :  http://docs.oracle.com/javase/tutorial/java/data/autoboxing.html
 
 The correct answer is: Compilation fails.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -18800,7 +18800,7 @@ Reference : http://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html
 
 The correct answer is: 5`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following will be the correct constructor for Whizlabs class? ',
         prompt: '',
@@ -18848,7 +18848,7 @@ Reference  :   http://docs.oracle.com/javase/tutorial/java/javaOO/constructors.h
 
 The correct answer is: Whizlabs(String s){ super(s);}`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -18899,7 +18899,7 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/javaOO/classva
 
 The correct answer is: Compilation fails due to an error at line 3.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'We use the following method in the class “Whiz”',
         prompt: 'Which of the following code is accepted?',
@@ -18939,7 +18939,7 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/javaOO/classva
 
 The correct answer is: System.out.println(Whiz.test(0) + t.test(1999));`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following can be considered a valid statement?',
         prompt: '',
@@ -18992,7 +18992,7 @@ Reference  :  http://docs.oracle.com/javase/tutorial/java/javaOO/constructors.ht
 
 The correct answer is: Square s = new Square();`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -19042,7 +19042,7 @@ Reference            : http://docs.oracle.com/javase/tutorial/java/javaOO/classv
 
 The correct answer is: 4`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following is a valid statement about this interface?',
         prompt: '',
@@ -19089,7 +19089,7 @@ REFERENCE                           : http://docs.oracle.com/javase/tutorial/jav
 
 The correct answer is: System.out.println(Movable.s);`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -19138,7 +19138,7 @@ REFERENCE  :  http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables
 
 The correct answer is: Compilation fails due to an error at line 10.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -19185,7 +19185,7 @@ REFERENCE        : https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.h
 
 The correct answer is: 36`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following will create a valid Boolean object without auto-boxing?',
         prompt: '',
@@ -19237,7 +19237,7 @@ REFERENCE         : http://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.h
 
 The correct answer is: Boolean b = Boolean.valueOf(true);`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: '',
         prompt: '',
@@ -19292,7 +19292,7 @@ ORACLE REFERENCE        :https://docs.oracle.com/javase/8/docs/api/java/time/Per
 
 The correct answer is: 2015/2/SATURDAY`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -19342,7 +19342,7 @@ Reference            :http://docs.oracle.com/javase/tutorial/java/javaOO/classva
 
 The correct answer is: Compilation fails due to an error at line 5.`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -19400,7 +19400,7 @@ Reference   : http://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
 
 The correct answer is: [A, B, C, E, F]`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -19446,7 +19446,7 @@ Reference : https://docs.oracle.com/javase/8/docs/api/java/time/Period.html
 
 The correct answer is: 0`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Given scenario',
         prompt: '',
@@ -19492,7 +19492,7 @@ ORACLE REFERENCE        :https://docs.oracle.com/javase/tutorial/java/nutsandbol
 
 The correct answer is: System.out.println(x==0?"0":x>0?">":"<");`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -19552,7 +19552,7 @@ Reference : https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpression
 
 The correct answer is: match`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following are the correct syntax to overload the method on line 4?\n' +
             '(Choose three options.)',
@@ -19600,7 +19600,7 @@ http://docs.oracle.com/javase/tutorial/java/javaOO/methods.html
 
 The correct answers are: public String greet() {//more codes}, public void greet() {String greeting,name;}, public void greet(Object greeting){}`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -19652,7 +19652,7 @@ Reference :  https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTime
 
 The correct answer is: 01/3/2000`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'Which of the following formatting string can be used to format date string to following format?',
         prompt: '',
@@ -19698,7 +19698,7 @@ Reference : https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeF
 
 The correct answer is: d MMM uuuu`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -19747,7 +19747,7 @@ Reference            :https://docs.oracle.com/javase/8/docs/api/java/time/LocalD
 
 The correct answer is: 2015-01-30`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: '',
         prompt: 'What is the output?',
@@ -19797,7 +19797,7 @@ Reference            :https://docs.oracle.com/javase/8/docs/api/java/time/LocalT
 
 The correct answer is: 122`,
         referenceImage: ''
-    },{
+    }, {
         questionComplexityIndex: 0,
         explanation: 'What will be the output of this program?',
         prompt: '',
@@ -19850,6 +19850,2408 @@ This method replaces the element at the specified position in this list with the
 Reference            :http://docs.oracle.com/javase/tutorial/collections/interfaces/List.html
 
 The correct answer is: 4`,
+        referenceImage: ''
+    }
+];
+
+export const questionDataSetTest2 = [
+    {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: 'Daily Scrum is a key inspect and adapt meeting?',
+        correctAnswerId: 'A',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            },
+        ],
+        codeString: ``,
+        answerExplanation: `Explanation:
+The correct answer is True.
+
+Daily Scrum is an important inspect and adapt meeting. It provides an opportunity to the development team to identify any deviation and take remedial actions, every day.
+
+Reference: https://scrumguides.org/scrum-guide.html#events-daily`,
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
+        referenceImage: ''
+    }, {
+        questionComplexityIndex: 0,
+        explanation: '',
+        prompt: '',
+        correctAnswerId: '',
+        options: [
+            {
+                id: 'A',
+                markdown: ''
+            },
+            {
+                id: 'B',
+                markdown: ''
+            },
+            {
+                id: 'C',
+                markdown: ''
+            },
+            {
+                id: 'D',
+                markdown: ''
+            },
+            {
+                id: 'E',
+                markdown: ''
+            },
+        ],
+        codeString: ``,
+        answerExplanation: ``,
         referenceImage: ''
     }
 ];
