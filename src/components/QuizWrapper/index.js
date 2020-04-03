@@ -133,7 +133,7 @@ class QuizWrapper extends Component {
                     <QuestionHeader completionRate={this.props.completionRate} title={`Remaining Questions in this round: ${this.props.totalQuestionsInInterval - attempts - 1}`}/>
                     <QuestionExplanation wrongAnswer={wrongAnswer} complete={complete} isIncorrect={isIncorrect}
                                          explanation={explanation}/>
-                    {codeString.length > 1 && <CodeHighlighter codeString={codeString}/>}
+                    {codeString && codeString.length > 1 && <CodeHighlighter codeString={codeString}/>}
                     <Question prompt={prompt}/>
                     <QuestionOptions isMultiAnswer={isMultiAnswer} complete={complete} options={this.shuffledOptions}/>
                     {complete && <AnswerExplanation answerExplanation={answerExplanation} referenceImage={referenceImage}/>}
