@@ -25883,6 +25883,2082 @@ export const questionDataSetTest2 = [
         ],
         answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, B, D\n\nExplanation:\n\nScrum defines three Scrum artifacts. They\nare Product backlog, Sprint Backlog and Increment.\n\nMore details on Scrum artifacts can be\nfound at Link:\n\nhttp://scrumguides.org/scrum-guide.html#artifacts\n                        ',
         referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Scrum Master is always a separate person and not\npart of the development team – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nScrum Master may be a separate person, or can\nalso be a part of the development team if he/she is executing the work of the\nSprint backlog.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Roles possible in the development team are:\n(Select all that apply)',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Developers'
+            },
+            {
+                id: 'B',
+                markdown: 'Testers'
+            },
+            {
+                id: 'C',
+                markdown: 'Architects'
+            },
+            {
+                id: 'D',
+                markdown: 'Managers'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nExplanation:\n\nScrum recognizes only the role of\n“Developers” in the Development Team.\n\nMore on Development Team can be found at\nLink:\n\n http://www.scrumguides.org/scrum-guide.html#team-dev\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Who assigns the User Stories to the Development\nteam members?',
+        prompt: '',
+        correctAnswerId: [
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Product Owner'
+            },
+            {
+                id: 'B',
+                markdown: 'Scrum Master'
+            },
+            {
+                id: 'C',
+                markdown: 'Team Lead'
+            },
+            {
+                id: 'D',
+                markdown: 'No one'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – D.\n\nExplanation:\n\nNobody assigns the user stories to the\ndevelopment team members. The Development Team members pull the user stories or\ntasks themselves, with the accountability resting on the whole development\nteam.\n\nMore on Development Team can be found at\nLink:\n\n http://www.scrumguides.org/scrum-guide.html#team-dev\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Once the product is released, product backlog\nceases to exist – True or False',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nThe existence of the product backlog is\ntied with the existence of the product. Therefore, if the product exists, its\nproduct backlog also exists.\n\nMore details on product backlog can be\nfound at Link:\n\n http://www.scrumguides.org/scrum-guide.html#artifacts-productbacklog\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Choose the most appropriate statement about\nScrum',
+        prompt: '',
+        correctAnswerId: [
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Scrum employs an iterative, incremental approach to maximize Return on Investment and provide greater visibility'
+            },
+            {
+                id: 'B',
+                markdown: 'Scrum employs an iterative, incremental approach to give greater control to the development team on estimating and delivering the product'
+            },
+            {
+                id: 'C',
+                markdown: 'Scrum employs an iterative, incremental approach to ensure transparency in the resource utilization for optimizing the processes and people'
+            },
+            {
+                id: 'D',
+                markdown: 'Scrum employs an iterative, incremental approach to optimize predictability and control risk'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – D\n\nExplanation:\n\nAccording to the Scrum guide, “Scrum employs an iterative, incremental\napproach to optimize predictability and control risk.”\n\nMore details on Scrum Theory can be found\nat Link:\n\n http://www.scrumguides.org/scrum-guide.html#theory\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Development team can have new member additions\nduring the Sprint as required – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nThe Development Team is fixed for each\nSprint. Any changes in the development team can be done for subsequent sprint,\nbut once the Development Team starts working on the Sprint Backlog, their\nconstitution remains constant for the rest of that Sprint.\n\nMore details on Development Team can be\nfound at Link:\n\n http://www.scrumguides.org/scrum-guide.html#team-dev\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Product owner is responsible for the following\noperations on the product backlog items (Select all that apply)',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'C',
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Content'
+            },
+            {
+                id: 'B',
+                markdown: 'Estimation'
+            },
+            {
+                id: 'C',
+                markdown: 'Availability'
+            },
+            {
+                id: 'D',
+                markdown: 'Ordering'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, C, D\n\nExplanation:\n\nScrum Guide lists the following\nresponsibilities of the Product Owner:\n\n\n Clearly\n     expressing Product Backlog items;\n Ordering\n     the items in the Product Backlog to best achieve goals and missions;\n Optimizing\n     the value of the work the Development Team performs;\n Ensuring\n     that the Product Backlog is visible, transparent, and clear to all, and\n     shows what the Scrum Team will work on next; and,\n Ensuring\n     the Development Team understands items in the Product Backlog to the level\n     needed.\n\nMore details on the Product Owner can be\nfound at link:\n\n http://www.scrumguides.org/scrum-guide.html#team-po\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Who all have the authority to change the Sprint Backlog?',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Development Team'
+            },
+            {
+                id: 'B',
+                markdown: 'Scrum master'
+            },
+            {
+                id: 'C',
+                markdown: 'Product Owner'
+            },
+            {
+                id: 'D',
+                markdown: 'Manager'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nOnly the development Team has the authority to change the Sprint backlog since it is owned and managed by them.\n\n \n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'People external to the Scrum Team can attend\nwhich Scrum Events? Select all that apply',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'B',
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Sprint Planning'
+            },
+            {
+                id: 'B',
+                markdown: 'Daily Scrum'
+            },
+            {
+                id: 'C',
+                markdown: 'Sprint Review'
+            },
+            {
+                id: 'D',
+                markdown: 'Sprint Retrospective'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, B, C\n\nExplanation: \n\nPeople external to the Scrum Team can\nattend the Sprint Planning and the Sprint Review meetings.\n\nIt is a common practice to invite technical\nand domain advisors to help the Development Team in the Sprint Planning\nmeeting.The Daily Scrum is an internal meeting for the Development Team. If others are present, the Scrum Master ensures that they do not disrupt the meeting.\n\nDuring Sprint review, the product owner\ntypically invites other stakeholders to inspect the product and provide\nsuggestions on the increment, which may be included in the product backlog (if\nthe product owner chooses to).\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'All Development Teams working on the same\nProduct should use the same Product Backlog – True or False',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nExplanation:\n\nOne product is represented by a single\nproduct backlog, even if multiple scrum teams are working on the same product.\n\nMore details on the product backlog can be\nfound at Link:\n\n http://www.scrumguides.org/scrum-guide.html#artifacts-productbacklog\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'It is a good practice to have multiple Product\nOwners for a single product development having multiple teams – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nOne product should be represented by one product\nowner. This can be derived from the fact that the role of “Product Owner”\nrepresents a single person, and not a committee.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What happens when a Sprint is cancelled? Select\nall that apply',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'B',
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Any completed and “Done” Product Backlog items are reviewed'
+            },
+            {
+                id: 'B',
+                markdown: 'All incomplete Product Backlog Items are re-estimated and put back on the Product Backlog'
+            },
+            {
+                id: 'C',
+                markdown: 'If part of the work is potentially releasable, the Product Owner typically accepts it'
+            },
+            {
+                id: 'D',
+                markdown: 'Several top Product Backlog Items are taken into the Sprint Backlog to replace the obsolete items'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, B, C\n\nExplanation:\n\nIn the unlikely event of a Sprint being\ncancelled, typically, the “Done” items are reviewed; the incomplete items are\nre-estimated and placed back in the product backlog; and if the done work is in\na potentially releasable condition, the product owner might accept it as well.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'According to Scrum, one Scrum Master is allowed\nto manage at most one scrum team at a time – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nScrum does not prohibit one Scrum Master to\nserve multiple scrum teams. So the correct answer would be “False”.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Velocity includes the story points of done as\nwell as incomplete user stories at the end of the Sprint – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nVelocity only considers the story points of the\ndone user stories. The incomplete user stories are not considered, not even\npartially for the purposes of calculating the velocity at the end of the\nsprint.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The Definition of Done can be different for\ndifferent members of the Development Team – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nDefinition of “Done” is the same for all the\nmembers of the same Development Team, and they all must adhere to this while\nexecuting the backlog work items.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'According to Scrum, Transparency in Scrum\nrequires that significant aspects of the process _______',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'be defined by a common standard so observers share a common understanding of what is seen'
+            },
+            {
+                id: 'B',
+                markdown: 'be defined by a general understanding and standards specific to the implementing teams'
+            },
+            {
+                id: 'C',
+                markdown: 'be defined by the individual scrum teams so that they can have a good understanding of the processes'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nExplanation:\n\nAccording to Scrum, “Significant aspects of the process must be visible to those responsible\nfor the outcome. Transparency requires those aspects be defined by a common\nstandard so observers share a common understanding of what is being seen”.\n\nMore details on Scrum Theory can be found\nat Link:\n\n http://scrumguides.org/scrum-guide.html#theory\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Scrum Master serves the _____. Select all that\napply',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'B',
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Product Owner'
+            },
+            {
+                id: 'B',
+                markdown: 'Development Team'
+            },
+            {
+                id: 'C',
+                markdown: 'Organization'
+            },
+            {
+                id: 'D',
+                markdown: 'Customers'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, B, C\n\nExplanation:\n\nScrum Master serves the Product Owner, the\nDevelopment Team as well as the organization.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'If a user story is partially completed in a\nSprint, and is placed in the next Sprint Backlog, the story points are reduced\nto represent the remaining effort required to complete the user story – True or\nFalse',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nThe user story points not only represent the\nefforts and complexity of a requirement, but also is a representation of the\nvalue released by implementing the requirement. As such, this value can only be\nreleased once the user story meets the Definition of “Done” of the Scrum Team.\nTherefore, even if a user story is partially completed, the story points are\nnot reduced.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'If some tasks or user stories are not completed\nin the current sprint, what should to be done?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The incomplete tasks/user stories are pushed to the next Sprint over and above the planned tasks'
+            },
+            {
+                id: 'B',
+                markdown: 'The tasks/user stories are moved to Product backlog and are re-evaluated by the Product Owner, who then decides the next course of action'
+            },
+            {
+                id: 'C',
+                markdown: 'The user stories/tasks are pushed to the bottom of the product backlog and is worked upon when other items are completed'
+            },
+            {
+                id: 'D',
+                markdown: 'The tasks/user stories are cancelled'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nThe incomplete tasks are moved to the product\nbacklog, where it is again re-evaluated, or ranked by the Product Owner, who\nthen decides when that item needs to be picked.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Which three activities will a Product Owner\nlikely engage in during a Sprint? Select three.',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'C',
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Answer questions from the Development Team about items in the current Sprint'
+            },
+            {
+                id: 'B',
+                markdown: 'Update the Sprint burn down chart'
+            },
+            {
+                id: 'C',
+                markdown: 'Work with the stakeholders'
+            },
+            {
+                id: 'D',
+                markdown: 'Provide feedback'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, C, D\n\nExplanation:\n\nProduct Owner answers the questions from\nthe development team about the items in the current sprint to bring more\nclarity on the requirements.\n\nProduct Owner also works with the\nshareholders to understand their expectations, as well as provides feedback to\nthe Development Team.\n\nProduct Owner does not update the Sprint\nburn-down chart.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What happens when the Sprint is cancelled?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The Scrum Team disbands immediately'
+            },
+            {
+                id: 'B',
+                markdown: 'The completed Sprint Backlog items are evaluated for a release and incomplete items are put back to the Product Backlog'
+            },
+            {
+                id: 'C',
+                markdown: 'The complete Sprint Backlog is put back to the Product Backlog'
+            },
+            {
+                id: 'D',
+                markdown: 'The completed Sprint Backlog items are evaluated for a release and incomplete items are discarded'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nWhen the Sprint is cancelled, the completed\nitems from the Sprint backlog are reviewed, and the incomplete items are placed\nin the product backlog.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What are the important principles in all Scrum\nProjects? Select all that apply',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'C',
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Self-organization'
+            },
+            {
+                id: 'B',
+                markdown: 'Clear hierarchies in the company'
+            },
+            {
+                id: 'C',
+                markdown: 'Communication'
+            },
+            {
+                id: 'D',
+                markdown: 'Continuous improvement'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, C, D\n\nExplanation:\n\nSelf-organization, communication and continuous\nimprovement are the principles which should be upheld in every Scrum\nimplementation for its success and desired outcome.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Which of the following is defined by the Scrum\nframework? Select all that apply',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'C',
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Rules and roles'
+            },
+            {
+                id: 'B',
+                markdown: 'document guidelines'
+            },
+            {
+                id: 'C',
+                markdown: 'artifacts'
+            },
+            {
+                id: 'D',
+                markdown: 'events'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, C, D\n\nExplanation:\n\nScrum Framework defines roles, artifacts,\nevents and the rules that bind them together.\n\nMore details on the Scrum Theory can be\nfound at Link:\n\nhttp://scrumguides.org/scrum-guide.html#theory\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Development Team may not have all the skills\nnecessary to create a product increment, because that might increase the size\nof a team beyond the limits specified by Scrum – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nDevelopment Team should have all the skills\nnecessary to convert the backlog item into the product increment.\n\nMore details on the development team can be\nfound at Link:\n\n http://scrumguides.org/scrum-guide.html#team-dev\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The Daily Scrum lasts at least 15 minutes – True\nor False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nThe time-box for the Daily Scrum is 15\nminutes, which means that it should not last more than 15 minutes, but it can\ncertainly last less than 15 minutes, which is also seen as general trend once\nthe team becomes more mature on the Scrum process.\n\nMore details on the daily scrum can be\nfound at Link:\n\nhttp://scrumguides.org/scrum-guide.html#events-daily\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The best size for a Development team is seven\npeople – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nThere is no best size for a Scrum Team. The\nteam needs to be large enough to have all the skills necessary to execute the\nbacklog item into a product increment, but small enough to not hinder\ncommunication typical in large teams. As observed on multiple team, scrum only\nprovides a guideline for a development team to have between 3 and 9 members,\nwithout enforcing it.\n\nMore information on the development team\ncan be found at Link: \n\nhttp://scrumguides.org/scrum-guide.html#team-dev\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'A stakeholder wanting to modify the product\nbacklog can follow this step:',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Can request the Scrum Master to make the necessary modifications'
+            },
+            {
+                id: 'B',
+                markdown: 'Can request the Product Owner to make the necessary modifications'
+            },
+            {
+                id: 'C',
+                markdown: 'Can modify the Product Backlog directly'
+            },
+            {
+                id: 'D',
+                markdown: 'Stakeholders do not have any rights to ask for any modifications in the Product Backlog'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nThe product\nbacklog is owned by the product owner, so if anyone, including stakeholders,\nwho would want to modify anything in the product backlog, need to request the\nproduct owner for it, who would then decide if he/she agrees to the requests.\n\nMore details on the Product backlog can be\nfound at Link:\n\nhttp://scrumguides.org/scrum-guide.html#artifacts-productbacklog\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Who ensures that the Development Team\nunderstands the items in the Product Backlog to the level needed?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Scrum Master'
+            },
+            {
+                id: 'B',
+                markdown: 'Product Owner'
+            },
+            {
+                id: 'C',
+                markdown: 'Technical advisor'
+            },
+            {
+                id: 'D',
+                markdown: 'Domain expert'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nThe correct answer is product owner. Scrum\nlists the following as the responsibilities of the Product Owner in the Scrum\nGuide:\n\n1.      \nClearly expressing Product Backlog\nitems;\n\n2.      \nOrdering the items in the\nProduct Backlog to best achieve goals and missions;\n\n3.      \nOptimizing the value of the\nwork the Development Team performs;\n\n4.      \nEnsuring that the Product\nBacklog is visible, transparent, and clear to all, and shows what the Scrum\nTeam will work on next; and,\n\nEnsuring the Development Team understands items\nin the Product Backlog to the level needed.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'There is provision in Scrum that allows one development\nteam to be broken down to sub-teams categorized based on areas of\nspecializations – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nScrum does not allow any division of the\ndevelopment team into sub-teams. All the members of the development team are\nonly known as developers.\n\nMore on development team can be found at Link:\n\nhttp://scrumguides.org/scrum-guide.html#team-dev\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What is an Increment?',
+        prompt: '',
+        correctAnswerId: [
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The sum of all the Product Backlog items completed during the Sprint'
+            },
+            {
+                id: 'B',
+                markdown: 'The sum of all the Sprint Backlog items completed during the Sprint'
+            },
+            {
+                id: 'C',
+                markdown: 'The items in the Sprint Backlog which are "Done" and can be released'
+            },
+            {
+                id: 'D',
+                markdown: 'The sum of all the Product Backlog items completed during the Sprint and the value of the increments of all previous Sprints'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – D\n\nExplanation:\n\nThe Increment is the sum of all the Product\nBacklog items completed during a Sprint and the value of the increments of all\nprevious Sprints.\n\nMore details on the increment can be found\nat Link:\n\n http://scrumguides.org/scrum-guide.html#artifacts-increment\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'A customer wants to communicate something very\nrelevant and important about the product to the Development team. Who should\nthey talk to?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Since everyone on the team is accountable for the product development, the customer should meet all of them together'
+            },
+            {
+                id: 'B',
+                markdown: 'Product Owner only'
+            },
+            {
+                id: 'C',
+                markdown: 'Scum Master Only'
+            },
+            {
+                id: 'D',
+                markdown: 'Development Team Only'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nAny requirements, and/or concerns regarding\nthe product by any stakeholder needs to be brought to the attention of the\nProduct Owner only, who would then decide the appropriate course of action.\n\nMore on product owner can be found at Link:\n\nhttp://scrumguides.org/scrum-guide.html#team-po\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'A development Team decides to divide the Sprint\nBacklog and assigns ownership of every sprint backlog item to separate\nindividuals in the team. The scrum master ______',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Should encourage this practice as it increases productivity'
+            },
+            {
+                id: 'B',
+                markdown: 'Should coach the team to collectively take ownership of sprint backlog items though an individual works on an exclusive item.'
+            },
+            {
+                id: 'C',
+                markdown: 'Should encourage this practice as it increases individual accountability.'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nThe Sprint Backlog items are collectively owned\nby the Development Team. Though individual members can work on specific items\nof the backlog, but the ownership always lies with the entire development team.\nIf the Development Team is not following this practice, it is the\nresponsibility of the Scrum Master to coach the team to understand the expected\nbehavior of a Development Team in the Scrum Framework.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'A Development team identifies a technical issue\nthat requires them to work together to solve an issue. Who needs to facilitate\nthis?',
+        prompt: '',
+        correctAnswerId: [
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Product Owner'
+            },
+            {
+                id: 'B',
+                markdown: 'Scrum Master'
+            },
+            {
+                id: 'C',
+                markdown: 'Development Team'
+            },
+            {
+                id: 'D',
+                markdown: 'Technical specialist'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C\n\nExplanation:\n\nAny and all work related to the conversion of a\nbacklog item to a product increment needs to be worked upon and facilitated by\nthe Development Team. The Development team can ask Scrum Master to remove\nimpediments due to external dependencies but when it comes to working together,\nScrum Master’s role is limited to coaching the team in Scrum Practices.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'A Development Team in Scrum must be cross functional. What does it mean?',
+        prompt: '',
+        correctAnswerId: [
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Each team member must be cross-skilled'
+            },
+            {
+                id: 'B',
+                markdown: 'The team must have a mix of team members from each of the different technology functions of the organization.'
+            },
+            {
+                id: 'C',
+                markdown: 'They must have all competencies needed to create the Increment as per the definition of "Done"'
+            },
+            {
+                id: 'D',
+                markdown: 'The team must divide their work according to the sub-functions but sync up their work no later than the Sprint Review.'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C\n\nThe Development Team being cross-functional infers that the development team as a whole should have all the skills necessary to convert the backlog items into a product increment. It is not required that every member should have all the skills, but the team collectively should have all the skills.\n\nMore details on the development team can be found at http://scrumguides.org/scrum-guide.html#team-dev\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'A development team is self-organized and empowered. It also has the authority on deciding what business needs are required to be developed – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nThe Development Team is self-organized and empowered, but when it comes to deciding the priority or which requirements needs to be developed, the product owner is the ultimate owner and decides what needs to be developed.\n\n \n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'A product owner is also knowledgeable on\ntechnology. In addition to product requirements, they also impose some\ntechnical conditions that the product should meet. These conditions must be\nadded to?',
+        prompt: '',
+        correctAnswerId: [
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Product backlog'
+            },
+            {
+                id: 'B',
+                markdown: 'Sprint Backlog'
+            },
+            {
+                id: 'C',
+                markdown: 'Definition of Done'
+            },
+            {
+                id: 'D',
+                markdown: 'Sprint Goal'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C\n\nExplanation:\n\nAll the conditions for accepting a backlog item\nas done is added to the “Definition of Done”.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'A Product Owner is not available for Scrum\nEvents and not supportive enough for Development Team. The next immediate\naccountability is with_____',
+        prompt: '',
+        correctAnswerId: [
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Development Team that needs to cancel the sprint'
+            },
+            {
+                id: 'B',
+                markdown: 'Stakeholders that need to get a written commitment from Product Owner'
+            },
+            {
+                id: 'C',
+                markdown: 'Product Owner\'s manager who needs to engage the Development team and understand their problems'
+            },
+            {
+                id: 'D',
+                markdown: 'Scrum Master who needs to educate Product owner on his role'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – D\n\nExplanation:\n\nIf Product Owner is not available or is not\nsupportive enough, then this is an impediment to the development team. Scrum\nMaster is responsible to remove any impediments that the scrum team may be\nfacing, so the next immediate accountability of educating the Product owner\nlies with the Scrum Master.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'A Scrum team can identify the improvements only\nduring the sprint retrospective – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nA scrum Team can identify improvements during\nany inspect event, which can happen any time during the Sprint.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'A Scrum Team is at the end of a Sprint. When\ndoes the next Sprint start?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Only after the product increment is released to production'
+            },
+            {
+                id: 'B',
+                markdown: 'Only after the Retrospective event of the current Sprint'
+            },
+            {
+                id: 'C',
+                markdown: 'Only after the team for the next Sprint is on board'
+            },
+            {
+                id: 'D',
+                markdown: 'Only after the Sprint Planning'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nThe next sprint starts after the Retrospective\nevent for the current sprint ends.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'After Sprint Review, Production release in Scrum\nrequires ______.',
+        prompt: '',
+        correctAnswerId: [
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Hardening Sprints'
+            },
+            {
+                id: 'B',
+                markdown: 'Usability/End User testing'
+            },
+            {
+                id: 'C',
+                markdown: 'All of the above'
+            },
+            {
+                id: 'D',
+                markdown: 'None of the above'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – D\n\nExplanation:\n\nThe product should always be in potentially\nreleasable state at the end of the Sprint. So after the Sprint Review, there is\nno requirement for any hardening sprint, or any usability testing. All the\nactivities should have been done in the Sprint itself.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Does the Sprint Review result in a revised\nProduct Backlog – Yes or No?',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Yes'
+            },
+            {
+                id: 'B',
+                markdown: 'No'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nExplanation:\n\nYes, the Sprint Review usually results in a\nrevised product backlog to depict the inspect process at the Sprint Review\nmeet.\n\nMore details on the Sprint Review can be\nfound at Link:\n\n http://scrumguides.org/scrum-guide.html#events-review\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Who determines whether the development team has\nsufficient skills to create release-quality increments?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The Scrum Team'
+            },
+            {
+                id: 'B',
+                markdown: 'The Development Team'
+            },
+            {
+                id: 'C',
+                markdown: 'The Product Owner'
+            },
+            {
+                id: 'D',
+                markdown: 'The Scrum Master'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nThe Development Team themselves decide whether\nthey have sufficient skills to create release-quality increments.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Who is responsible for conducting the Daily\nScrum?',
+        prompt: '',
+        correctAnswerId: [
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The Scrum Team'
+            },
+            {
+                id: 'B',
+                markdown: 'The Scrum Master'
+            },
+            {
+                id: 'C',
+                markdown: 'The Development Team'
+            },
+            {
+                id: 'D',
+                markdown: 'The Product Owner'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C\n\nExplanation:\n\nThe Development\nTeam is responsible for conducting the Daily Scrum. The role of the scrum\nmaster is limited to ensuring that the development team follows this process.\n\nMore on Daily\nScrum can be found at Link:\n\n http://scrumguides.org/scrum-guide.html#events-daily\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'If the Scrum Team is not able to decide the\nduration of the Sprint, who has the final authority to decide the Sprint\nduration?',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The Scrum Master'
+            },
+            {
+                id: 'B',
+                markdown: 'The Development Team'
+            },
+            {
+                id: 'C',
+                markdown: 'The Product Owner'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nExplanation:\n\nThe Scrum Team should be able to decide the\nduration of the Sprint, but in the unlikely event that a consensus has not been\nreached upon, the Scrum Master takes the final call for the Sprint duration.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'After the Sprint Planning, the product backlog\nitems selected into the Sprint backlog are frozen and cannot be modified. The\nonly way to modify is to have the Product Owner cancel the sprint – True or\nFalse?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nAfter the Sprint\nplanning, the agreed items from product backlog are moved to the Sprint\nbacklog, where they may evolve and become clearer over the duration of the sprint.\nIt is not frozen or in a “final” state after the sprint planning meeting.\n\nMore details on the Sprint planning meeting\ncan be found at Link:\n\nhttp://scrumguides.org/scrum-guide.html#events-planning\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'All the activities that happen within the Scrum\nare called Scrum Events – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nNot all\nactivities happening within the scrum are called Scrum Events. There are only\nfour Scrum Events, namely, Sprint planning, Daily Scrum, Sprint Review and\nSprint Retrospective. Other events like backlog grooming or any internal\ndiscussions that the team might have are not Scrum Events.\n\nMore details on\nScrum Events can be found at Link:\n\nhttp://scrumguides.org/scrum-guide.html#events.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'An important executive wants the development\nteam to take in a highly critical feature in the current sprint. The\ndevelopment team ____',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Will work on that since organization priority is more important.'
+            },
+            {
+                id: 'B',
+                markdown: 'Will ask executive to work with product owner'
+            },
+            {
+                id: 'C',
+                markdown: 'As empowered team, will seek the executive to select an alternative work to be removed instead'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nAccording to Scrum, “No one is allowed to tell the Development Team to work from a different\nset of requirements, and the Development Team isn’t allowed to act on what\nanyone else says”. \n\nSo, in case anyone asks the development team to\nwork on anything else, they should redirect the person to the Product Owner.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'An inspector finds that a work aspect deviates\noutside acceptable limits, and that the resulting product will be unacceptable.\nWhen will the team adjust this work aspect to minimize the deviation?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'In the next scrum event'
+            },
+            {
+                id: 'B',
+                markdown: 'As soon as possible'
+            },
+            {
+                id: 'C',
+                markdown: 'After the Scrum Master approves the adjustment'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nIn case any deviation is found, the development\nteam should make the adjustment immediately, so that the impact of the\ndeviation can be minimized.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'An organization decides to have very small\nDevelopment teams of size fewer than three. The likely result could be?',
+        prompt: '',
+        correctAnswerId: [
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The team may have decreased interaction'
+            },
+            {
+                id: 'B',
+                markdown: 'The team may have skills shortage'
+            },
+            {
+                id: 'C',
+                markdown: 'The team may have low productivity gains'
+            },
+            {
+                id: 'D',
+                markdown: 'All of the above'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – D\n\nExplanation:\n\nIf team size is less than three, it has\nbeen observed that there is decreased interaction, there might be shortage of\nall the skills that is necessary to convert the backlog item into a product\nincrement, and the team may suffer from low productivity gains. So it is generally advised that the team size be greater than or equal to 3 and less than or equal to 9.   \n\nMore details can be found at Link:\n\n http://scrumguides.org/scrum-guide.html#team-dev\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'At the end of the sprint planning, the\ndevelopment team could not decompose all of the work into units of one day or\nless. It could decompose the work for only the first few days of the sprint.\nWhat should be the next step?',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'A development team should close the sprint planning and start the work'
+            },
+            {
+                id: 'B',
+                markdown: 'Since the team is self-organized, they should continue sprint planning in the following days before they start the work'
+            },
+            {
+                id: 'C',
+                markdown: 'The scrum master should coach the team in required skills'
+            },
+            {
+                id: 'D',
+                markdown: 'None of the above'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nExplanation:\n\nIf at the end of\nthe Sprint planning, some of the work is decomposed into units of one day or\nless, the team should start the work on it. The remaining items can be\ndecomposed as the Sprint continues.\n\nMore details on\nSprint planning can be found at Link:\n\n http://scrumguides.org/scrum-guide.html#events-planning\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The upper time limit for the Daily Scrum is\ndependent on the size of the team – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nThe Daily Scrum is time-boxed to 15\nminutes, irrespective of the team size.\n\nMore details on the Daily Scrum can be\nfound at link:\n\n http://scrumguides.org/scrum-guide.html#events-daily\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The primary purpose of having a Sprint Goal is\nto ____.',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Showcase to the stakeholders what will be achieved in the Sprint'
+            },
+            {
+                id: 'B',
+                markdown: 'To provide guidance to the development team on why it is building the increment'
+            },
+            {
+                id: 'C',
+                markdown: 'To help in tracking the project objectives'
+            },
+            {
+                id: 'D',
+                markdown: 'To track the project status'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nThe primary goal of the Sprint goal is to\nprovide guidance to the development team on the purpose of the increment and\nhelp them in inspecting their work, so that any deviation can be identified at\nthe earliest and corrective actions taken.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Who are mandatorily required to be present in\nthe Daily Scrum Meeting? Select all that apply',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Scrum Master'
+            },
+            {
+                id: 'B',
+                markdown: 'Development Team'
+            },
+            {
+                id: 'C',
+                markdown: 'Product Owner'
+            },
+            {
+                id: 'D',
+                markdown: 'Business Stakeholders'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nThe Daily Scrum is mandatory only for the development\nteam. The scrum master just needs to ensure that the development team is having\nthe daily scrum, and may choose to join it if required to coach the team in\nkeeping the daily scrum within the time-box.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Each Scrum Team has its own Product Backlog\nirrespective of the teams working on the same product – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nOne product has\nonly one product backlog, irrespective of the number of teams working on it.\n\nMore details on\nproduct backlog can be found at Link:\n\nhttp://scrumguides.org/scrum-guide.html#artifacts-productbacklog\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Definition of “Done” is constant across Sprints\n– True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nDefinition of “Done” evolves with Sprints,\nand does not necessarily remain constant.\n\nMore details can be found at Link:\n\n http://scrumguides.org/scrum-guide.html#artifact-transparency-done\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Sprint Backlog includes ______. (Select all that\napply)',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Product Backlog items selected for the current Sprint'
+            },
+            {
+                id: 'B',
+                markdown: 'Team members working planned to work on the Sprint'
+            },
+            {
+                id: 'C',
+                markdown: 'Plan of delivering the selected items of the Sprint Backlog'
+            },
+            {
+                id: 'D',
+                markdown: 'Sprint Goal'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, C\n\nExplanation:\n\nSprint backlog includes product backlog items\nselected for the current sprint as well as the plan of delivering the selected\nitems of the Sprint backlog.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Development team can have new member additions\nduring the Sprint as required – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nThe team\ncomposition is constant throughout the Sprint. The composition can change\nbetween sprints.\n\nMore details on\nDevelopment team can be found at Link:\n\n http://scrumguides.org/scrum-guide.html#team-dev\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Product owner is responsible for the following\noperations on the product backlog items. (Select all that apply)',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'C',
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Content'
+            },
+            {
+                id: 'B',
+                markdown: 'Estimation'
+            },
+            {
+                id: 'C',
+                markdown: 'Availability'
+            },
+            {
+                id: 'D',
+                markdown: 'Ordering'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A, C, D\n\nExplanation:\n\nProduct Owner is responsible for content,\navailability and ordering of the backlog items, but not estimation, which is\nthe responsibility of the development team.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'When can a Sprint be cancelled? Select all that apply',
+        prompt: '',
+        correctAnswerId: [
+            'A',
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'When there is no value to be gained on completing the Sprint'
+            },
+            {
+                id: 'B',
+                markdown: 'When the development team cannot complete the user stories assigned in the Sprint'
+            },
+            {
+                id: 'C',
+                markdown: 'When the Sprint Goal becomes obsolete'
+            },
+            {
+                id: 'D',
+                markdown: 'When Scrum Master says so'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                             \n\nCorrect Answer – A, C\n\nExplanation:\n\nA Sprint can be cancelled when there is no value to be gained on completing the Sprint, or when the Sprint Goal becomes obsolete.\n\nMore details on Sprint can be found at Link:\n\n\n\thttp://scrumguides.org/scrum-guide.html#events-sprint\n\n\n \n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Conducting the Daily Scrum at same time and same place every day, makes it easier for the product owner and scrum master to participate – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nThe Product Owner and the Scrum Master are not even required to participate in the Daily Scrum. The purpose of having the Daily Scrum at the same time and place is to reduce complexity.\n\nMore details on Daily Scrum can be found at http://scrumguides.org/scrum-guide.html#events-daily\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Discussion of what to do next is also an\nadditional event as part of the sprint review.',
+        prompt: '',
+        correctAnswerId: [
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'False'
+            },
+            {
+                id: 'B',
+                markdown: 'True, and the scope of the next sprint is finalized here.'
+            },
+            {
+                id: 'C',
+                markdown: 'True, and it may capture probable backlog items for next Sprint, but the scope of the next Sprint is deferred until Sprint Planning.'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C\n\nExplanation:\n\nSprint review generally incites reviews\nfrom the stakeholders like, “This is good, we would also want to see…”, “It\nwould be good if we can have this functionality as well”, etc. It is also a\ngood place to take the inputs of the stakeholders as to what they would want to\nsee in the product.\n\nThese inputs are taken only for reference, and may\nor may not be added in the product backlog, with the planning of the actual\ntasks that would be done in the next sprint being deferred until Sprint\nPlanning meeting.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'During a sprint review, the stakeholders notice\nthat the product development progress is not very clearly visible and lacked\ntransparency. Moreover, they are not able to understand the next steps. Who is\nresponsible for this?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Development Team'
+            },
+            {
+                id: 'B',
+                markdown: 'Product Owner'
+            },
+            {
+                id: 'C',
+                markdown: 'Scrum Master'
+            },
+            {
+                id: 'D',
+                markdown: 'Scrum Team'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nIt is the product owners responsibility to\nensure that the product development progress is clearly visible to the\nstakeholders at all times, and that there is sufficient transparency for the\nstakeholders to see and understand the progress.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'During Daily Scrum, this plan is used as a\nreference to understand the changes in progress?',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Sprint backlog'
+            },
+            {
+                id: 'B',
+                markdown: 'Product backlog'
+            },
+            {
+                id: 'C',
+                markdown: 'Sprint burn down'
+            },
+            {
+                id: 'D',
+                markdown: 'Sprint Goal'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nExplanation:\n\nSprint backlog is not only a set of tasks,\nbut it also includes the plan to accomplish it. So this is used as a reference\nto understand the changes in progress during the daily scrum.\n\nMore details on the Sprint backlog can be\nfound at Link:\n\n http://scrumguides.org/scrum-guide.html#artifacts-sprintbacklog\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'During the Daily Scrum, a team member says he\ndoes not know when his task will be complete. What should be done?',
+        prompt: '',
+        correctAnswerId: [
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'It is acceptable as Sprint Review date is far away'
+            },
+            {
+                id: 'B',
+                markdown: 'Replace the team member with a new team member'
+            },
+            {
+                id: 'C',
+                markdown: 'Development Team should collaborate to plan alternative steps such as pairing with someone else, etc. to eliminate the risk of not meeting Sprint Goal'
+            },
+            {
+                id: 'D',
+                markdown: 'Scrum mast to mentor the team member on how to estimate the task'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C\n\nExplanation:\n\nIf a development team member is not sure when\nthe task will be complete, the team should collaborate as suitable to help the\nteam member.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'During the Sprint, while the Sprint backlog can\nbe modified as more is learned, no changes are made that would endanger the\nSprint Goal – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nExplanation:\n\nSprint Goal is the guiding light, the reason why\na Sprint is being performed. So while changes in the Sprint backlog is allowed\nthroughout the Sprint, no changes should be made that can endanger the very\nreason of the Sprint, i.e. the Sprint Goal.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Every Sprint, the working Increment should be\ntesting progressively from unit testing, to integration testing, and then user\nacceptance testing.',
+        prompt: '',
+        correctAnswerId: [
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Yes, it is the prescribed method'
+            },
+            {
+                id: 'B',
+                markdown: 'No. The test strategy is decided by the quality assurance lead in the team'
+            },
+            {
+                id: 'C',
+                markdown: 'Not necessary. While the team needs to ensure that each Increment is thoroughly tested, ensuring that all Increments work together, and meets definition of “Done”, it is up to the team to find the best method to achieve this.'
+            },
+            {
+                id: 'D',
+                markdown: 'Incorrect. It should also include non-functional testing'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C\n\nExplanation:\n\nScrum does not bind the teams into following a\nspecific testing pattern. Scrum only lays down the objective for the Scrum Team\nthat at the end of every Sprint, the product should be in a potentially releasable\nstate. How to achieve this is best decided by the development team, and it may\nchange over time. Therefore, the course of testing which the development needs\nto follow should be decided by them to meet the above objective.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'For the first sprint, the inputs are the product\nbacklog and the project capacity of the development team. What are the\nadditional inputs to the subsequent sprints? Select all that apply',
+        prompt: '',
+        correctAnswerId: [
+            'C',
+            'D'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Defect list from previous sprint'
+            },
+            {
+                id: 'B',
+                markdown: 'Sprint Plan'
+            },
+            {
+                id: 'C',
+                markdown: 'Past performance of the development'
+            },
+            {
+                id: 'D',
+                markdown: 'Latest product increment'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C, D\n\nExplanation:\n\nOnce product development starts, the inputs to\nsecond sprint onwards would include the Past performance of the team, to\nunderstand its capacity, and also the latest product increment, to give a\nbaseline for the product development for the upcoming sprint.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Given the complex product and its relevance to\nmultiple departments, a Scrum Team expects that they need to invite many\nstakeholders for the Sprint Review. It estimates that the review will take more\nthan 4 hours. It can increase the Sprint Review duration – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nSprint review, like all other events in Sprint,\nis time-boxed. So if the team feels that they require more time, then they\nshould either review the agenda, or ask the scrum master to help them keep the\nevent within the time-box.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'In a Scrum Team, only the product owner\ncommunicates with the stakeholders. There is no exception to the rule – True or\nFalse?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nScrum Master can also communicate with the\nstakeholders, as well as the development team during the Sprint review meeting.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'When is a Sprint over?',
+        prompt: '',
+        correctAnswerId: [
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'When the product owner says it is over'
+            },
+            {
+                id: 'B',
+                markdown: 'When all the work is completed'
+            },
+            {
+                id: 'C',
+                markdown: 'When the time-box for the sprint expires'
+            },
+            {
+                id: 'D',
+                markdown: 'Whenever the scrum team decides'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C\n\nExplanation:\n\nSprint is over when the time-box expires.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'All Development Teams working on the same\nProduct should use the same Product Backlog – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nExplanation:\n\nOne product has one product backlog associated\nwith it, irrespective of the number of teams working on it.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The Sprint Backlog is created at the Sprint\nPlanning. It is prohibited to add new work into the Sprint Backlog later by the\nDevelopment Team – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nSprint backlog evolves throughout the\nSprint. There are also other scenarios where some work can be de-scoped from\nthe current sprint, and some other item from the product backlog can be moved\nto the Sprint backlog to compensate for it, with agreement from the product\nowner.\n\nMore details on Sprint backlog can be found\nat Link:\n\n http://scrumguides.org/scrum-guide.html#artifacts-sprintbacklog\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'According to Scrum, one Scrum Master is allowed\nto manage at most one scrum team at a time – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nScrum does not prohibit one scrum master to\nserve more than one scrum team. One Scrum master may handle multiple teams at\nthe same, the number though depends on the available capacity.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'According to Scrum, Transparency in Scrum\nrequires the significant aspects of the process ________',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'be defined by a common standard so observers share a common understanding of what is seen'
+            },
+            {
+                id: 'B',
+                markdown: 'be defined by a general understanding and standards specific to the implementing teams'
+            },
+            {
+                id: 'C',
+                markdown: 'be defined by the individual scrum teams so that they can have a good understanding of the processes'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nExplanation:\n\nAccording to Scrum, “Significant aspects of the process must be visible to those responsible\nfor the outcome. Transparency requires those aspects be defined by a common\nstandard so observers share a common understanding of what is being seen”.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'There is provision in Scrum that allows one\ndevelopment team to be broken down to sub-teams categorized based on areas of\nspecializations – True or False?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nScrum does not\nallow any division within the development team. There is no exception to this\nrule.\n\nMore details on the Development Team can be\nfound at Link:\n\n http://scrumguides.org/scrum-guide.html#team-dev\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Who helps the development team to create\nhigh-value products?',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'Scrum Master'
+            },
+            {
+                id: 'B',
+                markdown: 'External technical and domain experts'
+            },
+            {
+                id: 'C',
+                markdown: 'Architect'
+            },
+            {
+                id: 'D',
+                markdown: 'Product Owner'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nExplanation:\n\nIt is the Scrum Masters role to help the\ndevelopment team to create high-value products by removing impediments.\n\nMore details on the Scrum Masters role can\nbe found at Link: \n\nhttp://scrumguides.org/scrum-guide.html#team-sm\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The Product Owner cannot change the effort\nestimate on a Product Backlog Item – True or False',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – A\n\nExplanation:\n\nThe effort estimate on a backlog item is done by\nthe development team, and no one else is allowed to change it.\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'The Daily Scrum lasts at least 15 minutes – True\nor False',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – B\n\nExplanation:\n\nThe Daily Scrum lasts a maximum of 15 minutes.\nA team can decide to have the Daily Scrum of lesser time as convenient by the\nteam.\n\nMore details on the Daily Scrum can be\nfound at link: \n\nhttp://scrumguides.org/scrum-guide.html#events-daily\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What is the major difference between Product\nBacklog and Sprint Backlog? Choose the most appropriate option.',
+        prompt: '',
+        correctAnswerId: [
+            'C'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'The Product Backlog is the same as Sprint Backlog'
+            },
+            {
+                id: 'B',
+                markdown: 'The Product Backlog is a subset of the Sprint Backlog'
+            },
+            {
+                id: 'C',
+                markdown: 'The Sprint Backlog is a subset of the Product Backlog'
+            },
+            {
+                id: 'D',
+                markdown: 'The Sprint Backlog is owned by the Product Owner'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                            Correct Answer – C\n\nExplanation:\n\nThe Sprint backlog is a subset of a product\nbacklog item, Product backlog is owned by the development team, while the\nSprint backlog is owned by the development team.\n\nMore details on the Scrum artifacts can be\nfound at Link: \n\nhttp://scrumguides.org/scrum-guide.html#artifacts\n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'Can there be a successful Sprint which does not add any value to the Product?',
+        prompt: '',
+        correctAnswerId: [
+            'B'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'True'
+            },
+            {
+                id: 'B',
+                markdown: 'False'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                             \n\nCorrect Answer – B\n\nExplanation:\n\nA successful Sprint must add value to the product. So if no value is added, then the Sprint cannot be considered as successful.\n\n \n                        ',
+        referenceImage: ''
+    },
+    {
+        questionComplexityIndex: 0,
+        explanation: 'What is Scrum?',
+        prompt: '',
+        correctAnswerId: [
+            'A'
+        ],
+        codeString: '',
+        options: [
+            {
+                id: 'A',
+                markdown: 'A framework within which people can address complex adaptive problems, while productively and creatively delivering products of the highest possible value'
+            },
+            {
+                id: 'B',
+                markdown: 'It\'s not an Agile Framework'
+            },
+            {
+                id: 'C',
+                markdown: 'Scrum is a complete process to develop software'
+            },
+            {
+                id: 'D',
+                markdown: 'None of above'
+            }
+        ],
+        answerExplanation: '\n                            Explanation:\n                             \n\nCorrect Answer – A\n\nExplanation:\n\nScrum is “A framework within which people can address complex adaptive problems, while productively and creatively delivering products of the highest possible value.”\n\nMore details can be found at link:\n\n\n\thttp://scrumguides.org/scrum-guide.html#definition\n\n\n \n                        ',
+        referenceImage: ''
     }
 ]
 
