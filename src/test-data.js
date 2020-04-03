@@ -19882,32 +19882,32 @@ Reference: https://scrumguides.org/scrum-guide.html#events-daily`,
     {
         questionComplexityIndex: 0,
         explanation: '',
-        prompt: '',
-        correctAnswerId: '',
+        prompt: 'Which of the following are discussed in Sprint review meeting? (Select all that apply).',
+        correctAnswerId: ['A','B','C'],
         options: [
             {
                 id: 'A',
-                markdown: ''
+                markdown: 'Development team discusses what went well during the Sprint, problems it ran into and how they were resolved'
             },
             {
                 id: 'B',
-                markdown: ''
+                markdown: 'Development Team demonstrates the work done in the Sprint'
             },
             {
                 id: 'C',
-                markdown: ''
+                markdown: 'Product Owner explains which items are "Done" and which items are not "Done"'
             },
             {
                 id: 'D',
-                markdown: ''
-            },
-            {
-                id: 'E',
-                markdown: ''
+                markdown: 'Review of the deliverable product'
             },
         ],
         codeString: ``,
-        answerExplanation: ``,
+        answerExplanation: `The correct answers are Options A, B and C.
+
+Sprint review in an informal meet to demonstrate the work done and elicit feedback. During Sprint Review, the team also discusses what went well during the sprint, and the problems and their solutions that they might have encountered. It is also an opportunity for the PO to review the available budget.
+
+Reference: https://scrumguides.org/scrum-guide.html#events-review`,
         referenceImage: ''
     },
     {
