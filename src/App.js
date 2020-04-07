@@ -19,7 +19,7 @@ class App extends Component {
 
     componentDidMount() {
 
-        updateTest('testOne', questionDataSetTest2);
+        //updateTest('testOne', questionDataSetTest2);
 
         this.props.retrieveData('testOne')
 
