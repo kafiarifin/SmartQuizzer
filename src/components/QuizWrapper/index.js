@@ -14,7 +14,7 @@ class QuizWrapper extends Component {
     constructor(props) {
         super(props);
         this.shuffledOptions = shuffle(props.questionObject.options);
-        const isMultiAnswer = true //props.questionObject.correctAnswerId.length > 1;
+        const isMultiAnswer = props.questionObject.correctAnswerId.length > 1;
         this.state = {
             isCorrect: false,
             attemptsRemaining: 2,
@@ -29,7 +29,7 @@ class QuizWrapper extends Component {
     componentDidUpdate() {
         if (this.state.questionsAnswered !== this.props.attempts) {
             this.shuffledOptions = shuffle(this.props.questionObject.options);
-            const isMultiAnswer = true //this.props.questionObject.correctAnswerId.length > 1;
+            const isMultiAnswer = this.props.questionObject.correctAnswerId.length > 1;
             this.setState({
                 isCorrect: false,
                 attemptsRemaining: 2,
@@ -55,51 +55,25 @@ class QuizWrapper extends Component {
                 isMultiAnswer
             }
         } = this;
-        if (isMultiAnswer && correctAnswerId.sort()) {
-            if (correctAnswerId.sort().toString() === id.sort().toString()) {
-                questionObject.questionComplexityIndex = questionComplexityIndex + 0.5;
-                this.setState({
-                    isCorrect: true,
-                    wrongAnswer: false
-                })
-            } else {
-                questionObject.questionComplexityIndex = questionComplexityIndex - 0.5;
-                if (attemptsRemaining === 1) {
-                    this.setState({
-                        isIncorrect: true,
-                        attemptsRemaining: attemptsRemaining - 1,
-                        wrongAnswer: false
-                    })
-                } else {
-                    this.setState({
-                        attemptsRemaining: attemptsRemaining - 1,
-                        wrongAnswer: true
-                    })
-                }
-            }
+        if (correctAnswerId.sort().toString() === id || correctAnswerId.sort().toString() === id.sort().toString()) {
+            questionObject.questionComplexityIndex = questionComplexityIndex + 0.5;
+            this.setState({
+                isCorrect: true,
+                wrongAnswer: false
+            })
         } else {
-            if (correctAnswerId && id === correctAnswerId) {
-                console.log('correct');
-                questionObject.questionComplexityIndex = questionComplexityIndex + 0.5;
+            questionObject.questionComplexityIndex = questionComplexityIndex - 0.5;
+            if (attemptsRemaining === 1) {
                 this.setState({
-                    isCorrect: true,
+                    isIncorrect: true,
+                    attemptsRemaining: attemptsRemaining - 1,
                     wrongAnswer: false
                 })
             } else {
-                console.log('Not Correct');
-                questionObject.questionComplexityIndex = questionComplexityIndex - 0.5;
-                if (attemptsRemaining === 1) {
-                    this.setState({
-                        isIncorrect: true,
-                        attemptsRemaining: attemptsRemaining - 1,
-                        wrongAnswer: false
-                    })
-                } else {
-                    this.setState({
-                        attemptsRemaining: attemptsRemaining - 1,
-                        wrongAnswer: true
-                    })
-                }
+                this.setState({
+                    attemptsRemaining: attemptsRemaining - 1,
+                    wrongAnswer: true
+                })
             }
         }
     }
