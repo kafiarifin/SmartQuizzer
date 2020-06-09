@@ -27,12 +27,15 @@ db.settings({ timestampsInSnapshots: true });
 export default db;
 
 
-export const updateTest = (docName, data) => {
-    db.collection('test').doc(docName).set({
-        quizData: data
-    }, {merge: true}).then(function () {
-        console.log("Document successfully written!");
-    }).catch((err) => {
-        console.warn('ERROR', err);
-    });
+export const updateTest = (docName, questions) => {
+    questions.map(question => {
+        console.log(question)
+        db.collection('test').doc(question.UUID).set({
+            question
+        }, {merge: true}).then(function () {
+            console.log("Document successfully written!");
+        }).catch((err) => {
+            console.warn('ERROR', err);
+        });
+    })
 };

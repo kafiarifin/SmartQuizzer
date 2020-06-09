@@ -7,8 +7,9 @@ export const updateQuestionIndex = () => ({type: UPDATE_QUESTION_INDEX});
 
 export const retrieveData = (docName) => {
     return dispatch => {
-        db.collection("test").doc(docName).get().then((doc) => {
-            dispatch(getQuestions(doc.data().quizData));
+        db.collection("test").get().then((snapshot) => {
+            const allDocs = snapshot.docs.map(doc => doc.data().question);
+            dispatch(getQuestions(allDocs));
         });
     };
 };

@@ -45,10 +45,8 @@ class QuizLogic extends Component {
             }
         } = this;
 
-        console.log('Total Questions: ', quizData.length);
-        console.log('Questions: ', quizData);
         if (questionsAttempted === totalQuestionsInInterval) {
-            updateTest('testOne', quizData);
+            updateTest('testOne', quizData.slice(0, totalQuestionsInInterval));
             quizData.sort((a, b) => a.questionComplexityIndex - b.questionComplexityIndex);
         }
         return quizData[questionsAttempted]
