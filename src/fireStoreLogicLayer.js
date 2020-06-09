@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import {TestData} from "./test-data";
 
 const config = {
     apiKey: "AIzaSyBHizhi9yWthb-uvNr_juILneAtp8bZmiQ",
@@ -27,10 +28,19 @@ db.settings({ timestampsInSnapshots: true });
 export default db;
 
 
-export const updateTest = (docName, data) => {
+export const updateTest = (data) => {
+    const half = data.length / 2;
 
-    db.collection('test').doc(docName).set({
-        quizData: data
+    db.collection('test').doc('testOne').set({
+        quizData: data.slice(0, half)
+    }, {merge: true}).then(function () {
+        console.log("Document successfully written!");
+    }).catch((err) => {
+        console.warn('ERROR', err);
+    });
+
+    db.collection('test').doc('testTwo').set({
+        quizData: data.slice(half)
     }, {merge: true}).then(function () {
         console.log("Document successfully written!");
     }).catch((err) => {

@@ -5,12 +5,20 @@ export const updateSelection = (id, isMultiAnswer) => ({ type: SELECTED_QUESTION
 export const nextQuestion = isCorrect =>  ({ type: NEXT_QUESTION, payload: isCorrect });
 export const updateQuestionIndex = () => ({type: UPDATE_QUESTION_INDEX});
 
-export const retrieveData = (docName) => {
-    return dispatch => {
-        db.collection("test").get().then((snapshot) => {
-            const allDocs = snapshot.docs.map(doc => doc.data().question);
-            dispatch(getQuestions(allDocs));
+export const retrieveData = () => {
+    return async dispatch => {
+        const questions = []
+        await db.collection("test").doc('testOne').get().then((doc) => {
+            doc.data().quizData.map(data => questions.push(data));
         });
+
+        await db.collection("test").doc('testTwo').get().then((doc) => {
+            doc.data().quizData.map(data => questions.push(data));
+        });
+
+        console.log(questions)
+
+        dispatch(getQuestions(questions));
     };
 };
 

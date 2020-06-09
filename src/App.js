@@ -19,15 +19,11 @@ class App extends Component {
 
     componentDidMount() {
 
-        // updateTest('testOne', TestData.AWSCertifiedSolutionsArchitectAssociate.map((question, index) => {
-        //         return {
-        //             ...question,
-        //             UUID: index+''
-        //         }
-        //     }));
+        //updateTest(TestData.AWSCertifiedSolutionsArchitectAssociate);
 
 
-        this.props.retrieveData('testOne')
+
+        this.props.retrieveData()
 
     }
 
