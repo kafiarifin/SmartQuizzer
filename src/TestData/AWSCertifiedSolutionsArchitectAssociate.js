@@ -1,5 +1,3176 @@
 export default [{
     "questionComplexityIndex": 0,
+    "explanation": "You are working as an architect in your organization. You have peered VPC A as requester and VPC B as accepter and both VPCs can communicate with each other. Now you want resources in both the VPCs to reach out to the internet but anyone on the internet should not be able to reach resources within both the VPCs. Which of the below will achieve the desired outcome?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create a NAT Gateway in VPC A and route VPC B's outbound to VPC A's NAT Gateway."
+    }, {
+        "id": "B",
+        "markdown": "Create an Internet Gateway in VPC A and route VPC B's outbound to VPC A's Internet Gateway."
+    }, {
+        "id": "C",
+        "markdown": "Create NAT Gateways in both VPCs and configure routes for each VPC to use its own NAT Gateway."
+    }, {"id": "D", "markdown": "Simply create a NAT Instance in VPC A.  Nothing else is required."}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer: C \n\n\n\tOption A is INCORRECT because you can't share NAT gateways across VPCs.\n\tOption B is INCORRECT because attaching an IGW to a VPC allows instances with public IPs to access the internet, while NATs allow instances with no public IPs to access the internet.\n\tOption C is CORRECT because you can create NAT Gateways on both VPC's and configure routes to the NAT Gateways in the respective route tables.\n\tOption D is INCORRECT because a stand-alone NAT Instance in VPC A doesn't accomplish anything.\n\tFor more information:\n\t\n\t\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-comparison.html\n\t\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html#nat- gateway-basics\n\t\thttps://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html\n\t\n\t\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization already had a VPC(10.10.0.0/16) setup with one public(10.10.1.0/24) and two private subnets – private subnet 1 (10.10.2.0/24) and private subnet 2 (10.10.3.0/24). The public subnet has the main route table and two private subnets have two different route tables respectively. AWS sysops team reports a problem starting the EC2 instance in private subnet 1 cannot communicate to the RDS MySQL database which is on private subnet 2. What are the possible reasons? (choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["B", "C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "One of the private subnet route table’s local route has been changed to restrict access only within the subnet IP range."
+    }, {
+        "id": "B",
+        "markdown": "RDS security group inbound rule is incorrectly configured with 10.10.1.0/24 instead of 10.10.2.0/24."
+    }, {
+        "id": "C",
+        "markdown": "10.10.3.0/24 subnet's NACL is modified to deny inbound on port 3306 from subnet 10.10.2.0/24"
+    }, {
+        "id": "D",
+        "markdown": "RDS Security group outbound does not contain a rule for ALL traffic or port 3306 for 10.10.2.0/24 IP range."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer: B, C\n\n \n\n\n\t For Option A, for any route table, the local route cannot be edited or deleted.\n\n\nAWS Docs says:\n\n \n\n\"Every route table contains a local route for communication within the VPC over IPv4. If your VPC has more than one IPv4 CIDR block, your route tables contain a local route for each IPv4 CIDR block. If you've associated an IPv6 CIDR block with your VPC, your route tables contain a local route for the IPv6 CIDR block. You cannot modify or delete these routes.\"\n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#RouteTa bles\n\n\n \n\n \n\n\n\tFor Option B, possible because the security group is configured with public subnet IP range instead of private subnet 1 IP range and EC2 is in private subnet 1. So EC2 will not be able to communicate with RDS in private subnet 2.\n\n\n \n\n\n\tOption C is correct.\n\n\n\n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html#default-network- acl\n\n\n \n\n \n\n\n\tOption D is not correct because Security Groups are stateful - if you send a request from your instance, the response traffic for that request is allowed to flow in regardless of inbound security group rules. Responses to allowed inbound traffic are allowed to flow out, regardless of outbound rules.\n\t\n\t\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html#VPCSecurityGroups\n\t\n\t\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A new VPC with CIDR range 10.10.0.0/16 has been setup with a public and a private subnet. Internet Gateway and a custom route table have been created and a route has been added with the 'Destination' as '0.0.0.0/0' and the 'Target' with Internet Gateway ( igw-id ). A new Linux EC2 instance has been launched on the public subnet with the auto-assign public IP option enabled, but when trying to SSH into the machine, the connection is getting failed. What could be the reason?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Elastic IP is not assigned."}, {
+        "id": "B",
+        "markdown": "Subnets should be associated with the custom route table which has route to the internet gateway"
+    }, {"id": "C", "markdown": "Public IP address is not assigned."}, {"id": "D", "markdown": "None of the above."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n \n\n\n\tOption A, An Elastic IP address is a public IPv4 address with which you can mask the failure of an instance or software by rapidly remapping the address to another instance in your account.\n\n\n \n\nIf your instance does not have a public IPv4 address, you can associate an Elastic IP address with your instance to enable communication with the internet; for example, to connect to your instance from your local computer.\n\n \n\n\n\thttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#eip- basics\n\n\n \n\n \n\nFrom our problem statement, EC2 is launched with Auto-assign public IP enabled. So, since public IP is available, Elastic IP is not a necesity to connect from internet.\n\n \n\n\n\tOption C, the problem statement clearly states that EC2 is launched with Auto-assign Public IP enabled, so this option cannot be true.\n\n\n \n\n\n\tOption B, whenever a subnet is created by default, it is associated with the main route table. We need to explicitly associate the subnet to the custom route table if different routes are required for main and custom route tables\n\n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#RouteTa bles\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are an architect in your organization. Your organization would want to upload files to AWS S3 bucket privately through AWS VPC. In an existing VPC, you created a subnet and VPC endpoint for S3. You also created one route table which routes the traffic from the subnet to a NAT gateway and also the traffic to S3 through the internet via the NAT gateway. But in AWS S3 server logs, you noticed that the request to S3 bucket from an EC2 instance is not coming via the Internet through the NAT Gateway. What could be causing this situation?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "When NAT Gateway and VPC endpoint exist on same route table, NAT Gateway always takes precedence."
+    }, {"id": "B", "markdown": "EC2 instance is having an elastic IP address associated with it."}, {
+        "id": "C",
+        "markdown": "The request was redirected through the VPC endpoint"
+    }, {"id": "D", "markdown": "AWS S3 is a managed service, all requests will always go through internet."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: C\n \n\n\n\tOption A, the opposite is true. VPC Endpoint always takes precedence over NAT Gateway or Internet Gateway. In the absence of VPC endpoint, requests to S3 are routed to NAT Gateway or Internet Gateway based on their existence in route table.\n\n\n\n\n\n\tOption B, the elastic IP address is IPv4 public address with which you can mask the failure of an instance or software by rapidly remapping the address to another instance in your account.\n\n\n \n\nElastic Ips are not used for routing requests from an EC2 instance.\n\n \n\n\n\tOption C, A NAT gateway cannot send traffic over VPC endpoints, AWS Site-to-Site VPN connections, AWS Direct Connect, or VPC peering connections. If your instances in the private subnet must access resources over a VPC endpoint, a Site-to-Site VPN connection, or AWS Direct Connect, use the private subnet’s route table to route the traffic directly to these devices and also add a route to the S3 VPC Endpoint.\n\n\n \n\n\n\tPlease refer to the following link\n\t\n\t\thttps://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html\n\t\n\t\n\n\n \n\n\n\tOption D is false. VPC Endpoint helps to route traffic internally within AWS network without the need to go over through internet. This makes your S3 bucket private to your network. For more information, refer VPC endpoint documentation\n\t\n\t\thttps://aws.amazon.com/blogs/aws/new-vpc-endpoint-for-amazon-s3/\n\t\n\t\n\n\n \n\nNote:\n\nAs per AWS,\nS3 VPC endpoints doesn't support cross region requests.\nWhen you create a VPC endpoint for Amazon S3, any requests to an Amazon S3 endpoint within the Region (for example, s3.us-west-2.amazonaws.com) are routed to a private Amazon S3 endpoint within the Amazon network. You don't need to modify your applications running on EC2 instances in your VPC—the endpoint name remains the same, but the route to Amazon S3 stays entirely within the Amazon network, and does not access the public internet.\n\n\n\tFor more information please refer:\n\t\n\t\thttps://docs.aws.amazon.com/glue/latest/dg/vpc-endpoints-s3.html\n\t\n\t\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization has an existing VPC with an AWS S3 VPC endpoint created and serving certain S3 buckets. You were asked to create a new S3 bucket and reuse the existing VPC endpoint to route requests to the new S3 bucket. However, after creating a new S3 bucket and sending requests from an EC2 instance via VPC endpoint, you found the requests are failing with the “Access Denied” error. What could be the issue? (select 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "VPC endpoint contains a policy, currently restricted to certain S3 buckets, and does not contain a new S3 bucket."
+    }, {"id": "B", "markdown": "AWS IAM role/user does not have access to the new S3 bucket."}, {
+        "id": "C",
+        "markdown": "AWS default DENY policy restricts access to IAM user/role who already has access to the S3 bucket"
+    }, {
+        "id": "D",
+        "markdown": "You need to add a new S3 bucket hostname as destination and VPC endpoint ID as target in route table in order to route requests to the new S3 bucket."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A, B\n \n\n\n\tOption A is correct, VPC endpoint has a policy which by default allows all actions on all S3 buckets. We can restrict access to certain S3 buckets and certain actions on this policy. In such cases, for accessing any new buckets or for any new actions, the VPC endpoint policy needs to be modified accordingly.\n\t\n\t\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints-access.html#vpc- endpoint-policies\n\t\n\t\n\n\n \n\n \n\n\n\tOption B is correct, AWS IAM role/user which is used to access S3 bucket needs to have access granted via IAM policy before accessing. So if the IAM role/user is not an administrator or not having full S3 access, a newly created S3 bucket must be added to the IAM policy.\n\t\n\t\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\n\t\n\t\n\n\n \n\n\n\tOption C is incorrect, by default, there is no resource policy on the S3 bucket. If we would like to make the bucket private, we can add a new resource policy with “Deny”. Please see the documentation for more information\n\t\n\t\thttps://aws.amazon.com/blogs/security/how-to-create-a-policy-that-whitelists-access-to- sensitive-amazon-s3-buckets/\n\t\n\t\n\n\n \n\n\n\tOption D is incorrect, You can have multiple endpoint routes to different services in a route table, and you can have multiple endpoint routes to the same service in different route tables, but you cannot have multiple endpoints to the same service in a single route table. For example, if you have two endpoints to Amazon S3 in your VPC, you cannot use the same route table for both endpoints.\n\t\n\t\thttps://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html#vpc-endpoints-limitations\n\t\n\t\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company has defined following Network ACL rules and deployed in a subnet of a VPC which is associated with a route table which has an Internet Gateway.\n\n \n\nInbound Rules:\n\n\n\t\n\t\t\n\t\t\t\n\t\t\tRule #\n\t\t\t\n\t\t\t\n\t\t\t    Type     \n\t\t\t\n\t\t\t\n\t\t\t   Protocol           Port Range\n\t\t\t\n\t\t\t\n\t\t\t    Source\n\t\t\t\n\t\t\t\n\t\t\t  Allow / Deny\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t   100\n\t\t\t\n\t\t\t\n\t\t\t    ALL Traffic\n\t\t\t\n\t\t\t\n\t\t\t    ALL                          ALL\n\t\t\t\n\t\t\t\n\t\t\t   0.0.0.0/0\n\t\t\t\n\t\t\t\n\t\t\t     ALLOW\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t   200\n\t\t\t\n\t\t\t\n\t\t\t    SSH (22)\n\t\t\t\n\t\t\t\n\t\t\t   TCP (6)                     22\n\t\t\t\n\t\t\t\n\t\t\t   0.0.0.0/0\n\t\t\t\n\t\t\t\n\t\t\t     DENY\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t    *\n\t\t\t\n\t\t\t\n\t\t\t    ALL Traffic\n\t\t\t\n\t\t\t\n\t\t\t     ALL                         ALL\n\t\t\t\n\t\t\t\n\t\t\t   0.0.0.0/0\n\t\t\t\n\t\t\t\n\t\t\t     DENY\n\t\t\t\n\t\t\n\t\n\n\n \n\n \n\nOutbound rules:\n\n \n\n\n\t\n\t\t\n\t\t\t\n\t\t\t Rule#  \n\t\t\t\n\t\t\t\n\t\t\t       Type        \n\t\t\t\n\t\t\t\n\t\t\t     Protocol\n\t\t\t\n\t\t\t\n\t\t\tPort range\n\t\t\t\n\t\t\t\n\t\t\t Destination\n\t\t\t\n\t\t\t\n\t\t\t   Allow / Deny\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t  100\n\t\t\t\n\t\t\t\n\t\t\t     SSH (22)\n\t\t\t\n\t\t\t\n\t\t\t       TCP (6)\n\t\t\t\n\t\t\t\n\t\t\t22\n\t\t\t\n\t\t\t\n\t\t\t  0.0.0.0/0\n\t\t\t\n\t\t\t\n\t\t\t      ALLOW\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t  200\n\t\t\t\n\t\t\t\n\t\t\t    ALL Traffic\n\t\t\t\n\t\t\t\n\t\t\t         ALL\n\t\t\t\n\t\t\t\n\t\t\tALL\n\t\t\t\n\t\t\t\n\t\t\t  0.0.0.0/0\n\t\t\t\n\t\t\t\n\t\t\t      DENY\n\t\t\t\n\t\t\n\t\n\n\n\n\t\n\t\t\n\t\t\t\n\t\t\t    *\n\t\t\t\n\t\t\t\n\t\t\t    ALL Traffic\n\t\t\t\n\t\t\t\n\t\t\t         ALL\n\t\t\t\n\t\t\t\n\t\t\tALL\n\t\t\t\n\t\t\t\n\t\t\t  0.0.0.0/0\n\t\t\t\n\t\t\t\n\t\t\t        DENY\n\t\t\t\n\t\t\n\t\n\n\n\nWhat would be the outcome when an user tries to access via SSH to an EC2 instance launched into this public subnet from his corporate network?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "SSH request would fail due to specific DENY on SSH protocol."}, {
+        "id": "B",
+        "markdown": "SSH request would fail because of DENY on all traffic with Rule # as *"
+    }, {
+        "id": "C",
+        "markdown": "SSH request would succeed because inbound rule # 100 has ALLOW for ALL traffic."
+    }, {
+        "id": "D",
+        "markdown": "SSH request would fail due to outbound rule # 100 which has DENY action for SSH outbound traffic."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer - C\n\nOption C is correct because Incoming SSH traffic is allowed because inbound rule # 100 (200 is practically ignored) and outbound rule not matching already established SSH connection.\n\nNetwork ACLs are stateless, which means that responses to allowed inbound traffic are subject to the rules for outbound traffic (and vice versa).\n\nSecurity Group is stateful means for every incoming traffic if Inbound is allowed then outbound rule for that traffic is optional.\n\nHere in the question incoming traffic rule # 100 will allow All Traffic to reach the EC2.\n\nOn the inbound rules:\n\nRule 100: First note that the rules are usually evaluated in a numbered list. Starting from the lowest numbered rule.and from the inbound rules, rule 100 will be evaluated is the first rule.\n\nThis rule should have a matching outbound rule for it.\n\nRule 100 will allow all traffic since the inbound rule has to match the outbound rule(rule 200).\n\nIn the inbound rule, since all traffic is allowed including SSH, and as stated in AWS documentation that once the rule is evaluated, matching rule after that will be ignored which means Inbound Rule #200 is ignored as SSH is Captured in All Traffic\n\nTraffic will succeed because of inbound rule# 100 & outbound rule# 200 will match.\n\nRest all Options are incorrect as per rules.\n\nRefer: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html#Rules\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization was looking to download patches onto an existing EC2 instance which is inside a private subnet in existing custom VPC. You created a NAT instance and a NAT Gateway and added a route to the routing table. However, when you are trying to download patches from the internet onto EC2 instance, connection getting timed out. What could be the reason? (choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "NAT Gateway created in a private subnet without an Internet Gateway."
+    }, {"id": "B", "markdown": "NAT Gateway is created without an Elastic IP Address."}, {
+        "id": "C",
+        "markdown": "NAT instance is created with unattached Elastic IP."
+    }, {"id": "D", "markdown": "NAT Gateway’s Security Group inbound rules do not allow traffic from EC2 instance."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer A and C\n\nFor Option A, when creating NAT Gateway, there is an option to select a subnet in which NAT Gateway will be created. This must be a public subnet that has a route to the internet through Internet Gateway.\n\nIf a private subnet is selected when creating NAT Gateway, it cannot route traffic to the internet and hence the requests would fail.\n\n\n\t https://aws.amazon.com/premiumsupport/knowledge-center/nat-gateway-vpc-private-subnet/\n\n\nFor Option B, NAT Gateway cannot be created without an elastic IP address. During the creation of NAT Gateway, Elastic IP Allocation ID is a mandatory field without which we cannot proceed to create NAT Gateway. So this option is incorrect.\n\n \n\nFor Option C, there might be a chance you have provided EIP which is not associated with your instance.\n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html#VPCSe curityGroups\n\n\nFor Option D, NAT Gateways does not have security groups.\n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html#nat- gateway-basics\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html\n\n\n\nAs per AWS documentation,\nInstances in Private Subnet Cannot Access internet\n\n\n\tCheck that the NAT gateway is in the Available state. In the Amazon VPC console, go to the NAT Gateways page and view the status information in the details pane. If the NAT gateway is in a failed state, there may have been an error when it was created. \n\tCheck that you've configured your route tables correctly:\n\t\n\t\tThe NAT gateway must be in a public subnet with a routing table that routes internet traffic to an internet gateway. \n\t\tYour instance must be in a private subnet with a routing table that routes internet traffic to the NAT gateway.\n\t\tCheck that there are no other route table entries that route all or part of the internet traffic to another device instead of the NAT gateway.\n\t\n\t\n\n\nThe NAT gateway itself allows all outbound traffic and traffic received in response to an outbound request (it is therefore stateful).\n\n\nPlease refer to the following links for more information.\n \n\n\n\thttps://aws.amazon.com/premiumsupport/knowledge-center/nat-gateway-vpc-private-subnet/\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization is planning to develop a web application containing a Web Server and an RDS Instance. This application will be accessed from the internet. Your organization asked you to architect the solution on AWS. Your existing AWS environment already has a VPC with a private subnet and public subnet which has a route to the internet through Internet Gateway. What would be the best and cost-effective solution you would provide?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "A bastion host in public subnet, Web Server EC2 in private subnet, RDS instance in private subnet."
+    }, {
+        "id": "B",
+        "markdown": "A bastion host in public subnet, Web Server EC2 in public subnet with Elastic IP, RDS instance in private subnet."
+    }, {
+        "id": "C",
+        "markdown": "A Bastion host in public subnet, Web Server EC2 in private subnet with NAT Gateway, RDS instance in private subnet."
+    }, {"id": "D", "markdown": "Web Server EC2 in public Subnet with Elastic IP, RDS instance in private subnet."}],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: D\n \n\nFor option A, EC2 instance in private subnet cannot be reached from the internet. A bastion host is a server whose purpose is to provide access to a private network from an external network, such as the Internet. It does not act as a proxy to route traffic from the internet to private EC2 instances.\n\nAWS Document says:\n\nThe solution architecture\n\nIn this section, I present the architecture of this solution and explain how you can configure the bastion host to record SSH sessions. Later in this post, I provide instructions about how to implement and test the solution.\n\nAmazon VPC enables you to launch AWS resources on a virtual private network that you have defined. The bastion host runs on an Amazon EC2 instance that is typically in a public subnet of your Amazon VPC. Linux instances are in a subnet that is not publicly accessible, and they are set up with a security group that allows SSH access from the security group attached to the underlying EC2 instance running the bastion host. Bastion host users connect to the bastion host to connect to the Linux instances, as illustrated in the following diagram. \n\n\n\nOption B, with EC2 instance in public subnet and Elastic IP attached, traffic from the internet can reach Web Server and application works well. Although this option looks correct, this is not cost-effective since there is no use of Bastion host anywhere since the EC2 instance is already in public subnet.\n\n \n\nOption C, Same as option A. Although we have NAT Gateway attached to the subnet where Web Server EC2 resides, still the traffic from the internet cannot reach the EC2 and NAT Gateway only routes traffic from AWS resources within a VPC to the internet. Any traffic from the internet into VPC resources is not allowed by NAT Gateway.\n\n\n\nOption D, The Web Server EC2 instance is in public subnet with elastic IP address attached to it and RDS in private subnet which cannot be reached from the internet but only can allow traffic from EC2 in public subnet via security groups. From given answers, this looks correct in terms of cost and effectiveness.\n\n \n\n\n\tFor more information on the Elastic IP address, please refer to the documentation. https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\n\n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are building a fleet of EC2 Linux Instances in the AWS environment for managing heavy workloads and writing data into AWS Redshift. The developers and administrators need to login to these EC2 machines to develop, fix, deploy, and manage workloads within your organizational network ONLY. Which of the following would allow only the personnel within the organization to access the resources in the most secure way?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "EC2 instances on public subnet with secure SSH keys to login, RedShift in private subnet."
+    }, {
+        "id": "B",
+        "markdown": "A bastion host in public subnet with secure SSH key to login, EC2 instances in private subnet with secure SSH keys to login, RedShift in private subnet."
+    }, {
+        "id": "C",
+        "markdown": "AWS VPN connection from your organization to AWS VPC, a bastion host in VPN enabled subnet with secure SSH key to login, EC2 instances in private subnet with secure SSH keys to login, Redshift in private subnet."
+    }, {
+        "id": "D",
+        "markdown": "AWS VPN connection from your organization to AWS VPC, EC2 instances in VPN enabled subnet with secure SSH keys to login, Redshift in public subnet."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: C\n\n\n\t For Option A, this is not secure because EC2 instances are in public subnet and are open to attacks such as DDoS. If you do not have a requirement to be accessed from the internet, as a security best practice, try not to put AWS resources in public subnet.\n\t For more information on DDoS attacks, refer documentation here \n\t\n\t\thttps://aws.amazon.com/answers/networking/aws-ddos-attack-mitigation/\n\t\n\t\n\n\n \n\n\n\tFor Option B, Although EC2 instances are secured by putting them on private subnet and only enabling bastion host on public subnet looks correct, the requirement states, these instances should only be accessed via their organization network. So this option is incorrect.\n\n\nA bastion host is a server whose purpose is to provide access to a private network from an external network, such as the Internet. It does not act as a proxy to route traffic from internet to private EC2 instance.\n\nAWS Document says:\n\nThe solution architecture\n\nIn this section, I present the architecture of this solution and explain how you can configure the bastion host to record SSH sessions. Later in this post, I provide instructions about how to implement and test the solution.\n\nAmazon VPC enables you to launch AWS resources on a virtual private network that you have defined. The bastion host runs on an Amazon EC2 instance that is typically in a public subnet of your Amazon VPC. Linux instances are in a subnet that is not publicly accessible, and they are set up with a security group that allows SSH access from the security group attached to the underlying EC2 instance running the bastion host. Bastion host users connect to the bastion host to connect to the Linux instances, as illustrated in the following diagram. \n\n\n\nFor Option C, VPN connections are used to connect AWS VPC from your organization’s network. By default, instances that you launch into an Amazon VPC can't communicate with your own (remote) network. You can enable access to your remote network from your VPC by attaching a virtual private gateway to the VPC, creating a custom route table, updating your security group rules, and creating an AWS managed VPN connection.\n\n For more information on VPN, refer documentation here. \n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html\n\n\n \n\nSo, in this option, even from a VPN connection, only bastion host is exposed from AWS to VPN and you only open one connection from your organization to AWS. From bastion host, you can open connections to other resources in private subnet or other resources in peering VPCs.\n\n \n\n\n\thttps://aws.amazon.com/blogs/mt/replacing-a-bastion-host-with-amazon-ec2-systems-manager/\n\n\nOption D is INCORRECT because Redshift needs to be placed in the \"private\" subnet and not in the \"public\" subnet\"\n\n\nNote:\n\nIn the question, they mentioned that \"Developers and Administrators need the login to the EC2 instances Only within your organization network.\" So, they should access via their organization network.\n\nEstablish a VPN connection between your Organization network and your AWS.\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have a bastion host EC2 instance on AWS VPC public subnet. You would want to SSH to Bastion host EC2 instance. What would be the secure and minimal configuration you need inorder for SSH request to work? Assume route table is already setup with Internet Gateway.",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Allow SSH protocol(port 22) on Security Group Inbound and Security Group Outbound.  Allow Network ACL inbound and Network ACL outbound for IP range 0.0.0.0/0"
+    }, {
+        "id": "B",
+        "markdown": "Allow SSH protocol(port 22) on Security Group Inbound and Security Group Outbound.  Allow Network ACL inbound for your IP address."
+    }, {
+        "id": "C",
+        "markdown": "Allow SSH protocol(port 22) on Security Group Inbound and Network.  ACL inbound for your IP address"
+    }, {
+        "id": "D",
+        "markdown": "Allow SSH protocol(port 22) on Security Group Inbound.  Allow Network ACL inbound and Network ACL outbound for your IP address."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer D\n\nSecurity groups are stateful — if you send a request from your instance, the response traffic for that request is allowed to flow in regardless of inbound security group rules.\n\n \n\nResponses to allowed inbound traffic are allowed to flow out, regardless of outbound rules.\n\n \n\nNetwork ACLs are stateless; responses to allowed inbound traffic are subject to the rules for outbound traffic (and vice versa). \n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Security.html#VPC_S ecurity_Comparison\n\n\n \n\n \n\n\n\tIn option A, Security Group outbound is not necessary for SSH connection to work. Also, opening to 0.0.0.0/0 is insecure as it allows ALL on SSH. Although this option works, this is not secure and not a minimal configuration.\n\tIn options B and C, Network ACL outbound is not open. According to Network ACL stateless definition, this option would fail.\n\tIn option D, this is minimal and secure configuration to open only to your IP address. This is correct answer.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have following Network ACL and Security Group rules. What would happen to an SSH request sent from 10.10.1.148 IP address to an EC2 instance with below security group and exists inside a subnet with below NACL rules?\n\n\nNetwork ACL Inbound\n\n\n\nNetwork ACL Outbound\n\n\nSecurity Group Inbound\n\n\n\nSecurity Group Outbound",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "SSH request succeeds due to rule # 100 in Network ACL inbound and outbound, Security Group inbound rule."
+    }, {
+        "id": "B",
+        "markdown": "SSH request succeeds due to rule # 300 in Network ACL inbound and rule # 100 in Network ACL outbound, Security Group inbound rule."
+    }, {"id": "C", "markdown": "SSH request fails due rule # 200 in Network ACL inbound rule."}, {
+        "id": "D",
+        "markdown": "SSH request fails due to Security Group outbound rule does not allow 10.10.1.148 IP address."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: A\n \n\nSecurity groups are stateful — if you send a request from your instance, the response traffic for that request is allowed to flow in regardless of inbound security group rules. Responses to allowed inbound traffic are allowed to flow out, regardless of outbound rules.\n\nNetwork ACLs are stateless; responses to allowed inbound traffic are subject to the rules for outbound traffic (and vice versa). \n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Security.html#VPC_Security_ Comparison\n\n\n \n\n \n\nA network ACL contains a numbered list of rules that we evaluate in order, starting with the lowest numbered rule, to determine whether traffic is allowed in or out of any subnet associated with the network ACL.\n\nRules are evaluated starting with the lowest numbered rule. As soon as a rule matches traffic, it's applied regardless of any higher-numbered rule that may contradict it.\n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html#ACLRules\n\n\n \n\n \n\nFor Option A, rule # 100 allows all traffic. So this will allow SSH request irrespective of other higher numbered rules. Security group rule allows SSH traffic for IP Range 10.10.1.0/24. IP address 10.10.1.148 falls under this IP range, so it allows SSH request. Network ACL outbound rule # 100 allows ALL traffic. So the request would succeed. This option is correct. \n\nFor Option B, when SSH request is made, rule # 300 is never evaluated because the request succeeds during rule # 100 evaluation. However, Rule # 300 gets evaluated when a non-SSH request is made. But, for this question, it is incorrect answer.\n\nFor Option C, rule # 200 is never evaluated because the request succeeds during rule # 100 evaluation. So this option is incorrect.\n\nFor option D, Security Groups are stateful. So, for an SSH request inbound to EC2 instance, security group outbound does not have an impact. So this option is incorrect.\n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Following are network ACL rules for a subnet. Which of the following statements are correct when web request is originating from 10.10.1.148 IP address?\n\nInbound rules\n\n\n\nOutbound Rules",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "HTTPS(443) request would succeed."}, {
+        "id": "B",
+        "markdown": "SSH(22) request would succeed."
+    }, {"id": "C", "markdown": "HTTP(80) request would not succeed."}, {"id": "D", "markdown": "None of the above"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer - D\n\nNetwork ACLs are stateless; responses to allowed inbound traffic are subject to the rules for outbound traffic (and vice versa).\n\nA network ACL contains a numbered list of rules that we evaluate in order, starting with the lowest numbered rule, to determine whether traffic is allowed in or out of any subnet associated with the network ACL.\n\nRules are evaluated starting with the lowest numbered rule. As soon as a rule matches traffic, it's applied regardless of any higher-numbered rule that may contradict it.\n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html#ACLRules\n\n\nFor the given rules in the question, the outbound rule * denies all the traffic outgoing except for 22 and 80.\n\nFor more inför nation, please check below AWS Docs:\n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html#custom-network-acl\n\n\nThe question specifically states the traffic coming in from 10.10.1.148\n\nNote:\n\n\nPlease note that since it is a web request we need to look for an HTTPS on port 443 for Inbound.\n\n\n\tOption B is INCORRECT because it states SSH(22) request would succeed but the Inbound rule has a DENY for it.\n\tOption C is INCORRECT because it states HTTP(80) request would not succeed\n\n\n \n\n\n\tTherefore Option D is the correct answer\n\n\n\nD. None of the above\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have data residing on your organization's network that needs to be migrated. Your organization's network is connected to an AWS VPC through VPN. The VPC contains an S3 VPC Gateway Endpoint created to access S3 through AWS internal network. As an architect, you were asked to transfer the data to S3 without using the internet due to security compliances. What is the best possible way to achieve this?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Configure an S3 proxy on an EC2 instance within the VPC and transfer the data to S3 via VPN and S3 proxy."
+    }, {
+        "id": "B",
+        "markdown": "Send the data to S3 by utilizing the VPC Gateway endpoint within the organization's network."
+    }, {"id": "C", "markdown": "Create VPN Gateway Endpoint to support this use case."}, {
+        "id": "D",
+        "markdown": "Add a new route in VPC’s VPN enabled route table with VPC endpoint to support direct transfer from remote(organization) network to S3."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer: A\n \n\nVPC Gateway endpoints are not supported outside VPC.\n\nEndpoint connections cannot be extended out of a VPC. Resources on the other side of a VPN connection, VPC peering connection, AWS Direct Connect connection, or ClassicLink connection in your VPC cannot use the endpoint to communicate with resources in the endpoint service.\n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#vpc- endpoints-limitations\n\n\nSo, to support such use cases, we can setup an S3 proxy server on AWS EC2 instance as shown below.\n\n\n\n \n\nOption B is not correct because VPC Gateway endpoints are not supported outside VPC. Option C, there is no AWS service called as VPN Gateway endpoint.\n\nOption D, is not correct because VPC Gateway endpoints are not supported outside VPC and a route for VPC gateway endpoint cannot be added through route table. It can only be added by editing VPC gateway endpoint.\n\nFor more information on setting up S3 proxy, refer documentation here.\n\n\n\thttps://aws.amazon.com/answers/networking/controlling-vpc-egress-traffic/\n\thttps://docs.aws.amazon.com/cli/latest/userguide/cli-http-proxy.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have an existing VPC in us-east-1. You have created a VPC Endpoint for S3 and added it to the main route table. You have launched an EC2 instance inside a subnet that is associated with the main route table. From the new EC2 instance, when making a request to the S3 bucket within us-east-1, you noticed that the connection is failing. What could be the reason. ( Choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "EC2 instance security group outbound rules are restricted and does not contain prefix list."
+    }, {"id": "B", "markdown": "Main route table does not have internet gateway association."}, {
+        "id": "C",
+        "markdown": "Subnet’s Network ACL inbound rule does not allow traffic from S3."
+    }, {"id": "D", "markdown": "Main route table does not have NAT gateway association."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer : A and C\n\n\n\tFor option A, By default, Amazon VPC security groups allow all outbound traffic, unless you've specifically restricted outbound access.\n\n\nFor a gateway endpoint, if your security group's outbound rules are restricted, you must add a rule that allows outbound traffic from your VPC to the service that's specified in your endpoint. To do this, you can use the service's prefix list ID as the destination in the outbound rule.\n\n\n\thttps://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/\n\n\nSo this option is correct.\n\n\n\tFor option B, when using VPC endpoint for S3, internet gateway is not required to route traffic to S3. VPC endpoint routes traffic internally within AWS without going out to internet.\n\t\n\t\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html\n\t\n\t\n\n\n \n\nSo this option is incorrect.\n\n \n\n\n\tFor Option C, The default network ACL is configured to allow all traffic to flow in and out of the subnets with which it is associated. If your network ACL rules restrict traffic you must specify the CIDR block ( IP address range ) for Amazon S3. So this option is correct.\n\n\n \n\n\n\tFor option D, when using VPC endpoint for S3, NAT gateway is not required to route traffic to S3. VPC endpoint routes traffic internally within AWS without going out to the internet. So this option is incorrect.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization had asked to be cost-efficient in designing AWS solutions. You have created three VPCs(VPC A, VPC B, VPC C), peered VPC A to VPC B and VPC B to VPC C. You have created a NAT gateway in VPC B and would like to use same NAT Gateway for resources within VPC A and VPC C. However, the resources within VPC A and VPC C cannot communicate to internet through NAT Gateway, but resources in VPC B can communicate. What could be the reason?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Route tables in VPC A and VPC C are not configured to have VPC B’s NAT gateway."
+    }, {"id": "B", "markdown": "Using another VPC's NAT Gateway is not supported in AWS."}, {
+        "id": "C",
+        "markdown": "VPC B’s subnet which contains NAT gateway is not configured in VPC A and VPC C route tables."
+    }, {"id": "D", "markdown": "NAT Gateway is not created inside VPC B’s public subnet."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\nIn a VPC peering connection, using NAT Gateway of another VPC becomes transitive routing and is not supported in AWS.\n\n\n\n \n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html#nat- gateway-basics\n\n\n \n\n \n\n\n\tFor Option A, in VPC’s route table, only NAT Gateway of the belonging VPC can be configured. VPC A and VPC C cannot configure VPC B’s NAT Gateway in their respective route tables. This option is incorrect.\n\tFor Option B, as explained above, transitive routing is not supported. This option is correct.\n\tFor Option C, even if two VPCs are peered and configured route tables with their entire IP range, as explained above, transitive routing is not supported. This option is incorrect.\n\tFor Option D, the question says VPC B resources can communicate with internet for which NAT gateway should be on a public subnet. So this option is not valid.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have setup a peering connection between two VPCs with proper configuration of the Security Groups and the Route Tables. You have launched EC2 instances in both VPCs and trying to communicate with each other through peering connections. However you found the request is getting timed out. From the following options, what could be the reason for time out?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Security groups of EC2 instances are not configured to allow traffic from peered VPC."
+    }, {"id": "B", "markdown": "Network ACLs have been configured not to allow traffic from peered VPC."}, {
+        "id": "C",
+        "markdown": "Peered VPCs are in different regions."
+    }, {
+        "id": "D",
+        "markdown": "Route tables of both VPCs only contains specific IP range for peering connection and either of the EC2 instances does not belong to the configured IP ranges."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer: B\n\nBreakdown:\n\nOption A is INCORRECT because the of the following snippet from the AWS documentation. This might not be a reason for getting time-out errors:\n\n\n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html#VPCSe curityGroups\n\n\nOption B is CORRECT because although Network ACLs (by default) allow ALL traffic inbound and outbound, if the network ACL is modified to restrict traffic into the subnet, the EC2 instances launched inside the subnet would also the restricted.\n\n\n\n\nOption C is INCORRECT because AWS supports cross region VPC peering. AWS Document says:\n\nInter-region VPC Peering\n\nThis approach leverages inter-region VPC peering connections to encrypt and route traffic between VPCs in different AWS Regions. A VPC peering connection uses the existing infrastructure of a VPC and private IP addresses; it is neither a gateway nor a VPN connection, and does not rely on a separate piece of physical hardware. There is no single point of failure for communication or a bandwidth bottleneck.\n\nConfiguration Details\n\nInter-region VPC peering connections allow secure communication between VPC resources in different AWS Regions. All network traffic between regions is encrypted, stays on the AWS global network backbone, and never traverses the public internet, thereby reducing threat vectors, such as common exploits and DDoS attacks. VPC peering is appropriate for many scenarios, for example, to provide VPCs full access to each other’s resources or to provide a set of VPCs partial access to resources in a central VPC. You can configure peering connections to provide access to part of a CIDR block or to an entire CIDR block of the peer VPC.\n\nConsiderations\n\nInter-region VPC peering is available in specific AWS Regions only (see the Amazon VPC Peering Guide for current availability). VPC peering does not support transitive routing, so if you require many-to-many connections, use a fully meshed configuration to allow communication between multiple VPCs. You can peer VPCs with overlapping CIDR blocks to the same VPC, such as a central VPC, but it will require specific adjustments to your subnet route tables (see Configurations with Specific Routes for guidance). Keep in mind that a peering relationship does not allow you to extend these other VPC connection types: VPN or AWS Direct Connect connections to a corporate network; internet connections through an internet gateway; a VPC endpoint to an AWS service; a ClassicLink connection (see Invalid VPC Peering Connection Configurations for detailed information)\n\n\n\n\n\thttps://aws.amazon.com/answers/networking/aws-multiple-region-multi-vpc-connectivity/\n\n\nOption D is INCORRECT because when a VPC peering connection is created, we can configure route tables of both VPCs with entire CIDR ranges of peering VPCs or we can restrict the routing to only certain subnets or to a specific IP address.\n\n\n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/vpc-peering-routing.html\n\n\nIn this case, EC2 instances might have been in a subnet which is not having a peering connection route in its associated route table. So the connection will fail.\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You created a new VPC with CIDR range 10.10.0.0/16 and a new subnet with CIDR range 10.10.1.0/24. CIDR with /24 comes with 256 IP addresses. When you go to VPC console subnets and look at the newly created subnet, you can only see 251 IP addresses. You have not launched any resources in the newly created VPC. What would have caused this?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "The first four IP addresses and the last IP address in each subnet CIDR block are reserved by AWS"
+    }, {
+        "id": "B",
+        "markdown": "AWS reserves 5 IP addresses for every VPC and are reserved from first subnet you create."
+    }, {
+        "id": "C",
+        "markdown": "AWS launches monitoring resources on behalf of you in new VPC when first subnet is created which will reserve 5 IP addresses from first subnet."
+    }, {"id": "D", "markdown": "None of the above."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A\n \n\n \n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html#VPC_Sizing\n\n\n \n\n\n\tFrom the above statement, only Option A is correct.\n\tFor Option C, AWS never launches any billable resources without notifying the account owner or administrator on behalf of you.\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have created a new VPC and a private subnet. You will also be setting up VPN connection with your organization to communicate with resources within the VPC. Your organization would need DNS names for some of on-premise applications to communicate with VPC resources. You have launched a new EC2 instance with Auto-assign public IP as enable. When the instance is ready to use, you found that Public DNS name is missing. What should be done to enable it?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Enable DNS Hostnames for VPC"}, {
+        "id": "B",
+        "markdown": "Enable DNS Resolution for VPC"
+    }, {"id": "C", "markdown": "Set auto-assign public IP to Use Subnet Setting"}, {
+        "id": "D",
+        "markdown": "You cannot have private DNS names for custom VPCs. Setup EC2 instance in default VPC."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\n\nAnswer: A\n \n\nBy default, custom VPCs does not have DNS Hostnames enabled. So when you launch an EC2 instance in custom VPC, you do not have a public DNS name. You should go to VPC actions € Edit DNS Hostnames and enable it to have DNS hostnames for the resources within VPC.\n\n\n\n \n \n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-dns.html\n\n\n \n\nCorrect option is A.\n\nFor option B, DNS resolution is to resolve the DNS hostnames through Amazon DNS Server. For more information on Amazon DNS Server, refer documentation here.\n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html#Amazo nDNS \n\n\n \n\nOption C, auto-assign public IP defines whether you can have a public IP address for the EC2 you are launching. If you launch EC2 in a private subnet, this setting is always disabled. If you launch EC2 in public subnet, you can choose to have public IP address or not.\n\nOption D is incorrect. Custom VPC provides an option to enable/disable DNS Hostnames as described above.\n\n\n \n\n\n\t\n\t\n\t\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-ip-addressing.html#vpc-working-with-ip-addresses\n\t\n\t\n\n\n \n\nNote: \n\nAs per AWS docs \"When you launch an instance into a nondefault VPC, we provide the instance with a private DNS hostname and we might provide a public DNS hostname, depending on the DNS attributes you specify for the VPC and if your instance has a public IPv4 address.\"\n\nhttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-dns.html#vpc-dns-support\n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are taking over AWS platform in your organization. You were asked to build a new application which would require a fleet of 20 EC2 instances inside a private VPC which should communicate with each other and no traffic going into the EC2 instances from internet but should be able to receive requests from all other EC2 instances inside the VPC. When you looked at existing VPC, it was created with 10.10.0.0/24 CIDR range which contains only 256 IP addresses. You noticed that all 256 IP addresses were being consumed by 8 subnets with /27 CIDR ranges. How can you change the CIDR range of the VPC?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create a new VPC, setup 20 EC2 instances in new VPC and peer with existing VPC"
+    }, {"id": "B", "markdown": "Add secondary CIDR range for the VPC."}, {
+        "id": "C",
+        "markdown": "Edit subnet CIDR ranges to /28 and free up unused IP addresses."
+    }, {
+        "id": "D",
+        "markdown": "Launch EC2 instances in different subnets and setup Network ACLs and Security Groups to allow traffic between EC2 instances."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\nYou can associate secondary IPv4 CIDR blocks with your VPC. When you associate a CIDR block with your VPC, a route is automatically added to your VPC route tables to enable routing within the VPC (the destination is the CIDR block and the target is local).\n\n \n\nIn the following example, the VPC on the left has a single CIDR block (10.0.0.0/16) and two subnets. The VPC on the right represents the architecture of the same VPC after you've added a second CIDR block (10.2.0.0/16) and created a new subnet from the range of the second CIDR.\n\n\n\n\n \n\n\n\thttps://aws.amazon.com/about-aws/whats-new/2017/08/amazon-virtual-private-cloud-vpc- now-allows-customers-to-expand-their-existing-vpcs/\n\n\n \n\nFor option A, although creating a new VPC, peering with existing VPC would work, it creates a lot of configuration. This solution is suited when you want to isolate certain resources within each VPC and communicate certain resources in both VPCs, or if the VPCs belong to different accounts, or if VPCs are in different region. There is a limit of 5 VPCs per region and creating VPCs without a definite need might hit the limit in long run.\n\n\n\tFor option B, adding a secondary CIDR to existing VPC is a simple configuration and can enable more IP addresses to current VPC.\n\tFor option C, a subnet’s CIDR cannot be edited once created.\n\tFor option D, although this option works, this would create a lot of complexity around setting up new Security Groups and network ACLs. This setup would be difficult to maintain and troubleshoot in case of any issues.\n\n\nSo, with given options, although there are multiple working solutions, option B is the recommended solution.\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization has a VPC set up with a custom route table having 40 routes for different use cases such as \"VPC peering\", \"VPN connections\", \"NAT gateways\" etc with different IP ranges. The Main route table was having a local route to the internet gateway to act for the public subnet. Your VPC IP range is 10.10.0.0/16 and many teams working on this. VPC needs to create different subnets for their respective applications that need a custom route table associated with it. However, many a time, these teams forget to explicitly associate the custom route table to the subnets. This is leading to a lot of troubleshooting hours when the connections to the new subnets from VPN does not work as expected. As an architect, how would you resolve this issue?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create a script to create a new subnet and associate it with the custom route table. Share this with all the teams."
+    }, {
+        "id": "B",
+        "markdown": "Make the custom route table as the main route table. Any new subnets created will get associated with it implicitly."
+    }, {"id": "C", "markdown": "Delete the Internet Gateway route from the main route table."}, {
+        "id": "D",
+        "markdown": "Replace all routes from the custom table with the main route table and vice versa."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: B\n\nA custom route table can be made as to the main route table so that all implicit associations of subnets will now point to the newly set main route table. All the future implicitly associations of newly created subnets will point to the newly set main route table.\n\n\n\n \n\nFor option A, although subnet creation and association can be done programmatically, it may not be feasible to share access keys with all the teams (assuming the creation process is done on a remote network where roles cannot be used). It is also a difficult task for the organization to set up the process to run this script for new teams as they might not be aware of it. So, this option is not the best of the lot.\n\n \n\nFor option B, as described above, setting a custom table as the main route table is a simple configuration and all the associations would point to the new main route table implicitly.\n\nFor option C, deleting the internet gateway does not solve the problem. It might create a new problem for EC2 instances using the NAT gateway to cause failures in connecting to the internet.\n\nFor option D, although this is an option, it is tedious and error-prone.\n\nSo, with given options, although there are multiple working solutions, option B is a recommended solution.\n\nRefer: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#CustomRouteTables\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are an architect in\nyour organization. One of the application team in your organization comes to\nyou stating recently they noticed the requests sending from an EC2 instance to\nan RDS in the same VPC but in another subnet are getting timed out. They claim\nthat connections were working before. How do you troubleshoot this issue?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Create VPC flow log for subnet where RDS instance is launched."}, {
+        "id": "B",
+        "markdown": "Check CloudWatch metrics for RDS instance."
+    }, {"id": "C", "markdown": "Check OS level logs inside RDS instance."}, {
+        "id": "D",
+        "markdown": "Check OS level logs inside EC2 instance."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: A\n\n\n\n\n\n\nFor option A, VPC Flow Logs captures IP traffic going to and from network interfaces in your VPC. Flow log data is stored using Amazon CloudWatch Logs. After you've created a flow log, you can view and retrieve its data in Amazon CloudWatch Logs.\n\nYou can create a flow log for a VPC, a subnet, or a network interface. https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html#flow-logs-basics\n\nVPC Flow Logs capture following information and logs them to CloudWatch logs,\n\nversion account-id interface-id srcaddr dstaddr srcport dstport protocol packets bytes start end action log-status\n\nFind more information about each record here.https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html#flow-log-records\n\nSo, using VPC flow logs, we can identify if the traffic is being rejected by RDS instance when sent from the EC2 instance on a certain port. From there on, we can identify if there any overly restrictive Security Group rules or Network ACL rules.\n\nFor option B, CloudWatch metrics for RDS gives the details about RDS underlying database instance metrics. But this does not contain details about networking requests sent to RDS instance.\n\nFor more information on CloudWatch metrics for RDS, refer documentation here.\n\nhttps://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/rds- metricscollected.html\n\nFor option C, RDS underlying OS is managed by AWS and cannot be accessed by AWS customers.\n\nFor option D, enabling OS level logs at the EC2 instance where the request is being made does not provide any information on why the request is being timed out at RDS instance.\n\nSo, the correct answer is option A.\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have setup two VPCs:  VPC A has the address of \"10.10.0.0/16\". It also has a subnet with address space \"10.10.1.0/24\".  VPC B has the address of \"10.11.0.0/16\". It also has a subnet with address space \"10.11.1.0/28\". You also have setup VPC peering connection between the two VPCs. What should be the respective route table entries in VPC A and VPC B?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "VPC B route table contains route with Destination as 10.10.0.0/16"
+    }, {"id": "B", "markdown": "VPC A route table contains route with Destination as 10.11.0.0/16."}, {
+        "id": "C",
+        "markdown": "VPC B route table contains route with Destination as 10.10.1.0/24 and VPC A route table contains route with Destination as 10.11.1.0/28."
+    }, {
+        "id": "D",
+        "markdown": "VPC A route table contains route with Destination as 10.10.1.0/24 and VPC B route table contains route with Destination as 10.11.1.0/28."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: C\n\nTo send private IPv4 traffic from your instance to an instance in a peer VPC, you must add a route to the route table that's associated with your subnet in which your instance resides. The route points to the CIDR block (or a portion of the CIDR block) of the peer VPC in the VPC peering connection.\n\nThe owner of the other VPC in the peering connection must also add a route to their subnet's route table to direct traffic back to your VPC. For more information about supported route table configurations for VPC peering connections.\n\nYou can also peer a VPC with a specific subnet of another VPC instead of peering entire VPC.\n\n\n\thttps://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-partial-access.html\n\n\nFor options A and B, they do not have second route added to return the connection back to requester VPC. So they are in correct.\n\nFor option C, as discussed above, we can configure subnets for a peering connection. So VPC A route table configured VPC B’s subnet 10.11.1.0/28 and VPC B route table configured VPC A’s subnet 10.10.1.0/24. This configuration is correct from given options.\n\n\nFor Option D, VPC A ad VPC B configured their own subnets in the respective route tables. So, this configuration will not work.\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Following are Security Group inbound rules. What is correct statement below?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Some rules are correct."}, {
+        "id": "B",
+        "markdown": "HTTP port 80 for source 10.10.1.148/32 is duplicated."
+    }, {"id": "C", "markdown": "SSH port 22 for source 10.10.1.0/28 is duplicated."}, {
+        "id": "D",
+        "markdown": "Custom UDP rule port 3000 for source 10.10.1.148/32 is duplicated."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\nLets take a look at the inbound rules.\n\n·         Rule # 3 defines ALL TCP allowed for 10.10.1.148 IP address\n\n·         Rule # 2 and # 4 defines port 80 and 22 are allowed for IP addresses 10.10.1.0- 10.10.1.16.\n\n·         Rule # 1 defines port 80 for 10.10.1.148 IP address.\n\n·         Rule # 5 defines custom UDP port 3000 for 10.10.1.148 IP address. Out of these rules, only rule # 1 is duplicated with rule # 3.\n\nSo option B is correct.\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following statements is correct for the route table of the VPC created with the primary CIDR of 20.0.0.0/16?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "VPC peering connection route for VPC with 30.0.0.0/20 IP range."}, {
+        "id": "B",
+        "markdown": "VPN connection route for remote network with 30.0.0.0/20 IP range."
+    }, {
+        "id": "C",
+        "markdown": "Direct Connect connection route for remote network with 30.0.0.0/20 IP range."
+    }, {"id": "D", "markdown": "Secondary IP CIDR range 30.0.0.0/20 for VPC with local route."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: D\n\nYou can associate secondary IPv4 CIDR blocks with your VPC. When you associate a CIDR block with your VPC, a route is automatically added to your VPC route tables to enable routing within the VPC (the destination is the CIDR block and the target is local).\n\nIn the following example, the VPC on the left has a single CIDR block (10.0.0.0/16) and two subnets. The VPC on the right represents the architecture of the same VPC after you've added a second CIDR block (10.2.0.0/16) and created a new subnet from the range of the second CIDR.\n\n\n\n\n\thttps://aws.amazon.com/about-aws/whats-new/2017/08/amazon-virtual-private-cloud-vpc- now-allows-customers-to-expand-their-existing-vpcs/\n\n\nFrom the above image, the Main route table shows the routes for primary and secondary IP ranges. So the correct option is D.\n\n \n\n\n\tFor option A, VPC peering connection route contains Target as pcx-xxxxxx.\n\tFor option B, the route table should contain an entry with 'vgw-xxxxx' for a VPN connection.\n\tFor option C, Direct Connect connection route too contains Target as vgw-xxxxxx.\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization had setup\na VPC with CIDR range 10.10.0.0/16. There are total 100 subnets within the VPC\nand are being actively used by multiple application teams. An application team\nwho is using 50 EC2 instances in subnet 10.10.55.0/24 complains there are\nintermittent outgoing network connection failures for around 30 random EC2\ninstances in a given day. How would you troubleshoot issue with minimal\nconfiguration and minimal logs written?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create a flow log for the VPC and filter the logs in CloudWatch log group."
+    }, {
+        "id": "B",
+        "markdown": "Create flow log for each EC2 instance network interface one by one and troubleshoot the connection issue."
+    }, {"id": "C", "markdown": "Create a flow log for subnet 10.10.55.0/24."}, {
+        "id": "D",
+        "markdown": "None of the above."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: C\n\nVPC Flow Logs captures IP traffic going to and from network interfaces in your VPC. Flow log data is stored using Amazon CloudWatch Logs. After you've created a flow log, you can view and retrieve its data in Amazon CloudWatch Logs.\n\nYou can create a flow log for a VPC, a subnet, or a network interface. https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html#flow-logs-basics\n\nVPC Flow Logs capture following information and logs them to CloudWatch logs,\n\nversion account-id interface-id srcaddr dstaddr srcport dstport protocol packets bytes start end action log-status\n\nFind more information about each record here. https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html#flow-log-records\n\nFor option A, although creating a flow log for entire VPC would work, it captures lot of unrequired information from rest 99 subnets and finding out the affected EC2 instances from CloudWatch logs would become really troublesome.\n\nFor Option B, creating flow log at each EC2 network interface would work, but it takes log of configuration and time consuming trial and error troubleshooting.\n\n\n\nFor Option C, creating a flow log for the subnet would capture just the traffic going in and out of the subnet. This would help us identify the network trace for the affected EC2 instances and find out the root cause in timely manner.\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as a Cloud Architect in an Antivirus company where you created the quotation and did all new infrastructure setup. You deployed existing application from local server to an On-demand EC2 instance, but there is an issue while connecting the application using HTTPS Protocol. After troubleshooting the issue, you added port 443 to the security group of the instance. How much time will it take to update changes to all of the resources in VPC?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "It can take up to 10 minutes depending on the number of resources"
+    }, {"id": "B", "markdown": "You just need to restart the EC2 Server."}, {
+        "id": "C",
+        "markdown": "You cannot make any change to existing security group, you have to create new Security group."
+    }, {"id": "D", "markdown": "Immediately without restart."}, {
+        "id": "E",
+        "markdown": "You have to deploy your application again."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer - D\n\n\n\tOption A is incorrect any changes made to Security Group are immediately effected.\n\tOption B is incorrect because you don’t need to restart the server to check any update of Security Group.\n\tOption C is incorrect because you can modify rules in the security group.\n\tOption D is CORRECT because any changes made to security group are taken into effect immediately.\n\tOption E is incorrect because this security group works at instance level not at application level.\n\n\nRefer: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html#adding-security-group-rule\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as Cloud Solutions Engineer in a IT Firm and  The firm has setup multiple VPN connections and they want to provide secure communication between multiple sites using the AWS VPN Cloud Hub. Which statement is the most accurate in describing what you must do to set this up correctly? How do you connect multiple sites to a VPC?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create a virtual public gateway with multiple customer gateways, each with a unique Private subnet"
+    }, {
+        "id": "B",
+        "markdown": "Create a virtual private gateway with multiple customer gateways, each with unique Border Gateway Protocol (BGP) Autonomous System Numbers (ASNs)"
+    }, {
+        "id": "C",
+        "markdown": "Create a virtual private gateway with multiple customer gateways, each with unique subnet Id"
+    }, {
+        "id": "D",
+        "markdown": "Create a virtual private gateway with multiple customer gateways, each with a unique set of keys"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer - B\n\n\n\tOption B is CORRECT  because in order to use AWS VPN Cloud Hub, one must create a virtual private gateway with multiple customer gateways, each with unique Border Gateway Protocol (BGP) Autonomous System Number (ASN).\n\tOption A, C, D are incorrect because condition to use AWS VPN Cloud Hub is not fulfilled.\n\n\nRefer: https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-vpn-cloudhub-network-to-amazon.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working in a College as a Cloud Technical Advisor and your college was maintaining all its data locally where they felt security and redundancy issues. So you suggested them to deploy their application in AWS and use NoSQL database for their database. While deploying the servers in AWS, team needs your suggestion about the Security Group. Can you select which of the following Option given by the team is true? (Select 2)",
+    "prompt": "",
+    "correctAnswerId": ["B", "C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Security Group supports \"allow rules\" and \"deny rules\"."}, {
+        "id": "B",
+        "markdown": "The default rules in a  security group disallows all incoming traffic."
+    }, {"id": "C", "markdown": "By default, outbound traffic is allowed"}, {
+        "id": "D",
+        "markdown": "Security Group is the first layer of security."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer - B and C \n\n\n\tOption A is incorrect because Security Group supports allow rules only. For deny rules, Network ACLs should be used.\n\tOption B is CORRECT because by default SG has no Inbound rules.\n\tOption C is CORRECT because by default all Outgoing Traffic is allowed in Security Group.\n\tOption D is incorrect because security group works at instance level, and hence not the first level of security.  The first level is NACL to the subnet, and SG is to the instance.\n\n\nRefer: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\n\nhttps://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "An IT company hired you recently as Cloud Architect and your Manager told you that the team is trying to host an Application on an EC2 Server with instance type as t2.micro. The team has used the default security group and named it as APP_SG and sent it for User Acceptance Testing where the testing complained that they are not able to access the website, but when you tried to send packets to any IP Address from the server, it is working fine. What could be the issue that you can think of from the scenario?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Network ACL is blocking the user from accessing the application."}, {
+        "id": "B",
+        "markdown": "Default security group has been configured with allow no inbound traffic and allow all outbound traffic."
+    }, {
+        "id": "C",
+        "markdown": "You should configure Network ACLs to allow all inbound traffic and allow all outbound traffic."
+    }, {"id": "D", "markdown": "You should configure IAM Roles before using the application."}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer - B\n\n\n\tOption A is incorrect because by default both inbound and outbound traffic is allowed.\n\tOption B is CORRECT because you have not allowed any inbound traffic.\n\tOption C is incorrect because Network ACLs are used for both allow and deny rules.\n\tOption D is incorrect IAM Roles are used for Access management, not for traffic rules.\n\n\nRefer: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html#default-security-group\n\nhttps://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html#nacl-rules\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are appointed as Cloud Consultant in a recently opened Cloud Solutions Firm. They have following VPCs set-up in the US East Region: A VPC with CIDR block 172.10.0.0/16 having subnet with CIDR block 172.10.10.0/24, Another VPC in different region with CIDR block 192.168.0.0/16, having subnet with CIDR block 192.168.20.0/24. Your colleague is trying to establish network connection between two subnets, a subnet with CIDR block 172.10.10.0/24 and another subnet with CIDR block 192.168.20.0/24. Also they don’t want any transitive peering relationship. Which of the following is the best solution?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Use VPC Peering i.e. AWS-provided network connectivity between two VPCs."
+    }, {"id": "B", "markdown": "Use Software VPN i.e. Software appliance to VPN connection between VPCs"}, {
+        "id": "C",
+        "markdown": "Use VPC-to-VPC routing over IPsec VPN connection"
+    }, {"id": "D", "markdown": "VPC-to-VPC routing in an AWS Direct Connect location"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer - A\n\n\n\tOption A is CORRECT because VPC Peering has only limitation that it does not support VPC Transitive Peering.\n\tOption B, C, and D are incorrect because all these are possible solutions but VPC Peering is best among all.\n\n\nRefer: https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as a Cloud Solutions Architect in a Series-B funding startup. The Senior Director asked you to deploy a data mining server for their financial data on a Reserved EC2 instance in any region using IPv6. As the data is financial so the CEO of the company was worried about the security, he suggested that the system must be highly secured to avoid any unauthorized access and other security features must be implemented also. In order to follow the instruction given by your CEO, which of the following VPC feature you will implement to achieve the given security?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "VPC Peering"}, {"id": "B", "markdown": "NAT Instances"}, {
+        "id": "C",
+        "markdown": "Egress-only Internet Gateway"
+    }, {"id": "D", "markdown": "NAT Gateway"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer - C\n\nOption C is CORRECT because egress-only Internet gateway is a VPC component that allows outbound communication over IPv6 from instances in your VPC to the Internet, and prevents the Internet from initiating an IPv6 connection with your instances.\n\nOption A is incorrect because VPC Peering is used to connect multiple VPCs.\n\nOptions B and D are incorrect if communication is required using IPV6.\n\nRefer: https://docs.aws.amazon.com/vpc/latest/userguide/egress-only-internet-gateway.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working in a gaming company where that has four departments that make games for iOS, Android, Windows, and PlayStation, for that they just recently adopted a hybrid cloud architecture where their on-premise data center is connected to their Amazon VPC. Your VPC is configured with a CIDR block of 10.0.0.0/24 (256 IPs) and your supervisor told you that they need such security in all four departments so that information from one department should not reach other department and also they don’t want to have a new network which can be expensive and will create more overhead. As a Solutions Architect, how will you configure your network to accomplish this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create four subnets where first one subnet will use CIDR block 10.0.0.0/28 (for addresses 10.0.0.0 - 10.0.0.63), the second subnet will use CIDR block 10.0.0.64/28 (for addresses 10.0.0.64 - 10.0.0.127), third subnet will use CIDR block 10.0.0.128/28 (for addresses 10.0.0.128 - 10.0.0.191), the fourth one will use CIDR block 10.0.0.192/28 (for addresses 10.0.0.192 - 10.0.0.255)."
+    }, {
+        "id": "B",
+        "markdown": "Create four subnets where first one subnet will use CIDR block 10.0.0.0/26 (for addresses 10.0.0.0 - 10.0.0.63), the second subnet will use CIDR block 10.0.0.64/26 (for addresses 10.0.0.64 - 10.0.0.127), third subnet will use CIDR block 10.0.0.128/26 (for addresses 10.0.0.128 - 10.0.0.191), the fourth one will use CIDR block 10.0.0.192/26 (for addresses 10.0.0.192 - 10.0.0.255)."
+    }, {
+        "id": "C",
+        "markdown": "Create four subnets where first one subnet will use CIDR block 10.0.0.0/32 (for addresses 10.0.0.0 - 10.0.0.63), the second subnet will use CIDR block 10.0.0.64/32 (for addresses 10.0.0.64 - 10.0.0.127), third subnet will use CIDR block 10.0.0.128/32 (for addresses 10.0.0.128 - 10.0.0.191), the fourth one will use CIDR block 10.0.0.192/32 (for addresses 10.0.0.192 - 10.0.0.255)"
+    }, {
+        "id": "D",
+        "markdown": "Create four subnets where first one subnet will use CIDR block 10.0.0.0/26 (for addresses 10.0.0.0 - 10.0.0.64), the second subnet will use CIDR block 10.0.0.65/26 (for addresses 10.0.0.65 - 10.0.0.128), third subnet will use CIDR block 10.0.0.129/26 (for addresses 10.0.0.129 - 10.0.0.192), the fourth one will use CIDR block 10.0.0.193/26 (for addresses 10.0.0.193 - 10.0.0.256)"
+    }, {"id": "E", "markdown": "This configuration is not possible"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer - B \n\nOption B is CORRECT because in order to achieve the requirement you should create four subnets and for CIDR 24, after creating four Subnets it will be CIDR 26, and range will start from 0 to 63, 64 to 127, 128 to 191 and 192 to 255.\n\nOption A is incorrect because CIDR 28 will result in 16 subnets.\n\nOption C is incorrect because CIDR 32 represents the IP address itself.\n\nOption D is incorrect because range given in option is incorrect\n\nOption E is incorrect because this is possible.\n\nRefer: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A 50 year old Computer Solutions company has a very big application which needs to be deployed to the AWS cloud from their existing server. The application is media access control (MAC) address dependent as per the application licensing terms. This application will be deployed in an on-demand EC2 instance with instance type r4.2xlarge. In this scenario, how can you ensure that the MAC address of the EC2 instance will not change even if the instance is restarted or rebooted?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Assign static MAC Address to EC2 instance while setting up the server"
+    }, {"id": "B", "markdown": "Use a VPC with an elastic network interface that has a fixed MAC Address"}, {
+        "id": "C",
+        "markdown": "Use a VPC with a private subnet for the EC2, by default MAC address will be fixed."
+    }, {
+        "id": "D",
+        "markdown": "Use a VPC with a private subnet and configure the MAC address to be tied to that subnet."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer - B \n\nOption A is incorrect because you cannot assign static MAC Address to EC2 Server, if the server will restart, it will also change.\n\nOption B is correct because for server to be MAC Dependent, you must use VPC with an ENI (Elastic Network Interface).\n\nOption C and D are incorrect because using private subnet in VPC cannot help in getting MAC Address fixed. \n\nRefer: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "One of your colleagues, who is new to the company where you work as a cloud Architect, is having some issues with IP Addresses. He has created an Amazon VPC with an IPV4 CIDR block 10.0.0.0/24, but now there is a requirement of hosting a few more resources to that VPC. As per his knowledge, he is thinking of creating a new VPC with greater range, could you suggest him better way that should be reliable?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Delete the existing subnets in the VPC and create new Subnets in VPC"
+    }, {"id": "B", "markdown": "He is thinking of the right approach."}, {
+        "id": "C",
+        "markdown": "You can create new VPC and connect old VPC with a new one"
+    }, {"id": "D", "markdown": "You can expand existing VPC by adding Secondary CIDR to your current VPC"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer - D\n\n\n\tOptions A, B, C are incorrect because it is not reliable to go for this type of approach as VPC to VPC connection will take new resources like VPC Peering. Creating a new VPC or Subnet is also not suggested.\n\tOption D is correct because you can associate Secondary CIDR to your current VPC to accommodate more hosts.\n\n\nRefer: https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#add-ipv4-cidr\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are appointed as Cloud Troubleshooting Expert in well-known IT Company. The Cloud team was using a policy-based virtual private network (VPN) to connect to AWS VPN endpoint in Amazon Virtual Private Cloud (Amazon VPC), they were experiencing problems related network stability, or connectivity or sometimes even data loss. They have to come to you to know the root cause of the issue. In this Scenario, what could be the issue?  Choose 2 answers.",
+    "prompt": "",
+    "correctAnswerId": ["A", "B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Policy-based VPNs with more than one pair of security associations drop existing connections when new connections are initiated with different security associations."
+    }, {
+        "id": "B",
+        "markdown": "Policy-based VPNs with one pair of security associations drop existing connections when new connections are initiated with different security associations."
+    }, {"id": "C", "markdown": "Policy-based VPNs are not allowed to connect Amazon VPC"}, {
+        "id": "D",
+        "markdown": "You must use Route-Based VPNs in order to get rid of security associations limitations"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer - A & B\n\n\n\tOption A & B are correct because Policy-based VPNs using one or more pair of security associations drop already existing connections when new connection requests are generated with different security associations. This can cause intermittent packet loss and other connectivity failures.\n\tOption C is incorrect because this is possible.\n\tOption D is incorrect because this could be a possible solution and not an issue.\n\n\nRefer: https://docs.aws.amazon.com/vpc/latest/adminguide/Introduction.html#CGRequirements\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following default settings are incorrect for a newly created S3 bucket? (choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["B", "D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Encryption is not enabled."}, {
+        "id": "B",
+        "markdown": "Transfer Acceleration is enabled."
+    }, {"id": "C", "markdown": "No bucket policy exists."}, {"id": "D", "markdown": "Versioning is enabled."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B, D\n\nWhen creating an S3 bucket, you can change the default configuration according to your requirements or leave the default options and continue to create the bucket. You can always change the configuration after you created the bucket.\n\n\n\tFor option A, Default encryption is not enabled.\n\n\n \n\n\n\n \n\n\n\tFor option B, Transfer Acceleration is suspended by default.\n\n\n\n\n\n\tFor Option C, bucket policy does not exist by default. We can restrict bucket access through bucket policy.\n\n\n\n\n\n\tFor option D, By default Versioning is Disabled.\n\n\n \n\nNote:\n\nThe question is\"Which of the following options are incorrect in terms of default settings?\" \n\nA. Encryption is not enabled. -- we have to select the incorrect in terms of default settings, so it's not the answer.\nB. Transfer Acceleration is enabled.-- we have to select the incorrect in terms of default settings, so it's correct the answer.\nC. No bucket policy exists.-- we have to select the incorrect in terms of default settings, so it's not the answer.\nD. Versioning is enabled.-- we have to select the incorrect in terms of default settings, so it's correct the answer.\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following are S3 bucket properties?(Choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Server access logging"}, {
+        "id": "B",
+        "markdown": "Object level logging"
+    }, {"id": "C", "markdown": "Storage class"}, {"id": "D", "markdown": "Metadata"}],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: A, B\n\nFollowing are S3 bucket properties.\n\n  \n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonS3/latest/user-guide/view-bucket-properties.html\n\n\n \n\n\n\tOption C, Storage class property is at object level, not at bucket level. Following are different storage classes.\n\n\n \n\n\n\tFor more information on storage classes, refer documentation here.\n\t\n\t\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html\n\t\n\t\n\tFor option D, metadata is at object level property, not bucket level.For detailed information on object metadata, refer documentation here. \n\t\n\t\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-metadata\n\t\n\t\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have created an S3 bucket in us-east-1 region with default configuration. You are located in Asia and deleted an object in the bucket using AWS CLI. However, when you tried to list the objects in the bucket, you still see the object you deleted. You are even able to download the object. What could have caused this behaviour?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Cross region deletes are not supported by AWS"}, {
+        "id": "B",
+        "markdown": "AWS provides eventual consistency for DELETES."
+    }, {"id": "C", "markdown": "AWS keeps copy of deleted object for 7 days in STANDARD storage."}, {
+        "id": "D",
+        "markdown": "AWS provides strong consistency for DELETES."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\n Amazon S3 offers eventual consistency for overwrite PUTS and DELETES in all regions.\n\n  https://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html#CoreConcepts and refer to “Amazon S3 Data Consistency Model”\n\n \n\nFor option A, you can perform DELETE operation from Console, CLI, programmatically from any region as long as you have access to perform.\n\nFor option C, AWS S3 deletes any object for which DELETE request is made from an authorized\n\nIAM entity.\n\nIt does not keep a copy unless you have versioning enabled and you have multiple versions of the deleted object.\n\n  https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html\n\n \n\n In this case, bucket is created with default configuration which has versioning disabled. For option D, AWS does not provide strong consistency for DELETES.\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization is planning to upload large number of files to AWS cloud. These files need to be immediately available for download across different geographical regions right after the upload is complete. They consulted you to check if S3 is a suitable solution for the use case. What do you suggest?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "S3 is not suitable for immediate downloads because new AWS provides eventual consistency for new objects."
+    }, {
+        "id": "B",
+        "markdown": "S3 is suitable for immediate downloads because AWS provides read-after-write consistency for new objects."
+    }, {
+        "id": "C",
+        "markdown": "EFS is suitable for immediate downloads because AWS provides eventual consistency for new objects."
+    }, {
+        "id": "D",
+        "markdown": "S3 is suitable for immediate downloads because AWS provides strong consistency for new objects."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\nAmazon S3 provides read-after-write consistency for PUTS of new objects in your S3 bucket in all regions with one caveat. The caveat is that if you make a HEAD or GET request to the key name (to find if the object exists) before creating the object, Amazon S3 provides eventual consistency for read-after-write.\n\n\n\n\nOption A is not true. Eventual consistency is for overwrite PUTS and DELETES. Option C is not true. EFS provides read-after-write consistency.\n\n \n\nFor option D, AWS provides strong consistency for DynamoDB, not for S3.\n\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are a solutions architect. Your organization is building an application on premise. But would like to keep the storage on AWS. Objects/files must only be accessed via the application as there are relational and access related logics built in the application. But, as an exception, Administrators should be able to access the objects/files directly from AWS S3 console/API bypassing the application. What solution would you provide?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Cached Volume Gateway"}, {
+        "id": "B",
+        "markdown": "Stored Volume Gateway"
+    }, {"id": "C", "markdown": "File Gateway"}, {"id": "D", "markdown": "Custom built solution using S3"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: C\n\nThe File Gateway presents a file interface that enables you to store files as objects in Amazon S3 using the industry-standard NFS and SMB file protocols, and access those files via NFS and SMB from your datacenter or Amazon EC2, or access those files as objects with the S3 API.\n\n\n\n \n\n\n\thttps://d1.awsstatic.com/whitepapers/aws-storage-gateway-file-gateway-for-hybrid-architectures.pdf\n\n\n \n\n\n\tFor option A, with Cached Volumen Gateway, you store your data in Amazon Simple Storage Service (Amazon S3) and retain a copy of frequently accessed data subsets locally. we can take incremental backups, called snapshots of the storage volume in S3.  All gateway data and snapshot data for cached volumes is stored in Amazon S3 and encrypted at rest using server-side encryption (SSE). However, you can't access this data with the Amazon S3 API or other tools such as the Amazon S3 Management Console.\n\n\n \n\n\n\tFor option B, with stored volumes, you store the entire set of volume data on-premises and store periodic point-in-time backups (snapshots) in AWS. In this model, your on-premises storage is primary, delivering low-latency access to your entire dataset. AWS storage is the backup that you can restore in the event of a disaster in your data center.\n\n\n \n\n\n\tFor option D, although custom built solution using S3 might work, it is not recommended.\n\n\n \n\nAWS provided services where ever possible.\n\n\n\tFor more information in AWS storage gateways, refer documentation here.\n\t\n\t\thttps://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html\n\t\n\t\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have created an S3 bucket in us-east-1 region with default configurations.  You have uploaded few documents and need to be shared with a group within the organization granting them access for a limited time.  What is the recommended approach?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create one IAM user per person, attach managed policy for each user with GetObject action on your S3 bucket. Users can login to AWS console and download documents."
+    }, {
+        "id": "B",
+        "markdown": "Create one IAM user per person, add them to an IAM group, attach managed policy for the group with GetObject action on your S3 bucket. Users can log in to AWS console and download documents."
+    }, {
+        "id": "C",
+        "markdown": "Generate pre-signed URL with an expiry date and share the URL with all persons via email."
+    }, {
+        "id": "D",
+        "markdown": "By default, S3 bucket has public access enabled. Share the document URLs with all persons via email."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: C\n\nAll objects by default are private. Only the object owner has permission to access these objects. However, the object owner can optionally share objects with others by creating a pre-signed URL, using their own security credentials, to grant time-limited permission to download the objects.\n\nAnyone who receives the pre-signed URL can then access the object. For example, if you have a video in your bucket and both the bucket and the object are private, you can share the video with others by generating a pre-signed URL.\n\n\n\tFor more information, refer documentation here. \n\t\n\t\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html\n\t\n\t\n\n\n \n\n\n\tFor options A and B, although these solutions work, it’s a whole lot of setup for enabling the download of documents. Also, AWS recommends using temporary credentials for use cases where users ocasionally need access to AWS resources.\n\n\n \n\nIn this case, pre-signed URL is granting temporary access on the S3 objects and access gets expired when the time limit has reached.\n\n\n\tOption D is incorrect. All objects in S3 bucket are private by default.\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following are valid statements about Amazon S3? (Choose 3 options)",
+    "prompt": "",
+    "correctAnswerId": ["C", "D", "E"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "S3 provides read-after-write consistency for any type of PUTS."}, {
+        "id": "B",
+        "markdown": "S3 provides strong consistency for PUTs or DELETES."
+    }, {
+        "id": "C",
+        "markdown": "A successful response to a PUT request for new object only occurs when the object is completely saved."
+    }, {
+        "id": "D",
+        "markdown": "S3 might return prior data when a process replaces an existing object and immediately attempts to read."
+    }, {"id": "E", "markdown": "S3 provides eventual consistency for overwrite PUTS and DELETES"}],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: C, D, E\n\nAmazon S3 provides read-after-write consistency for PUTS of new objects in your S3 bucket in all regions with one caveat. The caveat is that if you make a HEAD or GET request to the key name (to find if the object exists) before creating the object, Amazon S3 provides eventual consistency for read-after-write.\n\n\n\nAmazon S3 offers eventual consistency for overwrite PUTS and DELETES in all regions. For more information on S3 consistency model, refer documentation here.\n\nhttps://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html #CoreConceptsand refer to “Amazon S3 Data Consistency Model”\n\nOption A is incorrect. Read-after-write consistency is only provided for new object PUTS, not for any type of PUTS.\n\nOption B is incorrect. AWS does not provide strong consistency for S3 objects. Strong consistency model is for DynamoDB reads.\n\nOption C translates to read-after-write consistency model. Hence correct.\n\nOption D translates to eventual consistency model. Hence correct. Option E is correct from above statements.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are designing a web application that stores static assets in an Amazon S3 bucket. You expect this bucket to immediately receive over 400 requests with a mix of GET/PUT/DELETE per second. What should you do to ensure optimal performance?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Amazon S3 will automatically manage performance at this scale."}, {
+        "id": "B",
+        "markdown": "Add a random prefix to the key names."
+    }, {
+        "id": "C",
+        "markdown": "Use a predictable naming scheme, such as sequential numbers or date time sequences, in the key names."
+    }, {"id": "D", "markdown": "Use multi-part upload."}],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nCorrect Answer: A\n\n#####################\n\nRequest Rate and Performance Guidelines\n\nAmazon S3 automatically scales to high request rates. For example, your application can achieve at least 3,500 PUT/POST/DELETE and 5,500 GET requests per second per prefix in a bucket. There are no limits to the number of prefixes in a bucket. It is simple to increase your read or write performance exponentially. For example, if you create 10 prefixes in an Amazon S3 bucket to parallelize reads, you could scale your read performance to 55,000 read requests per second.\n\n \n\n###################################\n\nFor More Information:\n\nhttps://aws.amazon.com/about-aws/whats-new/2018/07/amazon-s3-announces-increased-request-rate-performance/\n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have an applicaton running on EC2. When the application trying to upload a 7 GB file to S3, operation fails. What could be the reason for failure and what would be the solution?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "With a single PUT operation, you can upload objects up to 5 GB in size. Use multi-part upload for larger file uploads."
+    }, {
+        "id": "B",
+        "markdown": "EC2 is designed to work best with EBS volumes. Use EBS Provisioned IOPs and use an Amazon EBS-optimized instance."
+    }, {
+        "id": "C",
+        "markdown": "NAT gateway only supports data transfers going out upto 5 GB. Use EBS Provisioned IOPs and use an Amazon EBS-optimized instance."
+    }, {
+        "id": "D",
+        "markdown": "VPC Endpoints only supports data transfers going out upto 5 GB. Use EBS Provisioned IOPs and use an Amazon EBS-optimized instance."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A\n\nAWS recommends using multi-part uploads for larger objects.\n\n \n\nFor more information on multi-part uploads, refer documentation here. https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html\n\n \n\nFor option B, Amazon EBS is a storage for the drives of your virtual machines. It stores data as blocks of the same size and organizes them through the hierarchy similar to a traditional file system. EBS is not a standalone storage service like Amazon S3 so you can use it only in combination with Amazon EC2.\n\n \n\nObjects can be stored on EBS volumes, but not cost-effective and not highly resilient and fault tolarant compared to S3.\n\nOptionc C and D are incorrect. NAT Gateway ad VPC endpoints do not have any data transfer limitations.\n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have an application on EC2 which stores the files in an S3 bucket. EC2 is being launched using a role that has GetObject permissions on the S3 bucket defined in its policy. The users who authenticate to this application will get a pre-signed URL for the files in an S3 bucket using EC2 role temporary credentials. However, users are reporting that they get an error when accessing pre-signed URLs. What could be the reason? (SELECT TWO)",
+    "prompt": "",
+    "correctAnswerId": ["A", "C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Pre-Signed URLs expired."}, {
+        "id": "B",
+        "markdown": "Logged in user must be an IAM user to download the file through a pre-signed URL."
+    }, {
+        "id": "C",
+        "markdown": "Bucket has a \"Deny\" policy. EC2 role not whitelisted in the policy statement with Allow."
+    }, {
+        "id": "D",
+        "markdown": "The default policy on temporary credentials does not have GetObject privileges on a S3 bucket."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A, C\n\nAll objects in S3 are private by default. Only the object owner has permission to access these objects. However, the object owner can optionally share objects with others by creating a pre-signed URL, using their own security credentials, to grant time-limited permission to download the objects.\n\nAnyone who receives the pre-signed URL can then access the object. For example, if you have a video in your bucket and both the bucket and the object are private, you can share the video with others by generating a pre-signed URL.\n\n\n\tFor more information, refer to the documentation here.\n\t\n\t\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html\n\t\n\t\n\n\n \n\n\n\tFor option A, while generating pre-signed URL programmatically using SDK/API, we give a duration of how long should the URL be valid. When the URL is accessed after the specified duration, you would get an error.\n\n\n \n\n\n\tFor option B, AWS recommends using temporary credentials whenever users need time-limited access to AWS resources instead of using IAM users for each request.\n\n\n \n\n\n\tFor more information on temporary credentials, refer to the documentation here. \n\t\n\t\thttps://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html\n\t\n\t\n\n\n \n\n\n\tFor option C, if a bucket policy contains Effect as Deny, you must whitelist all the IAM resources which need access on the bucket. Otherwise, IAM resources cannot access the S3 bucket even if they have full access.\n\n\n \n\n\n\tFor detailed information on how to restrict bucket, refer documentation here. \n\t\n\t\thttps://aws.amazon.com/blogs/security/how-to-restrict-amazon-s3-bucket-access-to-a-specific-iam-role/\n\t\n\t\n\n\n \n\n\n\tFor option D, the policy is an optional parameter when temporary credentials are generated using AssumeRole (which is how EC2 generates temporary credentials using instance-profile). There is no default policy.\n\n\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization has an S3 bucket which stores confidential information. Access is granted to certain programmatic IAM users and restricted the requests from these IAM users to be originated from within your organization IP address range. However, your organization suspect there might be requests from other IP addresses to S3 buckets to download certain objects. How would you troubleshoot to find out requester IP address?(choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["B", "C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Enable VPC flow logs in the region where S3 bucket exists."}, {
+        "id": "B",
+        "markdown": "Enable server access logging"
+    }, {"id": "C", "markdown": "Enable CloudTrail logging using OPTIONS object"}, {
+        "id": "D",
+        "markdown": "Enable CloudWatch metrics"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B, C\n\nServer access logging provides detailed records for the requests that are made to a bucket. Server access logs are useful for many applications. For example, access log information can be useful in security and access audits.\n\n\n\tFor details on how to enable logging for S3, refer documentation here. \n\t\n\t\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html#server-access-logging-overview\n\t\n\t\n\tFor information about the format of the log file, refer documentation here.\n\t\n\t\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/LogFormat.html\n\t\n\t\n\n\nFor option A, S3 is a managed service and not part of VPC. So enabling VPC flow logs does not report traffic sent to S3 bucket.\n\nOption B is correct.\n\nOption C is correct. Using the information collected by CloudTrail, you can determine what request was made to Amazon S3, the source IP address from which the request was made, who made the request, when it was made, and so on. This information helps you to track changes made to your AWS resources and to troubleshoot operational issues.\n\n\n\n\n\n\tFor detailed information about how S3 requests are tracked using CloudTrail, refer documentation here.\n\t\n\t\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/cloudtrail-logging.html#cloudtrail-logging- s3-info\n\t\n\t\n\n\n \n\n For option D, although CloudWatch has metrics for S3 requests, this does not provide detailed information about each request. It generates metrics for the number of requests sent for each type.\n\n\n\tFor more information about S3 CloudWatch request metrics, refer documentation here. \n\t\n\t\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html#s3-request-cloudwatch-metrics\n\t\n\t\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "An organization is planning to build web and mobile applications that can upload 100,000 images every day into S3. The applications expect a sudden increase in volume, however, they are lean on budget and looking for a cost-effective solution. As an architect, you are approached if S3 suits their requirements. What information you will gather from to make a decision? (Choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Gather information on the high availability of data and frequency of requests to choose storage class of objects in S3."
+    }, {"id": "B", "markdown": "Gather information on total size to properly design prefix namespace."}, {
+        "id": "C",
+        "markdown": "Gather information on total size to provision storage on the S3 bucket."
+    }, {"id": "D", "markdown": "Gather information on the number of requests during peak time."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A, D\n\nFor option A, S3 offers different storage classes. Based on the storage type, availability % would change along with the cost.\n\nIf the images need to be highly available and frequently accessed, choose STANDARD. If the images need not be highly available but frequently accessed, choose\n\nREDUCED_REDUNDANCY class.\n\nIf the images need to be highly available but not frequently accessed, choose STANDARD_IA\n\nclass.\n\nIf the images need not be highly available and not frequently accessed, choose ONEZONE_IA.The following are the prices for each storage class.\n\n \n\n\n\n\nFor more information on S3 storage classes, refer to the documentation here.\n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html\n\n\n \n\n\n\tFor option B, prefix naming is required for optimal performance if we expect a higher number of objects. Option D is correct. Following is the explanation.\n\n\nAmazon S3 maintains an index of object key names in each AWS Region. Object keys are stored in UTF-8 binary ordering across multiple partitions in the index. The key name determines which partition the key is stored in.\n\nAlthough Amazon S3 automatically scales to high request rates, using a sequential prefix, such as a timestamp or an alphabetical sequence, increases the likelihood that Amazon S3 will target a specific partition for a large number of your keys, potentially overwhelming the I/O capacity of the partition.\n\nWhen your workload is a mix of request types, introduce some randomness to key names by adding a hash string as a prefix to the key name. By introducing randomness to your key names the I/O load will be distributed across multiple index partitions. For example, you can compute an MD5 hash of the character sequence that you plan to assign as the key and add 3 or 4 characters from the hash as a prefix to the key name. The following example shows key names with a 4 character hexadecimal hash added as a prefix.\n\n \n\n\n\n\n \n\nWithout the 4 character hash prefix, S3 may distribute all of this load to 1 or 2 index partitions since the name of each object begins with examplebucket/2013-26-05-15-00-0 and all objects in the index are stored in alpha-numeric order. The 4 character hash prefix ensures that the load is spread across multiple index partitions.\n\n \n\nWhen your workload is sending mostly GET requests, you can add randomness to key names. In addition, you can integrate Amazon CloudFront with Amazon S3 to distribute content to your users with low latency and a high data transfer rate.\n\n\n\tFor option C, AWS S3 storage is virtually unlimited. No need to provide any storage upfront.\n\tOption D is CORRECT because we need to calculate the \"UsageValue\" of the S3 BUCKET and one of the criteria for determining this is \"The number of requests during the specified time period\"\n\n\n \n\n\n\tPlease refer to page 87 of the below link\n\t\n\t\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/s3-dg.pdf\n\t\n\t\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following are system metadata for objects in S3?(choose 3 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "C", "D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "x-amz-server-side-encryption"}, {
+        "id": "B",
+        "markdown": "x-amz-meta-object-id"
+    }, {"id": "C", "markdown": "x-amz-version-id"}, {"id": "D", "markdown": "Content-Length"}, {
+        "id": "E",
+        "markdown": "x-amz-meta-location"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A, C, D\n\nAWS S3 bucket objects contain two kinds of metadata, system metadata and user-defined metadata.\n\nSystem metadata:\n\nMetadata such as object creation date is system controlled where only Amazon S3 can modify the value.\n\nOther system metadata, such as the storage class configured for the object and whether the object has server-side encryption enabled, are examples of system metadata whose values you control. If your bucket is configured as a website, sometimes you might want to redirect a page request to another page or an external URL. In this case, a webpage is an object in your bucket. Amazon S3 stores the page redirect value as system metadata whose value you control.\n\n \n\nWhen you create objects, you can configure values of these system metadata items or update the values when you need to\n\nUser-defined metadata:\n\nWhen uploading an object, you can also assign metadata to the object. You provide this optional information as a name-value (key-value) pair when you send a PUT or POST request to create the object. When you upload objects using the REST API, the optional user-defined metadata names must begin with \"x-amz-meta-\" to distinguish them from other HTTP headers\n\n\n\tFor more information on object metadata, refer documentation here. \n\t\n\t\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-metadata\n\t\n\t\n\tFor additional information:\n\t\n\t\thttps://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html\n\t\n\t\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization needs to meet audit compliance and hence need to log all the requests sent to a set of 10 buckets which contains confidential information. These also will be periodically used to find out if any requests are being made from outside the organization’s IP address range. Your AWS application team had enabled S3 server access logging for all the buckets into a common logging bucket named s3-server-logging. But after few hours they noticed no logs were being written into logging bucket. What could be the reason?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Bucket user-defined deny policy is not allowing Log Delivery group to write into S3 logging bucket."
+    }, {"id": "B", "markdown": "Bucket public access is not enabled."}, {
+        "id": "C",
+        "markdown": "Write access is disabled for Log Delivery group."
+    }, {
+        "id": "D",
+        "markdown": "Bucket name for server access logging should be “s3-server-access-logging” inorder to write the request logs."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A\n\nServer access logging provides detailed records for the requests that are made to a bucket. Server access logs are useful for many applications. For example, access log information can be useful in security and access audits.\n\nFor details on logging for S3, refer documentation here. \n\n\n\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html#server-access-logging-overview\n\n\n \n\n\n\tFor option A, S3 buckets would often be restricted using bucket policy with Effect as Deny except for whitelisted IAM resources who would require access.\n\n\nFor detailed information on how to restrict bucket, refer documentation here. \n\n\n\thttps://aws.amazon.com/blogs/security/how-to-restrict-amazon-s3-bucket-access-to-a-specific-iam-role/\n\n\nFor providing access to log delivery group, you need to explicitly add the following statement to your bucket policy.\n\n{\n\"Version\": \"2012-10-17\",\n\"Statement\": [ \n             { Delivery service\", \n               \"Sid\": \"Permit access log delivery by AWS ID for Log \n               \"Effect\": \"Allow\", \n               \"Principal\": { \n                               \"AWS\": \"arn:aws:iam::858827067514:root\" \n                            }, \n               \"Action\": \"s3:PutObject\", \n               \"Resource\": \"arn:aws:s3:::examplebucket/logs/*\" \n              } \n              ]\n}\n\n \n\nAlso make sure the arn “arn:aws:iam::858827067514:root” is whitelisted in the Deny statement of your bucket policy.\n\n\n\tFor option B, public access is not required to be enabled for writing logs into S3 bucket. Only access required is PutObject for Log Delivery group.\n\tFor option C, although by default, Log Delivery group permission is disabled, permission will be granted when the bucket is selected as target for logging.\n\n\n\n\n\n\n\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/enable-logging-console.html\n\n\n \n\n\n\tOption D is a false statement.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are building a web application which will allow authenticated users to upload videos to AWS S3 bucket. However, while testing the application, you found that the upload requests to S3 are being blocked. What should you do to make the upload work?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Enable public access to allow uploads from web applications."}, {
+        "id": "B",
+        "markdown": "Add configuration in S3 bucket CORS to allow PUT requests from web application URL."
+    }, {
+        "id": "C",
+        "markdown": "Add Content-Length and Content-MD5 headers while sending upload requests to S3"
+    }, {"id": "D", "markdown": "Web application URL must be added to bucket policy to allow PutObject requests."}],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: B\n\nCross-origin resource sharing (CORS) defines a way for client web applications that are loaded in one domain to interact with resources in a different domain. With CORS support, you can build rich client-side web applications with Amazon S3 and selectively allow cross-origin access to\n\nyour Amazon S3 resources.\n\nFor more information on CORS, refer documentation here. https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html#example-scenarios-cors\n\nFor option A, enabling public access will not enable web application to send requests to S3 bucket. Further more, AWS does not recommend enabling public access on an S3 bucket unless you are hosting static assets which can be accessed by all.\n\nFor more information on securing S3 buckets, refer documentation here. . https://aws.amazon.com/premiumsupport/knowledge-center/secure-s3-resources/\n\nFor option C, Content-Length and Content-MD5 are system metadata for object. They are set during creating/uploading an object. However, these paramaters do not enable web application to send requests to S3 bucket.\n\nFor option D, AWS S3 bucket policy does not grant permissions based on the web application\n\nURLs.\n\nHowever, you can setup a condition in the policy to restrict access only if the request is being sent from a certain URL using “aws:Referer” context-key.\n\n\nhttps://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example- bucket-policies-use-case-4\n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have uploaded a file to AWS S3 bucket with content ‘foo’. You have overwritten the file with content ‘bar’. When you made a GetObject request immediately after overwrite, what output can you expect?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "foo"}, {"id": "B", "markdown": "bar"}, {
+        "id": "C",
+        "markdown": "either foo or bar"
+    }, {"id": "D", "markdown": "An error stating “Object updating. Please try after some time.”"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: C\n\nAmazon S3 offers eventual consistency for overwrite PUTS and DELETES in all regions.\n\nA process replaces an existing object and immediately attempts to read it. Until the change is fully propagated, Amazon S3 might return the prior data.\n\nNOTE:\n\nThis is because Updates to an object are atomic i.e. when you do PUT for an object after that you GET(read) that object you will either get the updated object or the old one(before the update), you will never get partial or corrupt or no data.\n\nAWS says\"A process replaces an existing object and immediately attempts to read it. Until the change is fully propagated, Amazon S3 might return the prior data.\"\n \n\n\n\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html#BasicsObjects\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You created a bucket named “myfirstwhizbucket” in US West region. What are valid URLs for accessing the bucket? (Choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "http://myfirstwhizbucket.s3.us-west-1.amazonaws.com"}, {
+        "id": "B",
+        "markdown": "http://s3.myfirstwhizbucket.us-west-1.amazonaws.com"
+    }, {"id": "C", "markdown": "http://s3.us-west-1.amazonaws.com/myfirstwhizbucket"}, {
+        "id": "D",
+        "markdown": "http://s3-us-west-1-amazonaws.com/myfirstwhizbucket"
+    }, {"id": "E", "markdown": "http://s3.amazonaws.com/myfirstwhizbucket"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A, C\n\n \n\n\n\tFor option A, it matches the virtual-hosted-style URL and it is correct.\n\tFor option B, it does not match any of the above-mentioned URL patterns. It is incorrect.\n\tFor option C, it matches the path-style URL and it is correct.\n\tFor option D, it does not match any of the above-mentioned URL patterns.\n\tFor option E, it matches path-style URL, but since the bucket is in us-west-1 region, it must contain the region in the endpoint. So it is incorrect.\n\t\n\t\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro\n\t\n\t\n\n\nNOTE: Option C and D are different. (Dot and Hyphen).\n\n\n\tOption C - http://s3.us-west-1.amazonaws.com/myfirstwhizbucket\n\tOption D - http://s3-us-west-1-amazonaws.com/myfirstwhizbucket\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "What are the minimum and maximum file sizes that can be stored in S3 respectively?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "1 KB and 5 gigabytes"}, {
+        "id": "B",
+        "markdown": "1 KB and 5 terabytes"
+    }, {"id": "C", "markdown": "1 Byte and 5 gigabytes"}, {"id": "D", "markdown": "0 Bytes and 5 terabytes"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: D \n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization writes a lot of application logs on a regular basis to AWS s3 bucket and are the only copies available, not stored anywhere else. These files range between 10MB-500MB in size and are not accessed regularly. They are required once in a while to troubleshoot application issues. The application team needs the last 60 days of log files to be immediately available when required. Logs older than 60 days need not be accessible immediately but need to keep a copy for reference. What approach would you recommend to keep the billing cost to a minimum?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Set object storage class to STANDARD-IA. Use Lifecycle Management to move data from STANDARD-IA to Glacier after 60 days."
+    }, {
+        "id": "B",
+        "markdown": "Set object storage class to STANDARD. Use Lifecycle Management to move data from STANDARD to STANDARD-IA after 60 days."
+    }, {
+        "id": "C",
+        "markdown": "Set storage class to STANDARD. Use Lifecycle Management to move data from STANDARD to STANDARD-IA after 30 days and move data from STANDARD-IA to Glacier after 30 days."
+    }, {
+        "id": "D",
+        "markdown": "Set object storage class to One Zone-IA. Use Lifecycle Management to move data from One Zone-IA to Glacier after 60 days."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A\n\nThe following are the storage classes for S3 objects and their pricing models.\n\n \n\nSTANDARD-IA offers cheaper storage than the STANDARD class. However, AWS charges $0.01 per\n\nGB of data retrieved from the Infrequent Access storage class apart from the standard download pricing.\n\n \n\nOptions B, C, D state the initial storage to be STANDARD and ONE ZONE-IA.\n\n \n\nFor the given use case, due to the following factors, STANDARD-IA is more suitable than than\n\nSTANDARD or ONE ZONE-IA as initial storage.\n\nData is not accessed regularly. STANDARD is not suitable\n\nData is kept for at least 60 days and the minimum file size is 1 MB. Meets STANDARD-IA\n\nrequisites.\n\nData is the primary copy, not stored anywhere else. ONE ZONE-IA is not suitable.\n\nData needs to be available immediately when required. Available with all classes except\n\nGlacier.\n\n \n\nAfter 60 days, the data can be transitioned to Glacier using Lifecycle management rules since they need not be accessible immediately.\n\nTherefore, from the above options, A is correct.\n\nIn the question, they mentioned that \"Your organization writes a lot of application logs on regular basis to AWS s3 bucket and are the only copies available, not stored anywhere else.\" means the organization is not having another copy of the data at any other location.  The data is just stored in S3 only.\n\n\nSo if we use the OneZone-IA storage class, it will not maintain a replica of your data in multiple availability zones.\n\nAWS says\"S3 One Zone-Infrequent Access (S3 One Zone-IA; Z-IA) is a new storage class designed for customers who want a lower-cost option for infrequently accessed data, but do not require the multiple Availability Zone data resilience model of the S3 Standard and S3 Standard-Infrequent Access (S3 Standard-IA; S-IA) storage classes.\"\n\nBased on the requirement, S3-IA is a suitable Option.\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "With S3 Versioning enabled on the bucket, how will billing be applied for the following scenario using the same key for upload?\n\n\n\tTotal days bucket in use: 25 days.\n\t1st File uploaded on 1st Day of the use – 1 GB.\n\t2nd File uploaded within the same bucket on 15th Day of the use – 5 GB.",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Charges 6 GB for 25 days."}, {
+        "id": "B",
+        "markdown": "Charges 1 GB for 25 days and 5 GB for 11 days."
+    }, {"id": "C", "markdown": "Charges 1 GB for 14 days and 5 GB for 11 days."}, {
+        "id": "D",
+        "markdown": "Charges 5 GB for 25 days."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\n\n\t When versioning is enabled on S3 bucket and a new version is added to an existing object, remember that older version still remains and AWS charges same price for old verions and new versions.\n\n\n\n\n \n\n\n\tIn the given use case, 1 GB uploaded on day 1 remains in S3 for all 25 days. 5 GB uploaded on day 15 will be in S3 for only 11 days.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have a version enabled S3 bucket. You have accidentally deleted an object which contains 3 versions. You would want to restore the deleted object. What can be done?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Select the deleted object and choose restore option in More menu."
+    }, {"id": "B", "markdown": "Delete the delete-marker on the object."}, {
+        "id": "C",
+        "markdown": "Versioning in S3 only supports keeping multiple copies. It does not support restoring deleted objects."
+    }, {
+        "id": "D",
+        "markdown": "In version enabled bucket, Delete request only deletes the latest version. You can still see the older versions of the object using version Id in the GET request."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: B\n\nWhen you delete an object in a versioning-enabled bucket, all versions remain in the bucket and Amazon S3 creates a delete marker for the object. To undelete the object, you must delete this delete marker.\n\nTo undelete an object, you must delete the delete marker. Select the check box next to the delete marker of the object to recover, and then choose delete from the More menu.\n\n \n\n\n\n\n \n\nFor more information on how to undelete objects in version enabled S3 bucket, refer documentation here.\n\n\n\thttps://docs.aws.amazon.com/AmazonS3/latest/user-guide/undelete-objects.html\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have an application which writes application logs to version enabled S3 bucket. Each object has multiple versions attached to it. After 60 days, application deletes the objects in S3 through DELETE API on the object. However, in next month’s bill, you see charges for S3 usage on the bucket. What could have caused this?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "DELETE API call on the object only deletes latest version."}, {
+        "id": "B",
+        "markdown": "DELETE API call on the object does not delete the actual object, but places delete marker on the object."
+    }, {
+        "id": "C",
+        "markdown": "DELETE API call moves the object and its versions to S3 recycle bin from where object can be restored till 30 days."
+    }, {
+        "id": "D",
+        "markdown": "DELETE API for all versions of the object in version enabled bucket cannot be done through API. It can be only done by bucket owner through console."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\nWhen versioning is enabled, a simple DELETE cannot permanently delete an object.\n\nInstead, Amazon S3 inserts a delete marker in the bucket, and that marker becomes the current version of the object with a new ID. When you try to GET an object whose current version is a\n\ndelete marker, Amazon S3 behaves as though the object has been deleted (even though it has not been erased) and returns a 404 error.\n\nThe following figure shows that a simple DELETE does not actually remove the specified object. Instead, Amazon S3 inserts a delete marker.\n\n  \n\nTo permanently delete versioned objects, you must use DELETE Object versionId.\n\nThe following figure shows that deleting a specified object version permanently removes that object.\n\n\n\nFor information on how to delete versioned objects through API, refer documentation here. \n\n\n\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/DeletingObjectVersions.html#delete-obj-version-enabled-bucket-rest\n\n\n \n\nOption A is not true. DELETE call on object does not delete latest version unless DELETE call is made with latest version id.\n\nOption C is not true. AWS S3 does not have recycle bin.\n\n \n\nOption D is not true. DELETE call on versioned object can be made through API by providing version id of the object’s version to be deleted.\n\n \n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are uploading multiple files ranging 10 GB – 20 GB in size to AWS S3 bucket by using multi- part upload from an application on EC2. Once the upload is complete, you would like to notify a group of people who do not have AWS IAM accounts. How can you achieve this?(choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Use S3 event notification and configure Lambda function which sends email using AWS SES non-sandbox."
+    }, {
+        "id": "B",
+        "markdown": "Use S3 event notification and configure SNS which sends email to subsribed email addresses."
+    }, {
+        "id": "C",
+        "markdown": "Write a custom script on your application side to poll S3 bucket for new files and send email through SES non-sandbox."
+    }, {
+        "id": "D",
+        "markdown": "Write a custom script on your application side to poll S3 bucket for new files and send email through SES sandbox."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A, B\n\nThe Amazon S3 notification feature enables you to receive notifications when certain events happen in your bucket. To enable notifications, you must first add a notification configuration identifying the events you want Amazon S3 to publish, and the destinations where you want Amazon S3 to send the event notifications.\n\n\n\n\n \n\n\n\n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\n\n\n \n\nAWS Simple Email Service (SES) is a cost-effective email service built on the reliable and scalable infrastructure that Amazon.com developed to serve its own customer base. With Amazon SES, you can send transactional email, marketing messages, or any other type of high-quality content.\n\nTo help prevent fraud and abuse, and to help protect your reputation as a sender, we apply certain restrictions to new Amazon SES accounts.\n\nWe place all new accounts in the Amazon SES sandbox. While your account is in the sandbox, you can use all of the features of Amazon SES. However, when your account is in the sandbox, we apply the following restrictions to your account:\n\nYou can only send mail to verified email addresses and domains, or to the Amazon SES\n\nmailbox simulator.\n\nYou can only send mail from verified email addresses and domains.\n\nNote\n\nThis restriction applies even when your account is not in the sandbox.\n\nYou can send a maximum of 200 messages per 24-hour period.\n\nYou can send a maximum of 1 message per second.\n\n You can request to move out of sandbox mode when you are ready for production mode.\n\n \n\nFor more information on how to move out of sandbox mode, refer documentation here.\n\n \n\n \n\n\n\thttps://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html\n\n\n \n\nOption A triggers Lambda function which uses non-sandbox SES to send email to people who does not have AWS IAM account nor verified in AWS SES.\n\nOption B triggers SNS.\n\nFollowing document describes how to add SNS event notification to a bucket. \n\n\n\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/ways-to-add-notification-config-to-bucket.html\n\n\n \n\n \n\nOptions C and D, although sounds feasible options, it requires compute resources to continously monitor S3 for new files.\n\nWe should use AWS provided features where ever are applicable. Custom solutions can be built when AWS provided features do not meet the requirement.\n\n \n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization had built a video sharing website on EC2 within US for which S3 bucket in us- east-1 is used to store the video files. The website has been receiving very good feedback and your organization decided to expand the website all over the world. However, customers in Europe and Asia started to complain that website access, upload and download of videos files are slow. How can you resolve the issue? (choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Use CloudFront for improving the performance on website by caching static files."
+    }, {
+        "id": "B",
+        "markdown": "Use VPC Endpoints in Europe and Asia regions to improve S3 uploads and downloads."
+    }, {
+        "id": "C",
+        "markdown": "Enable Transfer Acceleration feature on S3 bucket which uses AWS edge locations to improve upload and download speeds."
+    }, {
+        "id": "D",
+        "markdown": "Change your application design to provision higher-memory configuration EC2 instances and process S3 requests through EC2."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A, C\n\n\n\tOption A is correct. AWS CloudFront can be used to improve the performance of your website where network latency is an issue.\n\t\n\t\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-cloudfront-walkthrough.html\n\t\n\t\n\tOption B is not correct. VPC endpoints do not support cross-region requests. Moreover, VPC endpoints are for accessing AWS resources within VPC.\n\tOption C is correct. Amazon S3 Transfer Acceleration enables fast, easy, and secure transfers of files over long distances between your client and an S3 bucket. Transfer Acceleration takes advantage of Amazon CloudFront’s globally distributed edge locations. As the data arrives at an edge location, data is routed to Amazon S3 over an optimized network path.\n\n\n \n\n\n\tFor more information on transfer acceleration, refer documentation here.\n\t\n\t\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html#transfer-acceleration-why-use\n\t\n\t\n\tOption D is not a good design. It increases cost on EC2 usage and does not solve the problem with slower upload and download speeds to S3.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Cross region replication requires versioning to be enabled on?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Only on Destination bucket."}, {
+        "id": "B",
+        "markdown": "Versioning is useful to avoid accidental deletes and not a requirement for replicating across regions."
+    }, {"id": "C", "markdown": "Only on Source bucket."}, {
+        "id": "D",
+        "markdown": "Both Source and Destination buckets."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: D\n\nCross-region replication is a bucket-level configuration that enables automatic, asynchronous copying of objects across buckets in different AWS Regions. We refer to these buckets as source bucket and destination bucket. These buckets can be owned by different AWS accounts.\n\n\n\n\nFor more information on AWS S3 cross-region replication, refer documentation here.\n\n\n\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization has an existing VPC in us-east-1 with two subnets in us-east-1b. They are running few EC2 instances each in both subnets and would need a low latency common File\n\nStore for all instances to share files for heavy workloads. They have created an EFS, mounted on all the EC2 instances, and able to share files across all the EC2 instances. You were tasked to increase the number of instances due to the increase in workload. You created a new subnet in us-east-1c and launched a few instances. When you tried to mount the previously created EFS on new EC2 instances, the operations fail. What could be the reason?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS EFS does not support cross availability zone mounting."}, {
+        "id": "B",
+        "markdown": "By default, EFS is only available in one availability zone. Create a case with AWS support to increase EFS availability zones."
+    }, {
+        "id": "C",
+        "markdown": "EFS created with mount targets in an us-east-1b availability zone. Instances in us-east-1c cannot use the EFS mount target in us-east-1b."
+    }, {
+        "id": "D",
+        "markdown": "EFS mount target security group inbound rules do not allow traffic from new EC2 instances."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: D\n\nAmazon EFS provides scalable file storage for use with Amazon EC2. You can create an EFS file system and configure your instances to mount the file system. You can use an EFS file system as a common data source for workloads and applications running on multiple instances\n\n\n\nFor options A, B, C EFS mount targets from one availability zone can be mounted on another availability zone although this approach is not recommended. However, this approach will not cause operations to fail.\n\n \n\nCreating or Deleting Mount Targets in a VPC\n\nA VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them using private Internet Protocol version 4 (IPv4) or Internet Protocol version 6 (IPv6) addresses. For more information on VPC peering, see What is VPC Peering? in the Amazon VPC Peering Guide.\n\nYou can mount Amazon EFS file systems over VPC connections by using VPC peering within a single AWS Region when using the Amazon EC2 instance types T3, C5, C5d, I3.metal, M5, M5d, R5, R5d, and z1d. However, other VPC private connectivity mechanisms such as inter-region VPC peering and VPC peering within an AWS Region using other instance types are not supported. \n\n \n\nNote the following restrictions:\n\n\n\tYou can mount an Amazon EFS file system on instances in only one VPC at a time.\n\tBoth the file system and VPC must be in the same AWS Region.\n\n\n \n\n \n\nFor option D, when using Amazon EFS, you specify Amazon EC2 security groups for the EFS mount targets associated with the file system. Security groups act as a firewall, and the rules you add define the traffic flow.\n\nYou can authorize inbound and outbound access to your EFS file system. To do so, you add rules that allow your EC2 instance to connect to your Amazon EFS file system through the mount target using the Network File System (NFS) port.\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have an AWS setup with an existing VPC in us-east-1. You have a fleet of 20 EC2 instances which are attached to EFS with mount targets on all existing VPC’s availability zones. Your organization had requested you to replicate the same setup in another VPC within us-east-1 keeping same EFS volume. How will you achieve this?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Attach new VPC to existing EFS, create new mount targets for new VPC and mount EFS   on EC2 instances within new VPC"
+    }, {
+        "id": "B",
+        "markdown": "Create a new VPC. Establish a VPC peering connection between the VPCs. Use the instances that are created in the new VPC to access the already existing EFS with mount targets"
+    }, {
+        "id": "C",
+        "markdown": "EFS is available for all VPCs within a region by default. Mount EFS on new EC2 instances and configure EFS security group to allow inbound traffic."
+    }, {
+        "id": "D",
+        "markdown": "EFS can be used only within one VPC at a time. You need to launch EC2 instances in existing VPC."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\nWorking with VPC Peering in Amazon EFS\n\nA VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them using private Internet Protocol version 4 (IPv4) or Internet Protocol version 6 (IPv6) addresses. For more information on VPC peering, see What is VPC Peering? in the Amazon VPC Peering Guide.\n\n\n\thttps://aws.amazon.com/about-aws/whats-new/2018/11/amazon-efs-now-supports-access-across-accounts-and-vpcs/\n\thttps://docs.aws.amazon.com/efs/latest/ug/manage-fs-access-change-vpc.html#manage-fs-access-vpc-peering\n\n\n \n\n\n\tFor options A and C, you can use an Amazon EFS file system in one VPC at a time. That is, you create mount targets in a VPC for your file system, and use those mount targets to provide access to the file system from EC2 instances in that VPC.\n\n\n \n\n\n\tFor option D, although the statement is correct, launching EC2 instances within same VPC is not a solution when you were asked to do in a new VPC. Correct answer from given options would be to peer the VPC and use appropriate instance types.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following statements is correct in terms of the newly created security group that allows Secure Shell (SSH) to connect the instances and communication between EC2 instance and EFS?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Open port 22(SSH) on EC2 security group and port 2049(NFS) on EFS security group."
+    }, {
+        "id": "B",
+        "markdown": "Open port 22(SSH) on EC2 security group and ports 111(NFS) & 2049(NFS) on EFS security group."
+    }, {
+        "id": "C",
+        "markdown": "Open port 2049(NFS) on EC2 security group and ports 111(NFS) & 2049(NFS) on EFS security group."
+    }, {
+        "id": "D",
+        "markdown": "Open port 111(NFS) on EC2 security group and ports 111(NFS) & 2049(NFS) on EFS security group."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: A\n\n\n\n \n\n\n\thttps://docs.aws.amazon.com/efs/latest/ug/accessing-fs-create-security-groups.html#create-security-groups-console\n\n\n \n\n \n\n \n\nAWS EFS does not require any other port to be open except NFS (2049) on its security group.\n\n \n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have two VPCs in different regions ( VPC A and VPC B) peered with each other. You have created an EFS for VPC A. When you tried to mount the EFS on EC2 instances on VPC B, you are getting connection timed out error. What can cause this ( choose 2 options )",
+    "prompt": "",
+    "correctAnswerId": ["B", "C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "AWS EFS takes upto an hour after creation to make mount targets available."
+    }, {"id": "B", "markdown": "Security group is improperly configured for EFS mount target"}, {
+        "id": "C",
+        "markdown": "Security group on mount targets does not have inbound NFS port open to VPC B’s EC2 instances."
+    }, {"id": "D", "markdown": "EFS cannot be mounted through VPC peering."}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer: B and C\n\n\n\tPlease refer to the following link on page 27 and 107\n\t\n\t\thttps://docs.aws.amazon.com/efs/latest/ug/efs-ug.pdf\n\t\n\t\n\tOption A is INCORRECT. Usually, EFS and its mount targets get created within a few moments.\n\tOption B is CORRECT because both an Amazon EC2 instance and a mount target have associated security groups. These security groups and act as a virtual firewall that controls the traffic between them\n\tOption C is CORRECT because the security groups you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all EC2 instances on which you want to mount the file system\n\tOption D is INCORRECT because VPC peering within a single AWS Region when using certain Amazon EC2 instance types is supported. Inter-region VPC peering is supported for all instance types.\n\tRefer link:\n\t\n\t\t https://docs.aws.amazon.com/efs/latest/ug/limits.html\n\t\n\t\n\n\nTherefore the following options are correct:\n\nB. Security group is not created for EFS mount target\nC. Security group on mount targets does not have NFS port open to VPC B's EC2 instances\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have created AWS EFS with default settings and mounted on an EC2 instance. Due to regulatory policies, your organization had asked you to encrypt data stored on EFS. What would you do to enable encryption?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Edit EFS volume and enable “encryption at rest” setting. All existing data automatically gets encrypted as a background process. You will be notified once the process is completed."
+    }, {
+        "id": "B",
+        "markdown": "Encryption at rest option can only be set during EFS creation. You need to create encryption-at-rest EFS, copy data from old EFS to new EFS and delete old EFS."
+    }, {
+        "id": "C",
+        "markdown": "You can enable encryption at rest during mounting of EFS on EC2. To encrypt an existing  EFS mount, unmount the EFS and remount with encryption option."
+    }, {"id": "D", "markdown": "EFS does not support encryption. Use S3 for encrypting data at rest."}],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: B\n\nAWS EFS supports encrypting data at rest. It can only be done during EFS creation.Enforcing Encryption at Rest\n                     \n                     \n                     Your organization might require the encryption at rest of all data that meets a specific\n                        classification or that is associated with a particular application, workload, or environment.\n                        You can enforce policies for data encryption at rest for Amazon EFS file systems by\n                        using detective\n                        controls. These controls detect the creation of a file system and verify that encryption\n                        at\n                        rest is enabled. \n                     \n                     \n                     If a file system that doesn't have encryption at rest is detected, you can respond\n                        in a\n                        number of ways. These range from deleting the file system and mount targets to notifying\n                        an\n                        administrator.\n                     \n                     \n                     \n                     If you want to delete an unencrypted-at-rest file system but want to retain the data,\n                        first create a new encrypted-at-rest file system. Next, copy the data over to the\n                        new\n                        encrypted-at-rest file system. After the data is copied over, you can delete the\n                        unencrypted-at-rest file system. \n                     \n\nOption A is incorrect. You cannot enable encryption once EFS is created.Option C is incorrect. You cannot enable encryption at rest through mounting options. Option D is incorrect. Refer to above screen shots.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have created AWS EFS with default settings and mounted on an EC2 instance. Due to regulatory policies, your organization had asked you to encrypt data during transit to EFS. What would you do to enable encryption during transit?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "AWS EFS uses NFS protocol which encrypts the data in transit by default."
+    }, {"id": "B", "markdown": "Edit EFS to enable “encryption during transit” setting."}, {
+        "id": "C",
+        "markdown": "Encryption during transit can only be enabled during EFS creation. You need to create encryption during transit EFS, copy data from old EFS to new EFS and delete old EFS."
+    }, {
+        "id": "D",
+        "markdown": "Enable encryption during mounting on EC2 using Amazon EFS mount helper. Unmount unencrypted mount and remount using mount helper encryption during transit option."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: D\n\nAWS uses NFS protocol for EFS. NFS is not an encrypted protocol and anyone on the same physical network could sniff the traffic and reassemble the information being passed back and forth.\n\nHowever, AWS provides an option to encrypt data at transit through NFS to EFS.\n\nFor information on how to enable encryption during transit, refer documentation here. \n\nhttps://docs.aws.amazon.com/efs/latest/ug/encryption.html#encryption-in-transit\n\nOption A is incorrect. Refer above statements.\n\nOption B and C are incorrect. Encryption during transit is not an option on EFS during or after creation.\n\n\n\n  Option D is correct. Refer above documentation link for more information on using Amazon EFSmount helper to enable encryption during transit.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are building a content-serving web application with 20 EC2 instances. The EC2 servers are all load-balanced, and content storage for the instances will remain the same.\n\nYou have chosen AWS EFS to act as common storage repository. Your application needs to have as low of latency as possible when serving content to the web users. Which of the following options is the best choice for this situation?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Max I/O Performance Mode"}, {
+        "id": "B",
+        "markdown": "General Purpose Performance Mode"
+    }, {"id": "C", "markdown": "Bursting Throughput Mode"}, {"id": "D", "markdown": "Provisioned Throughput Mode"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\nAlthough Max I/O is recommended to be used when tens, hundreds or thousands of EC2 instances sharing same EFS, it can slightly increase the latency. In this case, the question states the latency need to be as low as possible.\n\n\n\n \n\nPerformance Modes\n\nTo support a wide variety of cloud storage workloads, Amazon EFS offers two performance modes. You select a file system's performance mode when you create it.\n\nThe two performance modes have no additional costs, so your Amazon EFS file system is billed and metered the same, regardless of your performance mode. For information about file system limits, see Limits for Amazon EFS File Systems.\n\nNote: An Amazon EFS file system's performance mode can't be changed after the file system has been created. \n\nGeneral Purpose Performance Mode\n\nWe recommend the General Purpose performance mode for the majority of your Amazon EFS file systems. General Purpose is ideal for latency-sensitive use cases, like web serving environments, content management systems, home directories, and general file serving. If you don't choose a performance mode when you create your file system, Amazon EFS selects the General Purpose mode for you by default.\n\nMax I/O Performance Mode\n\nFile systems in the Max I/O mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for file operations. Highly parallelized applications and workloads, such as big data analysis, media processing, and genomics analysis, can benefit from this mode.\n\n\n\thttps://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes\n\n\nVia the explanations above, Option B is the only correct statement.\n\nFor Bursting and Provisioned Throughput modes, please refer page 85 to 89 on the below link:\n\nhttps://docs.aws.amazon.com/efs/latest/ug/efs-ug.pdf\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are building a content serving web application on 5 EC2 instances load balanced. Total content size stored may not exceed 25 GB. You have chosen EFS for content storage. The content is accessed frequently by large number of users. Which throughput mode would you choose inorder to make sure that application on EC2 instances to EFS data transfer will not have performance bottleneck?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Throughput mode = Bursting, provides a consistent high throughput for smaller data sizes."
+    }, {"id": "B", "markdown": "General Purpose Performance Mode"}, {
+        "id": "C",
+        "markdown": "Throughput mode = Provisioned, you can configure specific throughput irrespective of EFS data size."
+    }, {"id": "D", "markdown": "Max I/O Performance Mode"}],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: C\n\nSpecifying Throughput with Provisioned Mode\n\n\"Provisioned Throughput mode is available for applications with high throughput to storage (MiB/s per TiB) ratios, or with requirements greater than those allowed by the Bursting Throughput mode. For example, say you're using Amazon EFS for development tools, web serving, or content management applications where the amount of data in your file system is low relative to throughput demands. Your file system can now get the high levels of throughput your applications require without having to pad your file system\". \n\n\n\thttps://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes\n\n\nPlease refer page 87, section \"Specifying Throughput with Provisioned Mode\" in the below link\n\n           https://docs.aws.amazon.com/efs/latest/ug/efs-ug.pdf\n\nFor this case, since the data is low compared to the throughput demand, provisioned mode is the right choice for throughput mode.\n\nSince the question asks for a \"throughout mode\" the \"permormance mode\" cannot be used here and therefore Options B and D are INCORRECT here\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization is planning to use AWS for BigData analysis. Total data is expected to be 400\n\nTB. They were planning to use 150 EC2 instances with EFS because of better performance needs for the analysis. They have reached out to you asking for recommendation on performance mode. What would you suggest?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Performance mode = General Purpose, AWS can handle performance with general purpose mode till 10s of EC2 instances."
+    }, {"id": "B", "markdown": "Performance mode = General Purpose, provides low-latency access to EFS."}, {
+        "id": "C",
+        "markdown": "Performance mode = General Purpose, provides higher levels of aggregate throughput and operations per second."
+    }, {
+        "id": "D",
+        "markdown": "Performance mode = Max I/O, provides higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: DMax I/O Performance Mode\n                     \n                     \n                     \n                     \"File systems in the Max I/O mode can scale to higher levels of aggregate throughput\n                        and\n                        operations per second with a tradeoff of slightly higher latencies for file operations.\n                        Highly parallelized applications and workloads, such as big data analysis, media processing,\n                        and genomics analysis, can benefit from this mode\".\n                     For more information, Please check following AWS Docs:\n\nhttps://docs.aws.amazon.com/efs/latest/ug/performance.html \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following are typical use cases of EFS? (choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["B", "D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Data is stored redundantly in a single AZ."}, {
+        "id": "B",
+        "markdown": "Up to thousands of Amazon EC2 instances, from multiple AZs, can connect concurrently to a file system."
+    }, {
+        "id": "C",
+        "markdown": "Boot volumes, transactional and NoSQL databases, data warehousing, and ETL."
+    }, {
+        "id": "D",
+        "markdown": "Big data and analytics, media processing workflows, content management, web serving, and home directories."
+    }, {"id": "E", "markdown": "Cross region replication."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B, D\n\nFollowing table shows the characteristics of EFS vs EBS.\n\n\n\nOption A is characteristic of EBS. Option B is characteristic of EFS. Option C is characteristic of EBS. Option D is characteristic of EFS. Option E is charactersitic of S3.\n\nFor more information on AWS EFS use cases, refer documentation here. \n\n\n\thttps://docs.aws.amazon.com/efs/latest/ug/performance.html#performance-usecases\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following are valid integration sources for API Gateway? (choose 3 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "B", "D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Public facing HTTP-based endpoints outside AWS network."}, {
+        "id": "B",
+        "markdown": "Lambda functions from another account."
+    }, {"id": "C", "markdown": "Database connections on internet outside AWS network."}, {
+        "id": "D",
+        "markdown": "VPC Link"
+    }, {"id": "E", "markdown": "SFTP connection"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A, B, D\n\nOption A is correct. AWS API Gateway can integrate with any HTTP-based endpoints available over the internet.\n\n  \n\n \n\nQ: With what backends can Amazon API Gateway communicate?\n\nAmazon API Gateway can execute AWS Lambda functions in your account, start AWS Step Functions state machines, or call HTTP endpoints hosted on AWS Elastic Beanstalk, Amazon EC2, and also non-AWS hosted HTTP based operations that are accessible via the public Internet. API Gateway also allows you to specify a mapping template to generate static content to be returned, helping you mock your APIs before the backend is ready. You can also integrate API Gateway with other AWS services directly – for example, you could expose an API method in API Gateway that sends data directly to Amazon Kinesis.\n\n \n\n \n\nOption B is correct. AWS can use Lambda function from another account as an integration type.\n\n \n\n\n\n \n\nOption C is incorrect. AWS API gateway can connect to AWS services which will make proxy calls only to their respective AWS APIs. There is no integration type for database connections directly from API Gateway. You can use Lambda function to connect with database and make Lambda as integration type for API Gateway.\n\n \n\nOption D is correct. AWS has introduced VPC Link, a way to connect to the resources within a private VPC.\n\n \n\nRefer to the documentation here for more information on VPC Links. https://aws.amazon.com/blogs/compute/introducing-amazon-api-gateway-private-endpoints/\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A Company ABC has 100 REST APIs exposed to the Internet from their on-premise network. They have already integrated with AWS through DirectConnect. They have approached you asking for a cost-effective way of making these REST APIs available through AWS API Gateway because of the resiliency and cost reductions provided by it. What solution would you provide?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "API Gateway cannot integrate with on-premises backend APIs which are not over the public internet. Rebuild all the backend APIs using Lambda and integrate it with API Gateway."
+    }, {
+        "id": "B",
+        "markdown": "Use VPC Link to integrate on-premises backend solutions through DirectConnect and private VPC."
+    }, {
+        "id": "C",
+        "markdown": "Build API Gateway using the existing on-premises public facing REST APIs as HTTPS endpoints integration type."
+    }, {
+        "id": "D",
+        "markdown": "Build API Gateway with integration type as AWS Service and select Direct Connect service."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B \n\n \n\n\n\n\n\tFor more information on VPC Link, refer to the documentation here. \n\t\n\t\thttps://aws.amazon.com/blogs/compute/introducing-amazon-api-gateway-private-endpoints/\n\t\n\t\n\tOption A is INCORRECT because you can use API Gateway to integrate with on-premises backend APIs and therefore this option is invalid\n\tOption C is INCORRECT because you can choose the integration type as \"HTTPS\" if your API will be integrated with an existing HTTPS endpoint. Since the question does not state any integration with any HTTPS endpoint, this option is invalid\n\tOption D is INCORRECT because you can choose the integration type as \"AWS Service\" only if your API will be integrated with an AWS service. Since the question does not state any integration with any AWS service, this option is invalid\n\n\n \n\n\n\tPlease refer page 605 on the below link:\n\t\n\t\thttps://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-dg.pdf\n\t\n\t\n\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have built a REST API using API gateway and distributed to your customers. However, your API is receiving large number of requests and overloading your backend system causing performance bottlenecks and eventually causing delays and failures in serving the requests for your important customers. How would you improve the API performance? (Choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Enable throttling and control the number of requests per second."}, {
+        "id": "B",
+        "markdown": "Create a resource policy to allow access for specific customers during specific time period."
+    }, {"id": "C", "markdown": "Enable API caching to serve frequently requested data from API cache."}, {
+        "id": "D",
+        "markdown": "Enable load balancer on your backend systems."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: A, C\n\n\n\nOption A is correct. To prevent your API from\nbeing overwhelmed by too many requests, Amazon API Gateway throttles requests to your\nAPI. Specifically, API Gateway sets a limit\non a steady-state rate and a burst of request submissions against all APIs\nin your account.\n\nFor more information on throttling, refer documentation here. https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html\n\nOption B is not correct. This is not a viable solution. Resource policies cannot have a time range\nbased condition.\n\nFollowing documentation shows the conditions supported for API Gateway resource policies. \n\nhttps://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies-aws-condition-keys.html\n\nOption C is correct. You can enable API caching in Amazon API Gateway to cache your\nendpoint’s responses. With caching, you can reduce the number of calls\nmade to your\nendpoint and also\nimprove the latency of requests to your\nAPI. When you enable caching for a stage, API Gateway caches responses from your\nendpoint for a specified time-to-live (TTL) period, in seconds. API Gateway then responds to the request by looking up the endpoint response from the cache instead of making a request to your endpoint. The default TTL value\nfor API caching is 300 seconds. The maximum TTL value\nis 3600 seconds. TTL=0 means caching is disabled.\n\nFor details on enabling caching, refer documentation here. https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html#enable-api-gateway-caching\n\nOption D is not correct. We can improve performance by increasing the capacity of backend systems if above settings does not help. Simply adding a load balancer does not improve any performance.\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have created a public-facing REST API using AWS API Gateway with default throttle setting of 10000 requests per second and a burst of 5000 requests. You are getting 8000 requests in one millisecond. Which of the following statements is true?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "All 8000 requests would succeed as the default throttle limit is 8000 per second."
+    }, {
+        "id": "B",
+        "markdown": "All 8000 requests would fail as it is higher than the burst limit of 5000."
+    }, {"id": "C", "markdown": "5000 requests would succeed and rest 3000 would fail."}, {
+        "id": "D",
+        "markdown": "5000 requests would succeed and throttles the rest of 3000 in the one-second period."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: D\n\nTo prevent your API from being overwhelmed by too many requests, Amazon API Gateway throttles requests to your API using the token bucket algorithm, where a token count for a request. Specifically, API Gateway sets a limit on a steady-state rate and a burst of request submissions against all APIs in your account. In the token bucket algorithm, the burst is the maximum bucket size.\n\nWhen request submissions exceed the steady-state request rate and burst limits, API Gateway fails the limit-exceeding requests and returns 429 Too Many Requests error responses to the client. Upon catching such exceptions, the client can resubmit the failed requests in a rate-limiting fashion, while complying with the API Gateway throttling limits.\n\nBy default, API Gateway limits the steady-state request rate to 10,000 requests per second (rps). It limits the burst (that is, the maximum bucket size) to 5,000 requests across all APIs within an AWS account. In API Gateway, the burst limit corresponds to the maximum number of concurrent request submissions that API Gateway can fulfill at any moment without returning\n\n429 Too Many Requests error responses.\n\n\n\nFor more information on API Gateway throttling, refer documentation here.\n\n\n\thttps://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html#apig-request-throttling-account-level-limits\n\n\n \n\nNOTE:\n\nThe question says that \"10000requests per second and burst of 5000 requests.\" However, \"You are getting 8000 requests in one millisecond.\"\n\nTo help understand these throttling limits, here are a few examples, given the burst limit and the default account-level rate limit:\n\n\n\t\n\tIf a caller submits 10,000 requests in a one-second period evenly (for example, 10 requests every millisecond), API Gateway processes all requests without dropping any.\n\t\n\t\n\tIf the caller sends 10,000 requests in the first millisecond, API Gateway serves 5,000 of those requests and throttles the rest in the one-second period.\n\t\n\n\n \n\n \n\n\n\tPlease check the below link to know more about it. \n\t\n\t\thttps://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html\n\t\n\t\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization had created a REST API using AWS API Gateway and exposed it over the internet.\n\nThey have noticed a consistently high number of requests per second on the GET /users method, approximately 9000 out of which 5000 requests are sent in 1st millisecond. This is putting more overload on backend systems. They have changed the stage’s number of requests per second to\n\n6000 and burst to 3000 requests. Now the total number of requests sent per second is reduced to 6000, however, 5000 requests being sent in 1st millisecond. What could be causing this behavior?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Stage’s GET /users method throttling settings might have overwritten stage throttling settings with burst as 5000 requests."
+    }, {
+        "id": "B",
+        "markdown": "Account level throttle settings are 10000 requests per second and burst 5000 requests. You cannot overwrite account level settings."
+    }, {"id": "C", "markdown": "Any changes made to Stage might take up to 2 hours to propagate."}, {
+        "id": "D",
+        "markdown": "Requests per second are set to 6000. API can serve up to 6000 requests irrespective of how many requests sent in one millisecond."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: A\n\nYou can override stage settings on an individual method within a stage.\n\n\n\n \n\n\n\n\n\n\thttps://aws.amazon.com/about-aws/whats-new/2018/07/api-gateway-usage-plans-support- method-level-throttling/\n\n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following are not access control mechanisms for AWS API Gateway? (Choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["C", "D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Resource policies"}, {"id": "B", "markdown": "Lambda authorizers"}, {
+        "id": "C",
+        "markdown": "Server-side certificates"
+    }, {"id": "D", "markdown": "VPC RouteTables"}, {"id": "E", "markdown": "Usage Plans"}],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: C, D\n\nFollowing are different ways of controlling access to your AWS API Gateway.\n\n \n\nhttps://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-controlling-access-to-apis.html\n\n \n\nOption C is not access control mechanism. API Gateway accepts the client-side certificates of your backend system.\n\nhttps://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html#configure-api\n\n \n\nOption D is not access control mechanism. RouteTables in VPCs are to control network traffic flow within a VPC.\n\n \n\nFor more information on VPC route tables, refer documentation here: \n\nhttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html\n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization needs to expose certain services to your customers. You have created and deployed a REST API for your organization using AWS API Gateway over the public internet. Once deployed, you notice requests from hosts other than your customers. How would you control access in this scenario? (Choose 3 Options)",
+    "prompt": "",
+    "correctAnswerId": ["B", "C", "E"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Establish DirectConnect to each of your customer’s networks and enable API Gateway’s VPC Link through a private VPC."
+    }, {"id": "B", "markdown": "Enable CORS and add required hostnames under Access-Control-Allow-Origin."}, {
+        "id": "C",
+        "markdown": "Configure your customer’s IP address ranges in resource policy."
+    }, {"id": "D", "markdown": "Create IAM users for your customers and enable user authentication."}, {
+        "id": "E",
+        "markdown": "Generate a Client Certificate to verify that HTTP requests to your backend system are from API Gateway."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answers: B, C, and E.\n\n \n\n\n\tOption A is not a feasible solution.\n\tOption B is correct. You can allow a domain other than the API Gateway’s domain name to access the APIs using Cross Origin Resource Sharing.\n\t\n\t\tFor more information on CORS, refer documentation here:https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html\n\t\n\t\n\tOption C is correct.\n\n\n \n\n\n\tOption D is incorrect.  We can't exactly predict the number of users who would be using the API from the customer's side, and that's the reason we have Option C as correct.  Configuring the IP range of the customer, and whoever wants to have access will be using the IP that's part of the configured range.\n\tOption E is correct. We can use API Gateway to generate an SSL certificate and use its public key in the backend to verify that HTTP requests to your backend system are from API Gateway.\n\t\n\t\tNOTE: The client certificate is between API Gateway and the backend systems, not between API Gateway and the clients who make the requests. \n\t\tFor more information on client certificates for API gateway, refer documentation here:\n\t\t\n\t\t\thttps://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html\n\t\t\n\t\t\n\t\n\t\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "In AWS API Gateway, which of the following security measures is provided default by AWS to protect the backend systems?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Default Cross-Origin Resource Sharing (CORS) configuration."}, {
+        "id": "B",
+        "markdown": "Default Resource Policy."
+    }, {"id": "C", "markdown": "Protection from distributed denial-of-service (DDoS) attacks."}, {
+        "id": "D",
+        "markdown": "Security of backend systems falls under customer responsibility. AWS provides different mechanisms to protect backend systems which are not configured by default."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: C\n\nFollowing are the control mechanisms provided by AWS to control access. However, they are not configured by default by AWS. As a customer of AWS, you need to configure them.\n\n \n\n\n\n \n\n \n\nOptions A and B are part of the above list and do not have any default configurations. Option C is correct.\n\n \n\nOption D statement is not correct. The above screenshot shows AWS automatically provides protection from DDoS attacks.\n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "When enabling API caching for API Gateway through the console, which of the following is not a cache setting?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Cache capacity"}, {"id": "B", "markdown": "Encrypt cache data"}, {
+        "id": "C",
+        "markdown": "Refresh cache"
+    }, {"id": "D", "markdown": "Flush entire cache"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: C\n\nFollowing are the settings and actions when enabling/disabling API caching for API Gateway.\n\n\n\n\n\tOptions A, B, D are highlighted in above screen shots. There is no action to refresh cache on API Gateway.\n\n\nFor more information on API caching, refer documentation here.\n\n\n\thttps://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have created a REST API using AWS API Gateway and deployed it to production. Your organization requested the details on who is accessing the API for auditing purposes. How would you get the required information on who accessed your API?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Enable CloudWatch Logs."}, {
+        "id": "B",
+        "markdown": "Enable Access Logging"
+    }, {"id": "C", "markdown": "CloudTrail contains the requester information for your API."}, {
+        "id": "D",
+        "markdown": "Enable logging in your backend system to log the requests."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: B\n\nTo help debug issues related to request execution or client access to your API, you can enable\n\nAmazon CloudWatch Logs to trace API calls.\n\nOption A is not correct. Default CloudWatch logging enables API request logging which does not contain who access the API and how did they access.\n\n\n\n\nOption B is correct.\n\n \n\nFor more information on API gateway logging, refer to documentation here. \n\n \n\n\n\thttps://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html\n\n\n \n\n \n\nOption C is not correct. CloudTrail logs the request information on AWS APIs, not the APIs generated through API gateway.\n\nYou can use AWS CloudTrail to capture API Gateway REST API calls in your AWS account and deliver the log files to an Amazon S3 bucket you specify. Examples of these API calls include creating a new API, resource, or method in API Gateway.\n\nFor more information on what information is captured in CloudTrail, refer to documentation here.\n\n \n\n\n\thttps://docs.aws.amazon.com/apigateway/latest/developerguide/cloudtrail.html\n\n\n \n\nOption D is not correct. It is not effective in logging access logs as we have an option provided by AWS.\n\n \n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following are features of AWS ECS? (Choose 3 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "B", "D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Task Definition"}, {"id": "B", "markdown": "Tasks"}, {
+        "id": "C",
+        "markdown": "Container Registery"
+    }, {"id": "D", "markdown": "Cluster"}, {"id": "E", "markdown": "Source Image Storage"}],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: A, B, D\n\nHere is a high-level overview of ECS service.\n\nFollowing are the features for AWS ECS.Containers and ImagesTask DefinitionsTasks and SchedulingClustersContainer AgentFor more information on ECS features, refer documentation here. https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html#welcome-featuresOptions A, B and D are part of above feature list.Option C is not part of ECS. Amazon Elastic Container Registry (Amazon ECR) is a fully managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images.For more information on AWS ECR, refer documentation here. https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.htmlOption E is not correct. It is part of AWS ECR.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following statement defines task definition?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "JSON template that describes containers which forms your application."
+    }, {"id": "B", "markdown": "Template for a program that runs inside AWS ECS Cluster."}, {
+        "id": "C",
+        "markdown": "AWS managed service that launches ECS clusters."
+    }, {
+        "id": "D",
+        "markdown": "Template that defines actions for each IAM user on the ECS cluster and its containers."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: A\n\nFor more information on how to create task definitions, refer documentation here.https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization is planning to use AWS ECS for docker applications. However, they would like to apply 3rd party monitoring tools on the ECS instances. They approached you asking for a recommendation. What do you suggest?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "AWS ECS is a managed service. Customers cannot install 3rd party softwares. Use CloudWatch for monitoring metrics."
+    }, {
+        "id": "B",
+        "markdown": "Customers will have control over AWS ECS instances and can setup monitoring like a normal EC2 instance."
+    }, {
+        "id": "C",
+        "markdown": "Raise a case with AWS to install 3rd party software on ECS. AWS will review the case and install if 3rd party software is in their trusted software entries."
+    }, {
+        "id": "D",
+        "markdown": "AWS ECS is a managed service. Customers cannot install 3rd party softwares. Use application level monitoring."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: B\n\nFor more information on ECS instances, refer documentation here.https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_instances.htmlOptions A and D are not correct. AWS ECS uses EC2 instances with ECS-optimized AMI. You will have root access to the instances and you can manage them.\n\nOption C is not a valid statement.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following is a correct statement in relation to ECS instances when accessing Amazon ECS service endpoint?\n\nChoose 2 options.",
+    "prompt": "",
+    "correctAnswerId": ["A", "C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create an Interface VPC Endpoint for ECS service and attach to VPC subnet’s route table in which ECS instances are running."
+    }, {
+        "id": "B",
+        "markdown": "ECS intances are launched with ECS-optimized AMI which contains an inbuilt mechanism to communicate with ECS service endpoints through AWS network."
+    }, {
+        "id": "C",
+        "markdown": "Create a NAT Gateway and attach it to VPC subnet’s route table in which ECS instances are running."
+    }, {
+        "id": "D",
+        "markdown": "AWS service endpoints are accessible internally across VPCs. You need to enable IAM role access on the service which needs to be accessed."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A and C\n\nThe container agent runs on each infrastructure resource within an Amazon ECS cluster. It sends information about the resource's current running tasks and resource utilization to Amazon ECS, and starts and stops tasks whenever it receives a request from Amazon ECS.\n\n \n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_instances.html\n\tOption A is correct.ECS supports interface VPC endpoints.\n\t\n\t\thttps://docs.aws.amazon.com/AmazonECS/latest/developerguide/vpc-endpoints.html\n\t\t https://aws.amazon.com/blogs/aws/aws-privatelink-update-vpc-endpoints-for-your-own-applications-services/\n\t\n\t\n\n\n \n\n\n\tOption B is not correct. Any network communication happening in/out of VPC must follow the rules defined on route tables, Network ACLs and Security Groups. Any external communication (internet facing or AWS service endpoints) must either go through Internet Gateway, NAT Gateway or VPC Endpoints (if applicable).\n\n\nFor more information on traffic between VPC and outside networks, refer documentation here.\n\n\n\thttps://aws.amazon.com/premiumsupport/knowledge-center/connect-vpc/\n\n\n \n\n\n\tOption D is not a valid statement. Refer to above documentation.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have launched an ECS cluster with 5 EC2 instances with its task definitions. However, ECS is not getting any status information back from the container agent in each ECS instance. What could be the reason?\n\n(choose 3 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "C", "D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "IAM role used to run ECS instance does not have ecs:Poll action in its policy"
+    }, {"id": "B", "markdown": "Key-pair information is missing in ECS cluster."}, {
+        "id": "C",
+        "markdown": "ECS  Instance  security  groups’  outbound  rules  are  not  allowing  traffic  to  ECS  service endpoint"
+    }, {"id": "D", "markdown": "Interface VPC endpoint is not configured for ECS service."}, {
+        "id": "E",
+        "markdown": "You are running ECS on t2.micro instance type which is not supported."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: A, C, D\n\n\n\tOption A is correct. The Amazon ECS container agent makes calls to the Amazon ECS API on your behalf. Container instances that run the agent require an IAM policy and role for the service to know that the agent belongs to you. Before you can launch container instances and register them into a cluster, you must create an IAM role for those container instances to use when they are launched. This requirement  applies  to  container  instances  launched  with  the  Amazon  ECS-optimized  AMI provided by Amazon, or with any other instances that you intend to run the agent on.\n\n\n \n\n \n\n\n\thttps://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html\n\n\n \n\n\n\tOption B is not correct. Amazon ECS container instance, has no password to use for SSH access; you use a key pair to log in to your instance securely. You specify the name of the key pair when you launch your container instance, then provide the private key when you log in using SSH.\n\t\n\t\thttps://docs.aws.amazon.com/AmazonECS/latest/developerguide/get-set-up-for-amazon-ecs.html?shortFooter=true#create-a-key-pair\n\t\n\t\n\n\n \n\n\n\tOption C is correct. Security groups act as a firewall to ECS container instances. If outbound rules are not allowing any traffic to ECS service endpoints, container agent will not be able to report the status back to ECS.\n\tFor more information on Security Groups, refer documentation here. \n\t\n\t\thttps://docs.aws.amazon.com/AmazonECS/latest/developerguide/get-set-up-for-amazon-ecs.html?shortFooter=true#create-a-base-security-group\n\t\n\t\n\n\n \n\n\n\tOption D is correct.ECS supports interface VPC endpoints.\n\t\n\t\thttps://docs.aws.amazon.com/AmazonECS/latest/developerguide/vpc-endpoints.html\n\t\thttps://aws.amazon.com/blogs/aws/aws-privatelink-update-vpc-endpoints-for-your-own-applications-services/\n\t\n\t\n\n\n \n\n\n\tOption E is not correct. T2.micro is supported for container instance.\n\n\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following can be used with Amazon ECS to run containers without having to manage servers or clusters of Amazon EC2 instances?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWSVPC"}, {"id": "B", "markdown": "FARGATE"}, {
+        "id": "C",
+        "markdown": "AWS ECR"
+    }, {"id": "D", "markdown": "Docker"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\n \n\n\n\n\n \n\n\n\n\n \n\nFor detailed information on AWS ECS Launch types, refer documentation here. \n\n\n\thttps://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html\n\n\n \n\nFor Option D, Docker is a container type, not launch type. Amazon ECS uses Docker images in task definitions to launch containers on EC2 instances in your clusters.\n\n \n\n\n\t https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following are the parameters specified in task definition? (choose 3 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "C", "E"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "The Docker images to use with the containers in your task."}, {
+        "id": "B",
+        "markdown": "EC2 instance types to be used as container instances."
+    }, {"id": "C", "markdown": "How much CPU and memory to use with each container."}, {
+        "id": "D",
+        "markdown": "AWS VPC and subnets to launch containers in."
+    }, {"id": "E", "markdown": "The command the container should run when it is started."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A, C, EFollowing are the parameters used in task definition. https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html\n\nOption B and D are paramters specified in creating an ECS cluster.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following are the parameters specified in Service Definition? (choose 3 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "B", "E"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Cluster on which to run your service"}, {
+        "id": "B",
+        "markdown": "Full ARN of the task definition to run in your service."
+    }, {
+        "id": "C",
+        "markdown": "Environment Variables that should be passed to the container when it starts."
+    }, {"id": "D", "markdown": "Data Volumes that should be used with the containers in the task."}, {
+        "id": "E",
+        "markdown": "IAM role that allows Amazon ECS to make calls to your load balancer on your behalf."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A, B, E\n\nA service definition defines which task definition to use with your service, how many instantiations of that task to run, and which load balancers (if any) to associate with your tasks.\n\n \n\nFollowing are the parameters defined in Service Definition.\n\n \n\nOptions C and D are parameters in task definition.\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are launching AWS ECS instance. You would like to set ECS container agent configuration during ECS instance launch. What should you do?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Set configuration in ECS metadata parameter during cluster creation."
+    }, {"id": "B", "markdown": "Set configuration in user data parameter of ECS intance."}, {
+        "id": "C",
+        "markdown": "Define configuration in task definition."
+    }, {"id": "D", "markdown": "Define configuration in service definition."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: BWhen you launch an Amazon ECS container instance, you have the option of passing user data to the instance. The data can be used to perform common automated configuration tasks and even run scripts when the instance boots. For Amazon ECS, the most common use cases for user data are to pass configuration information to the Docker daemon and the Amazon ECS container agent. https://docs.aws.amazon.com/AmazonECS/latest/developerguide/bootstrap_container_instanc e.html?shortFooter=true#bootstrap_container_agent\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working for an organization which is actively using AWS. They have noticed that few AWS ECS clusters are running and they do not know who and when the clusters are created. They tasked you to find out the logs regarding this. What will you do?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Check CloudWatch event logs."}, {
+        "id": "B",
+        "markdown": "Check CloudTrail logs."
+    }, {"id": "C", "markdown": "Check CloudWatch metrics dashboard."}, {
+        "id": "D",
+        "markdown": "Check Trusted Advisor."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: B\n\n\n\nAmazon ECS is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon ECS. CloudTrail captures all API calls for Amazon ECS as events, including calls from the Amazon ECS console and from code calls to the Amazon ECS APIs.\n\n\n\nhttps://docs.aws.amazon.com/AmazonECS/latest/developerguide/logging-using-cloudtrail.html#understanding-service-name-entries\n\n\nOptions A and C are for monitoring the ECS resources, not for the API actions made on ECS. You can monitor your Amazon ECS resources using Amazon CloudWatch, which collects and processes raw data from Amazon ECS into readable, near real-time metrics.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are uploading large files to AWS S3 bucket, ranging from 1GB – 3GB. Your organization has a requirement to calculate the hash checksum of the file by reading entire file so the users can validate the checksum to identify any potential corruptions during downloads. For this, you created a Lambda function and getting it triggered through S3 notifications. However, the request is getting timed out. What could be the reason?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Lambda function is configured with minimal memory of 128 MB."}, {
+        "id": "B",
+        "markdown": "Lambda function is set to run in a private VPC without NAT Gateway or VPC Endpoint."
+    }, {"id": "C", "markdown": "You have not setup S3 bucket name in the environment variable."}, {
+        "id": "D",
+        "markdown": "Lambda function is created in a different region than S3 bucket."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            \n\n\n\nAnswer: B\n\nOption A is not correct. If the function reaches the maximum configured memory, in this case\n\n128 MB, the function gets terminated with an error message as below, not as request timed out.\n\nREPORT RequestId: xxxxxxxx   Duration: xxxxx ms   Billed Duration: xxxxx ms\n\nMemory Size: 128 MB Max Memory Used: 129 MB RequestId: xxxxxxx Process exited before completing request\n\n \n\n Option B is correct. AWS Lambda functions can run within a private VPC with the resources allocated inside the subnet provided during configuration.\n\nFor the lambda function to access S3 service endpoint from within private VPC, there should be a NAT Gateway or S3 VPC Endpoint configured in the route table associated with the subnet which was chosen during Lambda function setup. If not, the request would get timed out.\n\nhttps://aws.amazon.com/premiumsupport/knowledge-center/internet-access-lambda-function/\n\nOption C is not correct. Bucket need not be configured as environment variable.\n\nLambda function environment variables are used to configure additional parameters that can be passed to lambda function.\n\nhttps://docs.aws.amazon.com/lambda/latest/dg/env_variables.html\n\n\n\nOption D is not correct. As long as Lambda function has internet access, it can access S3 service endpoints irrespective of S3 bucket region.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following services does not asynchronously invoke the AWS Lambda function? (choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["C", "E"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS S3"}, {"id": "B", "markdown": "AWS SNS"}, {
+        "id": "C",
+        "markdown": "AWS Step Functions"
+    }, {"id": "D", "markdown": "AWS CodeCommit"}, {"id": "E", "markdown": "AWS API Gateway"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: C, E\n\nThe following are the functions that invoke synchronously and asynchronously the AWS Lambda function.\n\n\n\n\n\thttps://docs.aws.amazon.com/lambda/latest/dg/lambda-dg.pdf\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization is having a requirement to perform big data analysis to transform data and store the result in the AWS S3 bucket. They have implemented the solution using AWS Lambda due to its zero-administrative maintenance and cost-effective nature. However, in very few cases, the execution is getting abruptly terminated after 15 minutes. They would like to get a notification in such scenarios. What would you do?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Setup timer in the code and send a notification when the timer reaches 900 seconds."
+    }, {
+        "id": "B",
+        "markdown": "Configure SES for failures under the Configuration option in the lambda function."
+    }, {
+        "id": "C",
+        "markdown": "Setup the ERROR_NOTIFY environment variable with an email address. Lambda function has an inbuilt feature to send an email during max memory and time out terminations using this environment variable."
+    }, {"id": "D", "markdown": "Configure Dead-letter Queue and send a notification to SNS topic"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: D\n\nOption A is not correct. Although you can set the timers in the code, it may not be an accurate measure to find if the lambda function is terminated after 900 seconds or it just finished executing on 900th second.\n\nOption B is not correct. There is no option to configure AWS SES within the Lambda setup.\n\nOption C is not a valid statement.\n\nOption D is correct. You can forward non-processed payloads to Dead Letter Queue (DLQ) using\n\nAWS SQS, AWS SNS.\n\n. \n\nRefer:\n\nhttps://aws.amazon.com/about-aws/whats-new/2018/10/aws-lambda-supports-functions-that-can-run-up-to-15-minutes/\n\nhttps://aws.amazon.com/blogs/compute/robust-serverless-application-design-with-aws-lambda-dlq/\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization uploads relatively large compressed files ranging between 100MB – 200MB in size to AWS S3 bucket. Once uploaded, they are looking to calculate the total number objects in the compressed file and add the total count as a metadata to the compressed file in AWS S3. They approached you for a cost-effective solution. You have recommended using AWS Lambda through S3 event notifications to perform this operation. However, they were concerned about failures as S3 event notification is an asynchronous one-time trigger and Lambda can fail due to operation time outs, max memory limits, max execution time limits etc. What is the best retry approach you recommend?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "All the failed events will be logged to CloudWatch. You can manually retrigger failed events."
+    }, {
+        "id": "B",
+        "markdown": "Configure Dead-letter queue with SQS. Configure SQS to trigger Lambda function again."
+    }, {
+        "id": "C",
+        "markdown": "All failures will be caught during exception inside Lambda function. Trigger lambda  function inside lambda function code to process failed event."
+    }, {
+        "id": "D",
+        "markdown": "Enable Active tracing using AWS X-Ray. It will automatically retrigger failed events."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: B\n\nOption A is not recommended approach. Although you can configure logging to CloudWatch, it is difficult to find the specific failure logs. Manual retries are not a best\npractice in an enterprise level solution designs.\n\nOption B is correct. You can forward non-processed or failed payloads to Dead Letter Queue\n\n(DLQ) using AWS SQS, AWS SNS.\n\n\n\n \n\nhttps://aws.amazon.com/blogs/compute/robust-serverless-application-design-with-aws-lambda-dlq/\n\nOption C is not correct. Max memory limit and max execution time limit gets\nterminated without being caught in the handler exception.\n\n Option D is not correct. Active tracing option can be used for detailed logging. It will\nnot retry failed events.https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have a requirement to create a REST API using AWS API Gateway with Lambda as backend system and Oracle RDS instance as database. You have created API methods, Lambda function code and spinned up Oracle RDS instance in a private VPC with no Internet Gateway. When you are trying to connect to RDS instance from your Lambda, connection getting failed. What could be the reason? (choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["B", "C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Lambda execution role does not have policy to access RDS instance."
+    }, {"id": "B", "markdown": "Lambda function is running in “no VPC” network mode."}, {
+        "id": "C",
+        "markdown": "RDS instance security group is not allowing connections from Lambda subnet range."
+    }, {"id": "D", "markdown": "RDS instance is not configured as destination in Lambda setup."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B, C\n\n\n\tOption A is not correct. A policy on the role can only define access to which API actions can be made on RDS instance such as rds:CreateDBInstance, rds:CreateDBSecurityGroup, rds:CreateDBSnapshot etc. The policy will not define whether a resouce can connect to RDS instance or not.\n\tOption B is correct. When Lambda function is running in “no VPC” network mode, it will not have access to resources running in a private VPC.\n\n\n\n\n\n\n\thttps://docs.aws.amazon.com/lambda/latest/dg/vpc.html\n\tOption C is correct. Security groups act as a firewall for any resources (such as RDS instance and Lambda in this case) they are connected with. If there is no inbound rule defined to allow connections from Lambda subnet IP range or the Lambda security group, connections will fail.\n\t\n\t\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\n\t\n\t\n\tOption D is not correct. There is no such configuration for the destination in Lambda setup.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following is customer’s responsibility with respect to AWS Lambda service? (choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "E"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Lambda function code."}, {
+        "id": "B",
+        "markdown": "Monitoring and logging lambda functions."
+    }, {"id": "C", "markdown": "Security patches."}, {
+        "id": "D",
+        "markdown": "Installing required libraries in underlying compute instances for Lambda execution."
+    }, {"id": "E", "markdown": "Providing access to AWS resources which triggers Lambda function."}],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: A, E\n\nOption A is correct.\n\nOptions B, C are not correct. Refer below screen shot\n\nOption D is not correct. You cannot login to underlying compute instances of lambda execution. So, we cannot install any required libraries. However, you can package all the required dependent libraries along with your code.Refer below documentation for more information on creating deployment package for Lambda functions.https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example-deployment-pkg.htmlOption E is correct. AWS Lambda assumes the role assigned during setup to access any AWS resources it performs any action on. Policy on the role must grant access on any such resources in order for Lambda to perform operations, for example S3 getobject, Dynamodb GetItem etc.https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro- execution-role\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following is not a potential use case for using AWS Lambda?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Periodically check the log files for errors in CloudWatch or CloudTrail and send out notifications through SNS."
+    }, {
+        "id": "B",
+        "markdown": "Download S3 bucket objects of size varying between 500 MB-2 GB to a Lambda Ephemeral disk or temp location, read and analyze them for key words and add the key words to the metadata of file object for search purposes."
+    }, {
+        "id": "C",
+        "markdown": "Scheduled job to generate AWS resource usage reports based on certain tags."
+    }, {
+        "id": "D",
+        "markdown": "A website with highly scalable backend layer which will persist data into RDS or DynamoDB."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: B\n\nOption A is a potential use case for AWS Lambda. You can use Lambda as scheduled event and read\nlog files from\nAWS CloudWatch or CloudTrail and report any errors through SNS notifications.\n\nOption C is a potential use case.\n\nFor more information on scheduling Lambda functions, refer documentation here. https://docs.aws.amazon.com/lambda/latest/dg/with-scheduled-events.html?shortFooter=true\n\nOption D is a potential use case.\n\nYou can host the web frontend on S3, and accelerate content delivery with Cloudfront caching. The web frontend can send\nrequests to Lambda functions via API Gateway HTTPS endpoints. Lambda can handle the application logic, and persist data to a fully managed database service\n\n(RDS for relational, or DynamoDB for non relational database). You can host your\nLambda functions and databases within a VPC to isolate them from other\nnetworks.Here is the documentation for building a serverless website. https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/Option B looks\nlike a potential use case. But the scenario will fail due to the /tmp directory space limitation.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have created a Lambda function for reading data from the Kinesis stream of transactions. In the code, you were using context logger so that it can log to CloudWatch and you can monitor them at a later point of time. Lambda function started running along with Kinesis stream, however, you do not see any log entries for the new Lambda function. What could be the reason?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Lambda functions with Kinesis stream as event source do not write logs to CloudWatch."
+    }, {
+        "id": "B",
+        "markdown": "Lambda execution role policy does not have access to create CloudWatch logs."
+    }, {
+        "id": "C",
+        "markdown": "Lambda function execution logs will be written to CloudTrail, not to CloudWatch."
+    }, {"id": "D", "markdown": "Active tracing is not enabled on the Lambda function setup configuration."}],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: B\n\nOption A is not a valid statement. Lambda function will write logs as long as the execution role has access to create and write CloudWatch logs irrespective of source that triggered it.\n\nOption B is correct.\n\n\n\n\n\nOption C is not correct. AWS CloudTrail is used for logging API calls made to services such as\n\nAWS Lambda, AWS S3 etc.\n\nAWS CloudWatch for Lambda is used for execution logging. \n\n \n\n\n\thttps://docs.aws.amazon.com/lambda/latest/dg/with-cloudtrail.html\n\n\nOption D is not correct. AWS X-Ray traces requests made to your serverless applications built using AWS Lambda. This will not be the reason for failing to write logs to CloudWatch.\n\n\n\thttps://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "When configuring AWS SQS as event source for AWS Lambda function, what is the maximum batch size supported by AWS SQS for ReceiveMessage call?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "20"}, {"id": "B", "markdown": "40"}, {"id": "C", "markdown": "10"}, {
+        "id": "D",
+        "markdown": "100"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: C\n\n\n\nHere are other parameters apart from batch size. https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are to planning to schedule a daily job with AWS CloudWatch scheduled event and AWS Lambda function triggered by the event which will perform a daily health check on your applications running on a fleet of EC2 instances. For you to achieve this, you need to provide the EC2 instances’ name tags to identify the right resources. What is the correct way of passing the inputs in this case?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Configure the “Variables” option on the AWS CloudWatch scheduled event."
+    }, {
+        "id": "B",
+        "markdown": "You can modify the “Matched Event” option while selecting AWS Lambda as the trigger for CloudWatch scheduled event."
+    }, {
+        "id": "C",
+        "markdown": "You can set the “Constant (JSON text)” option while selecting Lambda Function as a trigger for CloudWatch scheduled event."
+    }, {
+        "id": "D",
+        "markdown": "“Details” object of “Matched Event” can be configured while creating an AWS CloudWatch scheduled event."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: C\n\nWhen using an AWS Cloudwatch rule to trigger a Lambda event, one of the multiple options you have to pass data onto your Lamba function is “Constant (JSON Text)”. This handy feature allows you to send static content to your function instead of the matched event.\n\n\n\n\n\thttps://aws.amazon.com/blogs/compute/simply-serverless-use-constant-values-in-cloudwatch-event-triggered-lambda-functions/\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have an existing AWS setup with DirectConnect. You have migrated certain on premise backend applications to AWS EC2 instances which are having certain processes run based on triggers from other applications. These processes are developed on JAVA programming language. Your organization is looking to migrate these processes to Lambda and reduce the cost incurred on EC2 instances. What would be your recommendation?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "AWS Lambda cannot be invoked from a custom application. They can only be triggered by AWS supported event sources."
+    }, {
+        "id": "B",
+        "markdown": "Replicate the JAVA code easily onto AWS Lambda function with few modifications and use Lambda Invoke API with input passed as custom event."
+    }, {
+        "id": "C",
+        "markdown": "Trigger Lambda from AWS CloudWatch scheduled event and invoke CloudWatch API from your applications."
+    }, {
+        "id": "D",
+        "markdown": "AWS Lambda is not designed to run backend applications. Better to use EC2 for that purpose."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: B\n\nYou can invoke a Lambda function using a custom event through AWS Lambda’s invoke API. Only\nthe function’s owner or another AWS account that the owner\nhas granted permission can invoke the function.\n\nhttps://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.htmlhttps://docs.aws.amazon.com/lambda/latest/dg/with-userapp.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following are AWS CloudFront events that can trigger AWS Lambda@edge function? (choose 3 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "D", "E"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Viewer Request"}, {"id": "B", "markdown": "CloudFront Cache"}, {
+        "id": "C",
+        "markdown": "Sender Request"
+    }, {"id": "D", "markdown": "Origin Request"}, {"id": "E", "markdown": "Origin Response"}],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: A, D, E\n\nhttps://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-cloudfront-trigger-events.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You created an AWS Lambda function to process files uploaded to AWS S3 bucket. Lambda function started receiving requests and working properly. You have changed the code and uploaded new version of code to AWS Lambda function. What will happen to the requests sent right after the AWS lambda function update?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Requests will queue until the changes are fully propagated. You could experience up to 5 minutes of wait during this period."
+    }, {
+        "id": "B",
+        "markdown": "Requests will be served by old version till you enable new version as latest."
+    }, {
+        "id": "C",
+        "markdown": "When you have multiple versions of Lambda function, in the code you need to define which version of function to be used. Otherwise, requests would fail."
+    }, {
+        "id": "D",
+        "markdown": "Requests might be served by old or new version for a brief period of less than one minute."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: D\n\n\n\n\nOption A is not a valid statement. It will not continually queue automatically or 5 minute wait time.\n\nOption B is not correct. By default, whenever you update the code, it updates the LATEST version.\n\n \n\n\n\n \n\n\n\n\nOption C is not correct. There is no need to define in code which version to be used. However, you can define which version to be used at the source which triggers Lambda function by providing version qualified ARN if you have published version.\n\n\n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following are poll-based event sources for AWS Lambda function? (choose 3 options)",
+    "prompt": "",
+    "correctAnswerId": ["B", "C", "D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS SNS"}, {"id": "B", "markdown": "AWS Kinesis"}, {
+        "id": "C",
+        "markdown": "AWS SQS"
+    }, {"id": "D", "markdown": "AWS DynamoDB"}, {"id": "E", "markdown": "AWS CodePipeline"}],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: B, C, D\n\n\n\n\n\n\n\thttps://docs.aws.amazon.com/lambda/latest/dg/invocation-options.html?shortFooter=true#streaming-event-source-mapping\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You work for a team\nwhich has 10s of applications running on AWS EC2 instances. All these applications would need a common backend processing job. You have created an AWS Lambda function with name\n“app-backend-job”and published PROD version with version “1” in order to make sure\nany changes to the function by anyone will not impact the PROD execution code. You have\nshared the version qualified ARN to all the applications assuming requests would be sent to the specific version. However, due to frequent changes in requirements, you had to change the code of Lambda function many times and keep publishing versions. This is causing a lot of overhead at the application level to update the Lambda function ARN each time you publish a new version. How can you overcome this situation?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create an alias, point it to PROD version and share the ARN with applications. When new version is published, change the alias to point to it."
+    }, {
+        "id": "B",
+        "markdown": "Do not publish versions for every code change. Instead, update the published version so that ARN to be invoked will not change."
+    }, {
+        "id": "C",
+        "markdown": "Delete the old published version “1” before publishing new version. This way when you publish, you will get the version ID as “1” and the lambda version ARN will remain unchanged."
+    }, {
+        "id": "D",
+        "markdown": "Do not use versioning in this case. Always use $LATEST version and share its ARN with applications.You can update the codes of $LATEST version any number of times."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: A\n\n\n\nBy using aliases, you can access the Lambda function an alias is pointing to (for example, to\n\ninvoke the function) without the caller having to know the specific version the alias is pointing to.\n\n\n\n \n\n\n\nhttps://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html?shortFooter=true\n\nOption B is not correct.\n\nhttps://docs.aws.amazon.com/lambda/latest/dg/versioning-intro.html?shortFooter=trueOption C is not correct.Although Option D sounds correct, it is not a recommended approach since $LATEST version can be changed by anyone who has access to it. Any code running in PRODUCTION mode and using$LATEST version, there are chances that the configuration can be meddled and can cause unwanted issues.https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html?shortFooter=true\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following are correct ARNs for a Lambda function? (choose 3 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "B", "D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "arn:aws:lambda:aws-region:acct-id:function:helloworld:$LATEST"}, {
+        "id": "B",
+        "markdown": "arn:aws:lambda:aws-region:acct-id:function:helloworld"
+    }, {"id": "C", "markdown": "arn:aws:lambda:aws-region:acct-id:function:helloworld/$LATEST"}, {
+        "id": "D",
+        "markdown": "arn:aws:lambda:aws-region:acct-id:function:helloworld:PROD"
+    }, {"id": "E", "markdown": "arn:aws:lambda:aws-region:acct-id:function:helloworld/1"}],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: A, B, D\n\n\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following is a valid AWS Lambda configuration?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "64 MB memory and 212 seconds timeout."}, {
+        "id": "B",
+        "markdown": "1376 MB memory and 120 seconds timeout."
+    }, {"id": "C", "markdown": "2112 MB memory and 10 seconds timeout."}, {
+        "id": "D",
+        "markdown": "3072 MB memory and 300 seconds timeout."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: C\n\n\n\n \n\n\n\tOption A is not correct. Minimum memory required is 128 MB.\n\tOption B is not correct. 1376 MB memory is not in 64 MB increments. It can be 1344 MB or 1408MB.\n\tOption D is not correct. Maximum memory that can be allocated is 3008 MB.\n\n\n \n\n\n\tPlease refer to the below link to get further information:\n\t\n\t\t https://docs.aws.amazon.com/lambda/latest/dg/limits.html\n\t\n\t\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization has two accounts, for DEV and TEST. You have certain user applications running on TEST account would like to trigger AWS Lambda on DEV account. What is the permission model which needs to be set in order to get this configuration working?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Add permission for TEST account on DEV account’s lambda function policy through AWS CLI."
+    }, {
+        "id": "B",
+        "markdown": "Add permission for TEST account on DEV account’s lambda execution role policy through AWS Console."
+    }, {
+        "id": "C",
+        "markdown": "Add permission for TEST account on DEV account’s lambda execution role policy through AWS CLI."
+    }, {
+        "id": "D",
+        "markdown": "Add permission for TEST account on DEV account’s lambda function policy through AWS Console."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A\n\n \n\n\n\n \n\n\n\thttps://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html?shortFooter=true#access-control-resource-based-example-cross-account-scenario\n\n\n \n\nOptions B, C are not correct. Permission need to be added on the Lambda function policy to invoke the function, not on execution role policy.\n\n \n\nOption D is not correct. Lambda function policy cannot be edited from AWS console.\n\n \n\n \n\nFor more information, please fere to the below mentioned AWS docs:\n\n\n\thttps://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have a requirement to create an AWS Lambda function inside a private VPC which will be communicating with RDS instance inside the same private VPC. You have set up the memory to be 1 GB for the Lambda function. You expect concurrent requests during peak to be 100 per sec and average Function execution time is 1 sec.\n\nWhat should be the minimum subnet range you must choose for creating a subnet to run the Lambda function successfully without any issues?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "x.x.x.x/24"}, {"id": "B", "markdown": "x.x.x.x/25"}, {
+        "id": "C",
+        "markdown": "x.x.x.x/26"
+    }, {"id": "D", "markdown": "x.x.x.x/27"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: C\n\n \n\n \n\n\n\thttps://docs.aws.amazon.com/lambda/latest/dg/vpc.html#vpc-setup-guidelines\n\n\n \n\nPeak concurrent executions = 100 * 1 = 100\nENI Capacity = 100 * (1GB / 3GB) = 33.33  i.e. = 33\n\nHence we need /26 CIDR\n\n \n\n\n\t/24 CIDR range comes with 256 IP address with 251 available IP addresses\n\t/25 CIDR range comes with 128 IP address with 123 available IP addresses.\n\t/26 CIDR range comes with 64 IP addresses with 59 available IP addresses.\n\t/27 CIDR range comes with 32 IP addresses with 27 available IP addresses.\n\n\n \n\nA step-by-step guide to ensure your function is optimally configured for scalability:\n\n\n\tCalculate your Peak Concurrent Executions with this formula:\n\tPeak Concurrent Executions = Peak Requests per Second * Average Function Duration (in seconds)\n\tNow calculate your Required ENI Capacity:\n\tRequired ENI Capacity = Projected peak concurrent executions * (Function Memory Allocation in GB / 3GB)\n\tIf Peak Concurrent Executions > Account Level Concurrent Execution Limit (default=1,000), then you will need to ask AWS to increase this limit.\n\tConfigure your function to use all the subnets available inside the VPC that have access to the resource that your function needs to connect to. This both maximizes Actual ENI Capacity and provides higher availability (assuming subnets are spread across 2+ availability zones).\n\tCalculate your Actual ENI Capacity using these steps.\n\tIf Required ENI Capacity > Actual ENI Capacity, then you will need to do one or more of the following:\n\t\n\t\tDecrease your function’s memory allocation to decrease your Required ENI Capacity.\n\t\tRefactor any time-consuming code which doesn’t require VPC access into a separate Lambda function.\n\t\tImplement throttle-handling logic in your app (e.g. by building retries into a client).\n\t\n\t\n\tIf Required ENI Capacity > your EC2 Network Interfaces per region account limit then you will need to request that AWS increase this limit.\n\tConsider configuring a function-level concurrency limit to ensure your function doesn’t hit the ENI Capacity limit and also if you wish to force throttling at a certain limit due to downstream architectural limitations.\n\tMonitor the concurrency levels of your functions in production using CloudWatch metrics so you know if invocations are being throttled or erroring out due to insufficient ENI capacity.\n\tIf your Lambda function communicates with a connection-based backend service such as RDS, ensure that the maximum number of connections configured for your database is less than your Peak Concurrent Executions, otherwise, your functions will fail with connection errors. See here for more info on managing RDS connections from Lambda. (kudos to Joe Keilty for mentioning this in the comments)\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following services does the DLQ configured under lambda gets populated on error? (choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS SQS"}, {"id": "B", "markdown": "AWS Kinesis"}, {
+        "id": "C",
+        "markdown": "AWS SNS"
+    }, {"id": "D", "markdown": "AWS CloudWatch"}, {"id": "E", "markdown": "AWS X-Ray"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A, C\n\n  \n\n\n\n\n\thttps://docs.aws.amazon.com/lambda/latest/dg/dlq.html?shortFooter=true\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are setting up AWS Lambda function to receive messages from SQS queue, process the message body and insert one record in MySQL RDS instance. You have setup SQS event trigger as AWS Lambda function. However, for connecting to RDS instance, you need MySQL details such as hostname, username and password. Where would you configure them?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Use environment variables to pass configuration. They are automatically encrypted by AWS default KMS keys and decrypted when used in Lambda function."
+    }, {
+        "id": "B",
+        "markdown": "Use environment variables to pass configuration. Use encryption helpers to encrypt sensitive information by your own KMS key. Decrypt the variable using decryption helper code provided in the console."
+    }, {
+        "id": "C",
+        "markdown": "Use properties file in AWS Lambda function for any such configuration. Properties files are encrypted by AWS in transit and at rest."
+    }, {
+        "id": "D",
+        "markdown": "Store such configuration in AWS S3 bucket and enable encryption on S3 bucket. Perform S3 get object to get the configuration details in the Lambda function code."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: B\n\n https://docs.aws.amazon.com/lambda/latest/dg/env_variables.html?shortFooter=true Option A is not correct. The statement is true,\nhowever the encryption only happens after deployment of lambda function. Option C is not a valid statement.Option D looks correct. However, out of given options, Option B is more valid and recommended.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following actions is required by Lambda execution role in order to write the logs into\n\nAWS CloudWatch? (choose 3 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "C", "E"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "logs:CreateLogGroup"}, {
+        "id": "B",
+        "markdown": "logs:GetLogEvents"
+    }, {"id": "C", "markdown": "logs:CreateLogStream"}, {"id": "D", "markdown": "logs:DescribeLogStreams"}, {
+        "id": "E",
+        "markdown": "logs:PutLogEvents"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: A, C, E\n\n  \n\n\n\n\n\thttps://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html?shortFooter=true#lambda-intro-execution-role\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following options is not AWS CloudWatch metric for AWS Lambda function?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Memory"}, {"id": "B", "markdown": "Dead Letter Error"}, {
+        "id": "C",
+        "markdown": "Duration"
+    }, {"id": "D", "markdown": "Invocations"}],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: A\n\nThe AWS/Lambda namespace includes the following metrics.\n\nhttps://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-metrics.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are creating a production mode Lambda function. Due to auditing compliance, your organization stated that production grade code must not be modified during its execution unless the modification goes through a change process. For that, you decided to publish version for PROD, create an alias and use the alias ARN for invoking the Lambda function. However, your organization stated the code should not run if the version is $LATEST. How would you achieve this? (choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "getFunctionVersion from Context object."}, {
+        "id": "B",
+        "markdown": "Get invokedLambdaARN from event object and find out version from it."
+    }, {"id": "C", "markdown": "Use  AWS_LAMBDA_FUNCTION_VERSION environment variable."}, {
+        "id": "D",
+        "markdown": "Use  AWS_LAMBDA_FUNCTION_ALIAS environment variable."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: A, C\n\n \n\n\n\n\n\nFor more information on environment variables available to Lambda functions, refer documentation here.\n\n \n\nhttps://docs.aws.amazon.com/lambda/latest/dg/env_variables.html\n\nhttps://docs.aws.amazon.com/lambda/latest/dg/tutorial-env_cli.html\n\nOption B is not correct. There is no parameter in any event source containing ARN of the invoked Lambda function.\n\nOption D is not correct. This is no environment variable for ALIAS.\n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following statement is not true with respect to default retry behaviour of AWS Lambda function?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "With synchronous invocation, the invoking application receives a 429 error and is responsible for retries."
+    }, {
+        "id": "B",
+        "markdown": "With asynchronous invocation, if AWS Lambda is unable to fully process the event and if you don't specify a Dead Letter Queue (DLQ), the event will be discarded."
+    }, {
+        "id": "C",
+        "markdown": "With Poll-based (or pull model) event sources that are stream-based, when a Lambda function invocation fails, AWS Lambda attempts to process the erring batch of records until the time the data expires, which can be up to seven days."
+    }, {
+        "id": "D",
+        "markdown": "With Poll-based event sources that are not stream-based, if the invocation fails or times out, the message will be returned to the queue and will be available for invocation once the Visibility Timeout period expires."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A\n\nSynchronous invocation – Lambda includes the FunctionError field in the response body, with details about the error in the X-Amz-Function-Error header. The status code is 200 for function errors\n\n\n\t\n\tEvent sources that aren't stream-based – Some of these event sources are set up to invoke a Lambda function synchronously and others invoke it asynchronously. Accordingly, exceptions are handled as follows:\n\n\t\n\t\t\n\t\tSynchronous invocation – Lambda includes the FunctionError field in the response body, with details about the error in the X-Amz-Function-Error header. The status code is 200 for function errors. Lambda only returns error status codes if there is an issue with the request, function, or permissions that prevents the handler from processing the event. See Invoke Errors for details.\n\n\t\tAWS service triggers can retry depending on the service. If you invoke the Lambda function directly from your application, you can choose whether to retry or not.\n\t\t\n\t\t\n\t\tAsynchronous invocation – Asynchronous events are queued before being used to invoke the Lambda function. If AWS Lambda is unable to fully process the event, it will automatically retry the invocation twice, with delays between retries. If you have specified a Dead Letter Queue for your function, then the failed event is sent to the specified Amazon SQS queue or Amazon SNS topic. If you don't specify a Dead Letter Queue (DLQ), which is not required and is the default setting, then the event will be discarded. For more information, see Dead Letter Queues.\n\t\t\n\t\n\t\n\n\n\n\thttps://docs.aws.amazon.com/lambda/latest/dg/retries-on-errors.html?shortFooter=true\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following statements are correct with respect to instance store and EBS volume? Please select 2 correct options.",
+    "prompt": "",
+    "correctAnswerId": ["B", "D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Instance store backed EC2 instances will persist storage across instance stop, terminate and failures."
+    }, {
+        "id": "B",
+        "markdown": "EBS backed EC2 instances can persist storage across instance stop, terminate and failures."
+    }, {
+        "id": "C",
+        "markdown": "Instance store backed EC2 instance will persist storage only during instance stop and start."
+    }, {"id": "D", "markdown": "You cannot add instance store volumes once EC2 instance is launched."}, {
+        "id": "E",
+        "markdown": "All available EC2 instance types support instance store and EBS volumes."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B, D\n\n\n\n\n\thttps://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/InstanceStorage.html\n\n\nAmazon Elastic Block Store (Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are highly available and reliable storage volumes that can be attached to any running instance that is in the same Availability Zone. EBS volumes that are attached to an EC2 instance are exposed as storage volumes that persist independently from the life of the instance.\n\n\n\thttps://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/AmazonEBS.html \n\n\n \n\n\n\tOption A is not correct.\n\n\n \n\n\n\n \n\n\n\tOption B is correct.\n\n\n\n\n\n\tOption C is not correct.\n\n\nInstance store persists during reboots, not during stop and start of the instance.\n\n\n\n\n\tOption D is correct.\n\n\n\n\n\n\thttps://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/add-instance-store- volumes.html\n\n\n \n\n\n\tOption E is not correct.\n\n\n\n\n \n\n\n\thttps://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/InstanceStorage.html#instance- store-volumes\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization is planning to build a BigData project on AWS. They need high data transfer rates for huge workloads to stream through with better performance.  They are also looking for  a solution which is cost effective. Which EBS storage type would you choose in this scenario?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "General Purpose SSD"}, {
+        "id": "B",
+        "markdown": "Provisioned IOPS SSD"
+    }, {"id": "C", "markdown": "Throughput Optimized HDD"}, {"id": "D", "markdown": "Cold HDD"}],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: C\n\nAmazon EBS provides the following volume types, which differ in performance characteristics and price, so that you can tailor your storage performance and cost to the needs of your applications. The volumes types fall into two categories:\n\n\n\tSSD-backed volumes optimized for transactional workloads involving frequent read/write operations with small I/O size, where the dominant performance attribute is IOPS\n\tHDD-backed volumes optimized for large streaming workloads where throughput (measured in MiB/s) is a better performance measure than IOPS\n\n\n\n\n\n \n\nhttps://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/EBSVolumeTypes.html\n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working for a data\nmanagement company which uses AWS platform to manage the data for various\ncustomers. They are using AWS EBS backed\nEC2 instance with “Delete EBS volume on termination” checked. EC2 instances\nare used to run data  streaming  application \nwhich generates logs and are stored on EBS volumes. The log files are\ncritical for auditing purposes. How would you protect the data stored on EBS\nvolumes from accidental terminations of EC2 instances?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Every EBS volume will have a daily EBS snapshot created automatically by AWS."
+    }, {
+        "id": "B",
+        "markdown": "Setup a Data LifeCycle Manager policy scheduler to create EBS snapshots for your EBS volumes."
+    }, {
+        "id": "C",
+        "markdown": "When EC2 instance is terminated, it automatically creates a snapshot of EBS volume and then deletes the EBS volume."
+    }, {
+        "id": "D",
+        "markdown": "Write a custom script on your EC2 instance and schedule it to back up the data onto AWS S3."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            \n\nAnswer: B\n\n\nYou can back up the data on your Amazon EBS volumes to Amazon S3 by\ntaking point-in-time snapshots. Snapshots are incremental backups, which means\nthat only the blocks on the device that have changed after your most recent\nsnapshot are saved \n\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html\n\n\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following is an action you cannot perform on an EBS snapshot?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Create Image from snapshot."}, {
+        "id": "B",
+        "markdown": "Create EBS volume from snapshot."
+    }, {"id": "C", "markdown": "Share a snapshot with another AWS account."}, {
+        "id": "D",
+        "markdown": "Make unencrypted copy of an encrypted snapshot."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: D\n\n\n\tOption A is a snapshot action.\n\n\n \n\n\n\tOption B is a snapshot action.\n\n\n\n\n \n\n\n\tOption C is a snapshot action.\n\n\n\n\n\n\n\n \n\n \n\n\n\tOption D is the correct answer. We cannot disable encryption while performing a copy of an encrypted snapshot.\n\n\n\n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as an AWS architect in your organization. An application is being developed on AWS EC2 instance and would need a local volume with low latency to handle database workloads. They figured out the Provisioned IOPS SSD volume type suits best. However, when the application team is launching an EC2 instance, they found an option named “EBS-optimized”. They reached out to you asking the purpose of EBS optimized instances. What do you suggest?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Amazon EBS–optimized instance provides additional, dedicated capacity for Amazon EBS I/O."
+    }, {
+        "id": "B",
+        "markdown": "Amazon EBS-optimized instance comes with instance store ephemeral storage which provides faster throughput."
+    }, {
+        "id": "C",
+        "markdown": "EBS-optimized is a configuration on the EBS volume, not an option on EC2 instance."
+    }, {
+        "id": "D",
+        "markdown": "Amazon EBS-optimized instances cannot have Provisioned IOPS SSD volume types. They only work with General Purpose SSD, Throughput optimized HDD, Cold HDD"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: A\n\nAn Amazon EBS–optimized instance uses an optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I/O. This optimization provides the best performance for your EBS volumes by minimizing contention between Amazon EBS I/O and other traffic from your instance.\n\nEBS–optimized instances deliver dedicated bandwidth to Amazon EBS, with options between 425 Mbps and 14,000 Mbps, depending on the instance type you use. When attached to an EBS–optimized instance, General Purpose SSD (gp2) volumes are designed to deliver within 10% of their baseline and burst performance 99% of the time in a given year, and Provisioned IOPS SSD (io1) volumes are designed to deliver within 10% of their provisioned performance 99.9% of the time in a given year. Both Throughput Optimized HDD (st1) and Cold HDD (sc1) guarantee performance consistency of 90% of burst throughput 99% of the time in a given year. Non- compliant periods are approximately uniformly distributed, targeting 99% of expected total throughput each hour.\n\nFor more information on EBS-optimized instances, refer to the documentation here. https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html\n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following is not true with respect to EBS volume encryption?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Encrypts data at rest inside the volume."}, {
+        "id": "B",
+        "markdown": "Encrypts all data moving between the volume and the instance."
+    }, {"id": "C", "markdown": "Encrypts all snapshots created from the volume."}, {
+        "id": "D",
+        "markdown": "Encrypted EBS volumes are supported on all instance types."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: D\n\nOptions A, B, C are correct statements.\n\n\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html \n\noption D is the correct answer\n\n\n\n \n\n\n\thttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_s%20upported_instances\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following statements is true with respect to encryption?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "You can enable encryption when creating a snapshot from unencrypted volume."
+    }, {
+        "id": "B",
+        "markdown": "You can enable encryption while copying snapshot from an unencrypted snapshot."
+    }, {
+        "id": "C",
+        "markdown": "You can disable encryption while creating a snapshot from encrypted volume."
+    }, {"id": "D", "markdown": "You can disable encryption while copying snapshot from an encrypted snapshot."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\n\n \n\n\n\thttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_c onsiderations\n\n\n \n\nOption C  and option A is not correct.\n\nOption A is wrong because You cannot enable Encryption when creating a snapshot from an unencrypted volume. You can only view whether the volume is encrypted or not.\n\nOption D is not correct.\n\n\n\n \n\nWe cannot disable encryption while performing copy of a snapshot.\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as an architect in your organization's Linux environment. An application team is using EBS volume for their database workloads which would need a high throughput, low latency and maximum I/O. They chose Provisioned IOPS EBS volume for better performance. However, after setting up the entire application, they notice the performance is not up to the mark. Which performance tuning mechanisms would you suggest? Please choose 3 correct options.",
+    "prompt": "",
+    "correctAnswerId": ["A", "C", "D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Use EBS-Optimized Instances."}, {
+        "id": "B",
+        "markdown": "Use Throughput optimized HDD volume types for low latency and maximum I/O."
+    }, {"id": "C", "markdown": "Use a Modern Linux Kernel."}, {
+        "id": "D",
+        "markdown": "Use RAID 0 to Maximize Utilization of Instance Resources."
+    }, {
+        "id": "E",
+        "markdown": "Performance of Provisioned IOPS SSD volume increase with volume size. Increase EBS volume size."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: A, C, D \n\nOption A is correct.\n\n \n\nOption B is not correct. Provisioned IOPS SSD volume type is more suitable for database workloads.\n\n \n\nOption C is correct.\n\n\n \n\nOption D is correct.\n\n\n \n\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSPerformance.html#tips\n\n \n\nOption E is not correct. The statement is applicable to General Purpose SSD, not for Provisioned IOPS SSD.\n\n \n\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_gp2\n\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops\n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following is not an AWS CloudWatch metric for EBS Volumes?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "VolumeReadBytes"}, {"id": "B", "markdown": "VolumeWriteOps"}, {
+        "id": "C",
+        "markdown": "VolumeThroughputPercentage"
+    }, {"id": "D", "markdown": "VolumeRemainingSize"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: D\n\n\n\n\n\n\n\n\n\n \n\n\n\thttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html#using_cloudwatch_ebs\n\t\n\t \n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are using AWS EC2 linux instance for log processing which would require high throughput. You chose Throughput optimized HDD storage with 500 GB in size. You deployed your application to production mode and it is running as expected. After a month, you see an    increase in log files and you are fast approaching the 500 GB size and running out of space on  the EBS volume. Which of the following is a best approach to mitigate the situation with minimal configuration?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Add a new EBS volume, mount on EC2 instance and configure your application accordingly."
+    }, {"id": "B", "markdown": "Increase the size of the existing EBS volume."}, {
+        "id": "C",
+        "markdown": "EBS volume size cannot be changed. Build purging logic for your old log files"
+    }, {
+        "id": "D",
+        "markdown": "You can have only one EBS volume per instance. Snapshot existing EBS volume, detach current volume, create a new volume from snapshot with bigger size and attached to EC2 instance."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\nAlthough option A looks correct, it is not the best approach since it involves more configuration and changes to the application to point to a new EBS mount point.\n\nOption B is correct.\n\nYou can modify the volume and increase in volume size.\n\n\n\n\n\thttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html\n\tOption C is incorrect. The reason for Option C to be wrong is, we can increase the volume size but the option mentioned about \"EBS volume size cannot be changed' is the reason.\n\tOption D is not correct. You can attach multiple EBS volumes to the single EC2 instances.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Company ABC has an AWS setup and planning to use Amazon SQS for queuing messages. The design is such that two applications will receive the same message in the queue and process it. Once applications would have read the message, it should be deleted. However, when the 2nd application is making ReceiveMessage API call, the message is not getting returned. Which of the following could be reasons? (Choose 2 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Application 2 is making a call before Visibility Timeout elapsed which was set by application 1 ReceiveMessage call."
+    }, {
+        "id": "B",
+        "markdown": "Amazon SQS deletes the message once it has been responded via ReceiveMessage call from Application 1."
+    }, {
+        "id": "C",
+        "markdown": "Application 1 had deleted the message after it has processed before Visibility Timeout elapsed."
+    }, {"id": "D", "markdown": "Application 2 does not have access on the message it is trying to receive."}],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: A, C\n\nOption A is correct.\n\n\n\n \n\nImmediately after a message is received, it remains in the queue. To prevent other consumers from processing the message again, Amazon SQS sets a visibility timeout, a period of time during which Amazon SQS prevents other consumers from receiving and processing the message. The default visibility timeout for a message is 30 seconds. The minimum is 0 seconds. The maximum is 12 hours.\n\n \n\n \n\nhttps://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html\n\nOption B is not correct.\n\n\n\n \n\nhttps://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html\n\n \n\n \n\nOption C is correct.\n\nOnce the message is deleted from Amazon SQS Queue, it will not be available anymore.\n\n\n\n \n\n \n\n \n\nOption D is not correct.\n\nPermission exists on the Queue level, not on the message level.\n\nFor more information on SQS actions, refer documentation here.\n\nhttps://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsqs.html\n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization is using Amazon SQS as an enterprise message queuing platform. 100s of applications reading the queues every few seconds to process the messages and delete them as soon as they are being written into the queues. Looking at the number of requests being sent to Amazon SQS APIs, your management is concerned on the pricing that will be incurred. As an architect, how would you reduce pricing without compromising on time in this scenario? Please select 2 correct answers.",
+    "prompt": "",
+    "correctAnswerId": ["B", "C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Once successfully written, Amazon SQS messages are only available after 1 minute. Ask applications to increase the delay between calls to 1 minute. This reduces the number of API calls made"
+    }, {"id": "B", "markdown": "Use Amazon SQS Long Polling."}, {
+        "id": "C",
+        "markdown": "Send DeleteMessage requests in batch."
+    }, {"id": "D", "markdown": "Use Amazon SQS Short Polling."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B, C\n\n\n\tOption A is incorrect. There is no such limitation on AWS SQS queues.\n\tOption B is correct.\n\n\n\n\n \n\nhttps://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html\n\n \n\n \n\n\n\tOption C is correct.\n\n\n\n\n \n\n\n\tOption D is not correct.\n\n\n \n\nShort polling does not guarantee a return of the message and you have to repeat the call until you receive the message. Which does not reduce any costs.\n\n\n\n\n\thttps://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following statements is not correct with respect to AWS SQS?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Amazon SQS can trigger a lambda function."}, {
+        "id": "B",
+        "markdown": "To select the message to delete, use the ReceiptHandle of the message, not the MessageId which you receive when you send the message."
+    }, {
+        "id": "C",
+        "markdown": "Use dead letter queues to isolate messages that can't be processed for later analysis."
+    }, {"id": "D", "markdown": "All messages in Amazon SQS queue are encrypted by default."}],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: D\n\n Note: In the question, it is mentioned to select the wrong Option as the answer. Here Option A, B and C are correct statements but not the correct options.\n\n            Option A is a correct statement.\n\n\n\n \n\n           \n\n \n\n            Option B is the correct statement.\n\n            \n\nOption C is the correct statement.\n\n\n\n \n\nOption D is not a correct statement.\n\n \n\n \n\nAmazon SQS does not encrypt messages by default. The option needs to be selected by the customer in order to enable encryption on the Queue messages.\n\n\nhttps://aws.amazon.com/blogs/aws/new-server-side-encryption-for-amazon-simple-queue-service-sqs/\n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following\nis not a feature of AWS Security Token Service?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "STS enables you to request temporary, limited-privilege credentials."
+    }, {"id": "B", "markdown": "STS enables users to assume role."}, {
+        "id": "C",
+        "markdown": "STS generates Git Credentials for IAM users."
+    }, {"id": "D", "markdown": "STS generates Federated Credentials for IAM users."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: COption\nA is a correct statement.Option\nB is a correct statement.STS\n“AssumeRole” action will enable users to assume a role.https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html\n Option\nC is not a correct statement.With\nGit credentials, you can generate a static user name and password in the\nIdentity and Access Management (IAM) console that you can use to access AWS\nCodeCommit repositories from the command line, Git CLI, or any Git tool that\nsupports HTTPS authentication.This\nis not an action on AWS STS.https://aws.amazon.com/blogs/devops/introducing-git-credentials-a-simple-way-to-connect-to-aws-codecommit-repositories-using-a-static-user-name-and-password/\n Option\nD is a correct statement.https://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html\n\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization AWS\nSetup has an AWS S3 bucket which stores confidential documents which can be\nonly downloaded by users authenticated and authorized via your application. You\ndo not want to create IAM users for each of these users and as a best practice\nyou have decided to generate AWS STS Federated User temporary credentials each\ntime when a download request is made and then use the credentials to generate\npresigned URL and redirect user for download. However, when user is trying to\naccess the presigned URL, they are getting Access Denied Error. What could be\nthe reason?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS STS service must be given access in S3 bucket ACL."}, {
+        "id": "B",
+        "markdown": "IAM User used to generate Federated User credentials does not have access on S3 bucket."
+    }, {
+        "id": "C",
+        "markdown": "IAM Role used to generate Federated User credentials does not have access on S3 bucket."
+    }, {
+        "id": "D",
+        "markdown": "Your application must be whitelisted in AWS STS service to perform FederatedUser action."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: BOption\nA is not a correct statement.Option\nB is correct.https://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html\nOption\nC is not correct.You\ncan generated FederatedUser credentials using an IAM User, not using an IAM\nRole. Option D is not a correct statement.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization has an\nAWS setup and planning to build Single Sign On for users to authenticate with\non-premise Microsoft Active Directory Federation Services (ADFS) and let users login\nto AWS console using AWS STS Enterprise Identity Federation. Which of the\nfollowing service you need to call from AWS STS service after you authenticate\nwith your on-premise?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AssumeRoleWithSAML"}, {
+        "id": "B",
+        "markdown": "GetFederationToken"
+    }, {"id": "C", "markdown": "AssumeRoleWithWebIdentity"}, {"id": "D", "markdown": "GetCallerIdentity"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: Ahttps://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.htmlhttps://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html\n\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization has an AWS Setup and wants to have the history of all API calls and the responses given out by AWS SNS for audit purposes. Which of the following logging mechanisms would you configure?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Enable SNS logging to S3 bucket."}, {
+        "id": "B",
+        "markdown": "Enable X-ray logging for SNS."
+    }, {"id": "C", "markdown": "Enable CloudTrail logging for SNS."}, {
+        "id": "D",
+        "markdown": "Enable CloudWatch logging for SNS."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: C\n\n\n\n \n\nOptions A and B are not correct.\n\n \n\nOption D is not correct. Amazon SNS and CloudWatch are integrated so you can collect, view, and analyze metrics for every active Amazon SNS notification. Once you have configured CloudWatch for Amazon SNS, you can gain better insight into the performance of your Amazon SNS topics, push notifications, and SMS deliveries.\n\nBut it does not provide information on the API calls made to SNS.\n\n \n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following are the valid delivery protocols for receiving notifications from AWS SNS? (Choose 3 options)",
+    "prompt": "",
+    "correctAnswerId": ["A", "B", "C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS Lambda"}, {"id": "B", "markdown": "AWS SQS"}, {
+        "id": "C",
+        "markdown": "SMS"
+    }, {"id": "D", "markdown": "Email-XML"}, {"id": "E", "markdown": "AWS MQ"}],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: A, B, C\n\n\n\n \n\n \n\n\n\n \n\n \n\n \n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are an architect in your company and you have configured an SNS topic to send emails to a group of users regarding the CloudWatch alarms on the resource usages and outages. You were requested by your head of department to exclude him from those alarms except for critical system outages. How efficiently can you achieve this?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create a new topic and and subscribe only head of department email address. Create new CloudWatch alarm only for critical outages and send messages to new Topic."
+    }, {
+        "id": "B",
+        "markdown": "Configure another option on AWS CloudWatch alarm to send a direct email to head of department."
+    }, {"id": "C", "markdown": "Add filter policy to head of department subscription."}, {
+        "id": "D",
+        "markdown": "For head of department subscription, select AWS Lambda function which contains code to identify critical system outages and send email using AWS SES."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: C\n\nOption A is not correct.\n\nAlthough it looks correct, it is not an efficient solution.\n\nOption B is not correct. There is no such option on AWS CloudWatch alarms.\n\nOption C is correct.\n\n########\n\nAmazon SNS Message Filtering\n\nBy default, a subscriber of an Amazon SNS topic receives every message published to the topic. To receive only a subset of the messages, a subscriber assigns a filter policy to the topic subscription.\n\nA filter policy is a simple JSON object. The policy contains attributes that define which messages the subscriber receives. When you publish a message to a topic, Amazon SNS compares the message attributes to the attributes in the filter policy for each of the topic's subscriptions. If there is a match between the attributes, Amazon SNS sends the message to the subscriber. Otherwise, Amazon SNS skips the subscriber without sending the message to it. If a subscription lacks a filter policy, the subscription receives every message published to its topic.\n\nWith filter policies, you can simplify your usage of Amazon SNS by consolidating your message filtering criteria into your topic subscriptions. With this consolidation, you can offload the message filtering logic from subscribers and the message routing logic from publishers. Therefore, you don't need to filter messages by creating a separate topic for each filtering condition. Instead, you can use a single topic, and you can differentiate your messages with attributes. Each subscriber receives and processes only those messages accepted by its filter policy.\n\nFor example, you could use a single topic to publish all messages generated by transactions from your online retail site. To each message, you could assign an attribute that indicates the type of transaction, such as order_placed, order_cancelled, or order_declined. By creating subscriptions with filter policies, you can route each message to the queue that is meant to process the message's transaction type.\n\nFor a tutorial demonstrating how to implement message filtering with the AWS Management Console, see Filter Messages Published to Topics. This tutorial shows how to apply filter policies to route messages to separate Amazon SQS queues.\n\n########\n\n \n\nOption D is not correct.\n\nAlthough it looks correct, it is not an efficient solution.\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following is not an item of message attribute in AWS SNS?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Name"}, {"id": "B", "markdown": "Type"}, {
+        "id": "C",
+        "markdown": "Value"
+    }, {"id": "D", "markdown": "MessageID"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: D\n\n\n\n \n\n\n\n\n\thttps://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following components effectively facilitate a user to setup AutoScaling on EC2 instances for a web-based application? Choose 3 correct Options:",
+    "prompt": "",
+    "correctAnswerId": ["A", "B", "D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Launch Configuration"}, {
+        "id": "B",
+        "markdown": "Elastic Load Balancer"
+    }, {"id": "C", "markdown": "Lambda"}, {"id": "D", "markdown": "AutoScaling Group"}, {
+        "id": "E",
+        "markdown": "Elastic IP"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A,B, D\n\nOption A is correct.\n\nA launch configuration specifies the type of EC2 instance that Amazon EC2 Auto Scaling creates for you. You create the launch configuration by including information such as the ID of the Amazon Machine Image (AMI) to use, the instance type, the key pair, security groups, and block device mapping.\n\n\n\n \n\n\n\thttps://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html\n\n\n \n\nOption B is correct.\n\nYou can attach a load balancer to your Auto Scaling group. The load balancer automatically distributes incoming traffic across the instances in the group.\n\n\n\n \n\nhttps://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\n\n \n\n \n\nOption C is not correct.\n\nLambda functions are not required to setup auto scaling for EC2 instances.\n\nOption D is correct.\n\nAn Auto Scaling group is a collection of EC2 instances, and the core of Amazon EC2 Auto Scaling. When you create an Auto Scaling group, you include information such as the subnets for the instances and the number of instances the group must maintain at all times.\n\n\n\n \n\nhttps://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html\n\n \n\nOption E is not correct.\n\nElastic IP is not required to setup auto scaling for EC2 instances.\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization had\nsetup Auto Scaling for an EC2 instance. They intend to launch one additional\nnew instance with same configuration automatically when the workload increases\nand shut it down automatically when the workload is back to normal. However,\nfor security reasons, they have applied operating system patches to the main\ninstance and would like this to be reflected when Auto Scaling group launches\nnew EC2 instance. What would happen in this scenario?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Auto Scaling group will launch new EC2 instance from the main instance latest snapshot. New instance will have updated patches."
+    }, {
+        "id": "B",
+        "markdown": "Create an image out of main EC2 instance and update Auto Scaling group configuration with new image AMI ID."
+    }, {
+        "id": "C",
+        "markdown": "Create an image out of main EC2 instance and update Launch Configuration with new image AMI ID."
+    }, {
+        "id": "D",
+        "markdown": "Create an image out of main EC2 instance, create a new Launch Configuration with new image AMI ID, update Auto Scaling group with new Launch Configuration ID"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: DOption\nA is not correct. Auto\nScaling group launches new instances based on the configuration defined in\nLaunch Configuration. AMI ID is one of the configuration parameter which\ndefines the type of instance to be launched when auto scaling logic is\nexecuted.AMI\nID is set during the creation of launch configuration and cannot be modified.So,\nauto scaling group will not launch new instance based on the latest image of\nmain instance. Option\nB is not correct. AMI\nID is a configuration on Launch Configuration, not Auto Scaling Group. Option\nC is not correct and Option D is correct. https://docs.aws.amazon.com/autoscaling/ec2/userguide/change-launch-config.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following\nis not a default metric type for Auto Scaling Group policy?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Average CPU Utilization"}, {
+        "id": "B",
+        "markdown": "Memory Utilization"
+    }, {"id": "C", "markdown": "Network In"}, {"id": "D", "markdown": "Network Out"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: BFollowing\nare the default metric types available for Simple Policy and Step Policy https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "An application team in your organization set up an autoscaling group configuration (with simple scaling policy) to launch a new instance when CPU utilization reaches 85%. However, at times, when EC2 instance comes into in-service, it reports Unhealthy status immediately. However, as the replacement of the unhealthy instance by another instance (launched by Autoscaling group) takes more than 15 minutes, the unhealthy instance has to be removed manually. What do you think is the reason behind this?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Auto scaling policy alarm incorrectly configured."}, {
+        "id": "B",
+        "markdown": "Health Check Grace Period set to 20 minutes."
+    }, {"id": "C", "markdown": "Termination policy set to Do Not Terminate instances."}, {
+        "id": "D",
+        "markdown": "Launch Configuration is not configured to report Unhealthy status"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: B\n\n            Option A is not correct.\n\n            Instance health status is not determined by the cloudwatch alarms.\n\n           \n\n \n\n            Option B is correct.\n\n \n\n   \n\nOption C is not correct.\n\nTermination policy does not have “Do Not Terminate” option.\n\n\nOption D is not a correct statement.\n\n \n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "In an auto scaling group setup, with default termination policy for scale in, which statement is correct?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Select the Availability Zone with the most instances and at least one instance that is not protected from scale in. If there is more than one Availability Zone with this number of instances, select the Availability Zone with the instances that use the oldest launch configuration"
+    }, {
+        "id": "B",
+        "markdown": "Determine which unprotected instances in the selected Availability Zone use the newest launch configuration. If there is one such instance, terminate it."
+    }, {
+        "id": "C",
+        "markdown": "If there are multiple instances that use the oldest launch configuration, determine which unprotected instances are closest to the previous billing hour and terminate it."
+    }, {
+        "id": "D",
+        "markdown": "If there is more than one unprotected instance closest to the previous billing hour, select one of these instances at random."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: A\n\n\n\n                   \n\n\n\n \n\n\n\thttps://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html\n\n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You had setup an internal HTTP(S) Elastic Load Balancer to route requests to two EC2 instances inside a private VPC. However, one of the target EC2 instance is showing Unhealthy status. Which of the following options is NOT a possible reason for showing an unhealthy status?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Port 80/443 is not allowed on EC2 instance’s Security Group from load balancer."
+    }, {"id": "B", "markdown": "EC2 instance is in different availability zones than load balancer."}, {
+        "id": "C",
+        "markdown": "The ping path does not exist on the EC2 instance."
+    }, {"id": "D", "markdown": "The target did not return a successful response code"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\nIf a target is taking longer than expected to enter the InService state, it might be failing health checks. Your target is not in service until it passes one health check\n\n\n\n\n \n\n \n\n\n\thttps://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-troubleshooting.html#target-not-inservice\n\thttps://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html\n\n\nNote:\n\nQuestion is asking to select the wrong answer:\n\nWhich of the following options could not be a reason this? So based on this (Could not be a reason) condition option B is the correct answer.\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "In an AWS Setup of a company, a web-based application has a fleet of 10 EC2 instances. 7 EC2 instances are present in Availability Zone A whereas 3 EC2 instances in Availability Zone B. The percentage (%) of requests received in Availability Zone B is greater than the percentage (%) of requests in Availability Zone A. What can be done at the architecture level to balance the load across the two availability zones? Please select 3 correct options.",
+    "prompt": "",
+    "correctAnswerId": ["A", "C", "D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Use Application Load Balancer to achieve this ability."}, {
+        "id": "B",
+        "markdown": "Enable “split traffic equally” checkbox under load balancer configuration."
+    }, {"id": "C", "markdown": "This can be achieved through cross-zone load balancing"}, {
+        "id": "D",
+        "markdown": "Use Network Load Balancer to achieve his ability."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A, C, and D     \n\nOption A is correct.  Please refer below AWS Link:\n\n\n\n\n\thttps://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#availability-zones\n\n\n \n\n\n\tOption B is not correct. There is no such option.\n\tOption C is correct.\n\n\n\n\n\n\n \n\n\n\thttps://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#availability-zones\n\tOption D is correct. Please refer to the below AWS documentation link:\n\t\n\t\thttps://aws.amazon.com/about-aws/whats-new/2018/02/network-load-balancer-now-supports-cross-zone-load-balancing/\n\t\n\t\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following are features for monitoring application load balancer? Choose the 3 correct options.",
+    "prompt": "",
+    "correctAnswerId": ["A", "B", "D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "CloudWatch metrics"}, {"id": "B", "markdown": "Request tracing"}, {
+        "id": "C",
+        "markdown": "VPC Flow Logs"
+    }, {"id": "D", "markdown": "CloudTrail logs"}, {"id": "E", "markdown": "EC2 Flow Logs"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A, B, D\n\n\n\n \n\n\n\thttps://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-monitoring.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have created an\napplication load balancer and selected two EC2 instances as targets. However,\nwhen you are trying to make a request to load balancer from internet, the\nrequests are getting failed. What could be the reason?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "The subnets specified for load balancer does not have internet gateway attached to their route tables."
+    }, {
+        "id": "B",
+        "markdown": "Target EC2 instances are in private subnets without any internet gateway attached."
+    }, {"id": "C", "markdown": "There is no elastic IP address attached to the load balancer."}, {
+        "id": "D",
+        "markdown": "Cross-zone load balancing is not enabled."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: AOption\nA is correct.Option\nB is not correct.You\nhave can target EC2 instance in private subnet and can attach to load balancer\nwhich will be on public subnet.https://aws.amazon.com/premiumsupport/knowledge-center/public-load-balancer-private-ec2/Option\nC is not correct.Elastic\nload balancers are AWS highly available and scalable components managed by AWS.\nOnce you create a load balancer, you will be given a internet-accessible(if the\nload balancer is internet facing) hostname to connect. AWS manages the\nunderlying IP addresses and you do not need to attach an elastic IP address in\norder to connect from internet. Option\nD is not correct. \n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following is a correct way to register a target in\n     Elastic Load Balancer target group?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "EC2 instance names"}, {"id": "B", "markdown": "IP addresses"}, {
+        "id": "C",
+        "markdown": "EC2 imageid"
+    }, {"id": "D", "markdown": "EC2 Primary Network Inteface ID"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B            https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-type\n\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following are the main functions of AWS Route 53? (SELECT THREE)",
+    "prompt": "",
+    "correctAnswerId": ["A", "B", "D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Register domain names"}, {
+        "id": "B",
+        "markdown": "Route internet traffic to the resources for your domain"
+    }, {"id": "C", "markdown": "Load-balance traffic among individual AWS resource instances"}, {
+        "id": "D",
+        "markdown": "Check the health of your resources"
+    }, {"id": "E", "markdown": "Auto Scale your resources"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A, B, D\n\n\n\nBreakdown\n\n\n\tOption C is incorrect because Route 53 is not used for load-balancing traffic among individual AWS resource instances (like a load balancer) rather we integrate it with resources for added functionality (https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/integration-with-other-services.html)\n\tOption E is incorrect. In AWS, Autoscaling is used to scale underlying resources up or down based on pre-determined or dynamic factors. \n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization had created an S3 bucket for static website hosting. They had created and configured all necessary components for static website and ready to use with host name http://example-bucket.com.s3-website-us-east-2.amazonaws.com. However, they would like to get the website served through domain name www.example-bucket.com which is already registered. Which type of record set you need to create?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "A - IPv4 Address with Alias=NO"}, {
+        "id": "B",
+        "markdown": "A - IPv4 Address with Alias=YES"
+    }, {"id": "C", "markdown": "CNAME - Canonical Name with ALIAS=NO"}, {
+        "id": "D",
+        "markdown": "CNAME - Canonical Name with ALIAS=YES"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\nAWS Documentation:\n\nhttps://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html#root-domain-walkthrough-s3-tasks\n\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following\nis not an AWS service that AWS Route 53 can route traffic to?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Amazon CloudFront"}, {
+        "id": "B",
+        "markdown": "Elastic Load Balancing"
+    }, {"id": "C", "markdown": "Amazon RDS"}, {"id": "D", "markdown": "Amazon CloudWatch"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: D                    Amazon\nRoute 53 integrates with Amazon CloudWatch for monitoring, not for routing\ntraffic.https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/integration-with-other-services.html\n\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization had setup a web application on AWS VPC with 4 EC2 instances in a private subnet. They had configured an elastic load balancer to distribute traffic between all 4 EC2 instances. They decided to route traffic from internet to the elastic load balancer via a domain “www.example-web-application.com” which they had already registered. Which type of record set you need to create?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "A - IPv4 Address with Alias=NO"}, {
+        "id": "B",
+        "markdown": "A - IPv4 Address with Alias=YES"
+    }, {"id": "C", "markdown": "CNAME - Canonical Name with ALIAS=NO"}, {
+        "id": "D",
+        "markdown": "CNAME - Canonical Name with ALIAS=YES"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\n\nhttps://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.html\n\nNote:\n\nA Record (Address Record) is typically used when an IP address to name conversion is required. This is most commonly used. \n\nA record points a name to specific IP. If you want whizlabs.com to point to the server 10.120.13.14 then you will configure an A record like below\n\nwhizlabs.com A 10.120.13.14\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have a web\napplication hosted on AWS VPC with a single EC2 instance with Auto Scaling\nenabled. You have also assigned elastic IP address to the EC2 instance. When\nyou access the elastic IP address, you are able to successfully connect to your\nweb application. You decided to route requests to your application from a\ncustom domain through Route 53. You have performed the setup on Route 53.\nHowever, when you access your custom domain name from internet, you get “Server\nNot Found” error. Which of the following could be a reason?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Route 53 service is for internal application routing. It does not support routing traffic from internet."
+    }, {
+        "id": "B",
+        "markdown": "You must configure elastic load balancer in order to use Route 53 for web application hosting."
+    }, {"id": "C", "markdown": "IP address configured in Route 53 DNS record set might be incorrect."}, {
+        "id": "D",
+        "markdown": "The resource on EC2 instance that you're routing traffic to is unavailable."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: C Option A and B are not valid\nstatements. Option C is correct.       Although\noption D looks correct, the question states the connection to web application\nwas successful when connected through elastic IP address. So this option is not\nthe cause of failure.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following are correct options for logging and monitoring AWS Route 53 service? Choose 3 correct options.",
+    "prompt": "",
+    "correctAnswerId": ["A", "C", "E"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Amazon CloudWatch"}, {"id": "B", "markdown": "AWS VPC Flow Logs"}, {
+        "id": "C",
+        "markdown": "AWS Route 53 dashboard"
+    }, {"id": "D", "markdown": "Access logs in S3"}, {"id": "E", "markdown": "AWS CloudTrail"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A, C, E\n\n\n\tOption A is correct.\n\n\n       \n\n\n\thttps://docs.aws.amazon.com/Route53/latest/DeveloperGuide/monitoring-health-checks.html\n\n\n \n\n\n\tOption B is not correct.\n\n\nVPC Flow logs are for logging the network traffic going in/coming out of a specific VPC. Route 53 is not a VPC specific service.\n\n \n\n\n\tOption C is correct.\n\n\n\n\n\n\tOption D is not correct.\n\n\nRoute 53 does not log directly into AWS S3. However, you can export the cloudwatch or cloudtrail logs into S3.\n\n\n\tOption E is correct.\n\n\n\nhttps://docs.aws.amazon.com/Route53/latest/DeveloperGuide/logging-using-cloudtrail.html\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have launched an RDS instance in your VPC. The endpoint that is assigned to your DB instance is a long, partially random, alphanumeric string, for example, myexampledb.a1b2c3d4wxyz.us-west-2.rds.amazonaws.com. Your organization wants to use a name that's easier to remember, so you registered a domain name using Route53 service. Which type of record set do you need to create?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "A - IPv4 Address with Alias=NO"}, {
+        "id": "B",
+        "markdown": "A - IPv4 Address with Alias=YES"
+    }, {"id": "C", "markdown": "CNAME - Canonical Name with ALIAS=NO"}, {
+        "id": "D",
+        "markdown": "CNAME - Canonical Name with ALIAS=YES"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: C\n\n       \n\n\n\thttps://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-rds-db.html\n\n\nNote:\n\nA Record (Address Record) is typically used when an IP address to name conversion is required. This is most commonly used. \n\nA record points a name to specific IP. If you want whizlabs.com to point to the server 10.120.13.14 then you will configure an A record like below\n\nwhizlabs.com A 10.120.13.14\n\n\nA CNAME record (Cannonical record) points a name to another name. Typically a complex name with alphanumeric characters can be shortened to a user understandable format\n\nblog.whizlabs.com CNAME  blog235_github_repoABCD.io.net\n\nIn the question, the AWS generated resource name is complex i.e myexambledb.a1b2c3d4.......\n\nThis can be converted to the user-friendly name by using a CNAME record.\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "In AWS Route 53 record\nset, which of the following is not a routing policy?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Weighted routing policy"}, {
+        "id": "B",
+        "markdown": "Geolocation routing policy"
+    }, {"id": "C", "markdown": "Failover routing policy"}, {"id": "D", "markdown": "Distributed routing policy"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: D Options A, B, C are valid routing\npolicies for AWS Route 53.Following are list of routing\npolicies.       https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are planning to\nlaunch a web based application in two different regions within US on AWS due to\nyour organization compliance policies. You have setup 2 EC2 instances attached\nto an elastic load balancer in us-east-1. You have replicated the same setup in\nus-west-1. Now you have two load balancers which needs to listen traffic from internet.\nYou would want to split the requests equally between both load balancers from a\ndomain name hosted on your AWS Route 53. How should you configure your Route 53\nrecord sets?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create two record sets, one each for us-east-1 and us-west-1 load balancers. Set weighted routing policy with weights as 1 and 2 respectively."
+    }, {
+        "id": "B",
+        "markdown": "Create two record sets, one each for us-east-1 and us-west-1 load balancers. Set weighted routing policy with weights as 1 and 1 respectively."
+    }, {
+        "id": "C",
+        "markdown": "Create one record set and select both load balancers as Alias Targets. Set weighted routing policy with weights as 1 and 2 respectively."
+    }, {
+        "id": "D",
+        "markdown": "Create one record set and select both load balancers as Alias Targets. Set weighted routing policy with weights as 1 and 1 respectively."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B       https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted\nOption\nA is not correct.According\nto above screen shot, with weights 1 and 2, the request distribution is 1:2\nwhich is not equal.Option\nB is correct as the distribution ratio would be 1:1https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/TutorialManagingOver100WRR.html\nOptions\nC and D are not correct.A\nrecord set can only have one Alias Targethttps://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values-alias.html#rrsets-values-alias-alias-target\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Which of the following types can be monitored for health checks by AWS Route 53? Choose 2 correct options.",
+    "prompt": "",
+    "correctAnswerId": ["A", "B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Endpoints"}, {"id": "B", "markdown": "State of CloudWatch alarm"}, {
+        "id": "C",
+        "markdown": "EC2 instance health checks"
+    }, {"id": "D", "markdown": "DNS service health checks"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A, B\n\n\n\n \n\nhttps://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-types.html\n\n \n\n \n\n\n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as a Cloud Architect in big IT Firm, to ensure high availability of both the web servers and the database of your web application, you deployed your auto-scaled EC2 instances in multiple Availability Zones with an Application Load Balancer in front and configured Multi-Availability Zone to your RDS instance. There is a spike in incoming requests in the past few hours and the performance of the primary database is starting to go down. What would happen to the database if the primary DB instance fails?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "The IP address of the primary DB instance is switched to the standby DB instance."
+    }, {"id": "B", "markdown": "The RDS DB instance will automatically reboot."}, {
+        "id": "C",
+        "markdown": "A new DB instance will be created and immediately replace the primary database."
+    }, {
+        "id": "D",
+        "markdown": "The canonical name record is changed from the primary database to the standby database."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: D\n\n\n\tOption A is incorrect because IP Address is associated with A Records in DNS but for Database, you need to change the CNAME record.\n\tOption B is incorrect because RDS Instance is pointed to standby RDS.\n\tOption C  is incorrect because this option is not reliable in real-time.\n\tOption D is correct because the failover mechanism automatically changes the DNS CNAME record of the DB instance to point to the standby DB instance\n\n\nRefer:  \n\n\n\thttps://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company is planning to migrate an on premise 15 TB MySQL database cluster onto AWS. The replication lag needs to be less than 100 ms for the cluster and the size is expected to double in the next couple of months. Which of the following would be the ideal data store that should be chosen in AWS?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS RDS MySQL"}, {"id": "B", "markdown": "AWS Aurora"}, {
+        "id": "C",
+        "markdown": "AWS DynamoDB"
+    }, {"id": "D", "markdown": "AWS Redshift"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\n\n\tOption B is correct because all Aurora Replicas returns query results with minimal replica lag—usually much less than 100 milliseconds after the primary instance has written an update. For Scaling also this is the best among all the options the minimum storage is for AWS Aurora is 10GB. Based on your database usage, your Amazon Aurora storage will automatically grow, up to 64 TB, in 10GB increments with no impact to database performance. There is no need to provision storage in advance. Amazon Aurora is a compatible MySQL database that can take on tremendous growth in terms of the data size.\n\n\nRefer: \n\n\n\thttps://aws.amazon.com/rds/aurora/faqs/\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A complex enterprise application is hosted on an M5.XLarge on-demand EC2 instance with DynamoDB as its database. You created a table called \"coursedetails\" which has a hash key of \"course_id”. You are able to query the data based on the \"course_id\" hash key without any issues. Your Supervisor then told you that the web application should also be able to query the \"coursedetails\" table by \"student_name\". What would you do to properly configure your DynamoDB to meet the above requirement? The table “coursedetails” consists of 3 columns i.e. course_id (hash key), course_name, student_name.",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Configure the DynamoDB instance to have a second table which contains all the information by “student_name”."
+    }, {"id": "B", "markdown": "Set up an In-Memory Acceleration with DAX in your DynamoDB instance."}, {
+        "id": "C",
+        "markdown": "Configure the “coursedetails” table to use “student_name” as a Global secondary index"
+    }, {"id": "D", "markdown": "The requirement is beyond the capability of DynamoDB."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: C\n\n\n\tOption A is incorrect because DynamoDB is not designed as a relational database and does not support join operations. You can think about DynamoDB as just being a set of key-value pairs. You can have the same keys across multiple tables, but DynamoDB doesn't automatically sync them or have any foreign-key features. The columns in one table, while named the same, are technically a different set than the ones in a different table. It's up to your application software to make sure that those keys are synced.\n\tOption B is incorrect because In-Memory Acceleration with DAX is used for caching the query.\n\tOption C is correct because we don't know the course_id of those “student_name”, that's what we want to get. So we find ourselves without knowing the items' hash key values, that’s where GSI is used. Global Secondary Indexes let you define a different hash key for your table. Note that it will not change the primary hash key – “course_id” will still be the table's hash key. GSI only provides an additional hash key for you to be able to make more complex queries\n\tOption D is incorrect because it is under the capability of DynamoDB.\n\n\nRefer: \n\n\n\thttps://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-gsi-aggregation.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as an AWS Architect for a multinational bank with hybrid cloud architecture. The bank is running a currency exchange website which uses a MySQL Server RDS instance as its database. As part of the company's business continuity plan, there is a need to keep a read replica of the production RDS instance to the bank's on premise data center. In this scenario, what is the most secure and effective way to meet this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Change the MySQL Server RDS instance as the master node and then enable replication over the public Internet using a secure SSL endpoint to a server on the on premise data center."
+    }, {
+        "id": "B",
+        "markdown": "Configure the MySQL Server RDS instance to replicate to an EC2 instance with core MySQL and then enable Replication over a secure VPN connection"
+    }, {
+        "id": "C",
+        "markdown": "Use native backup and restore for MySQL Server databases using full backup files by storing it on Amazon S3, and then restore the backup file onto an on-premises server."
+    }, {
+        "id": "D",
+        "markdown": "Create an IPsec VPN connection through the Virtual Private Cloud service and configure replication in MySQL Server."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: D\n\n\n\tOption A is incorrect as it is feasible: you could put your RDS DB in a public subnet and configure SSL for it but you have been asked for the most secure way.\n\tOption B is incorrect because Even EC2 is external to RDS and it won’t be secure option.\n\tOption C is incorrect because it describes a backup-restore solution\n\tOption D is correct because it provides the most secure direct connection from the RDS MySQL Server instance to the On Premise data center, and replication can be configured within the MySQL Server service since it can't be done from the RDS service to On Premise data center.\n\n\nRefer:\n\n\n\thttps://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html#USER_ReadRepl.Create\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your team had developed an online feedback application for the best image competition in AWS using CloudFormation. The application accepts high-quality images of each participant and stores them in S3 then records the information about the image as well as the participant’s profile in RDS. After the competition, the CloudFormation stack is not used anymore and to save resources, the stack should be terminated to save the cost. Your manager instructed you to back up the RDS database and the S3 bucket so the data can still be used even after the CloudFormation template is deleted. Which of the following options will fulfill this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Set the DeletionPolicy for the RDS instance to snapshot and then enable S3 bucket replication on the source bucket to a destination bucket to maintain a copy of all the S3 objects."
+    }, {
+        "id": "B",
+        "markdown": "Set the DeletionPolicy to retain on both the RDS and S3 resource types on the CloudFormation template."
+    }, {"id": "C", "markdown": "Set the DeletionPolicy on the S3 bucket to snapshot"}, {
+        "id": "D",
+        "markdown": "Set the DeletionPolicy on the RDS resource to snapshot and set the S3 bucket to retain."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: D\n\n\n\tOption A is incorrect because a replica of the S3 bucket is not required we can directly retain it.\n\tOption B is incorrect because we can retain a snapshot of RDS, not S3.\n\tOption C is incorrect because RDS also needs to be backed up.\n\tOption D is correct because The Retain option keeps the resource in the event of a stack deletion. The Snapshot option creates a snapshot of the resource before that resource is deleted. The Delete option deletes the resource along with the stack.\n\n\nRefer: \n\n\n\thttps://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as a Cloud Engineer for a startup company which is planning to develop a web application with a ReactJS frontend and DynamoDB with provisioned throughput (1000 Writes/Sec) as its database. They are expecting a high number of writes on the database during peak hours (3000 Writes/Sec). How could you ensure the scalability and cost-effectiveness of the application to reduce the load on the DynamoDB database? (Choose 3 options)",
+    "prompt": "",
+    "correctAnswerId": ["B", "D", "E"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Add more DynamoDB databases to handle the load."}, {
+        "id": "B",
+        "markdown": "Use DynamoDB Auto Scaling"
+    }, {"id": "C", "markdown": "Increase write capacity of DynamoDB to meet the peak loads."}, {
+        "id": "D",
+        "markdown": "Use SQS to assist and let the application pull messages and then perform the relevant operation In DynamoDB."
+    }, {
+        "id": "E",
+        "markdown": "Use Kinesis to assist and let the application pull messages and then perform the relevant operation in   DynamoDB."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B,D and E\n\n\n\tOption A is incorrect because this option is neither Cost-effective nor reliable.\n\tOption B is correct because in case your application can handle some throttling from DynamoDB when there’s a sudden increase in traffic, you should use DynamoDB Auto Scaling.\n\tOption C is incorrect because same thing you have to do manually again and again in future.\n\tOption D is correct because you could either put all the messages into SQS first, or use SQS as an overflow buffer when you exceed the design throughput on your DynamoDB database.\n\tOption E is correct because if the order of the messages coming in is extremely important, Kinesis is another option for you to ingest the incoming messages and then insert them into DynamoDB, in the same order they arrived, at a pace you define\n\n\nRefer: \n\n\n\t https://aws.amazon.com/blogs/database/amazon-dynamodb-auto-scaling-performance-and-cost-optimization-at-any-scale/\n\t https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company has got a client whose data is stored in AWS for a 3-tier application. They have given some key requirements for the database, it should have Ability for multiple schema changes, the database should be durable, and Changes to the database should not result in downtime. As a Cloud Architect of the Company, Which of the following would be the best data storage option for the Client?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS S3"}, {"id": "B", "markdown": "AWS Redshift"}, {
+        "id": "C",
+        "markdown": "AWS DynamoDB"
+    }, {"id": "D", "markdown": "AWS Aurora"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: D\n\n\n\tOption D is correct because Amazon Aurora does support working with schema changes.\n\tOption A, B, C are incorrect none of these are have these features together.\n\n\nRefer: \n\n\n\thttps://aws.amazon.com/blogs/database/amazon-aurora-under-the-hood-fast-ddl/\n\thttps://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.FastDDL.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "An online Ecommerce WordPress Website is currently storing its records in a Single MySQL RDS database in AWS. After few days there are severe performance issues on the database. They tried to Scale up the DB Instance. Right now they are using SQS to pull up the queries in Queue. Which of the following can be added to the architecture to rectify the performance issue and the solution must be cost effective.",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Enable Multi-AZ for the database."}, {
+        "id": "B",
+        "markdown": "Use Elasticache Service."
+    }, {"id": "C", "markdown": "Place a Load Balance in front of database."}, {
+        "id": "D",
+        "markdown": "Use Cloudfront in front of the database."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\n\n\tOption A is incorrect because Multi-AZ is used for standby purpose and not for performance issues.\n\tOption B is correct because the Elasticache service can be used to cache all the common queries. Hence if the same queries are causing the problem, the data sets will be fetched from Elasticache, instead of the database. This will reduce the load on the database server.\n\tOption C is incorrect because Load Balance can’t be used on Single database server.\n\tOption D is incorrect because Cloudfront is caching the data on a remote edge location which means that the request is not even going to the origin server.\n\n\nRefer: \n\n\n\thttps://aws.amazon.com/elasticache/\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working in a Research and Development Department in IT Company where you as a Cloud Architect, trying to check the impact on real-time transactions. You created a multi-AZ RDS setup consisting of Primary instance and a Read-replica. What is the impact of the read-replica to the transactions in the primary instance?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Transaction are impacted only if you configured it for Synchronous Replication"
+    }, {
+        "id": "B",
+        "markdown": "Transaction are impacted only if you configured it for Asynchronous Replication"
+    }, {"id": "C", "markdown": "Transactions are not impacted"}, {"id": "D", "markdown": "Transactions are impacted"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: C\n\n\n\tOption C is correct because, for multi-AZ high availability, RDS uses synchronous replication between primary and standby systems. RDS Read Replica, on the other hand, uses asynchronous replication and any slowness in Read Replica instance would simply cause data lag only in the read - replica. Transactions in primary are not impacted.\n\n\nRefer: \n\n\n\thttps://aws.amazon.com/rds/faqs/\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company is planning to migrate their existing on premise application to the AWS Cloud. The application currently runs on .Net and uses Microsoft SQL Server as the backend database. Your Company has some limitations as they don’t have the developers currently to make recent changes to the code and also they don’t have the Infrastructure team currently to manage the infrastructure on AWS. Which of the following data service would your Company choose on AWS for the best use?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS RDS"}, {"id": "B", "markdown": "AWS DynamoDB"}, {
+        "id": "C",
+        "markdown": "AWS Aurora"
+    }, {"id": "D", "markdown": "AWS Redshift"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A\n\n\n\tOption A is correct because one can use the AWS RDS service and choose the Microsoft SQL Server platform. Since the company does not have the developers available to make large code changes, they can just migrate the data and change the connection strings in the code. Also with the absence of Infrastructure team, the AWS RDS service takes care of the Infrastructure.\n\tOption B, C, D are incorrect because managing code and Infrastructure can’t be done.\n\n\nRefer to Easy to administer Section: \n\n\n\thttps://aws.amazon.com/rds/ \n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is planning on setting up a web-based application onto AWS. This would be a content-based system wherein you have users across the world who would want to access the content. You have to ensure that users across the world get a seamless user experience when using the web application. Which of the below AWS service needs to be part of the architecture for this application?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Amazon SES"}, {"id": "B", "markdown": "Amazon Cloudtrail"}, {
+        "id": "C",
+        "markdown": "Amazon CloudFront"
+    }, {"id": "D", "markdown": "Amazon S3"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – C\n\nThe AWS Documentation mentions the following\n\nAmazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files, to your users. CloudFront delivers your content through a worldwide network of data centers called edge locations. When a user requests content that you're serving with CloudFront, the user is routed to the edge location that provides the lowest latency (time delay), so that content is delivered with the best possible performance.\n\n\n\tOption A is invalid since this is an email service\n\tOption B is invalid since this is an API monitoring service\n\tOption D is invalid since this is an object storage service\n\n\nFor more information on Amazon CloudFront, please visit the below URL\n\n\n\thttps://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is planning on setting up a web based application onto AWS. The application will be connected to an AWS RDS instance. You need to ensure that the performance of the database layer is up to the mark and if possible to ensure that recently queried results are delivered in a faster manner. Which of the following would be part of the architecture?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "MySQL Installed on two Amazon EC2 Instances in a single Availability Zone"
+    }, {"id": "B", "markdown": "Amazon RDS for MySQL with Multi-AZ"}, {
+        "id": "C",
+        "markdown": "Amazon ElastiCache"
+    }, {"id": "D", "markdown": "Amazon DynamoDB"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – C\n\nThe AWS Documentation mentions the following\n\nAmazon ElastiCache offers fully managed Redis and Memcached. Seamlessly deploy, operate, and scale popular open source compatible in-memory data stores. Build data-intensive apps or improve the performance of your existing apps by retrieving data from high throughput and low latency in-memory data stores. Amazon ElastiCache is a popular choice for Gaming, Ad-Tech, Financial Services, Healthcare, and IoT apps\n\n\n\tOption A is invalid since this would not help with the caching of data\n\tOption B is invalid since this is used for fault tolerance\n\tOption D is invalid since this is fully managed NoSQL database\n\n\n \n\n\n\tFor more information on AWS ElasticCache, please visit the below URL\n\t\n\t\thttps://aws.amazon.com/elasticache/\n\t\n\t\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is planning on setting up a web-based application onto AWS. The IT management has given clear directions on ensuring that the application follows a serverless architecture in order to reduce infrastructure costs. Which of the following services could be used in this regard. Choose 3 answers from the options given below",
+    "prompt": "",
+    "correctAnswerId": ["A", "B", "C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS API Gateway"}, {"id": "B", "markdown": "AWS Lambda"}, {
+        "id": "C",
+        "markdown": "AWS DynamoDB"
+    }, {"id": "D", "markdown": "AWS EC2"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer - A,B and C\n\nThe AWS Documentation mentions the\nfollowing\n\nAmazon API Gateway is a fully managed\nservice that makes it easy for developers to create, publish, maintain, monitor,\nand secure APIs at any scale. With a few clicks in the AWS Management Console,\nyou can create an API that acts as a “front door” for applications to access\ndata, business logic, or functionality from your back-end services, such as\nworkloads running on Amazon\nElastic Compute Cloud (Amazon EC2), code running on AWS Lambda, or any web\napplication.\n\nAWS Lambda lets you run code without provisioning\nor managing servers. You pay only for the compute time you consume - there is\nno charge when your code is not running.\n\nAmazon DynamoDB is a fully managed NoSQL\ndatabase service that provides fast and predictable performance with seamless\nscalability. DynamoDB lets you offload the administrative burdens of operating\nand scaling a distributed database, so that you don't have to worry about\nhardware provisioning, setup and configuration, replication, software patching,\nor cluster scaling\n\nFor more information on API gateway, Lambda\nand DynamoDB, please visit the below URL\n\nhttps://aws.amazon.com/api-gateway/\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is planning on setting up a hybrid connection between their on-premises infrastructure and an AWS VPC via AWS VPN managed connections. As an architect which of the following need to be in place for the connection to be established?. Choose 2 answers from the options given below",
+    "prompt": "",
+    "correctAnswerId": ["A", "B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "A hardware compatible VPN device"}, {
+        "id": "B",
+        "markdown": "A Virtual private gateway"
+    }, {"id": "C", "markdown": "An AWS Direct connect device"}, {"id": "D", "markdown": "Optical fibre cables"}],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer - A and B\n\nWhen defining a VPN connection between the on-premises network and the VPC, you need to have a customer gateway defined. Since this is accessed over the internet, it needs to have a static internet-routable IP Address.\n\n \n\nAll other options are invalid since this is only required for an AWS Direct connect connection.\n\nFor more information on AWS VPN connections, please visit the below URL\n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html\n\n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your\ncompany currently has setup their data store on AWS DynamoDB. One of your main\nrevenue generating applications uses the tables in this service. Your\napplication is now expanding to 2 different other locations and you want to\nensure that the latency for data retrieval is the least from the new regions.\nWhich of the following can help accomplish this?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Place a cloudfront distribution in front of the database"}, {
+        "id": "B",
+        "markdown": "Enable Multi-AZ for DynamoDB"
+    }, {"id": "C", "markdown": "Place an ElastiCache in front of DynamoDB"}, {
+        "id": "D",
+        "markdown": "Enable global tables for DynamoDB"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer - D\n\nThe AWS Documentation mentions the\nfollowing\n\nTo illustrate one use case for a global\ntable, suppose that you have a large customer base spread across three\ngeographic areas—the US east coast, the US west coast, and western Europe.\nCustomers would need to update their profile information while using your\napplication. To address these requirements, you could create three identical\nDynamoDB tables named CustomerProfiles, in three different AWS regions. These\nthree tables would be entirely separate from each other, and changes to the\ndata in one table would not be reflected in the other tables. Without a managed\nreplication solution, you could write code to replicate data changes among\nthese tables; however, this would be a time-consuming and labor-intensive\neffort.\n\nOption A is incorrect since cloudfront\nshould ideally be used in front of web distributions\n\nOption B is incorrect since this is not an\noption for DynamoDB\n\nOption C is incorrect since would not be\naffective for multiple regions\n\nFor more information on AWS DynamoDB global\ntables, please visit the below URL\n\nhttps://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A\ncompany is planning on moving their virtual servers from their on-premises infrastructure to the AWS Cloud. They need to migrate their existing VM's to\nthe cloud. Which of the following could help them in the migration process?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS VM Import"}, {"id": "B", "markdown": "AWS S3"}, {
+        "id": "C",
+        "markdown": "AWS SQS"
+    }, {"id": "D", "markdown": "AWS EC2"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – A\n\nThe AWS Documentation mentions the following\n\nVM Import/Export enables you to easily\nimport virtual machine images from your existing environment to Amazon EC2\ninstances and export them back to your on-premises environment. This offering\nallows you to leverage your existing investments in the virtual machines that\nyou have built to meet your IT security, configuration management, and\ncompliance requirements by bringing those virtual machines into Amazon EC2 as\nready-to-use instances. You can also export imported instances back to your\non-premises virtualization infrastructure, allowing you to deploy workloads\nacross your IT infrastructure.\n\nOption B is incorrect since this is an\nobject storage service\n\nOption C is incorrect since this is a\nqueuing service\n\nOption D is incorrect since this would be the\nvirtual server on the cloud but would not assist in the actual migration of the\nserver\n\nFor more information on AWS VM Import,\nplease visit the below URL\n\nhttps://aws.amazon.com/ec2/vm-import/\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A\ncompany is planning on moving their applications to the AWS Cloud. They have\nsome large SQL data sets that need to be hosted in a data store on the cloud. The\ndata store needs to have features available for disaster recovery as well.\nWhich of the following service should be considered for this requirement.",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Amazon DynamoDB"}, {"id": "B", "markdown": "Amazon Redshift"}, {
+        "id": "C",
+        "markdown": "Amazon Kinesis"
+    }, {"id": "D", "markdown": "Amazon Simple Queue Service"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – B\n\nThe AWS Documentation mentions the\nfollowing\n\nAmazon Redshift is a fully managed,\npetabyte-scale data warehouse service in the cloud. You can start with just a\nfew hundred gigabytes of data and scale to a petabyte or more. This enables you\nto use your data to acquire new insights for your business and customers.\n\nOption A is incorrect since this a NoSQL\ndata store\n\nOption C is incorrect since this is used\nfor data streaming.\n\nOption D is incorrect since this is used as\na messaging service\n\nFor more information on AWS Redshift,\nplease visit the below URL\n\nhttps://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your\ncompany has a set of 100 servers hosted on the AWS Cloud. They need to stream\nthe Logs from the Instances for analysis purposes. This is being done from a security\ncompliance perspective. Programs will then run to analyse the data for any sort\nof abnormal behaviour. Which of the following would be used to stream the log\ndata?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Cloudfront"}, {"id": "B", "markdown": "SQS"}, {
+        "id": "C",
+        "markdown": "Kinesis"
+    }, {"id": "D", "markdown": "SES"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – C\n\nThe AWS Documentation mentions the\nfollowing\n\nAmazon Kinesis Data Streams enables you to\nbuild custom applications that process or analyze streaming data for\nspecialized needs. You can continuously add various types of data such as\nclickstreams, application logs, and social media to an Amazon Kinesis data\nstream from hundreds of thousands of sources. Within seconds, the data will be\navailable for your Amazon Kinesis Applications to read and process from the\nstream.\n\nOption A is incorrect since this a content\ndistribution service\n\nOption B is incorrect since this is used as\na messaging service\n\nOption D is incorrect since this is an\nemail service\n\nFor more information on AWS Kinesis, please\nvisit the below URL\n\nhttps://aws.amazon.com/kinesis/data-streams/faqs/\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You\nhave been hired as an AWS Architect for a company. There is a requirement to\nhost an application using EC2 Instances. The Infrastructure needs to scale on\ndemand and also be fault tolerant. Which of the following would you include in\nthe design? Choose 2 answers from the options below",
+    "prompt": "",
+    "correctAnswerId": ["A", "C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS Autoscaling"}, {"id": "B", "markdown": "AWS ECS"}, {
+        "id": "C",
+        "markdown": "AWS Elastic Load Balancer"
+    }, {"id": "D", "markdown": "AWS Cloudwatch"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer - A and C\n\nThe AWS Documentation mentions the\nfollowing\n\nYou can automatically increase the size of\nyour Auto Scaling group when demand goes up and decrease it when demand goes\ndown. As the Auto Scaling group adds and removes EC2 instances, you must ensure\nthat the traffic for your application is distributed across all of your EC2\ninstances. The Elastic Load Balancing service automatically routes incoming web\ntraffic across such a dynamically changing number of EC2 instances. \n\nOption B is incorrect since this is used\nwhen you need a docker orchestration service\n\nOption D is incorrect since this is a\nmonitoring service\n\nFor more information on AWS Autoscaling and\nELB, please visit the below URL\n\nhttps://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your\ncompany has setup EC2 Instances in a VPC for their application. They now have a\nconcern that not all of the EC2 instances are being utilized. Which of the\nbelow mentioned services can help you find underutilized resources in AWS?\nChoose 2 answers from the options given below",
+    "prompt": "",
+    "correctAnswerId": ["A", "C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS Cloudwatch"}, {"id": "B", "markdown": "SNS"}, {
+        "id": "C",
+        "markdown": "AWS Trusted Advisor"
+    }, {"id": "D", "markdown": "Cloudtrail"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer - A and CThe AWS Documentation mentions the following\"An online resource to help you reduce cost, increase performance,and improve security by optimizing your AWS environment,Trust Advisor provides real time guidance to help you provison your resources following AWS best practices\"Amazon CloudWatch is a monitoring and management service built for developers, system operators, site reliability engineers (SRE), and IT managers. CloudWatch provides you with data and actionable insights to monitor your applications, understand and respond to system-wide performance changes, optimize resource utilization, and get a unified view of operational health.Option B is incorrect since this is a notification serviceOption D is incorrect since this is an API monitoring serviceFor more information on AWS Trusted Advisor and Cloudwatch, please visit the below URLhttps://aws.amazon.com/premiumsupport/trustedadvisor/https://aws.amazon.com/cloudwatch/\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your\ncompany has setup EC2 Instances in a VPC for their application. The IT Security\ndepartment has advised that all traffic be monitored to the EC2 Instances.\nWhich of the following features can be used to capture information for outgoing\nand incoming IP traffic from network interfaces in a VPC.",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS Cloudwatch"}, {"id": "B", "markdown": "AWS EC2"}, {
+        "id": "C",
+        "markdown": "AWS SQS"
+    }, {"id": "D", "markdown": "AWS VPC Flow Logs"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – D\n\nThe AWS Documentation mentions the\nfollowing\n\nVPC Flow Logs is a feature that enables you\nto capture information about the IP traffic going to and from network\ninterfaces in your VPC. Flow log data can be published to Amazon CloudWatch\nLogs and Amazon S3. After you've created a flow log, you can retrieve and view\nits data in the chosen destination.\n\nOption A is incorrect since this is a\nmonitoring service\n\nOption B is incorrect since this is a\ncompute service\n\nOption C is incorrect since this is a\nmessaging service\n\nFor more information on VPC flow logs,\nplease visit the below URL\n\nhttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your\ncompany has setup EC2 Instances in a VPC for their application. The IT Security\ndepartment needs to understand what the security mechanisms are available to\nprotect the Instances when it comes to traffic going in and out of the\ninstance. What are the two layers of security provided by AWS in the VPC?\nChoose 2 answers from the options given below",
+    "prompt": "",
+    "correctAnswerId": ["A", "B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Security Groups"}, {"id": "B", "markdown": "NACLs"}, {
+        "id": "C",
+        "markdown": "DHCP Options"
+    }, {"id": "D", "markdown": "Route Tables"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer - A and B\n\nThe AWS Documentation mentions the\nfollowing\n\nA security group acts as a\nvirtual firewall for your instance to control inbound and outbound traffic.\nWhen you launch an instance in a VPC, you can assign up to five security groups\nto the instance. \n\nA network access control list (ACL) is\nan optional layer of security for your VPC that acts as a firewall for\ncontrolling traffic in and out of one or more subnets. You might set up network\nACLs with rules similar to your security groups in order to add an additional\nlayer of security to your VPC.\n\nOption C is incorrect since this is used to\ndecide on the DNS servers for the VPC\n\nOption D is incorrect since this is used\nfor routing traffic in the VPC\n\nFor more information on VPC security groups\nand NACL’s, please visit the below URL\n\nhttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.htmlhttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html\n\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company has recently chosen to use the AWS API Gateway ( including API Cache ) service for managing their APIs. Which of the following services are automatically integrated with the API gateway service in the background to ensure a better response to calls made to the API Gateway?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS Cloudwatch"}, {"id": "B", "markdown": "AWS CloudFormation"}, {
+        "id": "C",
+        "markdown": "AWS Volume gateway"
+    }, {"id": "D", "markdown": "AWS Lambda"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – D\n\nAPI Gateway is designed for web and mobile developers who want to provide secure, reliable access to back-end APIs for access from mobile apps, web apps,etc. \n\n The business logic behind the APIs can be provided by a publicly accessible endpoint that API Gateway proxies call, or it can be entirely run as a Lambda function.\n\n\n\n \n\nFor example, an application can call an API in API Gateway to upload a user's annual income and expense data to Amazon S3 or Amazon DynamoDB, process the data in AWS Lambda to compute tax owed, and file a tax return.\n\n\n\n \n\nOption A is incorrect. Cloud Watch offers Cloud Monitoring services for the resources being used.\n\nOption B is incorrect. AWS CloudFormation provides templates for creation of resources in cloud\n\nOption C is incorrect. AWS Storage Gateway service is used to store data in the AWS Cloud. It offers a scalable and cost effective storage that maintains data security too.\n\nFor more information on the features of the API gateway , please refer to the below URL:\n\n\n\thttps://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company has recently chosen to use the AWS API Gateway service for managing their API's. It needs to be ensured that code hosted in other domains can access the API's behind the API gateway service. Which of the below security features of the API gateway can be used to ensure that API's resources can receive requests from a domain other than the API's own domain",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "API Stages"}, {"id": "B", "markdown": "API Deployment"}, {
+        "id": "C",
+        "markdown": "API CORS"
+    }, {"id": "D", "markdown": "API Access"}],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer – C\n\nThe AWS Documentation mentions the following\n\nWhen your API's resources receive requests from a domain other than the API's own domain, you must enable cross-origin resource sharing (CORS) for selected methods on the resource. This amounts to having your API respond to the OPTIONS preflight request with at least the following CORS-required response headers:\n\n\n\tAccess-Control-Allow-Methods\n\tAccess-Control-Allow-Headers\n\tAccess-Control-Allow-Origin\n\n\nOption A and B are invalid because these are used to ensure users can call API’s.\n\nOption D is invalid because there is no such thing as API Access.\n\nFor more information on enabling CORS, please refer to the below URL:\n\n\n\thttp://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your\ncompany is planning on developing and deploying an application onto AWS. The\napplication will follow a microservices based architecture which will involve\nthe deployment of several docker containers. Which of the following services is\nideal for this scenario?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "DynamoDB"}, {"id": "B", "markdown": "Simple Queue Service"}, {
+        "id": "C",
+        "markdown": "Elastic Container Service"
+    }, {"id": "D", "markdown": "CodeCommit"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer - C\n\nThe AWS Documentation mentions the\nfollowing\n\nAmazon EC2 Container Service (Amazon ECS)\nis a highly scalable, fast, container management service that makes it easy to\nrun, stop, and manage Docker containers on a cluster of Amazon Elastic Compute\nCloud (Amazon EC2) instances. Amazon ECS lets you launch and stop\ncontainer-based applications with simple API calls, allows you to get the state\nof your cluster from a centralized service, and gives you access to many\nfamiliar Amazon EC2 features.\n\nOption A is invalid because this is a fully\nmanaged NoSQL database\n\nOption B is invalid because this is a messaging\nservice\n\nOption D is invalid because this is a code\nversioning service\n\n \n\nFor more information on Elastic Container\nservice , please refer to the URL:\n\nhttp://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company offers its customers short-lived contests that require users to upload files in hopes of winning prizes. These contests can last up to two weeks, with unknown uploads and the resulting file analysis can last up to three months.\n\nThe company needs an economic, scalable object storage solution to hold its customers' files. The files will be accessed once and then deleted, and it requires immediate access. The best solution for this company is:",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Amazon Glacier"}, {"id": "B", "markdown": "Elastic File System"}, {
+        "id": "C",
+        "markdown": "Amazon S3 Standard"
+    }, {"id": "D", "markdown": "Amazon S3 Standard Infrequent Accessed"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer:\n\nD. S3 – IA for data that is accessed less frequently, but requires rapid access when needed\n\nIncorrect:\n\n\n\tA. Amazon Glacier is for data archiving and can be accessed within minutes\n\tB. Elastic File System is file storage, not object storage as required\n\tC. S3 standard is for frequently accessed data, and less economical than S3 - IA\n\n\nReference:\n\n\n\thttps://aws.amazon.com/s3/storage-classes/\n\thttps://aws.amazon.com/efs/when-to-choose-efs/\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company has been using AWS cloud services for six months and just finished a security review. Which finding below is considered a best practice in the security pillar of the well-architected framework?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Using the root user to create all new user accounts, at any time"}, {
+        "id": "B",
+        "markdown": "Monitoring and using alerts using CloudTrail and CloudWatch"
+    }, {"id": "C", "markdown": "Assigning Private IP address ranges to VPCs that do not overlap"}, {
+        "id": "D",
+        "markdown": "Designing the system using elasticity to meet changes in demand"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer:\n\nB. Monitoring and alerting for key metrics and events is a best practice of the Security pillar\n\nIncorrect:\n\nA. For the root user, you should follow the best practice of only using this login to create another, initial set of IAM users and groups for longer-term identity management operations\n\nC. Non-overlapping Private IP addresses is in the Reliability pillar\n\nD. Design using elasticity to meet demand is in the Performance Efficiency pillar (Design for Cloud\n\nOperations)\n\nReference:\n\nhttps://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf\n\nhttps://d1.awsstatic.com/whitepapers/architecture/AWS-Security-Pillar.pdf\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A website is hosted on two EC2 instances that sit behind an Elastic Load Balancer. The response time of the website has slowed dramatically, and customers are ordering less due to the wait time. Troubleshooting showed one of the EC2 instances failed and left just one instance running. What is the best course of action to prevent this from happening in the future?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Change the instance size to the maximum available to compensate for failure"
+    }, {
+        "id": "B",
+        "markdown": "Use CloudWatch to monitor the VPC Flow Logs for the VPC the instances are deployed in"
+    }, {
+        "id": "C",
+        "markdown": "Configure the ELB to perform health checks on the EC2 instances and implement auto-scaling"
+    }, {"id": "D", "markdown": "Replicate the existing configuration in several regions for failover"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer:\n\nCorrect:\n\nC. Using the elastic load balancer to perform health checks will determine whether or not to remove a non- or underperforming instance and have the auto-scaling group launch a new instance.\n\n \n\nIncorrect:\n\nA. Increasing the instance size doesn’t prevent failure of one or both the instances, therefore the website can still become slow or unavailable\n\nB. Monitoring the VPC flow logs for the VPC will capture VPC traffic, not traffic for the EC2 instance. You would need to create a flow log for a network interface.\n\nD. Replicating the same two instance deployment may not prevent failure of instances and could still result in the website becoming slow or unavailable.\n\nReference:\n\nhttps://media.amazonwebservices.com/AWS_Building_Fault_Tolerant_Applications.pdf\n\nhttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html#working-with-flow-logs\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A small company started using EBS backed EC2 instances due to the cost improvements over running their own servers. The company’s policy is to stop the development servers over weekend and restart them each week. The first time the servers were brought back none of the developers were able to SSH into them. What did the server most likely overlook?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "The associated Elastic IP address has changed and the SSH configurations were not updated"
+    }, {
+        "id": "B",
+        "markdown": "The security group for a stopped instance needs to be reassigned after start"
+    }, {
+        "id": "C",
+        "markdown": "The public ip4 address has changed on server start and the SSH configurations were not updated"
+    }, {"id": "D", "markdown": "EBS backed EC2 instances cannot be stopped and were automatically terminated"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer:\n\nCorrect:\n\nC. The instance retains its private IPv4 addresses and any IPv6 addresses when stopped and restarted. AWS releases the public IPv4 address and assigns a new one when its restarted\n\nIncorrect:\n\nA. An EC2 instance retains its associated Elastic IP addresses.\n\nB. Security groups do not need to be reassigned to instances that are restarted.\n\nD. EBS backed instances are the only instance type that can be started and stopped.\n\nReference:\n\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You want to use AWS to host your own website with a unique domain name that uses the format www.example.com. It needs to be deployed quickly and doesn’t require server-side scripting. What is your best option?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Register a domain with Route53 and verify ahead of time that a unique S3 bucket name can be created."
+    }, {
+        "id": "B",
+        "markdown": "Create an auto-scaling group of EC2 instances and manage the web hosting on these instances"
+    }, {
+        "id": "C",
+        "markdown": "Create one large EC2 instance to host the website and replicate it in every region"
+    }, {"id": "D", "markdown": "Create a Content Delivery Network (CDN) to deliver your images and files"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer:\n\nCorrect:\n\nA. S3 static webhosting is the quickest way to setup this website. Because bucket names are unique across all regions, its important to know that your S3 bucket is available before purchasing a domain name.\n\n \n\nIncorrect:\n\nB. Hosting on EC2 is not necessary here as server-side scripting is not needed and S3 will scale automatically.\n\nC. Hosting on EC2 is not necessary and this particular implementation can lead to different configurations on each server.\n\nD. A CDN will improve the delivery time of your files and pages to the customer but is not a hosting solution itself.\n\nReference:\n\nhttps://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html\n\nhttps://docs.aws.amazon.com/Route53/latest/DeveloperGuide/Welcome.html\n\nhttps://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-cloudfront-walkthrough.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are the Solutions Architect for a health insurance service company that wants to start building and supporting IoT devices for patients who recently signed new clauses in the contract. This will open opportunities to expand its market but also introduces some restrictions. All services and data involved have to guarantee HIPAA compliance and include in-transit encryption. Due to high sensitivity data, bypassing the internet is crucial. The architecture uses already ELBs. They want to avoid DNS re-configuration and IP address caching when it comes to the IoT devices. What combination of services may be the closest option to address this challenge?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "AWS ELBs, AWS IoT, and Amazon Route53 configured with geolocation or latency routing policies. This requires an interface endpoint (PrivateLink) for Route53 to stay inside the AWS backbone"
+    }, {
+        "id": "B",
+        "markdown": "AWS ELBs, AWS IoT, and AWS Global Accelerator which provisions two anycast static IP addresses"
+    }, {
+        "id": "C",
+        "markdown": "AWS ELBs, AWS IoT, and Amazon Route53 configured with geolocation or latency routing policies. This does not require an interface endpoint (PrivateLink) because Route53 is inside the AWS backbone"
+    }, {
+        "id": "D",
+        "markdown": "AWS ELBs, AWS IoT, and AWS Global Accelerator which provisions one anycast static IP address"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\nAWS Global Accelerator allocates two IPv4 anycast static IP addresses and keeps the traffic inside the AWS globally redundant network\n\n\n\tOption A is incorrect because there is no interface endpoint for Amazon Route53\n\tOption C is incorrect because Amazon Route53 is not inside the AWS backbone\n\tOption D is incorrect because because AWS Global Accelerator provides two anycast static IP addresses\n\n\nReferences:\n\n\n\thttps://go.aws/2z24ZLL\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are a consultant for a company developing a complex machine learning project relying on on-premises HPC frameworks with a plan to migrate to Amazon Web Services so they can leverage elastic and scalable cloud infrastructure and fast networking while keeping direct control over their computing infrastructure. What statement is correct in this sense?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Think of combining Amazon SageMaker and Amazon FSx file system"}, {
+        "id": "B",
+        "markdown": "Think of combining AWS ParallelCluster and Amazon FSx file system"
+    }, {"id": "C", "markdown": "A customised setting of an HPC cluster running SageMaker algorithms"}, {
+        "id": "D",
+        "markdown": "All HPC solutions on AWS are offered as a managed service to run intensive workloads"
+    }, {
+        "id": "E",
+        "markdown": "SageMaker is a self-service solution to run distributed machine learning (ML) workloads"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\nAWS ParallelCluster and Amazon FSx file system are suitable for HPC workloads on AWS and the key point in the description is the opportunity to keep control over the infrastructure. This is possible with AWS ParallelCluster since it is considered a self-service cluster management tool\n\n\n\tOption A is incorrect because although Amazon SageMaker supports Amazon FSx for Lustre file system, it is a fully managed service and one of the requirements is keeping direct control over their computing infrastructure\n\tOption C is incorrect because the phrase does not make sense since Amazon SageMaker built-in machine learning algorithms are part of Amazon SageMaker\n\tOption D is incorrect because AWS HPC solution components help set up and manage HPC clusters. Thus, they are not managed services\n\tOption E is incorrect because SageMaker is a fully manage service\n\n\nReferences:\n\n\n\thttps://go.aws/2wJmmAa\n\thttps://go.aws/3ageLqF\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "The fraud detection department in a financial analytics company using Amazon Web Services with recommended configurations needs to transfer data from their POSIX-compliant file system to an Amazon S3 bucket. In this context, what statement is correct?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS DataSync is natively integrated with Amazon S3"}, {
+        "id": "B",
+        "markdown": "Create a DataSync task with the EFS file system as the source location and the S3 bucket as the destination location"
+    }, {"id": "C", "markdown": "Amazon FSx for Lustre integrates natively with Amazon S3"}, {
+        "id": "D",
+        "markdown": "Amazon FSx for Windows File Server takes highly durable backups stored in S3"
+    }, {
+        "id": "E",
+        "markdown": "If you link your Amazon FSx for Lustre to an Amazon S3 data lake, your content will appear as objects as soon as the attached block-storage is available"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: C\n\nThere is native integration of Amazon FSx for Lustre with Amazon S3\n\n\n\tOption A is incorrect because even though there is integration between AWS DataSync and Amazon S3, AWS DataSync supports Amazon FSx for Windows File Server file system which is not a POSIX-compliant file system as required\n\tOption B is incorrect because AWS DataSync only supports Amazon FSx for Windows File Server file system which is not a POSIX-compliant file system as required\n\tOption D is incorrect because although the statement is correct, it does not apply to this scenario\n\tOption E is incorrect because when linking Amazon FSx file systems to Amazon S3 the content will appear as files and directories instead of objects\n\n\nReferences: \n\n\n\thttps://go.aws/3bnBEtx\n\thttps://go.aws/34L8Etn\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "As a Solutions Architect, you are working with system and networking teams and are assigned to provide disaster recovery (DR) and high-availability elements for a security planning document involving FSx for Windows. What assertions are true about Amazon FSx for Windows File Server? (Select TWO.)",
+    "prompt": "",
+    "correctAnswerId": ["B", "C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Amazon FSx for Windows File Server offers instant regional failover, fault-isolating design, and automatic traffic routing across multiple applications, multiple VPCs, accounts, or Regions"
+    }, {
+        "id": "B",
+        "markdown": "With inter-VPC, inter-account, and inter-Region access, you can share your file data sets across multiple applications, internal organizations, or environments spanning multiple VPCs, accounts, or Regions"
+    }, {"id": "C", "markdown": "Direct Connect, VPN, VPC Peering, and AWS Transit Gateway are supported"}, {
+        "id": "D",
+        "markdown": "Direct Connect, VPN, VPC Peering, and AWS Transit Gateway are not supported"
+    }, {"id": "E", "markdown": "Amazon FSx for Windows File Server is a fully POSIX-compliant filesystem"}, {
+        "id": "F",
+        "markdown": "You can combine Amazon FSx for Windows File Server with health-checking services to route traffic to healthy endpoints or to independently monitor and/or alarm on endpoints"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answers: B, C\n\nAs of 2019, Amazon FSx for Windows File Server supports access across VPCs, accounts, and Regions via Direct Connect or VPN (on-premises) and VPC Peering or AWS Transit Gateway\n\n\n\tOption A is incorrect because those benefits are part of AWS Global Accelerator networking service\n\tOption D is incorrect because Direct Connect or VPN (on-premises) and VPC Peering or AWS Transit Gateway are supported\n\tOption E is incorrect because Amazon FSx for Windows File Server is not POSIX-compliant —Amazon FSx for Luster is POSIX-compliant\n\tOption F is incorrect because Amazon FSx for Windows File Server is not a routing service\n\n\nReferences:\n\n\n\thttps://go.aws/2XMT7aM\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "As an architect in a company analysing billions of webpages you have noticed some munging processes are exceeding SLAs to manage encrypted content even though the instances (X1e) are suitable for HPC applications. You have to come up with a performance solution. After spending some time looking closely into logs, trailing and tracing data, you see write operations involving S3 content pre-processing to be the ones causing 80% of bottleneck while read operations for post-processing and LIST operations are together the remaining 20% of congestion. Which two options are recommended to increase performance in this scenario? (Select TWO.)",
+    "prompt": "",
+    "correctAnswerId": ["B", "D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Using CloudFront, multipart upload, parallelised reading via byte-range fetches, and partitioned prefix for distributing key names as part of naming patterns. Also it is recommended to use AES-NI hardware"
+    }, {
+        "id": "B",
+        "markdown": "Using Amazon S3 Transfer Acceleration, multipart upload, parallelised reading via byte-range fetches, and partitioned prefix for distributing key names as part of naming patterns. Also it is recommended to use AES-NI hardware"
+    }, {
+        "id": "C",
+        "markdown": "Instead of LIST operations, you can scale storage connections horizontally since Amazon S3 is a very large distributed system similar to a decoupled parallel, single network endpoint. You can achieve the best performance by issuing multiple concurrent requests to Amazon S3"
+    }, {
+        "id": "D",
+        "markdown": "Instead of LIST operations, you can build a search catalog to keep track of S3 metadata by using other AWS services like Amazon DynamoDB or Amazon Elasticsearch"
+    }, {
+        "id": "E",
+        "markdown": "Combining Amazon S3 and Amazon EC2 by migrating your current buckets from the region you chose at creation time to the same region as your instances to optimise performance. This helps reduce network latency and data transfer costs"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answers: B, D\n\nThe problem description highlights write operations having 80% of impact when compared to read operations. Amazon S3 Transfer Acceleration helps especially in this scenario along with multipart upload.\n\nGenerally, it is a recommended practice to benefit from byte-range fetches and appropriate distributing key names. Another complex practice to avoid expensive LIST operations is relying on a search framework to keep track of all objects in an S3 bucket. Additionally, for X1 and X1e instances in an encryption scenario AES-NI hardware increases cryptographic performance\n\n\n\tOption A is incorrect because even though CloudFront offers edge caching, this solution stresses the 20% of impact instead of the 80% of bottleneck\n\tOption C is incorrect because the phrase does not make sense, especially considering that Amazon S3 service is exactly the opposite of a single network endpoint\n\tOption E is incorrect because you cannot migrate an existing S3 bucket into another AWS Region. However, the statement does not solve the problem description\n\n\nReferences: \n\n\n\thttps://go.aws/3cuatgV\n\thttps://go.aws/3agJ14s\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "As a Solutions Architect, you are dealing with an architecture that supports Amazon EC2 Auto Scaling to handle the load for an application. When considering current policies in the design, you have noticed a variety of choices in place. Which statement is NOT true in these cases?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "In most cases, step scaling policies are a better choice than simple scaling policies, even if you have only a single scaling adjustment"
+    }, {
+        "id": "B",
+        "markdown": "You cannot have multiple target tracking scaling policies for an Auto Scaling group, but you can have multiple scaling policies in force at the same time"
+    }, {
+        "id": "C",
+        "markdown": "CloudWatch alarms that are associated with your target tracking scaling policies are deleted automatically when you delete the scaling policies"
+    }, {
+        "id": "D",
+        "markdown": "When you see gaps between the target value and the actual metric data points, it is preventing you from adding an insufficient number of instances or removing too many instances"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\nYou can have multiple target tracking scaling policies for an Auto Scaling group, provided that each of them uses a different metric. You can also have multiple scaling policies in force at the same time\n\n\n\tOption A is incorrect because the statement is true. Amazon recommends step scaling policies as a better choice than simple scaling policies\n\tOption C is incorrect because the statement is true. Amazon suggests not to edit or delete the CloudWatch alarms that are configured for the target tracking scaling policy\n\tOption D is incorrect because the statement is true. Amazon acts conservatively by rounding up or down when determining how many instances to add or remove\n\n\nReferences:\n\n\n\thttps://amzn.to/2KbpIz6\n\thttps://amzn.to/2xG9Emd\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are analysing dynamic scaling activity defined to process messages from an Amazon SQS queue. You are using a target tracking policy. CloudWatch alarms are meant to invoke the scaling policy. However, you have noticed that the EC2 Auto Scaling group does not seem to be responding to a CloudWatch alarm. What statement is true in this context?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Instances are in a cooldown period and scaling policies are suspended until after the cooldown period. CloudWatch alarms trigger actions only when the alarm state changes and is maintained for a specified number of periods"
+    }, {
+        "id": "B",
+        "markdown": "If you specified a warm-up time, instances aren't counted toward the metrics of the Auto Scaling group until after the warmup. A CloudWatch alarm keeps triggering Auto Scaling actions when that alarm is in a specified state, even if there are no state changes and the alarm remains in that state"
+    }, {
+        "id": "C",
+        "markdown": "Instances are in a cooldown period and scaling policies are suspended until after the cooldown period. A CloudWatch alarm keeps triggering Auto Scaling actions when that alarm is in a specified state, even if there are no state changes and the alarm remains in that state"
+    }, {
+        "id": "D",
+        "markdown": "If you specified a warm-up time, instances aren't counted toward the metrics of the Auto Scaling group until after the warmup. CloudWatch alarms trigger actions only when the alarm state changes and is maintained for a specified number of periods"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\nWhen using step scaling policy or target tracking policy, instances are not counted toward the metrics of the Auto Scaling group if an instance warmup is in progress. Also, as an exception to CloudWatch alarms triggering actions only when the alarm state changes, this does not happen for CloudWatch alarms that are associated with Amazon EC2 Auto Scaling actions\n\n\n\tOption A is incorrect because cooldown periods are only supported with simple scaling policies\n\tOption C is incorrect because cooldown periods are only supported with simple scaling policies\n\tOption D is incorrect because as an exception to CloudWatch alarms triggering actions only when the alarm state changes, this does not happen for CloudWatch alarms that are associated with Amazon EC2 Auto Scaling actions\n\n\nReferences:\n\n\n\thttps://go.aws/2VIuwBz\n\thttps://go.aws/2wP9sRn\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A project you are part of as a Solutions Architect has a latency sensitive workload requirement despite availability and you have to consider how to architect high-performance networking for their VPCs to operate based on SLAs already signed as part of the contract. Which two statements in this context are correct? (Select TWO.)",
+    "prompt": "",
+    "correctAnswerId": ["B", "C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "A cluster placement group is appropriate for this use case as long as the grouping of instances stays within a single Availability Zone unless using peered VPCs to span multiple regions"
+    }, {
+        "id": "B",
+        "markdown": "A cluster placement group is appropriate for this use case because of a higher per-flow throughput limit of up to 10 Gbps except for traffic over an AWS Direct Connect connection to on-premises resources"
+    }, {
+        "id": "C",
+        "markdown": "You can migrate an instance from one placement group to another but cannot merge placement groups."
+    }, {
+        "id": "D",
+        "markdown": "You can migrate an instance from one placement group to another and merge placement groups"
+    }, {
+        "id": "E",
+        "markdown": "A spread placement group is appropriate for this use case but if you start or launch an instance in the group and there is insufficient unique hardware, the request fails and you have to try again"
+    }, {
+        "id": "F",
+        "markdown": "A spread placement group is appropriate for this use case because you can get access to distinct racks, and it is therefore suitable for mixing instance types or launching instances over time"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answers: B, C\n\nA cluster placement group is the only one providing high-performance networking. It is also possible to migrate instances between placement groups but merging placement groups is not supported\n\n\n\tOption A is incorrect because placement groups cannot span multiple regions\n\tOption D is incorrect because you cannot merge placement groups\n\tOption E is incorrect because a spread placement group is more appropriate for availability scenarios Option F is incorrect because a spread placement group is more appropriate for availability scenarios\n\n\nReferences:\n\n\n\thttps://amzn.to/3ew6zpz\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "As a part of a migration to the cloud in a university which you are working for as a Solutions Architect, their HPC Clusters are meant to leverage research processes relying on MPI applications in Biology and Physics departments. There are some decisions to make in order to manage the cluster correctly. What option is the most appropriate to set up the environment?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "AWS ParallelCluster is a fully managed cluster. EFA support is enabled by default but can be disabled dynamically, on-demand on any EC2 instance"
+    }, {
+        "id": "B",
+        "markdown": "In order to use EFA, the primary ENI has to be detached, EFA enabled, and reattach the ENI either at the launch of the instance or added to a stopped instance. This will get OS-bypass capabilities for low-latency network communications with other instances on the same subnet"
+    }, {
+        "id": "C",
+        "markdown": "You are responsible for operating ParallelCluster, including required maintenance on EC2 instances and batch schedulers, security patching, user management, and MPI troubleshooting. EFA support is enabled by default but can be disabled dynamically, on-demand on any EC2 instance"
+    }, {
+        "id": "D",
+        "markdown": "In order to use EFA, it has to be enabled with AWS ParallelCluster to be able to get OS-bypass capabilities for low-latency network communications with other instances on the same subnet. This support can be enabled in specific instance types either at the launch of the instance or added to a stopped instance"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: D\n\nThis option guarantees one of the fastest and scalable settings in HPC Clusters. AWS ParallelCluster supports EFA which is able to get OS-bypass capabilities (kernel-bypass networking) which is possible only in specific instance types and limited to a single subnet. Also, you cannot attach an EFA to an instance that is in the running state\n\n\n\tOption A is incorrect because AWS ParallelCluster is a self-service solution\n\tOption B is incorrect because you cannot detach the primary ENI\n\tOption C is incorrect because EFA support is not enabled by default and not supported in any EC2 instance type\n\n\nReferences:\n\n\n\thttps://go.aws/2ys7erk\n\thttps://amzn.to/3exVVic\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "During troubleshooting processes evaluating how to benefit from enhanced networking in your HPC instances, you find out that the setting does not seem to be functioning. You have VPC peering connection configurations in place. Some of your instances support EFA. You are using AWS CLI and you have checked that all instances have internet connectivity. Which relevant statement is correct in this scenario?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "All instance types are supported for using the ENA. Make sure you are using a supported version of the Linux kernel and a supported distribution, you run ethtool -i eth0 and you have to get ena as the driver"
+    }, {
+        "id": "B",
+        "markdown": "Some instance types are supported for using the ENA. Make sure you are using a supported version of the Linux kernel and a supported distribution, you run ethtool -i eth0 and you have to get ena as the driver"
+    }, {"id": "C", "markdown": "Enhanced networking uses SR-IOV but transitive peering is not supported"}, {
+        "id": "D",
+        "markdown": "Enhanced networking uses SR-IOV and transitive peering is supported"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\nENA is a custom network interface optimized to deliver high throughput on specific supported EC2 instances. This statement defines the correct steps to enable an ENA interface and validate the driver is in place\n\n\n\tOption A is incorrect because not all instance types are supported for using the ENA interface\n\tOption C is incorrect because although enhanced networking does use SR-IOV, transitive VPC peering is not relevant and not supported either\n\tOption D is incorrect because although enhanced networking does use SR-IOV, transitive VPC peering is not relevant and not supported either\n\n\nReferences:\n\n\n\thttps://go.aws/2VGAjY1\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
     "explanation": "You are working as an AWS Architect for a start-up company. They have a two-tier production website. Database servers are spread across multiple Availability Zones and are stateful.\n\nYou have configured Auto Scaling Group for these database servers with a minimum of 2 instances & maximum of 6 instances. During post-peak hours, you observe some data loss. Which feature needs to be configured additionally to avoid future data loss (and copy data before instance termination)?",
     "prompt": "",
     "correctAnswerId": ["B"],
