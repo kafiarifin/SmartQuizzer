@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {retrieveData} from './actions'
 import {bindActionCreators} from "redux";
 import './index.css';
-import {questionDataSetTest2} from './test-data'
+import {TestData} from './test-data'
 import {updateTest} from './fireStoreLogicLayer';
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
 
     componentDidMount() {
 
-        //updateTest('testOne', questionDataSetTest2);
+        //updateTest('testOne', TestData);
 
         this.props.retrieveData('testOne')
 
