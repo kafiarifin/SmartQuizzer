@@ -28,6 +28,7 @@ export default db;
 
 
 export const updateTest = (docName, data) => {
+
     db.collection('test').doc(docName).set({
         quizData: data
     }, {merge: true}).then(function () {
