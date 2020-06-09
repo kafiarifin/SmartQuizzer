@@ -1,3 +1,4 @@
+import AWSCertifiedSolutionsArchitectAssociate from "./TestData/AWSCertifiedSolutionsArchitectAssociate";
 export const questionDataSetTest = [
     {
         questionComplexityIndex: 0,
@@ -30089,3 +30090,7 @@ const exampleObject = {
     answerExplanation: ``,
     referenceImage: ''
 };
+
+export const TestData = {
+    AWSCertifiedSolutionsArchitectAssociate
+}
