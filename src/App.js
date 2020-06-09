@@ -19,7 +19,7 @@ class App extends Component {
 
     componentDidMount() {
 
-        //updateTest('testOne', TestData);
+        //updateTest('testOne', TestData.AWSCertifiedSolutionsArchitectAssociate);
 
         this.props.retrieveData('testOne')
 

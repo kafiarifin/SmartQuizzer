@@ -15,7 +15,7 @@ class QuizLogic extends Component {
         super(props);
         this.state = {
             totalQuestionsInInterval: 9,
-            quizData: props.quizData.sort((a, b) => a.questionComplexityIndex - b.questionComplexityIndex)
+            quizData: props.quizData && props.quizData.sort((a, b) => a.questionComplexityIndex - b.questionComplexityIndex)
         }
     }
 
