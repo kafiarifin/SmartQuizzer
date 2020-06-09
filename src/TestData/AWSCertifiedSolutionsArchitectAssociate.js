@@ -4204,4 +4204,1039 @@ export default [{
     }],
     "answerExplanation": "\n                            Explanation:\n                            Correct Answer – D\n\nThis question is not that complicated, even if you don't understand the options. If you see “collection of logs and processing of logs”, directly think of AWS EMR.\n\nAmazon EMR provides a managed Hadoop framework that makes it easy, fast, and cost-effective to process a vast amount of data across dynamically scalable Amazon EC2 instances. You can also run other popular distributed frameworks such as Apache Spark, HBase, Presto, and Flink in Amazon EMR, and interact with data in other AWS data stores such as Amazon S3 and Amazon DynamoDB.\n\nAmazon EMR securely and reliably handles a broad set of big data use cases, including log analysis, web indexing, data transformations (ETL), machine learning, financial analysis, scientific simulation, and bioinformatics.\n\nFor more information on EMR, please visit the link below.\n\nhttps://aws.amazon.com/emr/\n                        ",
     "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working in a Global Pharma firm, having its Head Office in Washington & Branch offices in Chicago & Paris. The Firm has a two-tier Intranet website deployed in US-East-1 Region & database servers deployed on-premise at Head office. It has a Direct Connect link to VPC and it is connected to Chicago & Paris via WAN links while each of these offices has separate internet links from the local ISP. Recently they faced link outage issues with WAN links that resulted in the isolation of Branch office from the head office. They are looking for a cost-effective backup solution that could be set-up quickly without any additional devices and links. What would be the most suitable connectivity option in this scenario?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Using existing Internet connection at Washington, Chicago, and Paris, set up a VPN connection with us-east-1 VGW advertising prefixes via BGP. BGP ASN should be unique at these locations. VGW at us-east-1 will re-advertise these prefixes to the Washington office."
+    }, {
+        "id": "B",
+        "markdown": "Using existing Internet connection at Chicago and Paris, set up a VPN connection with us-east-1 VGW advertising prefixes via BGP. BGP ASN should be unique at these locations. VGW at us-east-1 will re-advertise these prefixes to the Washington office."
+    }, {
+        "id": "C",
+        "markdown": "Using existing Internet connection at Chicago and Paris, set up a VPN connection with VGW at us-west-1 & eu-west-3 advertising prefixes via BGP. BGP ASN should be unique at these locations. VGW at us-west-1 & eu-west-3 will advertise these prefixes to VGW at us-east-1 having connectivity to the Washington corporate head office."
+    }, {
+        "id": "D",
+        "markdown": "Using existing Internet connection at Chicago, set up a VPN connection with VGW at us-east-1 while for Paris, set up a VPN connection with VGW at eu-west-3, advertising prefixes via BGP. BGP ASN should be unique at these locations. VGW at eu-west-3 will advertise these prefixes to VGW at us-east-1 having connectivity to the Washington corporate head office."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – B\n\nUsing AWS VPN CloudHub, VGW can be used to connect multiple locations. Each location using existing Internet link & customer routers will set up a VPN connection to VGW. BGP Peering will be configured between customer gateway router & VGW using unique BGP ASN at each location. VGW will receive prefixes from each location & re-advertise to other peers. Direct Connect links terminating on this VGW will also have connectivity with these locations via VGW.\n\n\n\tOption A is incorrect as Washington Corporate office is already having a Direct Connect link to VGW in us-east-1, so no additional VPN needs to be set up from the Washington office.\n\tOption C is incorrect as the Washington Head office already has Direct Connect connectivity with VGW in us-east-1, so the office in Chicago and Paris should set up VPN to VGW in the us-east-1 region so that connectivity can be established between these 3 offices.  \n\tOption D is incorrect as with this connectivity solution, connectivity will be established between Chicago and Washington offices but not with Paris as it is connected to different VGW.\n\n\nFor more information on using VPC Cloudhub, please refer to the following URL:\n\n\n\thttps://docs.aws.amazon.com/vpn/latest/s2svpn/VPN_CloudHub.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have a lifecycle rule for an S3 bucket that archives objects to the S3 Glacier storage class 60 days after creation. The archived objects are no longer needed one year after being created. How would you configure the S3 bucket to save more cost?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Configure a rule in S3 Glacier to place delete markers for objects that are one year old."
+    }, {
+        "id": "B",
+        "markdown": "Configure the S3 lifecycle rule to expire the objects after 365 days from object creation."
+    }, {
+        "id": "C",
+        "markdown": "Modify the S3 lifecycle rule to clean up expired object delete markers for one year old objects."
+    }, {
+        "id": "D",
+        "markdown": "Modify the S3 lifecycle rule to use S3 Glacier Deep Archive which automatically deletes objects one year after creation."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct​ ​Answer​ ​–​ B\n\nUsers can configure the expiration actions in S3 lifecycle management. Details can be found in https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html.\n\n\n\tOption​ ​A ​is​ ​incorrect:​ Because users cannot configure a rule to place delete markers in S3 Glacier.\n\tOption​ ​B ​is​ CORRECT:​ Because users can configure the object expiration in the S3 lifecycle rule and Amazon S3 will remove the expired objects.\n\tOption​ ​C ​is​ ​incorrect:​ Because cleaning up expired object delete markers does not expire the objects. This action does not save cost.\n\tOption​ ​D ​is​ ​incorrect:​ Because S3 Glacier Deep Archive does not automatically delete objects.\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "An application currently allows users to upload files to an S3 bucket. You want to ensure that the file name for each uploaded file is stored in a DynamoDB table. How could this be achieved? (SELECT TWO)",
+    "prompt": "",
+    "correctAnswerId": ["A", "C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create an AWS Lambda function to insert the required entry for each uploaded file."
+    }, {"id": "B", "markdown": "Use AWS CloudWatch to probe for any S3 event."}, {
+        "id": "C",
+        "markdown": "Add an event in S3 with notification send to Lambda."
+    }, {"id": "D", "markdown": "Add the CloudWatch event to the DynamoDB table streams section."}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answers – A and C\n\nYou can create a Lambda function containing the code to process the file, and add the name of the file to the DynamoDB table.\n\nYou can then use an Event Notification from the S3 bucket to invoke the Lambda function whenever the file is uploaded.\n\n\n\n \n\nFor more information on Amazon S3 Event Notifications, please visit the following URL:\n\n\n\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A famous mobile brand is launching its much-awaited mobile phone on Christmas weekend. The IT Team managing their website is expecting a huge surge in traffic. Web applications are deployed in multiple regions.They want to prioritize their Platinum customers in us-east-1 over new global customers to give them preferential treatment for selection of various models of new mobile. The IT Team wants infrastructure to handle huge amounts of traffic without any impact on latency to global users. Which of the following cost-effective design solutions will meet this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create a Lambda@Edge function in all regions to segregate Platinum users along with Amazon CloudFront to cache content nearer to users in all regions."
+    }, {
+        "id": "B",
+        "markdown": "Create a Lambda@Edge function in the US-East-1 region to segregate Platinum users & execute at all regions along with Amazon CloudFront to cache content nearer to users in all regions."
+    }, {
+        "id": "C",
+        "markdown": "Use Auto-scaling for origin servers to scale dynamically along with creating separate distribution for Platinum users with Amazon CloudFront to cache content nearer to users in all regions."
+    }, {
+        "id": "D",
+        "markdown": "Use Auto-scaling for origin servers to scale on a predefined schedule along with creating separate distribution for Platinum Users with Amazon CloudFront to cache content nearer to users in all regions."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – B\n\nLambda@Edge can be a scalable solution to segregate different types of users accessing web applications. Amazon CloudFront can be used to cache web content from the origin server to provide low latency access to users.\n\n\n\tOption A is incorrect as Lambda@Edge need not be created in all regions, it needs to be created in the US-East-1 region & replicated to all regions.\n\tOption C is incorrect as using On-Demand Auto-scaling with separate distributions will incur additional cost & is not a scalable option.\n\tOption D is incorrect as using Schedule Auto-scaling with separate distributions will incur additional cost & is not a scalable option.\n\n\nFor more information using Lambda@Edge with Amazon CloudFront, refer to the following URL,\n\n\n\thttps://aws.amazon.com/blogs/networking-and-content-delivery/visitor-prioritization-on-e-commerce-websites-with-cloudfront-and-lambdaedge/\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working for a global software firm having offices in various continents. The pre-sales team needs to provide a new application demo to a prospective customer. For this, they are looking urgently for a separate temporary connection between 3 regional offices at Sydney, London, and Tokyo & Demo VPC at the us-west-1 region. Also, there should be connectivity between these offices for data synchronization of the new applications.\n\nYou are planning to set up a VPN connection from these offices to VGW at us-west-1. You have arranged Internet links along with routers at each regional offices and VPN parameter list. What are the other factors required to meet this connectivity solution? (SELECT TWO)",
+    "prompt": "",
+    "correctAnswerId": ["B", "D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "VGW at us-west-1 should be enabled to advertise  IP prefixes of each regional office to other regional offices."
+    }, {
+        "id": "B",
+        "markdown": "Non-overlapping IP address pool should be configured at each of the regional offices."
+    }, {
+        "id": "C",
+        "markdown": "Each router should have a BGP peering with other routers at each regional office over VPN connection."
+    }, {"id": "D", "markdown": "BGP ASN should be unique at these regional offices."}, {
+        "id": "E",
+        "markdown": "Each of these offices should set up VPN connection to VGW only in that specific region instead of to VGW at us-west-1."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answers – B, D\n\nAWS VPN CloudHub provides connectivity between spoke location over VPN connection. In this case, VGW acts as a Hub & re-advertise prefixes received from one regional office to another regional office. For this connectivity to establish, each regional site should have non-overlapping IP prefixes & BGP ASN should be unique at each site. If BGP ASN is not unique, additional ALLOWS-IN will be required.\n\n\n\tOption A is incorrect as VGW by default acts as a Hub and spoke & no additional configuration needs to be done at VGW end.\n\tOption C is incorrect as the router needs to have BGP peering only with VGW & not with routers in other locations.\n\tOption E is incorrect as regional office can set up VPN connection to VGW of the different regions as well.\n\n\nFor more information on using AWS VPN CloudHub, refer to the following URL:\n\n\n\thttps://docs.aws.amazon.com/aws-technical-content/latest/aws-vpc-connectivity-options/aws-vpn-cloudhub-network-to-amazon.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A hybrid Architecture is used for a popular blogging website. Application servers are spread between On-premise Data Centre & EC2 Instance deployed in a custom VPC. An Application Load Balancer is used to offload traffic to the cloud due to capacity constraints at Data Centre. From Traffic trends it observed that the first week of every month when new blogs are uploaded, a spike in traffic is observed. For this period, they are looking for an automated faster option to mitigate additional load on EC2 servers launched behind ALB. Which of the following options can be implemented to meet this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Use Auto-Scaling OnDemand Scaling to add additional EC2 instances within different VPC as in ALB."
+    }, {
+        "id": "B",
+        "markdown": "Use Auto-Scaling Predictive Scaling to add additional EC2 instances within different VPC as in ALB."
+    }, {
+        "id": "C",
+        "markdown": "Use Auto-Scaling Predictive Scaling to add additional EC2 instances within the same VPC as in ALB."
+    }, {
+        "id": "D",
+        "markdown": "Use Auto-Scaling OnDemand Scaling to add additional EC2 instances within the same VPC as in ALB."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – C\n\nAuto scaling provides an automated way to scale EC2 instances as per capacity requirements. For using ELB with Auto scaling group, both should be in the same region & launched in the same VPC. EC2 Auto-Scaling Predictive Scaling combines with AWS Auto scaling to use historical data & load forecast to quick launching of EC2 instances. \n\n\n\tOption A & B are incorrect as ELB & EC2 instances launched should be in the same VPC.\n\tOption D is incorrect as for the above case Predictive Scaling is a better option than OnDemand scaling.\n\n\nFor more information on using Auto-Scaling with ELB, refer to the following URLs,\n\n\n\thttps://docs.aws.amazon.com/autoscaling/ec2/userguide/scaling_plan.html\n\thttps://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working for an electrical appliance company that has web-application hosted in AWS. This is a two-tier web application with web-servers hosted in VPC’s & on-premise data-center.  You are using a Network Load balancer in the front end to distribute traffic between these servers. You are using instance Id for configuring targets for Network Load Balancer. Some clients are complaining about the delay in accessing this website.\n\nTo troubleshoot this issue, you are looking for a list of Client IP address having longer TLS handshake time. You have enabled access logging on Network Load balancing with logs saved in Amazon S3 buckets. Which tool could be used to quickly analyze a large amount of log files without any visualization in a cost-effective way?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Use Amazon Athena to query logs saved in Amazon S3 buckets."}, {
+        "id": "B",
+        "markdown": "Use Amazon S3 console to process logs."
+    }, {"id": "C", "markdown": "Export Network Load Balancer access logs to third-party application."}, {
+        "id": "D",
+        "markdown": "Use Amazon Athena along with Amazon QuickSight to query logs saved in Amazon S3 buckets."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – A\n\nAmazon Athena is a suitable tool for querying Network Load Balancers logs. In the above case since a large amount of logs are saved in S3 buckets from Network load balancer, Amazon Athena can be used to query logs and generate required details of client IP address and TLS handshake time.\n\n\n\tOption B is incorrect as processing a large number of logs directly from the S3 console will be a time-consuming process.\n\tOption C is incorrect as using a third-party tool will not be a cost-effective solution.\n\tOption D is incorrect as in the above case, we require only details of Client IP details along with TLS handshake time for troubleshooting purposes. Amazon QuickSight will be useful in case you need data visualization.\n\n\nFor more information on using Amazon Athena to query Network Load Balancer logs, refer to the following URL:\n\n\n\t https://docs.aws.amazon.com/athena/latest/ug/networkloadbalancer-classic-logs.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are requested to provide guidance for a large Pharma company. They are looking for a solution to save all their R&D test analysis data in a secure way. Daily large numbers of reports are generated, this data would be accessed parallelly from multiple R&D centres spread across the globe. Company requires this data to be instantaneously available to all users. Which of the following is the most suitable way for storage in AWS to provide low latency access to users across the globe with least cost?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Use Amazon EC2 instance with instance store to store data."}, {
+        "id": "B",
+        "markdown": "Use Amazon EFS volumes to store data."
+    }, {"id": "C", "markdown": "Use Amazon EBS volumes connected to EC2 instance to store data"}, {
+        "id": "D",
+        "markdown": "Use Amazon S3 Buckets to store data."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – D\n\nAmazon S3 can be used to store any amount of data which can be accessed from multiple locations concurrently without any impact on latency.\n\n\n\tOption A is incorrect as Instance store will provide low latency access from EC2 instances but it’s a temporary storage option.\n\tOption B is incorrect as Since this data would be accessed globally Amazon EFS will not be an ideal solution for this requirement.\n\tOption C is incorrect as Amazon EBS volumes would be useful storage for single Amazon EC2 instances.\n\n\nFor more information on AWS Storage options, refer to the following URLs,\n\n\n\thttps://d0.awsstatic.com/whitepapers/AWS%20Storage%20Services%20Whitepaper-v9.pdf\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A financial firm is developing a new web application which has static informational content as well as dynamic functional content with server-side scripting. They are expecting heavy traffic for this application on launching which they are planning to launch using AWS Cloud Infrastructure. Application Data should be seamlessly saved in AWS to meet growing demands without any further manual interactions. Which of the following solutions can be used in case there are no budget constraints?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Use Amazon EFS for dynamic content & Amazon S3 for static content."
+    }, {"id": "B", "markdown": "Use Amazon EBS for dynamic content & Amazon EFS for static content."}, {
+        "id": "C",
+        "markdown": "Use Amazon S3 for dynamic content & Amazon EBS for static content."
+    }, {"id": "D", "markdown": "Use Amazon Instance Store for dynamic content & Amazon S3 for static content"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – A\n\nFor web sites with dynamic user interactions, using Amazon EFS is an ideal option to use along with using Amazon S3 for static non changing data.\n\n\n\tOption B is incorrect as Amazon EBS can be used for dynamic content only in case a web server is hosted on an EC2 instance. Since there are a large number of requests to this application, Amazon EFS is a better option for dynamic content which can be accessed from multiple sources parallelly.\n\tOption C is incorrect as Amazon S3 cannot be used for dynamic contents, Amazon EC2 or EFS can be used.\n\tOption D is incorrect as Amazon Instance Store is a temporary storage & is not suited for dynamic web content.\n\n\nFor more information on AWS Storage Options, refer to the following URLs,\n\n\n\thttps://d0.awsstatic.com/whitepapers/AWS%20Storage%20Services%20Whitepaper-v9.pdf\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working for a global financial company. Company locations spread across various countries upload transaction details data to S3 bucket in the US-West region. A large amount of data is uploaded on a daily basis from each of these locations simultaneously. You are using Amazon Athena to query this data & create reports using Amazon QuickSight to create a daily dashboard to the management team. In some cases, while running queries, you are observing Amazon S3 exception errors.\n\nAlso, in the monthly bills, a high percentage of cost is associated with Amazon Athena. Which of the following could be helpful in eliminating S3 errors while querying data and reducing the cost associated with queries? (SELECT TWO)",
+    "prompt": "",
+    "correctAnswerId": ["B", "C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Partition data based upon user credentials"}, {
+        "id": "B",
+        "markdown": "Partition data based upon date & location."
+    }, {"id": "C", "markdown": "Create a separate Workgroups based upon user groups."}, {
+        "id": "D",
+        "markdown": "Create a single Workgroup for all users."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answers – B and C\n\nAWS Athena pricing is based upon per query and the amount of data scanned in each query. In the above case, each regional office is uploading a large amount of data simultaneously, this data needs to be partitioned based upon location & date. A separate Workgroup can be created based upon users, teams, application or workloads. This will lead to minimizing the amount of data scanned for each query, improving performance & reducing cost.\n\n\n\tOption A is incorrect as partitioning the data on user credentials is irrelevant here.\n\tOption D is incorrect as a single Workgroup will not decrease the amount of data scanned per query. \n\n\nFor more information on Partitioning data & using Workgroups, refer to the following URLs:\n\n\n\thttps://docs.aws.amazon.com/athena/latest/ug/partitions.html\n\thttps://docs.aws.amazon.com/athena/latest/ug/manage-queries-control-costs-with-workgroups.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are planning to use Auto Scaling groups to maintain the performance of your web application. How would you ensure that the scaling activity has sufficient time to stabilize without executing another scaling action?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Modify the Instance User Data property with a timeout interval."}, {
+        "id": "B",
+        "markdown": "Increase the Auto Scaling Cooldown timer value."
+    }, {"id": "C", "markdown": "Enable the Auto Scaling cross zone balancing feature."}, {
+        "id": "D",
+        "markdown": "Disable CloudWatch alarms till the application stabilizes."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – B\n\nAWS Documentation mentions the following:\n\nThe Cooldown period is a configurable setting for your Auto Scaling group which ensures that it doesn't launch or terminate additional instances before the previous scaling activity takes effect. After the Auto Scaling group dynamically scales using a simple Scaling Policy, it waits for the Cooldown period to complete before resuming scaling activities.\n\nFor more information on Auto Scaling Cooldown, please visit the following URL:\n\nhttps://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company hosts a popular web application that connects to an Amazon RDS MySQL DB instance running in a private VPC subnet created with default ACL settings. The IT Security department has identified a DoS attack from a suspecting IP. How would you protect the subnets from this attack?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Change the Inbound Security Groups to deny access from the suspecting IP."
+    }, {
+        "id": "B",
+        "markdown": "Change the Outbound Security Groups to deny access from the suspecting IP."
+    }, {"id": "C", "markdown": "Change the Inbound NACL to deny access from the suspecting IP."}, {
+        "id": "D",
+        "markdown": "Change the Outbound NACL to deny access from the suspecting IP."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – C\n\nOptions A and B are invalid because the Security Groups block traffic by default. You can use NACLs as an additional security layer for the subnet to deny traffic.\n\nOption D is invalid since just changing the Inbound Rules is sufficient.\n\nAWS Documentation mentions the following:\n\nA Network Access Control List (ACL) is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets. You might set up network ACLs with rules similar to your security groups in order to add an additional layer of security to your VPC. \n\nFor more information on Network Access Control Lists, please visit the following URL:\n\nhttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A popular educational website is facing a surge in demand for online video training. They have their large number of video content distributed between on-premise data centres & on Amazon S3 bucket in the us-west region. Students from across the globe are facing glitches in videos & complaining about time required to get these videos running even though each video size is less than 1 Gb. The Marketing Team is expecting a further increase in demand & you need to provide a scalable solution for this concern which can be deployed in the shortest time frame. Which of the following is a recommended cost-optimised scalable solution?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Use Amazon S3 Cross Region replication to replicate content from us-west region to other regions."
+    }, {"id": "B", "markdown": "Use Throughput optimised EBS volumes to save video content."}, {
+        "id": "C",
+        "markdown": "Use Amazon CloudFront for videos saved in on-premise & Amazon S3 origin."
+    }, {
+        "id": "D",
+        "markdown": "Move all content from on-premise data centres to Amazon S3 & enable Transfer Acceleration on this bucket."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – C\n\nAmazon CloudFront Can be used to offload origin server loads. In the above case, for videos which are saved in on-premise servers & Amazon S3 bucket, Amazon CloudFront can be used to deliver this content to users with less latency & also will offload load on servers.\n\n\n\tOption A is incorrect as Using storing video content in Amazon S3 bucket in different regions would incur additional charges.\n\tOption B is incorrect as EBS would be preferred for rapidly changing web content, in the above case video content would not be rapidly changing, so storing content in Amazon S3 bucket with Amazon CloudFront distribution is a better option.\n\tOption D is incorrect as using Amazon S3 transfer Acceleration would be costly as compared to using Amazon CloudFront. Also, for files less than 1 Gb, using Amazon CloudFront would provide better performance than Amazon S3 Transfer Acceleration. \n\n\nFor more information on using Amazon CloudFront for scalable web content, refer to the following URLs,\n\n\n\thttps://aws.amazon.com/blogs/architecture/scale-your-web-application-one-step-at-a-time/\n\thttps://aws.amazon.com/s3/faqs/\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A global conglomerate is looking for a Multi-site DR plan for an application deployed on a server fleet at the Data Centre. All regional locations send data to the Head Office from where the daily backup is done to AWS cloud infrastructure. This is a large database that needs to backup daily. Incomplete backups can impact RPO in case of failure in any site.  For this, they are looking for high bandwidth links having higher throughput for faster data transfer securely. Which of the following would meet this high performant secure connectivity between on-premise & VPC?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create a private virtual interface for DX Connection with LAG enabled in active mode & configure VPN over this connection for secure consistent connection for data replication."
+    }, {
+        "id": "B",
+        "markdown": "Create a public virtual interface for DX Connection with LAG enabled in active mode & configure VPN over this connection for secure consistent connection for data replication."
+    }, {
+        "id": "C",
+        "markdown": "Create a public virtual interface for DX Connection with LAG enabled in passive mode & configure VPN over this connection for secure consistent connection for data replication."
+    }, {
+        "id": "D",
+        "markdown": "Create a private virtual interface for DX Connection with LAG enabled in passive mode & configure VPN over this connection for secure consistent connection for data replication."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – B\n\nFor higher throughput, LAG can be used to aggregate multiple DX connections to give a maximum of 40 Gig bandwidth. A VPN connection over this connection can provide secure connections between on-premise devices to AWS VGW.\n\n\n\tOptions A & D are incorrect as for creating a VPN connection over DX Connection public virtual interface that need to be created.\n\tOption C is incorrect as for creating LAG, at AWS end it's always in active mode, to aggregate multiple links into one virtual interface active mode needs to be enabled at Customer end routers.\n\n\nFor more information on using LAG & VPN over AWS Direct Connect refer to the following URLs,\n\n\n\thttps://docs.aws.amazon.com/directconnect/latest/UserGuide/lags.html\n\thttps://aws.amazon.com/premiumsupport/knowledge-center/create-vpn-direct-connect/\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Videos are uploaded to an S3 bucket, and you need to provide access to users to view the same. What is the best way to do so, while maintaining a good user experience for all users regardless of the region in which they are located?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Enable Cross-Region Replication for the S3 bucket to all regions."
+    }, {"id": "B", "markdown": "Use CloudFront with the S3 bucket as the source."}, {
+        "id": "C",
+        "markdown": "Use API Gateway with S3 bucket as the source."
+    }, {"id": "D", "markdown": "Use AWS Lambda functions to deliver the content to users."}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – B\n\nAWS Documentation mentions the following to back up this requirement:\n\nAmazon CloudFront is a web service that speeds up the distribution of static and dynamic web content, such as .html, .css, .js, and image files to your users. CloudFront delivers your content through a worldwide network of data centers called edge locations.\n\n \n\nWhen a user requests content that you're serving with CloudFront, the user is routed to the edge location that provides the lowest latency (time delay) so that content is delivered with the best possible performance. If the content is already in the edge location with the lowest latency, CloudFront delivers it immediately. If the content is not in that edge location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server (for example, a web server) that you have identified as the source for the definitive version of your content.\n\nOption A is incorrect. S3 Cross-region replication is a feature that enables an automatic and asynchronous copy of user data from one destination bucket to another destination bucket located in one of the other AWS regions. It is region-based rather than a global scale which is what the question is asking with regards to all users having a good experience, regardless of region locale.\n\n \n\nFor more information on Amazon CloudFront, please visit the following URL:\n\n\n\thttps://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html\n\n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "An organization has a requirement to store 10TB worth of scanned files across multiple availability zones. It plans to have a search application in place to search through the scanned files. \n\nWhich of the following options is ideal for implementing the search facility?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Use S3 with reduced redundancy to store and serve the scanned files. Install a commercial search application on EC2 Instances and configure with Auto-Scaling and an ElasticLoad Balancer."
+    }, {
+        "id": "B",
+        "markdown": "Model the environment using CloudFormation. Use an EC2 instance running Apache webserver and an open-source search application, stripe multiple standard EBS volumes together to store the scanned files with a search index."
+    }, {
+        "id": "C",
+        "markdown": "Use S3 with standard redundancy to store and serve the scanned files. Use CloudSearch for query processing, and use Elastic Beanstalk to deploy the website across multiple Availability Zones."
+    }, {
+        "id": "D",
+        "markdown": "Use a single-AZ RDS MySQL instance to store the search index for the scanned files and use an EC2 instance with a custom application to search based on the index."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – C\n\nWith Amazon CloudSearch, you can quickly add rich search capabilities to your website or application. You don't need to become a search expert or worry about hardware provisioning, setup, and maintenance. With a few clicks in the AWS Management Console, you can create a search domain and upload the data that you want to make searchable, and Amazon CloudSearch will automatically provision the required resources and deploy a highly tuned search index.\n\nYou can easily change your search parameters, fine-tune search relevance, and apply new settings at any time. As your volume of data and traffic fluctuates, Amazon CloudSearch seamlessly scales to meet your needs.\n\n \n\nFor more information on AWS CloudSearch, please visit the link below:\n\n\n\thttps://aws.amazon.com/cloudsearch/\n\n\n\n\n\nFor more information, please check the URL below:\n\n\n\thttps://docs.aws.amazon.com/elasticbeanstalk/latest/dg/awseb-dg.pdf\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working for a global financial company. Company locations spread across various countries upload transaction data to S3 bucket in the US-West region. You will be using AWS Glue & Amazon Athena to further analyze this data. You are using Crawler that will scan all data from S3 buckets & populate Glue Data Catalog, to which Amazon Athena will query.\n\nA large amount of CSV data is uploaded on a daily basis from all the global locations simultaneously. To decrease scanning time while scanning data in S3 buckets, you need to ensure only changes in datasets are scanned. Which of the following configurations would meet this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Reset Job Bookmark in AWS Glue."}, {
+        "id": "B",
+        "markdown": "Disable Job Bookmark in AWS Glue."
+    }, {"id": "C", "markdown": "Pause Job Bookmark in AWS Glue."}, {
+        "id": "D",
+        "markdown": "Enable Job Bookmark in AWS Glue."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – D\n\nAWS Glue keeps a track of processed data using Job Bookmark. Enabling Job Bookmark will help to scan only changes since the last bookmark and prevent the processing of whole data again.\n\n\n\tOption A is incorrect as resetting Job Bookmark in AWS Glue will reprocess all data & will not prevent the reprocessing of already scanned data.\n\tOption B is incorrect as disabling Job Bookmark will process all data each time.\n\tOption C is incorrect as pausing Job Bookmark will process incremental data since the last data scan but will not update state information. So, for the succeeding process, it will start scanning all data since the last bookmark.\n\n\n \n\nFor more information on Job Bookmark in AWS Glue, please refer to the following URL,\n\n\n\thttps://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A concern raised in your company is that developers could potentially delete production-based EC2 resources. As a Cloud Admin, what would you do to help alleviate this concern? (SELECT TWO)",
+    "prompt": "",
+    "correctAnswerId": ["A", "B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Tag the production instances with production-identifying tag and add resource-level permissions to the developers with an explicit deny on the terminate API call to instances with the production tag."
+    }, {"id": "B", "markdown": "Create a separate AWS account and move the developers to that account."}, {
+        "id": "C",
+        "markdown": "Modify the IAM policy on the production users to require MFA before deleting EC2 instances, and disable MFA access to the employee."
+    }, {
+        "id": "D",
+        "markdown": "Modify the IAM policy on the developers to require MFA before deleting EC2 instances."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answers – A and B\n\nCreating a separate AWS account for developers will help the organization to facilitate the highest level of resource and security isolation.\n\nThe AWS documentation gives us a clear picture of the scenarios when we need to consider creating multiple accounts.\n\nWhen to Create Multiple Accounts\n\n\nWhile there is no one-size-fits-all answer for how many AWS accounts a particular customer should have, most companies will want to create more than one AWS account because multiple accounts provide the highest level of resource and security isolation. Answering “yes” to any of the following questions is a good indication that you should consider creating additional AWS accounts:\n\n \n\n\n\tDoes the business require administrative isolation between workloads?\n\tAdministrative isolation by account provides the most straightforward approach for granting independent administrative groups different levels of administrative control over AWS resources based on the workload, development lifecycle, business unit (BU) or data sensitivity.\n\n\n \n\n\n\tDoes the business require limited visibility and discoverability of workloads?\n\tAccounts provide a natural boundary for visibility and discoverability. Workloads cannot be accessed or viewed unless an administrator of the account enables access to users managed in another account.\n\n\n \n\n\n\tDoes the business require isolation to minimize the blast radius?\n\tBlast-radius isolation by account provides a mechanism for limiting the impact of a critical event such as a security breach in case of the unavailability of AWS Region or Availability Zone, account suspensions, etc. Separate accounts help define boundaries and provide natural blast-radius isolation.\n\n\n \n\n\n\tDoes the business require strong isolation of recovery and/or auditing data?\n\tBusinesses that are required to control access and visibility to auditing data due to regulatory requirements can isolate their recovery data and/or auditing data in an account separate from where they run their workloads (e.g., writing CloudTrail logs to a different account).\n\n\n \n\nFor more information, please check the URL below:\n\n\n\thttps://d0.awsstatic.com/aws-answers/AWS_Multi_Account_Security_Strategy.pdf\n\n\n \n\nTags enable you to categorize your AWS resources in different ways, for example, by purpose, owner or environment. This is useful when you have many resources of the same type — you can quickly identify a specific resource based on the tags you've assigned to it. Each tag consists of a key and an optional value, both of which you define.\n\n\n\tFor more information on tagging AWS resources, please refer to the below URL:\n\t\n\t\thttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\n\t\n\t\n\n\n\nThe question says that the developers should not have the option to delete production-based resources. So, option A and B completely keep the developers away from production resources. \n\nYou wish to use MFA, which means developers can delete the production-based resources if they know MFA code which is not recommended. \n\nAWS Multi-Factor Authentication (MFA) is a simple best practice that adds an extra layer of protection on the top of your user name and password. With MFA enabled, when a user signs in to an AWS website, they will be prompted for their user name and password (the first factor—what they know), as well as for an authentication code from their AWS MFA device (the second factor—what they have). Taken together, these multiple factors provide increased security for your AWS account settings and resources.\n\nOrganizations have good control over newly created accounts rather than old AWS accounts. Because they can easily monitor and maintain (few) assigned permissions on accounts and they delete those accounts once the required task will be done.\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company needs to monitor the read and write IOPS metrics for its AWS MySQL RDS instance and send real-time alerts to its Operations team. Which AWS services could help to accomplish this? (SELECT TWO)",
+    "prompt": "",
+    "correctAnswerId": ["B", "E"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Amazon Simple Email Service"}, {
+        "id": "B",
+        "markdown": "Amazon CloudWatch"
+    }, {"id": "C", "markdown": "Amazon Simple Queue Service"}, {"id": "D", "markdown": "Amazon Route 53"}, {
+        "id": "E",
+        "markdown": "Amazon Simple Notification Service"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answers – B and E\n\nAmazon CloudWatch may be used to monitor IOPS metrics from the RDS instance and Amazon Simple Notification Service, to send the notification if an alarm is triggered.\n\nFor more information on CloudWatch metrics, please refer to the link below.\n\n\n\thttp://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You run an ad-supported photo-sharing website using S3 to serve photos to visitors of your site. At some point, you find out that other sites have been linking to photos on your site, causing loss to your business. What would be an effective method to mitigate this?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Use CloudFront distributions for static content."}, {
+        "id": "B",
+        "markdown": "Store photos on an EBS volume of the web server."
+    }, {"id": "C", "markdown": "Remove public read access and use signed URLs with expiry dates."}, {
+        "id": "D",
+        "markdown": "Block the IPs of the offending websites in Security Groups."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – C\n\nYou can distribute private content using a signed URL that is valid for only a short time—possibly for as little as a few minutes. Signed URLs that are valid for such a short period are good for distributing content on-the-fly to a user for a limited purpose, such as distributing movie rentals or music downloads to customers on demand. \n\nFor more information on Signed URLs, please visit the link below:\n\n\n\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working with a global IT firm that has web-application hosted in AWS. This is a two-tier web application with web-servers behind Application load balancers. A new application is developed for which you need to analyze performance at each node.\n\nThese parameters will be used as a reference before making this application into commercial services & henceforth for any operational challenges. You are using AWS X-Ray for this purpose. Which of the following would help to get traces while ensuring cost is minimized?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Sampling at default rate."}, {
+        "id": "B",
+        "markdown": "Sampling at higher rate."
+    }, {"id": "C", "markdown": "Filter expression"}, {"id": "D", "markdown": "Sampling at low rate."}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – D\n\nThe sampling rate can be lower to collect a significant number of requests statistically, to get optimum traces, and have a cost-effective solution.\n\n\n\tOption A is incorrect as the Default Sampling rate is conservative but can be further customized to sample at a lower rate based upon your sampling requirements.\n\tOption B is incorrect as Sampling at a higher rate will not only collect a lot of data but also incur an additional cost.\n\tOption C is incorrect as Filter expression can be used to narrow down results from the number of traces scanned during a defined period. It will not affect the number of traces scanned.\n\n\nFor more information on X-Ray parameters, refer to the following URL,\n\n\n\thttps://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A cash-starved start-up firm is using AWS Storage Gateway to backup all on-premise data to Amazon S3. For this, they have set-up VPN connectivity to VGW from client end devices using existing internet links. Recently they are observing data backups are taking a long time to complete due to large data size & looking for an immediate resolution for quick data backup. Which of the following is a cost-effective way to faster data backups on the VPN tunnel?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Create a new VPN tunnel with ECMP enabled on a separate VGW."}, {
+        "id": "B",
+        "markdown": "Create a new VPN tunnel with ECMP enabled on the same VGW."
+    }, {"id": "C", "markdown": "Create an additional VPN tunnel using a different VGW-Client end device"}, {
+        "id": "D",
+        "markdown": "Enable ECMP on on-premise devices to forward traffic on both VPN endpoints."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – D\n\nFor each VPN Tunnel, AWS provides two different VPN endpoints. ECMP (Equal Cost Multi Path) can be used to carry traffic on both VPN endpoints which can increase performance & faster data transfer.\n\n\n\tOption A & B are incorrect ECMP needs to be enabled on Client end devices & not on VGW end.\n\tOption C is incorrect as creating a separate VPN tunnel will incur additional cost & will not enhance any performance without enabling ECMP.\n\n\nFor more information on AWS VPN performance, refer to the following URL,\n\n\n\thttps://aws.amazon.com/vpn/features/\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Developer Team is working on a new mobile game which will be using Amazon DynamoDB for storing player details. Team is unsure of the success of this game but need to make sure it will meet demand for any number of concurrent players. During the initial creation of the table, they are planning to create a local secondary index to create a top ten players scores dashboard. Also, a global secondary index is created to create a separate top ten players per country. IT Head is concerned about the performance of the game which will be used as reference for all future games. Which of the following can be used to meet this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Enable Auto-Scaling for DynamoDB Table with same setting applied to Global Secondary Index"
+    }, {
+        "id": "B",
+        "markdown": "Enable Auto-Scaling for DynamoDB Table with same setting applied to Local Secondary Index"
+    }, {"id": "C", "markdown": "Enable Auto-Scaling only for Global Secondary Index"}, {
+        "id": "D",
+        "markdown": "Enable Auto-Scaling only for Local Secondary Index"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – A\n\nFor applications where database utilization cannot be predicted, Amazon DynamoDB can be used with Auto Scaling which can help to scale dynamically to any load. Auto-Scaling needs to be applied to the DynamoDB table along with Global Secondary Index which uses separate read /write capacity.\n\n\n\tOption B is incorrect as Local Secondary Index uses the same read & write capacity as that of the primary DynamoDB table, so need to enable separate Auto-Scaling policy for it.\n\tOption C is incorrect as Auto-Scaling needs to enable for both DynamoDB tables as well as Global Secondary Index.\n\tOption D is incorrect as Auto-Scaling needs to enable on DynamoDB table & Global Secondary Index & not on Local Secondary index.\n\n\nFor more information on using Auto-Scaling with Amazon DynamoDB refer to the following URL,\n\n\n\thttps://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A global pharma firm has a tie-up with hospitals across the globe. These hospitals share patient reports with pharma firms which are further analysed & used for creation of new drug formulation. Daily large numbers of reports are shared by these hospitals which are uploaded from various sources. Pharma firm is looking to tie-up with additional hospitals which will further increase in data load. These uploadings should be scalable which should be able to save a large amount of data to further analyse. Which of the following can be used for a cost-effective scalable application solution?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Use AWS Kinesis Streams to upload data to Amazon Redshift"}, {
+        "id": "B",
+        "markdown": "Use AWS Kinesis Firehose to upload data to Amazon Redshift"
+    }, {"id": "C", "markdown": "Use AWS Kinesis Streams to upload data to Amazon RDS"}, {
+        "id": "D",
+        "markdown": "Use AWS Kinesis Firehose to upload data to Amazon RDS"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – B\n\nAmazon Kinesis Firehose s scalable option to load data to analytical tools like Amazon Redshift from multiple sources. Amazon Redshift can be used for complex analytical queries for large amounts of data. \n\n\n\tOption A is incorrect as AWS Kinesis Streams cannot directly upload data to Amazon Redshift. Additional applications need to be installed to get these data from Kinesis Streams & upload to Amazon Redshift.\n\tOption C & D are incorrect as Amazon Redshift will be a better option for analysis of large streams of data instead of Amazon RDS.\n\n\n For more information on using Amazon Redshift with Kinesis Firehose refer to the following URLs,\n\n\n\thttps://aws.amazon.com/kinesis/data-firehose/\n\thttps://aws.amazon.com/redshift/faqs/\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "An IT firm is using AWS cloud infrastructure for its three-tier web application. They are using memory optimised EC2 instances for application hosting & SQL based database servers deployed in Multi-AZ with auto-failover. Recently there are observing heavy loads on database servers & this is impacting user data lookup from application servers resulting in slow access. As an AWS Consultant, they are looking for guidance to resolve this issue. Which of the following will provide a faster scalable option to deliver data to users without impacting backend servers?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Use Amazon ElastiCache to store data."}, {
+        "id": "B",
+        "markdown": "Use Amazon RDS Read Replicas to provide read access to data in database servers."
+    }, {"id": "C", "markdown": "Use Amazon CloudFront to save recently accessed data in cache."}, {
+        "id": "D",
+        "markdown": "Use on-host caching on memory optimised EC2 instance."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – A\n\nAmazon ElastiCache provides a scalable faster approach to cache data which can be used with both SQL/Nosql databases. These can be used to save application data which will significantly improve latency & throughout application along with  offloading load on backend database servers.\n\n\n\tOption B is incorrect as Amazon RDS Read Replicas are not as fast as Amazon ElastiCache.\n\tOption C is incorrect as Amazon CloudFront is more suitable for website caching & not for application caching.\n\tOption D is incorrect as this would provide faster lookup of data but it’s not scalable.\n\n\nFor more information on using Amazon ElastiCache, refer to the following URLs,\n\n\n\thttps://d0.awsstatic.com/whitepapers/performance-at-scale-with-amazon-elasticache.pdf\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working for a construction firm that is using Amazon WorkDocs for sharing project planning document with third-party external contract teams. Last week there was an incident where a sensitive document was shared by a user that leaked financial information to external third-party users.\n\nSecurity team revoked access for all users and only nominated users should be allowed to grant access to use WorkDocs or share links with third-party users. How could this be achieved? (SELECT TWO)",
+    "prompt": "",
+    "correctAnswerId": ["A", "C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "For external users to use the WorkDocs site, allow permission only to Power users to invite new externals users."
+    }, {
+        "id": "B",
+        "markdown": "For external users to use WorkDocs site, allow permission only to Managed users to invite new externals users"
+    }, {
+        "id": "C",
+        "markdown": "For sending publicly shareable links, grant permission only to Power users to share publicly."
+    }, {
+        "id": "D",
+        "markdown": "For sending publicly shareable links, grant permission only to Managed users to share publicly."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answers – A and C\n\nTo restrict all users to invite external users and to share WorkDoc links publicly, you can create a Power user who will be responsible to perform this activity.\n\n\n\tOption B is incorrect as in this case, all users will be able to invite external users.\n\tOption D is incorrect as in this case, all users will be able to share links with external users.\n\n\nFor more information on managing access on Amazon WorkDocs, refer to the following URL:\n\n\n\thttps://docs.aws.amazon.com/workdocs/latest/adminguide/security-settings.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your architecture for an application currently consists of EC2 Instances sitting behind a classic ELB. The EC2 Instances are used to serve an application and are accessible through the internet. What could be done to improve this architecture in the event that the number of users accessing the application increases regularly?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Add another ELB to the architecture."}, {
+        "id": "B",
+        "markdown": "Use Auto Scaling Groups."
+    }, {"id": "C", "markdown": "Use an Application Load Balancer instead."}, {
+        "id": "D",
+        "markdown": "Use the Elastic Container Service."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – B\n\nAWS Documentation mentions the following:\n\nAWS Auto Scaling monitors your applications and automatically adjusts the capacity to maintain steady, predictable performance at the lowest possible cost. Using AWS Auto Scaling, it is easy to setup application scaling for multiple resources across multiple services in minutes.\n\nFor more information on AWS Auto Scaling, please visit the following URL:\n\nhttps://aws.amazon.com/autoscaling/\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as an AWS Architect for a retail website having an application deployed on EC2 instance. You are using the SQS queue for storing messages between Web server & database servers. Due to heavy load on the website, there are some cases where clients are getting price details before logging to the website.\n\nTo resolve this issue, you are planning to migrate to the SQS FIFO queue that will preserve the order of messages. You have created a new FIFO queue with message delay time per queue instead of per message, deleting an existing standard queue. What are the prerequisites to have a smooth migration to the SQS FIFO queue? (SELECT TWO)",
+    "prompt": "",
+    "correctAnswerId": ["C", "D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Each FIFO queue should have Message group ID only when multiple ordered message groups are required."
+    }, {
+        "id": "B",
+        "markdown": "For application with identical message bodies, use content-based deduplication ID while for unique message bodies, use unique deduplication ID."
+    }, {
+        "id": "C",
+        "markdown": "Each FIFO queue should have a Message group ID irrespective of multiple ordered message groups required."
+    }, {
+        "id": "D",
+        "markdown": "For application with identical message bodies, use unique deduplication ID, while for unique message bodies, use content-based deduplication ID."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answers – C and D\n\nFIFO queue uses Message Deduplication ID & Message Group ID per message. Message Deduplication ID is used as a token while sending messages. The message Group ID is used as a tag, based upon various groups so that messages in a group process in an orderly manner.\n\n\n\tOption A is incorrect as Each FIFO queue requires a Message group ID. If there are no multiple ordered message groups, you can specify the same message group ID.\n\tOption B is incorrect as if the application is using identical message bodies, a unique deduplication ID is required per message while for the application using unique message bodies, content-based deduplication ID should be used.\n\n\n \n\nFor more information on moving from an SQS Standard Queue to SQS FIFO queues, refer to the following URL:\n\n\n\thttps://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-moving\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are the architect for a business intelligence application that reads data from a MySQL database hosted on an EC2 Instance. The application experiences a high number of read and write requests.\n\nWhich Amazon EBS Volume type can meet the performance requirements of this database?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "EBS Provisioned IOPS SSD"}, {
+        "id": "B",
+        "markdown": "EBS Throughput Optimized HDD"
+    }, {"id": "C", "markdown": "EBS General Purpose SSD"}, {"id": "D", "markdown": "EBS Cold HDD"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – A\n\nSince there is a high-performance requirement with the high IOPS needed, one needs to opt for EBS Provisioned IOPS SSD.\n\nThe below snapshot from AWS Documentation mentions the need for using Provisioned IOPS for better IOPS performance for database-based applications.\n\n\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\nFor more information on AWS EBS Volume types, please visit the URL below:\n\n\n\thttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "An organization is planning to use AWS for its production roll-out. The organization wants to implement automation for deployment such that it will automatically create a LAMP stack, download the latest PHP installable from S3, and set up the ELB. Which AWS service would meet these requirements for making an orderly deployment of the software?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS Elastic Beanstalk"}, {"id": "B", "markdown": "AWS CloudFront"}, {
+        "id": "C",
+        "markdown": "AWS CloudFormation"
+    }, {"id": "D", "markdown": "AWS DevOps"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – A\n\nThe Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services.\n\nWe can simply upload code and Elastic Beanstalk automatically handles the deployment, from capacity provisioning, load balancing, Auto-Scaling, to application health monitoring. Meanwhile, we can retain full control over the AWS resources used in the application and access the underlying resources at any time.\n\n \n\nHence, option A is the correct answer.\n\n \n\nFor more information on launching a LAMP stack with Elastic Beanstalk, please refer to the link below:\n\nhttps://aws.amazon.com/getting-started/projects/launch-lamp-web-app/\n\n \n\nHow is AWS CloudFormation different from AWS Elastic Beanstalk?\n\nAWS CloudFormation and AWS Elastic Beanstalk services are designed to complement each other. \n\nAWS Elastic Beanstalk provides an environment to easily deploy and run applications in the cloud. It is integrated with developer tools and provides a one-stop experience for you to manage the lifecycle of your applications.\n\nAWS CloudFormation is a convenient provisioning mechanism for a broad range of AWS resources. It supports the infrastructure needs of many different types of applications such as existing enterprise applications, legacy applications, applications built using a variety of AWS resources and container-based solutions (including those built using AWS Elastic Beanstalk).\n\nElastic Beanstalk is a Platform where you deploy an application. Cloudformation is where you define a stack of resources.\n\nElastic BeanStalk is good for the relatively narrow use case of PaaS applications and Cloudformation is good for the relatively broad use of defining Infrastructure as Code.\n\nThe question is \"Which WS service would meet the requirements for making an orderly deployment of the software? \n\nWe are not provisioning a broad range of AWS resources here. So, Elastic Beanstalk will be a suitable answer.\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is planning to use the API Gateway service to manage APIs for developers and users. There is a requirement to segregate access rights for both developers and users. How could this be accomplished?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Use IAM permissions to control the access."}, {
+        "id": "B",
+        "markdown": "Use AWS Access keys to manage the access."
+    }, {"id": "C", "markdown": "Use AWS KMS service to manage the access."}, {
+        "id": "D",
+        "markdown": "Use AWS Config Service to control the access."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer - A\n\nAWS Documentation mentions the following:\n\nYou can control access to Amazon API Gateway with IAM permissions by controlling access to the following two API Gateway component processes:\n\n\n\tTo create, deploy, and manage an API in API Gateway, you must grant the API developer permissions to perform the required actions supported by the API management component of API Gateway.\n\tTo call a deployed API or to refresh the API caching, you must grant the API caller permissions to perform required IAM actions supported by the API execution component of API Gateway.\n\n\nFor more information on permissions for the API gateway, please visit the following URL:\n\nhttps://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have 2 development environments hosted in 2 different VPCs in an AWS account in the same region. There is now a requirement to access the resources of one VPC from another. How could this be accomplished?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Establish a Direct Connect connection."}, {
+        "id": "B",
+        "markdown": "Establish a VPN connection."
+    }, {"id": "C", "markdown": "Establish VPC Peering."}, {"id": "D", "markdown": "Establish Subnet Peering."}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – C\n\nAWS Documentation mentions the following:\n\nA VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them privately. Instances in either VPC can communicate with each other as if they are within the same network. You can create a VPC peering connection between your own VPCs, with a VPC in another AWS account, or with a VPC in a different AWS Region.\n\nFor more information on VPC peering, please visit the URL below:\n\nhttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-peering.html\n\n \n\n \n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is planning to use the EMR service available in AWS to run its big data framework and wants to minimize the cost of running the EMR service. How would you achieve this?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Running the EMR cluster in a dedicated VPC"}, {
+        "id": "B",
+        "markdown": "Choosing Spot Instances for the underlying nodes"
+    }, {"id": "C", "markdown": "Choosing On-Demand Instances for the underlying nodes"}, {
+        "id": "D",
+        "markdown": "Disable automated backups"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer - B\n\nAWS Documentation mentions the following:\n\nSpot Instances in Amazon EMR provide an option to purchase Amazon EC2 instance capacity at a reduced cost as compared to On-Demand purchasing.\n\nFor more information on Instance types for EMR, please visit the following URLs:\n\n\n\thttps://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-purchasing-options.html\n\thttps://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-instances-guidelines.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have an S3 bucket hosted in AWS that is used to store the promotional videos you upload. You need to provide users access to S3 bucket for a limited duration of time. How could this be achieved?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Use versioning and enable a timestamp for each version."}, {
+        "id": "B",
+        "markdown": "Use Pre-signed URLs with session duration."
+    }, {"id": "C", "markdown": "Use IAM Roles with a timestamp to limit the access."}, {
+        "id": "D",
+        "markdown": "Use IAM policies with a timestamp to limit the access."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer - B\n\nAWS Documentation mentions the following:\n\nAll objects by default are private. Only the object owner has permission to access these objects. However, the object owner can optionally share objects with others by creating a pre-signed URL, using their own security credentials, to grant time-limited permission to download the objects.\n\n \n\nFor more information on pre-signed URLs, please visit the URL below.\n\n\n\thttps://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "An application currently writes a large number of records to a DynamoDB table in one region. There is a requirement for a secondary application to retrieve new records written to the DynamoDB table every 2 hours and process the updates accordingly. What would be an ideal method to ensure that the secondary application gets the relevant changes from the DynamoDB table?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Insert a timestamp for each record and then, scan the entire table for the timestamp as per the last 2 hours."
+    }, {
+        "id": "B",
+        "markdown": "Create another DynamoDB table with the records modified in the last 2 hours."
+    }, {"id": "C", "markdown": "Use DynamoDB Streams to monitor the changes in the DynamoDB table."}, {
+        "id": "D",
+        "markdown": "Transfer records to S3 which were modified in the last 2 hours."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – C\n\nAWS Documentation mentions the following:\n\nA DynamoDB Stream is an ordered flow of information about changes to items in an Amazon DynamoDB table. When you enable a stream on a table, DynamoDB captures information about every modification to data items in the table.\n\nWhenever an application creates, updates or deletes items in the table, DynamoDB Streams write a stream record with the primary key attribute(s) of the items that were modified. A stream record contains information about a data modification to a single item in a DynamoDB table. You can configure the stream so that the stream records capture additional information, such as the \"before\" and \"after\" images of modified items.\n\nFor more information on DynamoDB Streams, please visit the URL below:\n\nhttp://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as an AWS Architect for an IT firm that is developing a new application for traders in the Capital market. There would be multiple trading orders initiated by clients. You have multiple EC2 instances with Auto-Scaling groups to process these trades parallelly. Also, each trade should be stateful and processed independently. What could be used to meet this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Use the SQS FIFO queue with Receive Request Attempt ID."}, {
+        "id": "B",
+        "markdown": "Use the SQS FIFO queue with a Sequence number."
+    }, {"id": "C", "markdown": "Use the SQS FIFO queue with Message Group ID."}, {
+        "id": "D",
+        "markdown": "Use the SQS FIFO queue with a Deduplication ID."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – C\n\nMessages which are part of a specific message group will be processed in a strict orderly manner using a Message group ID. This message group ID helps to process messages by multiples consumers in a FIFO manner while keeping session data of each trade initiated by users.\n\n\n\tOption A is incorrect as the purpose of Receive request Attempt ID is adding a deduplication token for receive message, this will not suffice the requirement of processing multiple messages from different trades independently.\n\tOption B is incorrect as the SQS FIFO sequence number is a non-sequence number added to each message, it will not suffice the requirement of processing multiple messages from different trades independently.\n\tOption D is incorrect as the SQS FIFO queue with Deduplication ID will not suffice the requirement of multiple messages being process parallelly by multiple consumers with separate session data for each.   \n\n\nFor more information on managing SQS FIFO queues, refer to the following URL:\n\n\n\thttps://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your IT Security department has mandated that all the traffic flowing in and out of EC2 instances needs to be monitored. The EC2 instances in question are launched in a VPC. Which services would you use to achieve this?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Trusted Advisor"}, {"id": "B", "markdown": "VPC Flow Logs"}, {
+        "id": "C",
+        "markdown": "Use CloudWatch metrics"
+    }, {"id": "D", "markdown": "Use CloudTrail"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – B\n\nAWS Documentation mentions the following:\n\nVPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC. Flow log data is stored using Amazon CloudWatch Logs. After you've created a flow log, you can view and retrieve its data in Amazon CloudWatch Logs.\n\nFor more information on VPC Flow Logs, please visit the following URL:\n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html\n\n\n \n\nNote:\n\nThe question asks to monitor all traffic flowing in and out of EC2 instances. Now you have to launch EC2 instance inside the VPC. As there is no other Option available, to monitor the navigation of IP traffic, we use VPC Flow Logs. \n\nNow coming to the question - why not CloudTrail? \n\nBefore venturing into it, let's look into the types of log categories we have in AWS.\n1. AWS Infrastructure Logs - AWS CloudTrail, Amazon VPC Flow Logs\n2. AWS Service Logs - Amazon S3, AWS Elastic Load Balancing, Amazon CloudFront, AWS Lambda, AWS Elastic Beanstalk, etc.,\n3. Host Based Logs - Messages, Security, NGINX/Apache/IIS, Windows Event Logs, Windows Performance Counters, etc.,\n\nAWS CloudTrail: it is used to record AWS API calls for your account like,\n- who made the API call?\n- when was the API call made?\n- what was the API call?\n- which resources were acted upon in the API call?\n- where was the API calls made form and made to?\n\n \n\nNOTE:\n\n\nAWS has launched a new feature called VPC Traffic Mirroring, which is used to capture and inspect network traffic at scale.  To know more about this feature, please check the link below.\n\n\n\thttps://aws.amazon.com/blogs/aws/new-vpc-traffic-mirroring/\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company is currently utilizing Redshift cluster as their production warehouse. As a cloud architect, you are tasked to ensure that the disaster recovery is in place. Which would be the best option in addressing this issue?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Take a copy of the underlying EBS volumes to S3 and then do Cross-Region Replication."
+    }, {"id": "B", "markdown": "Enable Cross-Region Snapshots for the Redshift Cluster."}, {
+        "id": "C",
+        "markdown": "Create a CloudFormation template to restore the Cluster in another region."
+    }, {"id": "D", "markdown": "Enable Cross Availability Zone Snapshots for the Redshift Cluster."}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – B\n\nThe below diagram shows that snapshots are available for Redshift clusters enabling them to be available in different regions:\n\n\n\n \n\nFor more information on managing Redshift Snapshots, please visit the following URL:\n\nhttps://docs.aws.amazon.com/redshift/latest/mgmt/managing-snapshots-console.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have an AWS RDS PostgreSQL database hosted in the Singapore region. You need to ensure that a copy of the database exists and that the data is asynchronously copied. What would be helpful to fulfill this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Enable Multi-AZ for the database"}, {
+        "id": "B",
+        "markdown": "Enable Read Replicas for the database"
+    }, {"id": "C", "markdown": "Enable Asynchronous replication for the database"}, {
+        "id": "D",
+        "markdown": "Enable manual backups for the database"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – B\n\nAWS Documentation mentions the following:\n\nAmazon RDS Read Replicas enable you to create one or more read-only copies of your database instance within the same AWS Region or in a different AWS Region. Updates made to the source database are then asynchronously copied to your Read Replicas. In addition to providing scalability for read-heavy workloads, Read Replicas can be promoted to become a standalone database instance when needed. \n\nFor more information on Read Replicas, please visit the following URL:\n\nhttps://aws.amazon.com/rds/details/read-replicas/\n\n\nNote: \nWhen you enable Multi-AZ for the database then you are enabling synchronous replication rather than asynchronous replication mentioned in the question.\n\nWhen you create a Read Replica, you first specify an existing DB instance as the source. Then Amazon RDS takes a snapshot of the source instance and creates a read-only instance from the snapshot. Amazon RDS then uses the asynchronous replication method for the DB engine to update the Read Replica whenever there is a change to the source DB instance. \n\nYou can use Read Replica promotion as a data recovery scheme if the source DB instance fails.\n\nFor more information, please click the link given below:\n\n\nhttps://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your current log analysis application takes more than four hours to generate a report of the top 10 users of your web application. You have been asked to implement a system that can report this information in real time, ensure that the report is always up to date, and handle increases in the number of requests to your web application. Which of the following is a cost-effective option to fulfill these requirements?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Publish your data to CloudWatch Logs, and configure your application to Auto Scale to handle the load on demand."
+    }, {
+        "id": "B",
+        "markdown": "Publish your log data to an Amazon S3 bucket. Use AWS CloudFormation to create an Auto Scaling group to scale your post-processing application which is configured to pull down your log files stored in Amazon S3."
+    }, {
+        "id": "C",
+        "markdown": "Post your log data to an Amazon Kinesis data stream, and subscribe your log-processing application so that it is configured to process your logging data."
+    }, {"id": "D", "markdown": "Configure an Auto Scaling group to increase the size of your Amazon EMR cluster."}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – C\n\nAWS Documentation mentions the below:\n\nAmazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information. Amazon Kinesis offers key capabilities to cost effectively process streaming data at any scale, along with the flexibility to choose the tools that best suit the requirements of your application. With Amazon Kinesis, you can ingest real-time data such as application logs, website clickstreams, IoT telemetry data, and more into your databases, data lakes and data warehouses, or build your own real-time applications using this data. Amazon Kinesis enables you to process and analyze data as it arrives and respond in real-time instead of having to wait until all your data is collected before the processing can begin.\n\nFor more information on AWS Kinesis, please see the below link:\n\nhttps://aws.amazon.com/kinesis/\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as an AWS Architect in a global financial firm. They provide daily consolidated reports to their clients for trades in stock markets. For large amount of data processing, they store daily trading transaction data in S3 buckets which triggers AWS Lambda function. This function submits a new AWS Batch job in Job queue. These queues use compute resources having EC2 On Demand instance with Amazon ECS-optimized AMI having enough resources to complete the job. Due to large volumes of data there has been requirement to increase storage size & create a customised AMI.\n\nYou have been working on new application on compute resources having a combination of EC2 On Demand instance & EC2 Spot Instance with this customised AMI. While you are performing a trial for this new application even though it has enough memory/CPU resources, your job is stuck in Runnable state. Which of the following can be used to get Job into starting state?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Ensure that awslogs log driver is configured on compute resources which will send log information to CloudWatch logs."
+    }, {
+        "id": "B",
+        "markdown": "AWS Batch does not support customized AMI & requires only Amazon ECS-optimized AMI."
+    }, {"id": "C", "markdown": "Check dependencies for the job which holds the job in Runnable state."}, {
+        "id": "D",
+        "markdown": "Use only On Demand EC2 instance in compute resource instead of combination of On Demand & Spot Instance."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – A\n\nAWS Batch Job sends log information to CloudWatch logs which requires awslogs log driver to be configured on compute resources having customized AMI. In case of Amazon ECS-optimized AMI, these drivers are pre-configured.\n\n\n\tOption B is incorrect as AWS Batch supports both customized AMI as well as Amazon ECS-optimized AMI, this is not a reason for Job stuck in Runnable state.\n\tOption C is incorrect as a Job moves into Runnable state only after all dependencies are processed. If there are any dependencies, Job stays in Pending state, not Runnable state.\n\tOption D is incorrect as Compute resource can be an On Demand Instance or a Spot Instance. If there are enough compute resource available to process the job, it will move into Starting state.\n\n\nFor more information on AWS Batch Job state & troubleshooting, if a job stuck in Runnable state, refer to following URLs,\n\n\n\thttps://docs.aws.amazon.com/batch/latest/userguide/job_states.html\n\thttps://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "There is a requirement to load a lot of data from your on-premises network to AWS S3, bypassing the internet service. What can be used for this data transfer? (SELECT TWO)",
+    "prompt": "",
+    "correctAnswerId": ["B", "C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Data Pipeline"}, {"id": "B", "markdown": "Direct Connect"}, {
+        "id": "C",
+        "markdown": "Snowball"
+    }, {"id": "D", "markdown": "AWS VPN"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answers – B and C\n\nAWS documentation mentions the following about the above services:\n\nWith a Snowball, you can transfer hundreds of terabytes or petabytes of data between your on-premises data centers and Amazon Simple Storage Service (Amazon S3). AWS Snowball uses Snowball appliances and provides powerful interfaces that you can use to create jobs, transfer data, and track the status of your jobs to completion. By shipping your data in Snowballs, you can transfer large amounts of data at a significantly faster rate than if you were transferring that data over the Internet, saving you time and money.\n\nAWS Direct Connect links your internal network to an AWS Direct Connect location over a standard 1-gigabit or 10-gigabit Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. With this connection in place, you can create virtual interfaces directly to public AWS services (for example, to Amazon S3) or to Amazon VPC, bypassing Internet service providers in your network path.\n\n \n\nFor more information on Direct Connect, please refer to the below URL:\n\n\n\thttp://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html\n\n\n \n\n\n\tOption A is Incorrect because AWS Data Pipeline is a web service that you can use to automate the movement and transformation of data. Here, we are not transforming the data and we are just moving the data from on-premises to S3.\n\tOption D is Incorrect because AWS VPN is used just for connecting on-premises to S3 and not for moving the data.\n\n\nFor more information on AWS Snowball, please refer to the below URL:\n\n\n\thttp://docs.aws.amazon.com/snowball/latest/ug/whatissnowball.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "With a Redshift cluster in AWS, you are trying to use SQL Client tools from an EC2 Instance, but aren't able to connect to the Redshift Cluster. What must you do to ensure that you are able to connect to the Redshift Cluster from the EC2 Instance?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Install Redshift client tools on the EC2 Instance first."}, {
+        "id": "B",
+        "markdown": "Modify the Security Groups."
+    }, {"id": "C", "markdown": "Use the AWS CLI instead of the Redshift client tools."}, {
+        "id": "D",
+        "markdown": "Modify the Route Table of the subnet."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – B\n\nAWS Documentation mentions the following:\n\nBy default, any cluster that you create is closed to everyone. IAM credentials only control access to the Amazon Redshift API-related resources: the Amazon Redshift console, Command Line Interface (CLI), API, and SDK. To enable access to the cluster from SQL client tools via JDBC or ODBC, you use security groups:\n\n\n\tIf you are using the EC2-Classic platform for your Amazon Redshift cluster, you must use Amazon Redshift security groups.\n\tIf you are using the EC2-VPC platform for your Amazon Redshift cluster, you must use VPC security groups. \n\n\nFor more information on Amazon Redshift, please refer to the URL below:\n\nhttp://docs.aws.amazon.com/redshift/latest/mgmt/overview.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You currently work for a company that is specialized in baggage management. GPS devices installed on all the baggages deliver the coordinates of the unit every 10 seconds. You need to collect and analyze these coordinates in real-time from multiple sources. Which tool should you use to process the data?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Amazon EMR"}, {"id": "B", "markdown": "Amazon SQS"}, {
+        "id": "C",
+        "markdown": "AWS Data Pipeline"
+    }, {"id": "D", "markdown": "Amazon Kinesis"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – D\n\nThe AWS Documentation mentions the following:\n\nAmazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information. Amazon Kinesis offers key capabilities to cost-effectively process streaming data at any scale, along with the flexibility to choose the tools that best suit the requirements of your application.\n\nWith Amazon Kinesis, you can ingest real-time data such as video, audio, application logs, website clickstreams, and IoT telemetry data for machine learning, analytics, and other applications. Amazon Kinesis enables you to process and analyze data as it arrives and respond instantly instead of having to wait until all your data is collected before the processing can begin.\n\nFor more information on Amazon Kinesis, please visit the link below.\n\nhttps://aws.amazon.com/kinesis/\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are planning to host a web and MySQL database application in an AWS VPC. The database should only be accessible by the web server. What would you change to fulfill this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Network Access Control Lists"}, {
+        "id": "B",
+        "markdown": "AWS RDS Parameter Groups"
+    }, {"id": "C", "markdown": "Route Tables"}, {"id": "D", "markdown": "Security groups"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – D\n\nSecurity group associated with the DB instance should allow port 3306 traffic from EC2 instance. The AWS Documentation additionally mentions the following:\n\nA security group acts as a virtual firewall for your instance to control inbound and outbound traffic. When you launch an instance in a VPC, you can assign up to five security groups to the instance. Security groups act at the instance level, not the subnet level. Therefore, each instance in a subnet in your VPC could be assigned to a different set of security groups. If you don't specify a particular group at launch time, the instance is automatically assigned to the default security group for the VPC.\n\nFor more information on VPC Security Groups, please visit the link below.\n\nhttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company has a requirement for block level storage that should be able to store 800GB of data. Also, encryption of the data is required. What can be used in this case?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS EBS Volumes"}, {"id": "B", "markdown": "AWS S3"}, {
+        "id": "C",
+        "markdown": "AWS Glacier"
+    }, {"id": "D", "markdown": "AWS EFS"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer - A\n\nFor block level storage, consider EBS Volumes.\n\nOptions B and C are incorrect since they provide object level storage.\n\nOption D is incorrect since this provides file level storage.\n\nFor more information on EBS Volumes, please visit the following URL:\n\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as an AWS Architect for a media firm. The firm has large text files which needs to be converted into Audio files. They are using S3 buckets to store this text files.\n\nAWS Batch is used to process these files along with Amazon Polly. For compute environment you have a mix of EC2 On Demand & Spot instance. Critical Jobs are required to be completed quickly while non-critical Jobs can be scheduled during non-peak hours. While using AWS Batch, management wants a cost-effective solution with no performance impact. Which of the following Job Queue can be selected to meet this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create single Job Queue with EC2 On Demand instance having higher priority & Spot Instance having lower priority."
+    }, {
+        "id": "B",
+        "markdown": "Create multiple Job Queues with one Queue having EC2 On Demand instance & having higher priority while another queue having Spot Instance & lower priority."
+    }, {
+        "id": "C",
+        "markdown": "Create multiple Job Queues with one Queue having EC2 On Demand instance & having lower priority while another queue having Spot Instance & higher priority."
+    }, {
+        "id": "D",
+        "markdown": "Create single Job Queue with EC2 On Demand instance having lower priority & Spot Instance having higher priority."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – B\n\nYou can create multiple Job queue with different priority & mapped Compute environments to each Job queue. When Job queues are mapped to a same compute environment, queues with higher priority are evaluated first.\n\n\n\tOption A is incorrect as Multiple queues need to be created for each Job type. In the requirement, critical Jobs will be processed using EC2 instance while low priority jobs will be using Job queue with Spot Instance. \n\tOption C is incorrect as Priority for a Job queue is selected in descending order, higher priority Job queue is preferred first.\n\tOption D is incorrect as Multiple queues need to be created for each Job type. In the requirement, critical Jobs will be processed using EC2 instance while low priority jobs will be using Job queue with Spot Instance. Also, higher priority Job queue is preferred first.\n\n\nFor more information on Job queues in AWS Batch, refer to the following URL:\n\n\n\thttps://docs.aws.amazon.com/batch/latest/userguide/job_queue_parameters.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "As the cloud administrator of company, you notice that one of the EC2 instances is restarting frequently. There is a need to troubleshoot and analyze the system logs. What can be used in AWS to store and analyze the log files from the EC2 Instance?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS SQS"}, {"id": "B", "markdown": "AWS S3"}, {
+        "id": "C",
+        "markdown": "AWS CloudTrail"
+    }, {"id": "D", "markdown": "AWS CloudWatch Logs"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – D\n\nYou can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon Elastic Compute Cloud (Amazon EC2) instances, AWS CloudTrail, and other sources.\n\nFor more information on CloudWatch Logs, please visit the following URL:\n\nhttps://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html\n\n \n\nNote: The question is not about compliance or auditing or tracking any kind of malicious activity or to monitor API calls in your account. If that would have been the case we w'd have used cloudtrail as it provides info such as who made the request, when the request was made, what was the request, what was the response etc.\n\nIn this question we need cloudwatch logs to store and analyze logs from EC2 to find why the instance is restarting frequently.\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company has migrated their production environment into AWS VPC 6 months ago. As a cloud architect, you are required to revise the infrastructure and ensure that it is cost-effective in the long term. There are more than 50 EC2 instances that are up and running all the time to support the business operation. What can you do to lower the cost?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Reserved instances"}, {
+        "id": "B",
+        "markdown": "On-demand instances"
+    }, {"id": "C", "markdown": "Spot instances"}, {"id": "D", "markdown": "Regular instances"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – A\n\nWhen you have instances that will be used continuously and throughout the year, the best option is to buy reserved instances. By buying reserved instances, you actually allocate an instance for the entire year or the duration you specify with a reduced cost.\n\nTo understand more on reserved instances, please visit the below URL:\n\nhttps://aws.amazon.com/ec2/pricing/reserved-instances/\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your organization is building a collaboration platform for which they chose AWS EC2 for web and application servers and MySQL RDS instance as the database. Due to the nature of the traffic to the application, they would like to increase the number of connections to RDS instance. How could this be achieved?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Login to RDS instance and modify database config file under /etc/mysql/my.cnf"
+    }, {
+        "id": "B",
+        "markdown": "Create a new parameter group, attach it to DB instance and change the setting."
+    }, {
+        "id": "C",
+        "markdown": "Create a new option group, attach it to DB instance and change the setting."
+    }, {"id": "D", "markdown": "Modify setting in default options group attached to DB instance."}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – B\n\nYou manage your DB engine configuration through the use of parameters in a DB parameter group . DB parameter groups act as a container for engine configuration values that are applied to one or more DB instances.\n\nA default DB parameter group is created if you create a DB instance without specifying a customer-created DB parameter group. Each default DB parameter group contains database engine defaults and Amazon RDS system defaults based on the engine, compute class, and allocated storage of the instance. You cannot modify the parameter settings of a default DB parameter group; you must create your own DB parameter group to change parameter settings from their default value. Note that not all DB engine parameters can be changed in a customer-created DB parameter group.\n\nIf you want to use your own DB parameter group, you simply create a new DB parameter group, modify the desired parameters, and modify your DB instance to use the new DB parameter group. All DB instances that are associated with a particular DB parameter group get all parameter updates to that DB parameter group.\n\n\n\nFor more information, please visit the URL below:\n\n\n\thttps://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working for a Pharma firm. You are using S3 buckets to save a large amount of sensitive project document for new medicine research. You need to ensure all data at rest in these buckets is encrypted. All the keys need to be managed by the inhouse Security team. Which of the following can be used as a best practice to encrypt all data securely?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Generate a data key using Customer managed CMK’s. Encrypt data with data key & delete data keys. Store encrypted data keys & data in S3 buckets. For decryption, use CMK to decrypt data key into plain text & then decrypt data using plain text data key."
+    }, {
+        "id": "B",
+        "markdown": "Generate a data key using AWS managed CMK’s. Encrypt data with data key & delete data keys. Store encrypted data & data keys in S3 buckets. For decryption, use CMK to decrypt data key into plain text & then decrypt data using plain text data key."
+    }, {
+        "id": "C",
+        "markdown": "Generate a data key using Customer managed CMK’s. Encrypt data with data key & do not delete data keys. Store encrypted data & plain text data keys in S3 buckets. For decryption, use plain text data key to decrypt data."
+    }, {
+        "id": "D",
+        "markdown": "Generate a data key using AWS managed CMK’s. Encrypt data with data key & do not delete data keys. Store encrypted data & plain text data keys in S3 buckets. For decryption, use plain text data key to decrypt data."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer - A\n\nSInce Key Management will be done by Inhouse security team, Customer Managed CMK need to be used. Customer managed CMK will generate plain text Data Key & encrypted Data Keys. All project related sensitive documents will be encrypted using these plain text Data Keys. After encryption , plain text Data keys needs to be deleted to avoid any inappropriate use  & encrypted Data Keys along with encrypted Data is stored in S3 buckets.\n\nWhile decryption, encrypted Data Key is decrypted using Customer CMK into plain text Key which is further used to decrypt documents. This Envelope Encryption ensures that Data is protected by Data key which is further protected by another key.\n\n\n\tOption B is incorrect, since all keys needs to manage by inhouse customer Security team, AWS managed CMK’s cannot be used.\n\tOption C is incorrect as It's not a best practise to save data key file in plain text format. All plain text data keys should be deleted & only encrypted data keys need to be saved.\n\tOption D is incorrect since all keys needs to manage by inhouse customer Security team, AWS managed CMK’s cannot be used. Also, all plain text data keys should be deleted & only encrypted data keys need to be saved.\n\n\n For more information on AWS KMS, refer to following URLs,\n\n\n\t https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html\n\t https://d0.awsstatic.com/whitepapers/aws-kms-best-practices.pdf\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company is building a service using Amazon EC2 as a worker instance that will process an uploaded audio file and generate a text file. You must store both of these files in the same durable storage until the text file is retrieved. You do not know what the storage capacity requirements are. Which storage option is both cost-efficient and scalable?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Multiple Amazon EBS Volume with snapshots"}, {
+        "id": "B",
+        "markdown": "A single Amazon Glacier vault"
+    }, {"id": "C", "markdown": "A single Amazon S3 bucket"}, {"id": "D", "markdown": "Multiple instance stores"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – C\n\nAmazon S3 is the best storage option for this. It is durable and highly available.\n\nFor more information on Amazon S3, please refer to the below URL:\n\nhttps://aws.amazon.com/s3/\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as an AWS developer for an online multiplayer game developing start-up company. Elasticache with Redis is used for gaming leaderboards along with application servers, to provide low latency and avoid stale data for these highly popular online games. Redis clusters are deployed within a dedicated VPC in the us-east-1 region.\n\nLast week, due to configuration changes in Redis Clusters, the gaming application was impacted for two hours. To avoid such incidents, you have been requested to plan for secure access to all the new clusters. What would you prefer to use for secure access to Redis Clusters while accessing from EC2 instance, initialized in different VPC in the us-east-1 region? (SELECT TWO)",
+    "prompt": "",
+    "correctAnswerId": ["C", "F"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Use Redis AUTH with in-transit encryption disabled for clusters."}, {
+        "id": "B",
+        "markdown": "Create a Transit VPC solution to have connectivity between 2 VPC’s."
+    }, {"id": "C", "markdown": "Use Redis AUTH with in-transit encryption, enabled for clusters."}, {
+        "id": "D",
+        "markdown": "Create an Amazon VPN connection between 2 VPCs."
+    }, {"id": "E", "markdown": "Use Redis AUTH with At-Rest encryption, enabled for clusters."}, {
+        "id": "F",
+        "markdown": "Create an Amazon VPC Peering connection between 2 VPCs."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – C and F\n\nTo use Redis AUTH that will require users to provide a password before accessing Redis Cluster, in-transit encryption needs to be enabled on the cluster while creation of the cluster.  For accessing Redis Cluster from EC2 instance in different VPCs from the same region, a VPC peering can be established between 2 VPCs.\n\n\n\tOption A is incorrect. For Redis AUTH, clusters must be enabled with in-transit encryption during initial deployment.\n\tOption B is incorrect. Transit VPC solution is suitable to access Redis Clusters from EC2 instance in VPC created in different regions. Since, in this requirement, both VPCs are in the same region, VPC peering is a correct option.\n\tOption D is incorrect as VPN Connections will be required to access the Redis Cluster from on-prem servers.\n\tOption E is incorrect. For Redis AUTH, clusters must be enabled with in-transit encryption during initial deployment, not At-Rest encryption.\n\n\nFor more information on Authentication with Redis & Accessing Redis Clusters from a different VPC, refer to the following URLs:\n\n\n\thttps://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html\n\thttps://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-vpc-accessing.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is utilizing CloudFront to distribute its media content to multiple regions. The content is frequently accessed by users. As a cloud architect, which of the following options would help you improve the performance of the system?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Change the origin location from an S3 bucket to an ELB."}, {
+        "id": "B",
+        "markdown": "Use a faster Internet connection."
+    }, {"id": "C", "markdown": "Increase the cache expiration time."}, {
+        "id": "D",
+        "markdown": "Create an \"invalidation\" for all your objects, and recache them."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – C\n\nYou can control how long your objects stay in a CloudFront cache before CloudFront forwards another request to your origin. Reducing the duration allows you to serve dynamic content. Increasing the duration means your users get better performance because your objects are more likely to be served directly from the edge cache. A longer duration also reduces the load on your origin.\n\nFor more information on CloudFront cache expiration, please refer to the following link:\n\nhttp://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have been instructed by your supervisor to devise a disaster recovery model for the resources in the AWS account. The key requirement while devising the solution is to ensure that the cost is at a minimum. Which disaster recovery mechanism would you employ in such a scenario?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Backup and Restore"}, {"id": "B", "markdown": "Pilot Light"}, {
+        "id": "C",
+        "markdown": "Warm standby"
+    }, {"id": "D", "markdown": "Multi-Site"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – A\n\nSince the cost needs to be at a minimum, the best option is to back up all the resources and then perform a restore in the event of a disaster.\n\n \n\nFor more information on disaster recovery, please refer to the below link:\n\n\n\thttps://aws.amazon.com/blogs/aws/new-whitepaper-use-aws-for-disaster-recovery/\n\thttps://aws.amazon.com/disaster-recovery/\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "An application consists of the following architecture:\n\na. EC2 Instances are in multiple AZ’s behind an ELB.\n\nb. The EC2 Instances are launched via an Auto Scaling Group.\n\nc. There is a NAT instance used so that instances can download updates from the internet.\n\nDue to the high bandwidth being consumed by the NAT instance, it has been decided to use a NAT Gateway. How could this be implemented?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Use NAT Instances along with the NAT Gateway."}, {
+        "id": "B",
+        "markdown": "Host the NAT instance in the private subnet."
+    }, {
+        "id": "C",
+        "markdown": "Migrate the NAT Instance to NAT Gateway and host the NAT Gateway in the public subnet."
+    }, {"id": "D", "markdown": "Host the NAT gateway in the private subnet"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – C \n\nOne can simply start using the NAT Gateway service and stop using the deployed NAT instances. But you need to ensure that the NAT Gateway is deployed in the public subnet.\n\n\n\tFor more information on migrating to a NAT Gateway, please visit the following URL:\n\t\n\t\thttps://aws.amazon.com/premiumsupport/knowledge-center/migrate-nat-instance-gateway/\n\t\n\t\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company has an application hosted in AWS. This application consists of EC2 Instances that sit behind an ELB. The following are the requirements from an administrative perspective:\n\na) Must be able to collect and analyze logs with regard to ELB’s performance.\n\nb) Ensure that notifications are sent when the latency goes beyond 10 seconds.\n\nWhat should be used to achieve this requirement? (SELECT TWO)",
+    "prompt": "",
+    "correctAnswerId": ["A", "C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Use CloudWatch for monitoring."}, {
+        "id": "B",
+        "markdown": "Enable VPC Flow logs and then investigate the logs whenever there is an issue."
+    }, {
+        "id": "C",
+        "markdown": "Enable the logs on the ELB with Latency Alarm that sends an email and then investigate the logs whenever there is an issue."
+    }, {"id": "D", "markdown": "Use CloudTrail to monitor whatever metrics need to be monitored."}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – A and C\n\nWhen you use CloudWatch metrics for an ELB, you can get the amount of read requests and latency out of the box.\n\nFor more information on using CloudWatch with the ELB, please visit the following URL:\n\nhttps://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-cloudwatch-metrics.html\n\nElastic Load Balancing provides access logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the time when the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze traffic patterns and to troubleshoot issues.\n\nFor more information on using ELB logs, please visit the following URL:\n\nhttps://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html\n\nOption B is INCORRECT because using VPC flow logs we cannot pinpoint to the issues related to ELB performance\n\nOption D is INCORRECT because CloudTrail is used only for monitoring API activities on AWS resources\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company would like to leverage the AWS storage option and integrate it with the current on-premises infrastructure. Additionally, due to business requirements, low latency access to all the data is a must. Which of the following options would be best suited for this scenario?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Configure the Simple Storage Service."}, {
+        "id": "B",
+        "markdown": "Configure Storage Gateway Cached Volume."
+    }, {"id": "C", "markdown": "Configure Storage Gateway Stored Volume."}, {
+        "id": "D",
+        "markdown": "Configure Amazon Glacier."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – C\n\nAWS Documentation mentions the following:\n\nIf you need low-latency access to your entire dataset, first configure your on-premises gateway to store all your data locally. Then asynchronously back up point-in-time snapshots of this data to Amazon S3.\n\nThis configuration provides durable and inexpensive offsite backups that you can recover to your local data center or Amazon EC2. For example, if you need replacement capacity for disaster recovery, you can recover the backups to Amazon EC2.\n\nFor more information on the Storage Gateway, please visit the following URL:\n\n\n\thttps://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html\n\n\n \n\nNote:\n\nCached volumes – You store your data in Amazon Simple Storage Service (Amazon S3) and retain a copy of frequently accessed data subsets locally. Cached volumes offer substantial cost savings on primary storage and minimize the need to scale your storage on-premises. You also retain low-latency access to your frequently accessed data.\n\nStored volumes – If you need low-latency access to your entire dataset, first configure your on-premises gateway to store all your data locally. Then asynchronously back up point-in-time snapshots of this data to Amazon S3.\n\nThis configuration provides durable and inexpensive offsite backups that you can recover to your local data center or Amazon EC2. For example, if you need replacement capacity for disaster recovery, you can recover the backups to Amazon EC2.\n\nIf you see the Cached volumes primary function to reduce cost and low latency (For frequently accessed data or recently accessed data), however, In the question, the requirement is to maintain all data with low latency. So, Stored volume is the correct answer.\n\nPlease check the below link to know more about it.\n\n\n\thttps://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "An IT company has a set of EC2 Instances hosted in a VPC. They are hosted in a private subnet. These instances now need to access resources stored in an S3 bucket. The traffic should not traverse the internet. The addition of which of the following would help to fulfill this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "VPC Endpoint"}, {"id": "B", "markdown": "NAT Instance"}, {
+        "id": "C",
+        "markdown": "NAT Gateway"
+    }, {"id": "D", "markdown": "Internet Gateway"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer - A\n\nA VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC do not require public IP addresses to communicate with resources in the service. Traffic between your VPC and the other service does not leave the Amazon network.\n\nFor more information on AWS VPC endpoints, please visit the following URL:\n\nhttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You need to host a set of web servers and database servers in an AWS VPC. What would be a best practice in designing a multi-tier infrastructure?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Use a public subnet for the web tier and a public subnet for the database layer."
+    }, {
+        "id": "B",
+        "markdown": "Use a public subnet for the web tier and a private subnet for the database layer."
+    }, {
+        "id": "C",
+        "markdown": "Use a private subnet for the web tier and a private subnet for the database layer."
+    }, {"id": "D", "markdown": "Use a private subnet for the web tier and a public subnet for the database layer."}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – B\n\nThe ideal setup is to ensure that the web server is hosted in the public subnet so that it can be accessed by users on the internet. The database server can be hosted in the private subnet.\n\nThe below diagram from AWS Documentation shows how this can be setup:\n\n\n\n \n\nFor more information on public and private subnets in AWS, please visit the following URL:\n\nhttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "An IT company wants to secure their resources in their AWS Account. Which of the following options would secure data at rest and in transit in AWS? (SELECT THREE)",
+    "prompt": "",
+    "correctAnswerId": ["A", "B", "C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Encrypt all EBS volumes attached to EC2 Instances."}, {
+        "id": "B",
+        "markdown": "Use Server-Side Encryption for S3."
+    }, {"id": "C", "markdown": "Use SSL/HTTPS when using the Elastic Load Balancer."}, {
+        "id": "D",
+        "markdown": "Use IOPS Volumes when working with EBS Volumes on EC2 Instances."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answers – A, B and C\n\nAWS documentation mentions the following:\n\nAmazon EBS encryption offers you a simple encryption solution for your EBS volumes without the need for you to build, maintain, and secure your own key management infrastructure. When you create an encrypted EBS volume and attach it to a supported instance type, the following types of data are encrypted:\n\n\n\tData at rest inside the volume\n\tAll data moving between the volume and the instance\n\tAll snapshots created from the volume \n\n\n \n\nData protection refers to protecting data while in-transit (as it travels to and from Amazon S3) and at rest (while it is stored on disks in Amazon S3 data centers). You can protect data in transit by using SSL or by using client-side encryption. You have the following options of protecting data at rest in Amazon S3.\n\n \n\n\n\tUse Server-Side Encryption – You request Amazon S3 to encrypt your object before saving it on disks in its data centers and decrypt it when you download the objects.\n\tUse Client-Side Encryption – You can encrypt data client-side and upload the encrypted data to Amazon S3. In this case, you manage the encryption process, the encryption keys, and related tools. \n\n\n \n\nYou can create a load balancer that uses the SSL/TLS protocol for encrypted connections (also known as SSL offload). This feature enables traffic encryption between your load balancer and the clients that initiate HTTPS sessions, and for connections between your load balancer and your EC2 instances.\n\nFor more information on securing data at rest, please refer to the below link:\n\nhttps://d0.awsstatic.com/whitepapers/aws-securing-data-at-rest-with-encryption.pdf\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company currently has a set of EC2 Instances running a web application which sits behind an Elastic Load Balancer. You also have an Amazon RDS instance which is accessible from the web application. You have been asked to ensure that this architecture is self-healing in nature. What would fulfill this requirement? (SELECT TWO)",
+    "prompt": "",
+    "correctAnswerId": ["A", "D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Use CloudWatch metrics to check the utilization of the web layer. Use Auto Scaling Group to scale the web instances accordingly based on the CloudWatch metrics."
+    }, {
+        "id": "B",
+        "markdown": "Use CloudWatch metrics to check the utilization of the database servers. Use Auto Scaling Group to scale the database instances accordingly based on the CloudWatch metrics."
+    }, {"id": "C", "markdown": "Utilize the Read Replica feature for the Amazon RDS layer."}, {
+        "id": "D",
+        "markdown": "Utilize the Multi-AZ feature for the Amazon RDS layer."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answers - A and D\n\nThe following diagram from AWS showcases a self-healing architecture where you have a set of EC2 servers as Web server being launched by an Auto Scaling Group.\n\n\n\n \n\nAWS Documentation mentions the following:\n\nAmazon RDS Multi-AZ deployments provide enhanced availability and durability for Database (DB) Instances, making them a natural fit for production database workloads. When you provision a Multi-AZ DB Instance, Amazon RDS automatically creates a primary DB Instance and synchronously replicates the data to a standby instance in a different Availability Zone (AZ). Each AZ runs on its own physically distinct, independent infrastructure, and is engineered to be highly reliable.\n\nIn case of an infrastructure failure, Amazon RDS performs an automatic failover to the standby (or to a read replica in the case of Amazon Aurora), so that you can resume database operations as soon as the failover is complete. Since the endpoint for your DB Instance remains the same after a failover, your application can resume database operation without the need for manual administrative intervention.\n\n\n\tFor more information on Multi-AZ RDS, please refer to the below link:\n\t\n\t\thttps://aws.amazon.com/rds/details/multi-az/\n\t\n\t\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company has a set of EC2 Instances that access data objects stored in an S3 bucket. Your IT Security department is concerned about the security of this architecture and wants you to implement the following:\n\n1) Ensure that the EC2 Instance securely accesses the data objects stored in the S3 bucket\n\n2) Prevent accidental deletion of objects\n\nWhat would be helpful to fulfill the requirements of the IT Security department? (SELECT TWO)",
+    "prompt": "",
+    "correctAnswerId": ["B", "D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create an IAM user and ensure the EC2 Instances use the IAM user credentials to access the data in the bucket."
+    }, {
+        "id": "B",
+        "markdown": "Create an IAM Role and ensure the EC2 Instances use the IAM Role to access the data in the bucket."
+    }, {
+        "id": "C",
+        "markdown": "Use S3 Cross-Region Replication to replicate the objects so that the integrity of data is maintained."
+    }, {
+        "id": "D",
+        "markdown": "Use an S3 bucket policy that ensures that MFA Delete is set on the objects in the bucket."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answers - B and D\n\nAWS Documentation mentions the following:\n\nIAM roles are designed so that your applications can securely make API requests from your instances, without requiring you to manage the security credentials that the applications use. Instead of creating and distributing your AWS credentials, you can delegate permission to make API requests using IAM roles \n\nFor more information on IAM Roles, please refer to the link below:\n\nhttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html\n\nMFA Delete can be used to add another layer of security to S3 Objects to prevent accidental deletion of objects.\n\nFor more information on MFA Delete, please refer to the link below:\n\nhttps://aws.amazon.com/blogs/security/securing-access-to-aws-using-mfa-part-3/\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have a requirement to get a snapshot of the current configuration of resources in your AWS Account. Which service can be used for this purpose?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS CodeDeploy"}, {"id": "B", "markdown": "AWS Trusted Advisor"}, {
+        "id": "C",
+        "markdown": "AWS Config"
+    }, {"id": "D", "markdown": "AWS IAM"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer - C\n\nAWS Documentation mentions the following:\n\nWith AWS Config, you can do the following:\n\n\n\tEvaluate your AWS resource configurations for desired settings.\n\tGet a snapshot of the current configurations of the supported resources that are associated with your AWS account.\n\tRetrieve configurations of one or more resources that exist in your account.\n\tRetrieve historical configurations of one or more resources.\n\tReceive a notification whenever a resource is created, modified or deleted.\n\tView relationships between resources. For example, you might want to find all resources that use a particular security group.\n\n\nFor more information on AWS Config, please visit the below URL:\n\nhttp://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is hosting an application in AWS. The application is read intensive and consists of a set of web servers and AWS RDS. It has been noticed that the response time of the application increases due to the load on the AWS RDS instance. Which of the following measures can be taken to scale the data tier? (SELECT THREE)",
+    "prompt": "",
+    "correctAnswerId": ["A", "B", "D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create Amazon DB Read Replicas. Configure the application layer to query the Read Replicas for query needs."
+    }, {"id": "B", "markdown": "Use Auto Scaling to scale out and scale in the database tier."}, {
+        "id": "C",
+        "markdown": "Use SQS to cache the database queries."
+    }, {"id": "D", "markdown": "Use ElastiCache in front of your Amazon RDS DB to cache common queries."}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answers - A, B and D\n\nAWS documentation mentions the following:\n\nAmazon RDS Read Replicas provide enhanced performance and durability for database (DB) instances. This replication feature makes it easy to elastically scale out beyond the capacity constraints of a single DB Instance for read-heavy database workloads. You can create one or more replicas of a given source DB Instance and serve high-volume application read traffic from multiple copies of your data, thereby increasing aggregate read throughput. Read replicas can also be promoted when needed to become standalone DB instances.\n\nFor more information on AWS RDS Read Replica’s, please visit the URL below:\n\nhttps://aws.amazon.com/rds/details/read-replicas/ \n\nAmazon RDS now supports Storage Auto Scaling, and hence it can be used for scaling.\n\nhttps://aws.amazon.com/about-aws/whats-new/2019/06/rds-storage-auto-scaling/\n\nAmazon ElastiCache is a web service that makes it easy to deploy, operate, and scale an in-memory data store or cache in the cloud. The service improves the performance of web applications by allowing you to retrieve information from fast, managed, in-memory data stores, instead of relying entirely on slower disk-based databases.\n\nFor more information on AWS ElastiCache, please visit the URL below:\n\nhttps://aws.amazon.com/elasticache/\n\n \n                        ",
+    "referenceImage": ""
 }]
