@@ -6262,4 +6262,1072 @@ export default [{
     }, {"id": "D", "markdown": "VPN"}],
     "answerExplanation": "\n                            Explanation:\n                            Answer – C\n\nThe AWS Documentation mentions the following\n\nYou can use a network address translation (NAT) gateway to enable instances in a private subnet to connect to the internet or other AWS services, but prevent the internet from initiating a connection with those instances\n\nOption A is invalid since this is a web application firewall\n\nOptions B and D are invalid since this are used to connect on-premises infrastructure to AWS VPC’s\n\nFor more information on NAT gateway, please visit the below URL\n\n\n\thttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html\n\n\n \n                        ",
     "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is planning on the following architecture for their application\n\n\n\tA set of EC2 Instances hosting the web part of the application.\n\tA relational database for the backend\n\tA Load balancer for distribution of traffic\n\tA NAT gateway for routing traffic from the database server to the Internet\n\n\nWhich of the following architecture ensures high availability across all components?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "A Load balancer with one public subnet, one private subnet. The EC2 Instances placed in one Availability Zone. RDS with Multi-AZ Enabled. NAT Gateway in one availability zone."
+    }, {
+        "id": "B",
+        "markdown": "A Load balancer with 2 public subnets, 2 private subnets. The EC2 Instances placed across 2 Availability Zones. RDS with Multi-AZ Enabled. NAT Gateways in each availability zone"
+    }, {
+        "id": "C",
+        "markdown": "A Load balancer with 2 public subnets, 2 private subnets. The EC2 Instances placed in 2 Availability Zones. RDS with Multi-AZ Enabled. NAT Gateway in one availability zone"
+    }, {
+        "id": "D",
+        "markdown": "A Load balancer with 2 public subnets, 2 private subnets. The EC2 Instances placed in one Availability Zone. RDS with Multi-AZ Enabled. NAT Gateway in one availability zone"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer: B\n\nIn a Multi-AZ deployment, Amazon RDS automatically provisions and maintains a synchronous standby replica in a different Availability Zone. The primary DB instance is synchronously replicated across Availability Zones to a standby replica to provide data redundancy, eliminate I/O freezes, and minimize latency spikes during system backups. Running a DB instance with high availability can enhance availability during planned system maintenance, and help protect your databases against DB instance failure and Availability Zone disruption.\n\nLet’s try to understand the scenario using a few use cases:\n\nDepending upon your appetite for risk, you might configure things differently...\n\nUse Case 1: A load balancer, one public subnet, one private subnet in same AZ, one NAT Gateway, and RDS with Multi-AZ\n\n\n\tThe NAT Gateway goes into the public subnet\n\tThe EC2 Instances go into the private subnet\n\tThe Route Table for the private subnet points to the NAT Gateway in the public subnet\n\n\nUse Case 2: A load balancer, two public subnets, two private subnets, one NAT Gateway, RDS with Multi-AZ\n\n\n\tThe NAT Gateway goes into one public subnet (Public-Subnet-A)\n\tThe EC2 instances are launched in private subnets across two AZs (Private-Subnet-A, Private-Subnet-B) or across same AZ ( Private-Subnet-A/Private-Subnet-B)\n\tThe Route Table for both of the private subnets point to the NAT Gateway\n\n\n \n\nHowever, if there is a failure with Availability Zone A (rare, but can happen), then the NAT Gateway is not reachable from Private-Subnet-B. Thus, the system may be impacted even though it is running across two AZs or single AZ.\n\n \n\nUse Case 3: A load balancer, two public subnets, two private subnets, two NAT Gateways, RDS with Multi-AZ\n\n\n\tThe NAT Gateway goes into both public subnets (Public-Subnet-A, Public-Subnet-B)\n\tThe EC2 instances are launched in private subnets across two AZs (Private-Subnet-A, Private-Subnet-B)\n\tThe Route Table Private-Subnet-A points to the NAT Gateway in Public-Subnet-A\n\tThe Route Table Private-Subnet-B points to the NAT Gateway in Public-Subnet-B\n\n\n \n\nIf one of the AZs should fail, then the EC2 instances in the remaining private subnet will still be able to communicate with the Internet because they have their own NAT Gateway in the same AZ.\n\nOption A) is incorrect because according to Use Case 1, High Availability is not ensured as\n\nWhen you enable an Availability Zone for your load balancer, Elastic Load Balancing creates a load balancer node in the Availability Zone. If you register targets in an Availability Zone but do not enable the Availability Zone, these registered targets do not receive traffic. Note that your load balancer is most effective if you ensure that each enabled Availability Zone has at least one registered target.\n\nWe recommend that you enable multiple Availability Zones. (Note that with an Application Load Balancer, we require you to enable multiple Availability Zones.) With this configuration, if one Availability Zone becomes unavailable or has no healthy targets, the load balancer can continue to route traffic to the healthy targets in another Availability Zone.\n\nOption B) is Correct because according to Use Case 3, High Availability is ensured.\n\nOption C) and D) are incorrect because according to Use Case 2, High Availability is not ensured as either if we have EC2 in single AZ or in multiple AZ, We have NAT Gateway in single AZ which is a cause for not ensuring High Availability.\n\nFor more information on Elastic Load Balancing, Multi-AZ and NAT gateway, please refer to the below URL’s\n\nhttps://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html\n\nhttps://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html\n\nhttps://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company has an AWS account and a lot of resources defined in the Frankfurt region. They want to track the changes to the resources in their account. Which of the following should be used for this purpose?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS Config"}, {"id": "B", "markdown": "AWS CloudTrail"}, {
+        "id": "C",
+        "markdown": "AWS CloudWatch"
+    }, {"id": "D", "markdown": "AWS Opswork"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: B\n\nOption A is incorrect because AWS Config is a fully managed service that provides you with a resource inventory, configuration history, and configuration change notifications to enable security and governance. Also, you can discover existing AWS resources, export a complete inventory of your AWS resources with all configuration details, and determine how a resource was configured at any point in time.\n\nOption B is correct because this is an API monitoring service and using CloudTrail, you can log, continuously monitor, and retain account activity related to actions across your AWS infrastructure. CloudTrail provides event history of your AWS account activity, including actions taken through the AWS management console, AWS SDKs, command-line tools, and other AWS services. This event history simplifies security analysis, resource change tracking, and troubleshooting. In addition, you can use CloudTrail to detect unusual activity in your AWS accounts.\n\nAlso, CloudTrail records the changes made to AWS Config including who made the change, vice versa may not true.\n\nOption C is invalid because this is a metric and logging service\n\nOption D is invalid because is used to deploy stacks of resources\n\nFor more information on AWS CloudTrail, please refer to the below URL\n\nhttps://aws.amazon.com/cloudtrail/\n\n \n\nCloudWatch and Config serve distinct use cases for monitoring and complements each other from the AWS ecosystem.\n\nConfig is typically used for auditing and compliance purposes across organizations to verify whether AWS resource changes being made are per compliance rules.\n\nCloudWatch is designed to provide performance information about AWS resources such as EC2, Lambda, etc. Developers can use information from CloudWatch to identify bottlenecks in applications or workflows.\n\nCloudWatch will help you to send alerts when CPU /Memory utilization reaches a certain threshold and browse metrics associated with CPU/Network to identify operational and security issues.\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working for a Pharma company having operations in North America. The company has a corporate Data Centre in New York which includes Web Servers & Active Directory. As a part of migrating all services to the cloud, few services will be initially migrated to EC2 instances deployed in VPC at the us-east-1 region. The Pharma Company already has a managed AD server in AWS. You are planning to set up AWS SSO for this purpose so that users can sign in to AWS accounts using on-premise Active Directory credentials. You need to ensure that the proposed solution should consider the future growth of users and all users should be able to reset the password from anywhere.\n\nAlso, the highly available solution should be secure, cost-effective and ensure reliable performance with bandwidth requirement up-to 1.2 Gbps. What would be the most appropriate solution to meet this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Setup a Direct-Connect between the Data Centre and VPC in us-east1. Create a Two-Way Trust relationship with on-premise Active Directory."
+    }, {
+        "id": "B",
+        "markdown": "Setup a Direct-Connect between the Data Centre and VPC in us-east1. Create an AD Connector with on-premise Active Directory."
+    }, {
+        "id": "C",
+        "markdown": "Setup a VPN connection between the Data Centre and VPC in us-east1. Create a Two-Way Trust relationship with on-premise Active Directory."
+    }, {
+        "id": "D",
+        "markdown": "Setup a VPN connection between Data Centre & VPC in us-east1. Create an AD Connector with on-premise Active Directory."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – C\n\nAWS SSO can connect to On-Premise Active Directory so that users in on-premise Active-Directory can use AWS SSO to access AWS accounts & resources. Since the company is looking for a solution with future growth, there would be a necessity of 1.2 Gbps bandwidth for which VPN connection between Data Centre & VPC will be the most appropriate solution.\n\n\n\tOption A is incorrect because each connection consists of a single dedicated connection between ports on your router and an Amazon router. We recommend establishing a second connection if redundancy is required. When you request multiple ports at the same AWS Direct Connect location, they will be provisioned on redundant Amazon routers. To achieve high availability, we recommend you to have connections at multiple AWS Direct Connect locations. You can refer to the below URL to learn more about achieving highly available network connectivity. Setting up second connection will incur high costs whereas setting up a failover VPN connection will not incur high cost.\n\n\nhttps://aws.amazon.com/answers/networking/aws-multiple-data-center-ha-network-connectivity/\n\n\n\tOption B is incorrect as with AD Connector, users will not be able to reset passwords from AWS SSO, but only from On-Premise Active Directory. With AD Connector, AWS SSO does not cache user information & forward all requests to On-Premise Active Directory.\n\tOption C is correct as because VPN connection is encrypted and high available and have bandwidth up to 1.25 Gbps. \n\n\nhttps://aws.amazon.com/vpn/features/\n\n\n\tOption D is incorrect because, With AD Connector, users will not be able to reset passwords from AWS SSO, but only from On-Premise Active Directory. With AD Connector, AWS SSO does not cache user information and forward all requests to On-Premise Active Directory.\n\n\nA two-way trust relationship is required because when two-way trust relationships are created between AWS Managed Microsoft AD and an on-premises Active Directory, on-premises users can sign in with their corporate credentials to various AWS services and business applications.\n\nFor more information on connecting AWS SSO to On-Premise Active Directory, refer to the following URLs:\n\nhttps://docs.aws.amazon.com/singlesignon/latest/userguide/connectonpremad.html\n\nhttps://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_setup_trust.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company is planning on hosting an application with the below architecture\n\n·         A lambda function which reads the metadata of objects from an S3 bucket\n\n·         The Lambda function then stores the metadata in DynamoDB and AWS RDS - MySQL\n\nWhich of the following needs to be in place to ensure the above architecture is high available?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Enable Cross Region Replication for the S3 bucket"}, {
+        "id": "B",
+        "markdown": "Enable Lambda functions in Multiple Availability Zones"
+    }, {"id": "C", "markdown": "Enabling Multi-AZ for the MySQL database"}, {
+        "id": "D",
+        "markdown": "Enable Auto-Scaling for the DynamoDB table"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – C\n\nOption C is correct because In a Multi-AZ deployment, Amazon RDS automatically provisions and maintains a synchronous standby replica in a different Availability Zone. The primary DB instance is synchronously replicated across Availability Zones to a standby replica to provide data redundancy, eliminate I/O freezes, and minimize latency spikes during system backups. Running a DB instance with high availability can enhance availability during planned system maintenance, and help protect your databases against DB instance failure and Availability Zone disruption.\n\nOption A is invalid because the S3 service is already a highly available service within a particular region. Also, Amazon S3 gives any developer access to the same highly scalable, highly available, fast, inexpensive data storage infrastructure that Amazon uses to run its own global network of web sites. The S3 Standard storage class is designed for 99.99% availability, the S3 Standard-IA storage class is designed for 99.9% availability, the S3 One Zone-IA storage class is designed for 99.5% availability, and the S3 Glacier and S3 Glacier Deep Archive class are designed for 99.99% availability and SLA of 99.9%. All of these storage classes are backed by the Amazon S3 Service Level Agreement\n\nOptions B is invalid because AWS Lambda already a highly available service in AWS, Refer below document.\n\nhttps://aws.amazon.com/lambda/features/\n\nOption D is invalid because High Availability is about availability; AS is about performance (usually throughput), also DynamoDB is high available by default. High Availability focuses on maintaining the liveness of the system in the presence of server or network failures whereas Auto Scaling just means adding more resources when demand increases. Refer the below document for DynamoDB reliability.\n\nhttps://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html\n\nFor more information on RDS Multi-AZ, please refer to the below URL\n\nhttps://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company has a set of EC2 Instances hosting a revenue generating applications. Some of the data on the root EBS volumes are critical to retain. Hence it has to be ensured that even after the instances are terminated, the EBS volumes will still remain intact. Which of the following needs to be done to ensure this requirement can be met?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Enable the DisableApiTermination for the EC2 Instance"}, {
+        "id": "B",
+        "markdown": "Make the attribute of DeleteOnTermination for the EBS volume to false"
+    }, {
+        "id": "C",
+        "markdown": "Run the command, (aws ec2 delete-volume –f) in AWS Command Line Interface to disable deletion of volume on terminating Instances."
+    }, {
+        "id": "D",
+        "markdown": "Run the command ( aws ec2 modify-instance-attribute  \\  --block-device-mappings 'DeviceName=/dev/sda1,Ebs={DeleteOnTermination-false} ) in AWS Command Line Interface to disable deletion of volume on terminating Instances"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – B\n\nThe AWS Documentation mentions the following\n\nOption B is correct because When an instance is terminated, Amazon Elastic Compute Cloud (Amazon EC2) uses the value of the DeleteOnTermination attribute for each root EBS volume to determine whether to preserve or delete the volume when the instance is terminated. By default, the DeleteOnTermination attribute for the root volume of an instance is set to true, but it is set to false for all other volume types.\n\nTo preserve the root volume when an instance is terminated, change the DeleteOnTermination attribute for the root volume to false.\n\nOption A is invalid since the flag needs to be set on the EBS volume\n\nOption C is invalid because (-f) no such parameter exists as per AWS Documentation and moreover, this command is used to delete the volume, see the below correct syntax to delete a volume using CLI\n\naws ec2 delete-volume --volume-id vol-049df61146cXXXX\n\nOption D is invalid because command syntax is not correct, (=) should be used but (-) is used, see the actual syntax below\n\naws ec2 modify-instance-attribute\\ --instance-id i-1234567890abcdef0 \\ --block-device-mappings 'DeviceName=/dev/sda1,Ebs={DeleteOnTermination=false}'\n\n\nIn AWS Documentation, the format is given in JSON, so if you follow that you have to specify the JSON in a file mapping.json\n\n[{\\\"DeviceName\\\": \\\"/dev/sda1\\\",\\\"Ebs\\\":{\\\"DeleteOnTermination\\\":false}}]\n\nAnd run the command as below\n\naws ec2 modify-instance-attribute --block-device-mappings file://mapping.json\n\nIf you don't want to follow this, another syntax provided above is also correct\n\nFor more information on the Delete on termination flag, please refer to the below URL\n\nhttps://aws.amazon.com/premiumsupport/knowledge-center/deleteontermination-ebs/\n\nhttps://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company has a set of EC2 Instances hosted in a VPC. The IT Security department has specified that they need to ensure they get a list of IP addresses for all sources that are making requests to the EC2 Instances. Which one of the following could help achieve this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS VPC Flow Logs"}, {"id": "B", "markdown": "AWS Cloudwatch"}, {
+        "id": "C",
+        "markdown": "AWS CloudFormation"
+    }, {"id": "D", "markdown": "AWS Trusted Advisor"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – A\n\nThe AWS Documentation mentions the following\n\nVPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC. Flow log data can be published to Amazon CloudWatch Logs and Amazon S3. After you've created a flow log, you can retrieve and view its data in the chosen destination.\n\nOption B is invalid since this is a monitoring service which can only give metrics and not the detailed IP address tracing for traffic flowing into EC2 Instances\n\nOption C is invalid since AWS CloudFormation is a service that helps you model and set up your Amazon Web Services resources so that you can spend less time managing those resources and more time focusing on your applications that run in AWS\n\nOption D is invalid since this is only used as a recommendation service\n\nFor more information on VPC Flow logs, please refer to the below URL\n\nhttps://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as an AWS Architect for a financial company having intranet application hosted on AWS. They are using AWS SSO for granting access to users to AWS resources. During the annual security audit, Auditors have concerns on users sign-in process & prompted non-compliance for the security process when sign-in is observed from users using unknown locations or devices. Auditors are looking for enhancing security controls to be in place for such users. What would you use to improve the security process during user sign-in?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Enable Context-aware MFA with TOTP (time-based one-time passcodes) available in Auth App on MFA Device"
+    }, {
+        "id": "B",
+        "markdown": "Enable Always-On MFA with TOTP (time-based one-time passcodes) available in Auth App on MFA Device"
+    }, {
+        "id": "C",
+        "markdown": "Enable Always-On MFA with verification code sent to the user's email address."
+    }, {"id": "D", "markdown": "Enable Context-aware MFA with verification code sent to the user's email address."}],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer –  A\n\nOption A is correct because, for additional security, AWS SSO MFA can be enabled. After MFA is enabled, post login with authorized email & password, users are prompted for additional verification code which is generated on Authentication App like Google Auth on MFA Device ( MFA Device has to be registered first, Refer below document to see how to register MFA Device).\n\nWith Context-aware MFA, AWS SSO analyzes user sign-in context such as browser, location, and devices. If any deviation is observed, only then it asks for the additional second level of verification code. With this, a user does not have to perform MFA repeatedly from the same device.\n\n \n\nOption B is incorrect because with Always-on MFA, each time the user logs in to any cloud application, it would prompt for TOTP generated in Authentication App. This is true even if the user logs in from the same device. We need to authenticate only when Sign-In is observed from unknown locations or devices.\n\n \n\nEmail-based Verification code can be used also by enabling ‘Require Them to Provide a One-Time Password Sent by Email’  while configuring MFA, this is for the Users not having MFA Device registered. But email-based verification is not that much secure option.\n\nOption C is incorrect as with Always-on MFA, each time the user logs in to any cloud application, it would prompt for MFA verification code. This is true even if the user logs in from the same device.\n\nOption D could be a correct choice but it is not that much secure option.\n\nFor more information on enabling MFA on AWS SSO, refer to the following URL:\n\nhttps://docs.aws.amazon.com/singlesignon/latest/userguide/how-to-register-device.html\n\nhttps://docs.aws.amazon.com/singlesignon/latest/userguide/enable-mfa.html\n\nhttps://aws.amazon.com/about-aws/whats-new/2019/10/increase-aws-single-sign-on-security-with-multi-factor-authentication-using-authenticator-apps/\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company has just started using the AWS RDS service. They have an application making requests to a MySQL instance on this service. Due to the sudden surge of high requests, you need to ensure that the backup activities on the database do not interfere with the normal operation of the database. Which of the following would help in this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Ensure that the underlying instance type RDS instance is using General Purpose SSD storage. This type of storage will give minimal impact on such operations."
+    }, {
+        "id": "B",
+        "markdown": "Ensure that the underlying instance type RDS instance is using Enhanced Networking. This type of setting will give minimal impact on such operations."
+    }, {
+        "id": "C",
+        "markdown": "Ensure that the Multi-AZ feature has been enabled for the underlying RDS Instance."
+    }, {"id": "D", "markdown": "Ensure that cross-region replication is enabled for the underlying RDS Instance."}],
+    "answerExplanation": "\n                            Explanation:\n                            Option C is correct because, In a Multi-AZ deployment, Amazon RDS automatically provisions and maintains a synchronous standby replica in a different Availability Zone. The primary DB instance is synchronously replicated across Availability Zones to a standby replica to provide data redundancy, eliminate I/O freezes, and minimize latency spikes during system backups. Running a DB instance with high availability can enhance availability during planned system maintenance, and help protect your databases against DB instance failure and Availability Zone disruption.\n\nWe know that during the backups, for instance taking snapshots, there is usually an I/O consumption that takes place. To avoid this when using a multi-AZ enabled RDS database engine, create a backup on the standby instance. With automated backups, I/O activity is no longer suspended on your primary during your preferred backup window, since backups are taken from the standby\n\nOptions A and B are incorrect because, by using General Purpose SSD Storage or using Enhanced networking, our backup activities will interfere with normal database operation.\n\nOption D is incorrect, Cross-region replication not required as it is Asynchronous replication.\n\nhttps://aws.amazon.com/rds/faqs/\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company has an application that needs to be hosted on an EC2 Instance. The general amount of throughput data per volume will be in the range of 400-500 MiB/s from the application. Which of the following should be used as the storage type for the underlying EC2 Instance in a Cost-effective manner?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "EBS - General Purpose SSD"}, {
+        "id": "B",
+        "markdown": "EBS - Provisioned IOPS SSD"
+    }, {"id": "C", "markdown": "EBS - Throughput Optimized HDD"}, {"id": "D", "markdown": "EBS - Cold HDD"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – C\n\nWhen you want high throughput, you should choose using the Throughput Optimized EBS volume. The below snapshot from the AWS Documentation shows the features of the different types of volumes.\n\n\n\n \n\nAs per the above document, Option A), B) and D) stands invalid\n\nFor more information on the EBS volume types, please refer to the below URL\n\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company has setup their application in AWS. It consists of a web tier hosted on a set of EC2 Instances. These instances interact with a MongoDB database server located in a private subnet. The web tier also interacts with many service-based applications in the private subnet. A NAT Instance is being used to route traffic from the instances in the private subnet to the Internet. The IT Administrative team is now getting Cloudwatch alerts that the NAT Instance is going beyond its threshold value for Network Activity. Which of the following would you advise to increase the performance of this architecture?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Place the database server and application servers in the public subnet."
+    }, {
+        "id": "B",
+        "markdown": "Place the NAT instance closer to the database servers by placing them in the private subnet"
+    }, {"id": "C", "markdown": "Use the NAT gateway service instead of the NAT Instance"}, {
+        "id": "D",
+        "markdown": "Use a VPN connection for the Instances in the private subnet"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – C\n\nThe below snapshot from the AWS Documentation shows a partial comparison of the NAT Instance and NAT Gateway. You should consider using the NAT gateway for higher bandwidth requirements\n\n\n\n \n\nOption A is incorrect since you should not change the architecture of the database or application servers since this would result in security issues\n\n \n\nOption B is incorrect since this would still alleviate the current network issue\n\nOption D is incorrect since the NAT instance should be used to route traffic to the Internet from the Instances in the private subnet\n\nFor more information on the comparison between NAT Instances and the NAT gateway, please refer to the below URL\n\nhttps://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is currently hosting a long-running heavy load application on its On-premise environment. The company has developed this application in-house. Consulting companies then use this application via API calls. You now need to consider moving this application to AWS. Which of the following services would best be suited in the architecture design, which would also help deliver a cost-effective solution? Choose 2 answers from the options given below.",
+    "prompt": "",
+    "correctAnswerId": ["B", "D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS Lambda"}, {"id": "B", "markdown": "AWS API Gateway"}, {
+        "id": "C",
+        "markdown": "AWS Config"
+    }, {"id": "D", "markdown": "AWS EC2"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – B and D\n\nOption A might be a valid choice but the question specifies heavy load application which may lead to a need for time-out of API greater than 15min. As per AWS documentation, AWS Lambda can handle max time-out of up to 15 minutes. In this case, the application may take more time to run.\n\nOption B is correct because Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. With a few clicks in the AWS Management Console, you can create an API that acts as a “front door” for applications to access data, business logic, or functionality from your back-end services, such as workloads running on Amazon Elastic Compute Cloud (Amazon EC2), code running on AWS Lambda, or any web application.\n\nOption C is incorrect since this is a configuration service available from AWS.\n\nOption D is correct because EC2 would fit for using API calls for the application. For more information on AWS EC2 and the API gateway, please refer to the below URL       \n\nhttps://aws.amazon.com/api-gateway/\n\nhttps://aws.amazon.com/ec2\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is planning on the following architecture for their application\n\n \n\n·         A set of EC2 Instances hosting the web part of the application.\n\n·         A relational database for the backend\n\n·         A Load balancer for distribution of traffic\n\nDue to the critical nature of the data stored on the underlying EBS volumes attached to the EC2 Instances, As a Solutions Architect of the Company, your supervisor has asked you to follow best backup practices to make sure data is available in another region for disaster recovery purposes. Which of the following would you consider complying with this requirement",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Create a copy of the volume in another region."}, {
+        "id": "B",
+        "markdown": "Create a snapshot of the volume in another region."
+    }, {"id": "C", "markdown": "Create a snapshot. Copy the snapshot to the new region."}, {
+        "id": "D",
+        "markdown": "Create a copy of the volume. Copy the volume to the new region."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – C\n\nThe AWS Documentation showcases the use  cases of EBS snapshots\n\nUse Cases\n\n \n\n\n\tGeographic expansion: Launch your applications in a new region.\n\tMigration: Move an application to a new region, to enable better availability and to minimize cost.\n\tDisaster recovery: Back up your data and logs across different geographical locations at regular intervals. In case of disaster, you can restore your applications using point-in-time backups stored in the secondary region. This minimizes data loss and recovery time.\n\tEncryption: Encrypt a previously unencrypted snapshot, change the key with which the snapshot is encrypted, or, for encrypted snapshots that have been shared with you, create a copy that you own in order to restore a volume from it.\n\tData retention and auditing requirements: Copy your encrypted EBS snapshots from one AWS account to another to preserve data logs or other files for auditing or data retention. Using a different account helps prevent accidental snapshot deletions, and protects you if your main AWS account is compromised.\n\n\n \n\n \n\nOptions A and D are incorrect, since you need to create a snapshot\n\n \n\nOption B is incorrect since you cannot directly create a snapshot in another region\n\nFor more information on EBS Snapshot copy, please refer to the below URL\n\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "An application consists of a fleet of EC2 Instances. These Instances are launched in the Oregon (us-west-2) region which consists of 3 availability zones. This application needs 6 Instances running at all times. As an architect, you need to distribute the instances in such a way that the application could still maintain its capacity if any availability zone goes down. Also, you need to ensure that the cost is kept to a minimum? Which of the following configurations would you consider?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "6 Instances running in us-west-2a, 6 Instances running in us-west-2b, 6 Instances running in us-west-2c"
+    }, {
+        "id": "B",
+        "markdown": "3 Instances running in us-west-2a, 3 Instances running in us-west-2b, 3 Instances running in us-east-2c"
+    }, {
+        "id": "C",
+        "markdown": "6 Instances running in us-west-2a, 3 Instances running in us-west-2b, 3 Instances running in us-west-2c"
+    }, {
+        "id": "D",
+        "markdown": "3 Instances running in us-west-2a, 3 Instances running in us-west-2b, 3 Instances running in us-west-2c"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – D\n\nSo now let’s look at Option A\n\nIf any availability zone goes down, we will have a total of 12 instances running. This is an additional 6 over the requirement of the question and will result in a higher cost.\n\nSo now let’s look at Option B\n\nIf the availability zone us-west-2a goes down, then you will have only 3 instances running. Because other 3 instances are running in us-east-2c region\n\nSo now let’s look at Option C\n\nIf either us-west-2b or us-west-2c availability zone goes down, we will have a total of 9 instances running. This is an additional 3 over the requirement of the question and will result in a higher cost.\n\nSo now let’s look at Option D\n\nIf either us-east-2a or us-west-2b or us-west-2c availability zone goes down, there will be a total of 6 instances running, which is what we need\n\nFor more information on Regions and Availability zones, please refer to the below URL\n\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have a set of EC2 Instances in a custom VPC. You have installed a web application and need to ensure that only HTTP and HTTPS traffic is allowed into the instance. Which of the following would you consider for this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Add a security group rule to allow HTTP and HTTPS Traffic"}, {
+        "id": "B",
+        "markdown": "Add a security group rule to an explicit DENY all traffic and a default allow on HTTP and HTTPS Traffic"
+    }, {
+        "id": "C",
+        "markdown": "Add a security group rule to deny explicit traffic on HTTP and HTTPS Traffic"
+    }, {"id": "D", "markdown": "Add a security group rule to allow all traffic"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – A \n\nOption A is correct because we need to specify the allowed traffic in Security group i.e. HTTP and HTTPS Traffic must be allowed from all sources.  No inbound traffic is allowed by default. By adding security group rules, you can specify which traffic you want to allow. This is essentially a whitelist.\n\nOptions B is incorrect since by default nothing is allowed and in Security group we can’t specify what is denied. We don’t have any deny option in Security Groups.\n\nOption C is incorrect because in Security group we can specify what is allowed but not what is denied. If you want to deny explicitly, you should use Network Access control list.\n\nOption D is incorrect since this would be a security issue.\n\nFor more information on VPC Security groups, please refer to the below URL \n\nhttps://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company has an application defined with the following architecture\n\n\n\tA fleet of EC2 Instances which are used to accept video uploads from users.\n\tA fleet of EC2 Instances which are used to process the video uploads.\n\n\nWhich of the following would help architect an operationally excellent architecture?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create an SQS queue to store the information for Video uploads. Spin up the processing servers via an Autoscaling Group. Ensure the Group scales based on the Memory utilization of the underlying processing servers"
+    }, {
+        "id": "B",
+        "markdown": "Create an SQS queue to store the information for Video uploads. Spin up the processing servers via an Autoscaling Group. Ensure the Group scales based on the size of the queue"
+    }, {
+        "id": "C",
+        "markdown": "Create an SNS topic to store the information for Video uploads. Spin up the processing servers via an Autoscaling Group. Ensure the Group scales based on the Memory utilization of the underlying processing servers"
+    }, {
+        "id": "D",
+        "markdown": "Create an SNS topic to store the information for Video uploads. Spin up the processing servers via an Autoscaling Group. Ensure the Group scales based on the size of the queue messages"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – B\n\nThis architecture is also given in the AWS Documentation\n\n\n\n \n\n\n\tOption A is incorrect the ideal approach is to scale the instances based on the size of queue.\n\n\n \n\n\n\tOptions C and D are incorrect since you should be using SQS queues. SNS topics are used for notification purposes.\n\n\n \n\n\n\tFor more information on using SQS queues for Autoscaling, please refer to the below URL\n\t\n\t\thttps://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html\n\t\n\t\n\n\n \n\nAs per AWS,\nYou can use the number of messages stored in an SQS queue as an indicator of the amount of work that is waiting in line for eventual processing within an Auto Scaling Group comprised of a variable number of EC2 instances. Each SQS queue reports a number of metrics to CloudWatch at five minute intervals, including ApproximateNumberOfMessagesVisible. If your workload is spikey in nature, you may want to build an application that can respond more quickly to changes in the size of the queue.\n\nMemory utilization metrics is a custom metric.  For this, to work, you need to install Cloudwatch agent on the EC2 instances and need to aggregate the dimensions.  \nHowever, AWS already has a well-defined architecture based on SQS Queuelength being used for Autoscaling EC2 instances.\n\n\n\tFor more information please refer:\n\t\n\t\thttps://aws.amazon.com/blogs/aws/auto-scaling-with-sqs/\n\t\n\t\n\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company has an application that currently produces a lot of data streams that need to be processed in real-time. They need to do some custom processing for their internal analysis. Which of the following can be used to help fulfill this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS Kinesis Data Firehose"}, {
+        "id": "B",
+        "markdown": "AWS Kinesis Data Streams"
+    }, {"id": "C", "markdown": "AWS Athena"}, {"id": "D", "markdown": "AWS Redshift"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer - B\n\nYou can use Amazon Kinesis Data Streams to collect and process large streams of data records in real-time. Kinesis data streams are highly customizable and best suited for developers building custom applications or streaming data for specialized needs whereas Firehose handles loading data streams directly into AWS products for processing.\n\nYou should use Kinesis Data Streams if you want to do some custom processing with streaming data. With Kinesis Data Firehose you are simply ingesting it into S3, Redshift or ElasticSearch.\n\nOption A is incorrect since Company needs to do customized processing for which data streams are best suited and also data needs to be processed in real-time, Firehose is nearly real-time but not exactly real-time.\n\nOption C is incorrect since is used for getting data via SQL queries from data sources such as S3\n\nOption D is incorrect since is used for petabyte data storage\n\nFor more information on AWS Data Streams and Firehose, please refer to the below URL:\n\nhttps://docs.aws.amazon.com/streams/latest/dev/introduction.html\n\nhttps://aws.amazon.com/kinesis/data-firehose/\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company has an Amazon Aurora cluster setup. They have setup a Lambda function which needs to insert records into a DynamoDB table. The Amazon Aurora cluster needs to invoke the Lambda. Which of the following need to be in place for this setup to work. Choose 2 answers from the options given below",
+    "prompt": "",
+    "correctAnswerId": ["B", "D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Ensure that the Lambda function has an IAM Role assigned to it which can be used to invoke functions on Amazon Aurora"
+    }, {
+        "id": "B",
+        "markdown": "Ensure that the Amazon Aurora cluster has an IAM Role which allows it to invoke Lambda functions"
+    }, {
+        "id": "C",
+        "markdown": "Allow the Lambda function to allow outbound communication to Amazon Aurora"
+    }, {
+        "id": "D",
+        "markdown": "Allow the Amazon Aurora cluster to allow outbound communication to the Lambda function"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – B and D\n\nThe below snapshot from the AWS Documentation shows what are the different steps required to ensure that the Lambda function has access to Amazon Aurora\n\n\n\nOptions A and C are incorrect since the configurations need to be the other way around\n\nFor more information on invoking AWS Lambda using Aurora, please refer to the below URL\n\nhttps://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Lambda.html#AuroraMySQL.Integrating.LambdaAccess\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your application consists of a set of EC2 Instances that are spun up as part of an Auto scaling group. These Instances need to access objects in an S3 bucket. Which of the following is the ideal approach to ensure this access is set in place?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Ensure that the Access Keys are picked up from another S3 bucket. Access Keys can be embedded in the User data during Instance Launch."
+    }, {
+        "id": "B",
+        "markdown": "Ensure that the launch configurations in Auto scaling group have an IAM Role to access S3 Objects"
+    }, {
+        "id": "C",
+        "markdown": "Ensure that an IAM policy is attached to the S3 bucket which allows access to the S3 buckets."
+    }, {
+        "id": "D",
+        "markdown": "Ensure that the launch configurations in Auto scaling group have an IAM user to access S3 Objects."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer – B\n\nApplications must sign their API requests with AWS credentials. Therefore, if you are an application developer, you need a strategy for managing credentials for your applications that run on EC2 instances. For example, you can securely distribute your AWS credentials to the instances, enabling the applications on those instances to use your credentials to sign requests, while protecting your credentials from other users. However, it's challenging to securely distribute credentials to each instance, especially those that AWS creates on your behalfs, such as Spot Instances or instances in Auto Scaling groups. You must also be able to update the credentials on each instance when you rotate your AWS credentials.\n\nWe designed IAM roles so that your applications can securely make API requests from your instances, without requiring you to manage the security credentials that the applications use.\n\nA launch configuration is an instance configuration template that an Auto Scaling group uses to launch EC2 instances\n\nFor details about launch configurations, please refer below URL\n\nhttps://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html\n\nOption A is incorrect since using Access keys is the least secure option\n\nOption C is incorrect since the IAM policy is not the right option, you have to use IAM Roles instead. Also, attaching IAM role should be a part of Launch Configurations.  \n\nOption D is incorrect since you need to use IAM Roles and not IAM Users\n\nTo understand the basic difference between IAM Roles and Users:\n\nIAM controls: Who can do What in your AWS account. Who (Authentication) in IAM is defined using users/groups and roles means what (Authorization) defined by policies.\n\nUser - End-user think about people\n\nGroups- a set of users under one set of permission(policies)\n\nRoles - are used to grant specific permission to specific users for a set of duration of time.\n\nFor more information on IAM Roles for EC2, please refer to the below URL\n\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are an architect for a company that is going to be hosting an application in AWS. They want to load balance the traffic based on which route the user chooses. The 2 possible routes for the application are /customer and /orders. Which of the following would you include in the design?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Application Load Balancer"}, {
+        "id": "B",
+        "markdown": "EC2 Container service"
+    }, {"id": "C", "markdown": "Classic Load Balancer"}, {"id": "D", "markdown": "Docker containers on EC2 Instances"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – A\n\nThe below snapshot from the AWS Documentation shows the benefits of using the Application Load balancer\n\n\n\n \n\nOptions B and D are incorrect since we don’t have enough information on the question to decide on whether to use Docker containers or not.\n\n \n\nOption C is invalid since Classic Load balancers will not fit the requirement for route-based load balancing\n\nFor more information on the Application Load Balancer, please refer to the below URL\n\nhttps://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is planning on the following architecture for their application\n\n·         A set of EC2 Instances hosting the web part of the application.\n\n·         A relational database for the backend using the AWS RDS MySQL service\n\n·         A Load balancer for distribution of traffic\n\nThere is a requirement to ensure that all data hosted in the database service is encrypted at rest. How can you achieve this requirement in the easiest manner? (Select 2)",
+    "prompt": "",
+    "correctAnswerId": ["B", "D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Encrypt the underlying EBS volumes for the database"}, {
+        "id": "B",
+        "markdown": "Use the Encryption feature for RDS"
+    }, {"id": "C", "markdown": "Use S3 server-side encryption"}, {
+        "id": "D",
+        "markdown": "Use AWS Key Management Service"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – B and D\n\nThe AWS Documentation mentions the following\n\nOption B is correct because, With RDS-encrypted resources, data is encrypted at rest, including the underlying storage for a database (DB) instance, its automated backups, read replicas, and snapshots. This capability uses the open standard AES-256 encryption algorithm to encrypt your data, which is transparent to your database engine.\n\nThis encryption option protects against physical exfiltration or access to your data bypassing the DB instances. It is therefore critical to complement encrypted resources with an effective encryption key management and database credential management practice to mitigate any unauthorized access. Otherwise, compromised credentials or insufficiently protected keys might allow unauthorized users to access the plaintext data directly through the database engine.\n\nEncryption key management is provided using the AWS KMS\n\nOption D is correct because Amazon RDS encrypts your databases using keys you manage with the AWS Key Management Service (KMS). On a database instance running with Amazon RDS encryption, data stored at rest in the underlying storage is encrypted, as are its automated backups, read replicas, and snapshots. RDS encryption uses the industry-standard AES-256 encryption algorithm to encrypt your data on the server that hosts your RDS instance.\n\nOptions C is incorrect because this is used for encryption of objects in S3.\n\nOption A is incorrect since this can be easily achieved using the encryption at rest feature for AWS RDS.\n\nThe term 'rest' means when data is resting (not in transition-while data is traveling to database\n\nFor more information on Encryption for AWS RDS, please refer to the below URL\n\nhttps://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html\n\nhttps://aws.amazon.com/blogs/database/selecting-the-right-encryption-options-for-amazon-rds-and-amazon-aurora-database-engines/\n\nhttps://aws.amazon.com/rds/features/security/\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is planning on hosting an application that will be based on Docker containers. They need to setup an orchestration service that would automatically scale based on the load. As much as possible , the company does not want the burden of managing the underlying infrastructure. Which of the following can assist in this scenario?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS ECS with service Auto Scaling"}, {
+        "id": "B",
+        "markdown": "Use an Elastic Load Balancer in front of an EC2 Instance. Use Docker containers on the EC2 Instance."
+    }, {"id": "C", "markdown": "Use Auto Scaling with Spot Instances for the Orchestration Service."}, {
+        "id": "D",
+        "markdown": "Install and use Kubernetes on the EC2 Instance"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – A\n\nAWS Documentation mentions the following\n\nYour Amazon ECS service can optionally be configured to use Service Auto Scaling to adjust its desired count up or down in response to CloudWatch alarms. Service Auto Scaling leverages the Application Auto Scaling service to provide this functionality. Service Auto Scaling is available in all regions that support Amazon ECS.\n\nAmazon ECS publishes CloudWatch metrics with your service’s average CPU and memory usage. You can use these service utilization metrics to scale your service out to deal with high demand at peak times, and to scale your service in to reduce costs during periods of low utilization.\n\nOptions B is incorrect because load balancer won’t help scale up, but Auto Scaling can be used with a load balancer which is not mentioned in the question. Moreover, if all the things are in place then also this architecture would involve a lot of manual maintenance.\n\nOption D is incorrect since this would involve a lot of manual maintenance\n\nOption C is incorrect since Spot Instances are volatile and should not be used for the orchestration service\n\nFor more information on AWS ECS with Auto Scaling, please refer to the below URL\n\nhttps://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html\n\nhttps://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your team has an application hosted on AWS. This application currently interacts with a DynamoDB table which has the Read capacity set to 10. Based on recent cloudwatch alarms which indicated that throttling was occurring in the requests to the DynamoDB table. Which of the following would help ensure the issue was resolved now and also help ensure the issue does not occur in the future?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Add an Elastic Load Balancer in front of the DynamoDB table."}, {
+        "id": "B",
+        "markdown": "Change the Read Capacity for the table to 20."
+    }, {"id": "C", "markdown": "Change the Write capacity for the table to offset the Read capacity."}, {
+        "id": "D",
+        "markdown": "Enable Autoscaling for the underlying DynamoDB table."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – D\n\nThe AWS Documentation mentions the following\n\nDynamoDB auto scaling uses the AWS Application Auto Scaling service to dynamically adjust provisioned throughput capacity on your behalf, in response to actual traffic patterns. This enables a table or a global secondary index to increase its provisioned read and write capacity to handle sudden increases in traffic, without throttling. When the workload decreases, Application Auto Scaling decreases the throughput so that you don't pay for unused provisioned capacity.\n\nYou can optionally allow DynamoDB Auto-scaling to manage your table's throughput capacity. However, you still must provide initial settings for read and write capacity when you create the table. DynamoDB auto scaling uses these initial settings as a starting point and then adjusts them dynamically in response to your application's requirements. \n\nAs your application data and access requirements change, you might need to adjust your table's throughput settings. If you're using DynamoDB Auto-scaling, the throughput settings are automatically adjusted in response to actual workloads. You can also use the UpdateTable operation to manually adjust your table's throughput capacity. You might decide to do this if you need to bulk-load data from an existing data store into your new DynamoDB table.\n\nFor more details, please refer to below URL:\n\nhttps://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html\n\nhttps://aws.amazon.com/blogs/database/amazon-dynamodb-auto-scaling-performance-and-cost-optimization-at-any-scale/\n\nOption A is incorrect since the Elastic Load balancer in front of the DynamoDB table won’t help increase the capacity of DynamoDB. Here, We need to scale up and down the capacity automatically based on the requirement.\n\nOption B is incorrect since this would only help in temporarily resolving the situation\n\nOption C is incorrect since provisioning Write capacity would not help in this case\n\nFor more information on DynamoDB Autoscaling, please refer to the below URL\n\nhttps://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your team is developing Lambda functions. These functions would need to interact with databases belonging to different environments. Which of the following is the ideal approach to ensuring that the Lambda functions are designed in the right way to interact with Databases in multiple environments?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Create a lambda function for each environment"}, {
+        "id": "B",
+        "markdown": "Create a lambda function for each environment and ensure each has a different programming language"
+    }, {
+        "id": "C",
+        "markdown": "Make use of environment variables to store the database connecting strings"
+    }, {"id": "D", "markdown": "Make use of AWS Lambda tags to store the database connecting strings"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – C\n\nThe AWS Documentation mentions the following\n\nEnvironment variables for Lambda functions enable you to dynamically pass settings to your function code and libraries, without making changes to your code. Environment variables are key-value pairs that you create and modify as part of your function configuration, using either the AWS Lambda Console, the AWS Lambda CLI or the AWS Lambda SDK. AWS Lambda then makes these key-value pairs available to your Lambda function code using standard APIs supported by the language, like process.env for Node.js functions.\n\nYou can use environment variables to help libraries know what directory to install files in, where to store outputs, store connection and logging settings, and more. By separating these settings from the application logic, you don't need to update your function code when you need to change the function behavior based on different settings.\n\nOption A is invalid since creating a lambda function for each environment will create overhead.\n\nOption B is invalid since creating a lambda function for each environment will create overhead and using different programming languages makes no sense.\n\nOption D is invalid since, you can tag Lambda functions to organize them by owner, project or department. Tags are freeform key-value pairs that are supported across AWS services for use in filtering resources and adding detail to billing reports. It is not used to store such connection strings.\n\nFor more information on AWS Lambda environment variables, please refer to the below URL.\n\nhttps://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html\n\nhttps://docs.aws.amazon.com/lambda/latest/dg/env_variables.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your team has been instructed to develop an application that will make use of a DynamoDB table. During the design stage, you have to provide inputs to ensure that an optimal strategy is employed for a high read and write expectancy on the underlying DynamoDB table. Which of the following would you consider?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Consider a lesser number of partition keys for the underlying table"
+    }, {
+        "id": "B",
+        "markdown": "Use partition keys with a large number of distinct values for the underlying table"
+    }, {
+        "id": "C",
+        "markdown": "Use partition keys with a small number of distinct values for the underlying table"
+    }, {"id": "D", "markdown": "Use partition keys with the number data type only"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – B\n\nThe AWS Documentation mentions the following\n\nDynamoDB is optimized for uniform distribution of items across a table's partitions, no matter how many partitions there may be. We recommend that you choose a partition key that can have a large number of distinct values relative to the number of items in the table.\n\nDynamoDB stores data as groups of attributes, known as items. Items are similar to rows or records in other database systems. DynamoDB stores and retrieves each item based on the primary key value which must be unique.\n\nWhen an Amazon DynamoDB table is created, you can specify the desired throughput in Reads per second and Writes per second. The table will then be provisioned across multiple partitions sufficient to provide the requested throughput.\n\nYou do not have visibility into the number of partitions created -- it is fully managed by DynamoDB. Additional partitions will be created as the quantity of data increases or when the provisioned throughput is increased.\n\nLet's say you have requested 1000 Reads per second and the data has been internally partitioned across 10 partitions. Each partition will provide 100 Reads per second. If all Read requests are for the same partition key, the throughput will be limited to 100 Reads per second. If the requests are spread over a range of different values, the throughput can be the full 1000 Reads per second.\n\nIf multiple queries are made for the same Partition Key, it may result in a limited available throughput.\n\nLet’s try to understand with a real-world example, Think of it as a bank with lines in front of teller windows. If everybody lines up at one teller, fewer customers can be served. It is more efficient to distribute customers across many different teller windows. A good partition key for distributing customers might be the customer number since it is different for each customer. A poor partition key might their zip code because they all live in the same area near the bank.\n\nAll other Options are incorrect since option B is the most optimal choice.\n\nFor more information on how to choose your partition key wisely, please refer to the below URL\n\nhttps://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.Partitions.html\n\nhttps://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as an AWS Architect for an enterprise customer. Users access Amazon S3 buckets to save all project-related documents and also use business applications like Office 365 for daily work activities. These applications need to be accessible from any device for a limited number of hours in the day.\n\nThey are using AWS SSO to centrally manage and control access to AWS resources. Users are complaining that after each hour, they are getting logout from console & need to re-login. You need to ensure that the User session is optimum based upon the time required to complete the activity. Which of the following can be set to meet this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Create a custom Permission Set with session duration as 24 hours"}, {
+        "id": "B",
+        "markdown": "Use an existing Job Function policy to set session duration as 24 hours"
+    }, {"id": "C", "markdown": "Create a custom Permission Set with session duration as 6 hours"}, {
+        "id": "D",
+        "markdown": "Use an existing Job Function policy to set session duration as 6 hours"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nCorrect Answer –  C\n\nPermission sets can control time duration for user login to the AWS Console by setting session duration. The Default Session duration is 1 hour while the maximum can be set to 12 hours. Post this session duration, the user is automatically logout.\n\nAWS Single Sign-On (SSO) enables you to customize the session duration to AWS accounts ranging from 1 hour up to 12 hours. You can configure session duration for each permission set so that you can optimize how long your users can access the AWS Management Console and AWS CLI for your AWS accounts. For example, when your users need to run long-running operations, you can increase the session duration so that your users can complete the operation using a single session.\n\n\n\tOption A is incorrect as the maximum Session duration that can be set is 12 hours.\n\tOption B is incorrect. This will use predefined AWS managed policies since the requirement is for customized permission policy for session duration. Also, the maximum Session duration that can be set is 12 hours.\n\tOption D is incorrect. This will use predefined AWS managed policies since the requirement is for customized permission policy for session duration.\n\n\nFor more information on Permission Set properties in AWS SSO, refer to the following URL:\n\nhttps://aws.amazon.com/about-aws/whats-new/2018/10/aws-single-sign-on-now-enables-you-to-optimize-how-long-you-can-access-aws-accounts/\n\nhttps://docs.aws.amazon.com/singlesignon/latest/userguide/howtosessionduration.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company has a set of applications hosted on AWS. Currently, the IT Admin is manually checking the database storage to see if it is getting full. Which of the following can be used to automate these checks? (Select 2)",
+    "prompt": "",
+    "correctAnswerId": ["B", "D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "CloudTrail"}, {"id": "B", "markdown": "Cloudwatch"}, {
+        "id": "C",
+        "markdown": "VPC Flow Logs"
+    }, {"id": "D", "markdown": "AWS Trusted Advisor"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – B and D\n\nThe AWS Documentation mentions the following\n\nCloudWatch – You can watch a single Amazon RDS metric over a specific time period, and perform one or more actions based on the value of the metric relative to a threshold you set.\n\nOption A is incorrect since this is only used for API monitoring\n\nOption C is incorrect since this is used for monitoring network traffic to your EC2 Instances\n\nOption D is correct since AWS Trusted Advisor is an online tool that provides you real-time service limit checks\n\n\n\nhttps://aws.amazon.com/premiumsupport/technology/trusted-advisor/best-practice-checklist/\n\nFor more information on monitoring for databases, please refer to the below URL\n\nhttps://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MonitoringOverview.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company has an application hosted in AWS. This application consists of a web tier and database tier. The web tier is hosted on EC2 Instances. The database is hosted in the AWS RDS service and data keeps changing every few hours. Recently performance issues have been encountered in the application and this is due to the high number of read requests. Which of the following can be used to help resolve the issue?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Enable Multi-AZ for the database"}, {
+        "id": "B",
+        "markdown": "Use Read Replica"
+    }, {"id": "C", "markdown": "Use Amazon DynamoDB Accelerator (DAX)"}, {
+        "id": "D",
+        "markdown": "Place an Elastic Cache service in front of the database service"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer –B\n\nIn terms of load, they have the same goal, but they differ in some areas:\n\nUp-to-dateness of data:\n\n\n\tA read replica will continuously sync from the master. So your results will probably lag 0 - 3s (depending on the load) behind the master.\n\tA cache takes the query result at a specific point in time and stores it for a certain amount of time.\n\n\nPerformance:\n\n\n\tA cache can only return results for queries it has already seen. So if you run the same queries over and over again, it's a good match.\n\tIf you have many different, frequently changing, or dynamic queries, a read replica will be a better match.\n\tElastiCache should be much faster since it's returning values directly from RAM. However, this also limits the number of results you can store.\n\n\nOption B is correct since the question specifies data keeps changing frequently, as it keeps data up-to-date and read performance is also improved.\n\nElastiCache can be used to reduce the latency of requests but it is a caching service and according to question data keeps changing every few hours, so Elasticache is not recommended choice.\n\nOption A is incorrect since this is used for high availability for the databases\n\nOption C is incorrect since Amazon DynamoDB Accelerator (DAX) is a Fully managed, in-memory cache for DynamoDB only.\n\nFor more information on Read Replica and Elasticache, please refer to the below URL\n\nhttps://aws.amazon.com/rds/features/read-replicas/\n\nhttps://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-use-cases.htm\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A Startup company is launching a three-tier application with the Multicontainer Docker platform. This application needs to be integrated with the Amazon RDS database instance. The application will be launched using AWS Elastic Beanstalk. As an AWS consultant for this company, you need to design the environment for blue/green deployment along with decoupled architecture in the production environment. What would you recommend for integrating the Amazon RDS database with AWS Elastic Beanstalk?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Launch Amazon RDS instance within the same AWS Elastic Beanstalk environment, setting connection string to the database in environment properties."
+    }, {
+        "id": "B",
+        "markdown": "Launch Amazon RDS instance outside the AWS Elastic Beanstalk environment storing the connection string in the S3 bucket."
+    }, {
+        "id": "C",
+        "markdown": "Launch Amazon RDS instance within the same AWS Elastic Beanstalk environment storing the connection string in the S3 bucket."
+    }, {
+        "id": "D",
+        "markdown": "Launch Amazon RDS instance outside AWS Elastic Beanstalk environment, setting connection string to the database in environment properties"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – B\n\nAWS Elastic Beanstalk provisions and configures all the AWS resources required to run and support your application. For Amazon RDS database instance to be launched in the production environment, best practice is to launch it outside the AWS Elastic Beanstalk environment. It helps in having multiple environments connecting to a single database, using database types not supported with the integrated database, performing blue/green deployments. Also, the database instance remains up & running when the AWS Elastic Beanstalk environment is terminated.\n\nFor a production environment, you can launch a database instance outside of your environment and configure your application to connect to it outside of the functionality provided by Elastic Beanstalk. Using a database instance that is external to your environment requires additional security group and connection string configuration.\n\nProviding connection information to your application with environment properties is a good way to keep passwords out of your code, but it's not a perfect solution. Environment properties are discoverable in the environment management console and can be viewed by any user that has permission to describe configuration settings on your environment. Depending on the platform, environment properties may also appear in instance logs.\n\nYou can lock down your connection information by storing it in an Amazon S3 bucket that you control. The basic steps are as follows:\n\n\n\tUpload a file that contains your connection string to an Amazon S3 bucket.\n\tGrant the EC2 instance profile permission to read the file.\n\tConfigure your application to download the file during deployment.\n\tRead the file in your application code.\n\n\nOption A is incorrect as launching Amazon RDS in an AWS Elastic Beanstalk environment is suitable for test/development purposes & not for a production environment. If the AWS Elastic Beanstalk environment is terminated, the Amazon RDS database instance is also terminated.\n\nOption C is incorrect as launching Amazon RDS in an AWS Elastic Beanstalk environment is suitable for test/development purposes & not for the production environment.\n\nOption D is incorrect. When Amazon RDS instance is launched outside the AWS Elastic Beanstalk environment, best practice is to save the connection string in the Amazon S3 bucket.\n\nFor more information on launching Amazon RDS instance with AWS Elastic Beanstalk and storing the connection string, refer to the following URLs:\n\nhttps://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.db.html\n\nhttps://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.RDS.html\n\nhttps://docs.aws.amazon.com/elasticbeanstalk/latest/dg/rds-external-credentials.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company has an application that has been developed and needs to be hosted on an EC2 Instance. The EC2 Instance is located in a private subnet and needs to access AWS Kinesis streams without passing into the Internet. How can you achieve this in the best manner possible?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Attach a NAT gateway to the VPC"}, {
+        "id": "B",
+        "markdown": "Attach an Internet gateway to the VPC"
+    }, {"id": "C", "markdown": "Create a VPC Gateway Endpoint that would allow access to Kinesis Streams"}, {
+        "id": "D",
+        "markdown": "Create a VPC Interface Endpoint that would allow access to Kinesis Streams"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – D\n\nThe AWS Documentation mentions the following\n\nYou can use an interface VPC endpoint to keep traffic between your Amazon VPC and Kinesis Data Streams from leaving the Amazon network. Interface VPC endpoints don't require an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Interface VPC endpoints are powered by AWS PrivateLink, an AWS technology that enables private communication between AWS services using an elastic network interface with private IPs in your Amazon VPC\n\nOptions A and B are incorrect since it is mentioned in the question that traffic should not go via the Internet\n\nOption C is incorrect since this is mostly used for S3 and DynamoDB access from Instances in the private subnet\n\nFor more information on VPC Endpoints Interfaces, please refer to the below URL\n\nhttps://docs.aws.amazon.com/streams/latest/dev/vpc.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company is planning to store sensitive documents in an S3 bucket. They want to ensure that documents are encrypted at rest. They want to ensure they manage the underlying keys which are used for encryption but not the encryption/decryption process. Which of the following can be used for this purpose?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Use S3 server-side encryption with Customer keys"}, {
+        "id": "B",
+        "markdown": "Use S3 client-side encryption"
+    }, {"id": "C", "markdown": "Use S3 server-side encryption with AWS managed keys"}, {
+        "id": "D",
+        "markdown": "Use S3 server-side encryption with AWS KMS keys with Key policy document of size 40kb."
+    }, {
+        "id": "E",
+        "markdown": "Use S3 server-side encryption with AWS KMS keys with the keys uploaded by the company to KMS"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer – A\n\nAWS Documentation mentions the following\n\nServer-side encryption is about protecting data at rest. Using server-side encryption with customer-provided encryption keys (SSE-C) allows you to set your own encryption keys. With the encryption key you provide as part of your request, Amazon S3 manages both the encryption, as it writes to disks, and decryption, when you access your objects. Therefore, you don't need to maintain any code to perform data encryption and decryption. The only thing you do is manage the encryption keys you provide.\n\nIn short,\n\nSSE-S3 requires that Amazon S3 manage the data and master encryption keys.\nSSE-C requires that you manage the encryption key\n\nSSE-KMS requires that AWS manage the data key but you manage the master key in AWS KMS\n\nFor more information, please refer to the following URL.\nhttps://docs.aws.amazon.com/kms/latest/developerguide/services-s3.html\n\n Option B is incorrect because when you do client-side encryption data goes to s3 in an encrypted format. Again when you download, it is the client who has to decrypt the data. But question specifies customer should not manage the encryption/decryption process.\n\nOptions C is incorrect since here you will still not manage the complete lifecycle of the keys.\n\nOptions D is incorrect because the maximum key policy document size is 32kb.\n\nhttps://docs.aws.amazon.com/kms/latest/developerguide/limits.html\n\nhttps://aws.amazon.com/blogs/aws/new-bring-your-own-keys-with-aws-key-management-service/\n\nFor more information on Server-side encryption with customer keys and Client-side encryption, please refer to the below URL\n\nhttps://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company currently has the following architecture for its e-commerce application\n\n·         EC2 Instances hosting the application\n\n·         An Autoscaling group for the EC2 Instances\n\nThe users who use the application keep on complaining that the application is slow in the morning from 9:00 – 9:30, after which no issues occur. Which of the following can be done to ensure the issue is not encountered during the morning time?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Ensure that a Simple scaling policy is added to the Auto scaling Group"
+    }, {"id": "B", "markdown": "Ensure that a step scaling policy is added to the Auto scaling Group"}, {
+        "id": "C",
+        "markdown": "Ensure that a scheduled scaling policy is added to the Auto scaling Group"
+    }, {"id": "D", "markdown": "Ensure that a static scaling policy is added to the Auto scaling Group"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – C\n\nThe AWS Documentation mentions the following\n\nScaling based on a schedule allows you to scale your application in response to predictable load changes. For example, every week the traffic to your web application starts to increase on Wednesday, remains high on Thursday, and starts to decrease on Friday. You can plan your scaling activities based on the predictable traffic patterns of your web application.\n\nOption A is incorrect because simple scaling increase or decrease the current capacity of the group based on a single scaling adjustment.\n\nOption B is incorrect because Step Scaling increase or decrease the current capacity of the group based on a set of scaling adjustments, known as step adjustments, that vary based on the size of the alarm breach.\n\nOption D is incorrect since Static scaling policy doesn’t exist.\n\nFor more information on scaling policies for Auto scaling, please refer to the below URL's\n\nhttps://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html\n\nhttps://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html#as-scaling-types\n\nhttps://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A three-tier web application is running on AWS VPC in two availability zones as shown below. Here are the CIDR ranges for each subnet and the corresponding servers.\n\n  \n\n\n\t\n\t\t\n\t\t\tLayer\n\t\t\tEU-East-1a\n\t\t\tEU-east-1b\n\t\t\n\t\n\t\n\t\t\n\t\t\tWeb server\n\t\t\t10.16.0.0/25\n\t\t\t10.16.0.128/25\n\t\t\n\t\t\n\t\t\tApplication Server\n\t\t\t10.16.1.0/25\n\t\t\t10.16.1.128/25\n\t\t\n\t\t\n\t\t\tDB Server\n\t\t\t10.16.2.0/25\n\t\t\t10.16.2.128/25\n\t\t\n\t\n\n\nThe DB server is running MySQL, which would run on its default port, should only allow access to Application Server tier and access from the rest of the tiers should be denied.\n\nWhich inbound rule of Security Group on the DB server needs to be attached to meets this requirement?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Type     : MySQL |  Protocol: TCP |  Port: 3306 |  Source: 10.16.0.0/24"
+    }, {"id": "B", "markdown": "Type      : MySQL |  Protocol: TCP |  Port: 3306 |  Source: 10.16.2.0/24"}, {
+        "id": "C",
+        "markdown": "Type     : MySQL |   Protocol: TCP |  Port     : 3306 |  Source: 10.16.1.0/24"
+    }, {"id": "D", "markdown": "Type     : MySQL |   Protocol: TCP |   Port      : 3306 |   Source: 10.16.3.128/25"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: C\n\nThe requirement here is to allow access from Application Tier to DB Tier. The other point to note here is that MySQL would run on its default port. The default port for MySQL is ‘3306’\n\nTwo /25 networks equal a /24 network. Two /27 networks equal a /26 network. Two /26 networks equal a /25 network. And so on, and so on. The notion of combining two smaller networks into a larger one is another benefit of classless networks named supernetting In order to create a supernet the smaller networks must be contiguous. For example, 192.0.2.240/29 and 192.0.2.248/29 can form a supernet 192.0.2.240/28, but 192.0.2.240/29 and 192.0.2.8/29 could not as it must be 192.0.2.248/29 in order to form a supernet\n\nApplication Server tier IP's across two subnets are - 10.16.1.0/25 and 10.16.1.128/25 that is from 10.16.1.0 to 10.16.1.255 which is same as 10.16.1.0/24\n\nAction Required here\n\nCreate A VPC\n\nNow create 2 subnets inside this VPC\n\n\n\n \n\n\n\n \n\nSimilarly, create 2 more VPC for DB and 2 VPC for Application Type\n\nthereafter in creating 1 Rule in SG for outbound to while listing for DB Layer and attach to the Application tier\n\nSimilarly, Crate one More SG and Create Inbound to whitelist Application Tier and attach to DB Tier\n\n \n\nSo we need to create the following rule in SG\n\n\n\nSo Option C is the best answer\n\nOptions A, B, and D are incorrect because source should be 10.16.1.0/24\n\nOr alternatively, two inbound rules from Port 3306 but different sources i.e. 10.16.1.0/25 and 10.16.1.128/25\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You launched 9 spot instances for a specific workload in your AWS Account.  Your bid price was $0.07 per hour and the spot price at the time of launch was $0.06 per hour.  After 1.5 hours, the spot price rose to $0.08 an hour. What is the cost incurred?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "$0.54"}, {"id": "B", "markdown": "$0.24"}, {
+        "id": "C",
+        "markdown": "$0.00"
+    }, {"id": "D", "markdown": "$0.44"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer : A\n\nSpot instance are those instances for which a user has to place a bid on the AWS portal. If the bid price is greater than the amazon price (i.e. spot price) then the spot instances are automatically granted. The user would be charged based on the ‘spot’ price instead of the ‘bid’ price.\n\nIf the bid price is lower than the amazon price (i.e. spot price) then the spot instances are cancelled\n\nNow, if a user has got a spot instance running and if suddenly the spot price goes up, then amazon automatically cancels the instance and the user is not charged for the extra minutes (rounded to one hour). This is called as amazon’s termination of the spot instance\n\nIn a second case, if a user has got a spot instance running (when the bid price is greater than the spot price and the user is granted the ‘spot instance’ on the ‘spot’ price) and the user by himself voluntarily terminates the spot instance then the user is charged till the minute he has used the spot instance. This is called as the user’s voluntary termination of the spot instance\n\nWith the above introduction we can proceed with the below calculation\n\nIn the first hour,\n\nBid price = $0.07\n\nSpot price = $0.06\n\n Therefore the user is granted the spot instance. Now the price for ‘9’ instances for the first hour would be = $0.06 * 9 = $0.54\n\nIn the second hour (i.e. for 0.5 hour)\n\nBid price = $0.07\n\nSpot price = $0.08\n\n Now the spot price is greater than the bid price which will end up in the spot instance being terminated by amazon and the user is not charged any amount for the instances, for the 0.5 hours that the instances ran.\n\nTherefore the total payable amount by the user for ‘9’ instances are = $0.54. \n\nTherefore Option ‘A’ is the correct answer.\n\nOption ‘B’ is incorrect because the total cost is $0.24 which is lesser than $0.54\n\nOption ‘C’ is incorrect because the total cost is $0.00 which is lesser than $0.54\n\nOption ‘D’ is incorrect because the total cost is $0.44 which is lesser than $0.54\n\nFor details on spot instances please refer to the following link:\n\nhttps://aws.amazon.com/ec2/spot/pricing/\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have just launched an EC2 instance, and get the following error message when you try to connect to it from a workstation running Windows 7.\n\nError: Server refused our key or No supported authentication methods available\n\nWhat could be the reason for this error? (Select TWO)",
+    "prompt": "",
+    "correctAnswerId": ["A", "E"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Verify that the key (.pem) has been converted to the format recognized by Putty (.ppk)"
+    }, {
+        "id": "B",
+        "markdown": "The security group attached to the EC2 instance has not been configured for 'inbound' on '3389' port"
+    }, {
+        "id": "C",
+        "markdown": "The security group attached to the EC2 instance has not been configured for 'inbound' on '389' port"
+    }, {"id": "D", "markdown": "AWS console credentials are incorrect"}, {
+        "id": "E",
+        "markdown": "The user has not used the correct username for the AMI"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer: A and E\n\nThere are two parts of the error message.\n\nThe first part is that ‘Server refused our key’\n\nPutty: This is a CLI (Command Line Interface) tool in Windows. To log in to this Putty tool we need to have the keys in the Putty readable format which would have the extension of ‘.ppk’.\n\nThere is a tool called ‘PuttyGen’ by which we can convert our ‘.pem’ key to the ‘.ppk’ format and if we feed this key to the Putty tool we can log in to our respective instance.\n\n\n\nLoad the ‘.pem’ key in the ‘PuttyGen’ tool and use the ‘Save private key’ in the ‘PuttyGen’ to save the private key in ‘.ppk’ format.\n\nThen load this key in the ‘Auth’ section of ‘Putty’ tool as shown below\n\n\n\nThe username should be provided in the ‘Data’ section as shown below\n\nThe second part of the error message is ‘No supported authentication methods available’.\n\nPlease refer to the below table for the AMI (Amazon Machine Images, which means the copy or the snapshot of an instance) and their corresponding usernames\n\n\n\t\n\t\t\n\t\t\t\n\t\t\tS.No.\n\t\t\t\n\t\t\t\n\t\t\tAMI\n\t\t\t\n\t\t\t\n\t\t\tUsername\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t1\n\t\t\t\n\t\t\t\n\t\t\tLinux\n\t\t\t\n\t\t\t\n\t\t\tec2-user\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t2\n\t\t\t\n\t\t\t\n\t\t\tCentos\n\t\t\t\n\t\t\t\n\t\t\tcentos\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t3\n\t\t\t\n\t\t\t\n\t\t\tDebian\n\t\t\t\n\t\t\t\n\t\t\tadmin / root\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t4\n\t\t\t\n\t\t\t\n\t\t\tFedora\n\t\t\t\n\t\t\t\n\t\t\tec2-user / fedora\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t5\n\t\t\t\n\t\t\t\n\t\t\tRHEL\n\t\t\t\n\t\t\t\n\t\t\tec2-user / root\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t6\n\t\t\t\n\t\t\t\n\t\t\tSUSE\n\t\t\t\n\t\t\t\n\t\t\tec2-user / root\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t7\n\t\t\t\n\t\t\t\n\t\t\tUBUNTU\n\t\t\t\n\t\t\t\n\t\t\tubuntu\n\t\t\t\n\t\t\n\t\n\n\nTherefore Option ‘A’ and ‘E’ are correct.\n\n\n\tOption ‘B’ is incorrect, as port ‘3389’ denotes RDP (Remote Desktop access)\n\tOption C is incorrect as port '389' denotes 'LDAP' \n\tOption ‘D’ is incorrect, as the login to AWS console is not at all related to the error message.\n\n\nFor more information, check out the following URLs:\n\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html\n\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html#TroubleshootingInstancesConnectionTimeout\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company has a requirement to monitor API activity for audit purposes for their AWS account. This audit would be conducted in the future as well and should be applicable to all regions. How would you design your solution to meet the present and future needs?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Ensure CloudTrail logs is enabled for each region and then enable for each future region."
+    }, {"id": "B", "markdown": "Ensure one CloudTrail log is enabled for all regions"}, {
+        "id": "C",
+        "markdown": "Enable AWS Config to record the events in all regions."
+    }, {"id": "D", "markdown": "Enable AWS Inspector to record the events in all regions."}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – B\n\nThe AWS Documentation mentions the following\n\nWhen you create a trail that applies to all regions, CloudTrail records events in each region and delivers the CloudTrail event log files to an S3 bucket that you specify. If a region is added after you create a trail that applies to all regions that the new region is automatically included, and events in that region are logged. \n\nAWS CloudTrail increases visibility into your user and resource activity by recording AWS Management Console actions and API calls. You can identify which users and accounts called AWS, the source IP address from which the calls were made, and when the calls occurred.\n\nOption A is incorrect since this is an overhead to enable it each time for every new region\n\nOptions C is incorrect since AWS Config is a service that enables you to assess, audit, and evaluate the configurations of your AWS resources. Config continuously monitors and records your AWS resource configurations\n\nOption D is incorrect since Amazon Inspector is an automated security assessment service that helps improve the security and compliance of applications deployed on AWS. Amazon Inspector automatically assesses applications for exposure, vulnerabilities, and deviations from best practices\n\nFor more information on AWS CloudTrail, please refer to the below URL\n\nhttps://docs.aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your team is planning on developing and deploying an application onto AWS with the following architecture\n\n·         A set of EC2 Instances in a VPC hosting the web tier\n\n·         A database hosted using the AWS RDS MySQL instance\n\nWhich of the following should ideally be set so that only HTTPS users to be able to access the web application and for the web application to access the database? (Choose 2)",
+    "prompt": "",
+    "correctAnswerId": ["A", "D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "An Inbound Security group rule for the web EC2 Instances allowing traffic from the source of 0.0.0.0/0 and port 443"
+    }, {
+        "id": "B",
+        "markdown": "An Inbound Security group rule for the database layer allowing traffic from the source of 0.0.0.0/0 and port 443"
+    }, {
+        "id": "C",
+        "markdown": "An Inbound Security group rule for the web EC2 Instances allowing traffic from the source of the database on port 3306"
+    }, {
+        "id": "D",
+        "markdown": "An Inbound Security group rule for the database layer allowing traffic from the source of the web layer on port 3306"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – A and D\n\nOption A is correct because port 443 will allow only HTTPS traffic from all sources.\n\nOption D is correct because Database server Security Group must allow traffic from the source Web server on port 3306\n\n\n\nOption B is invalid since the database should not be exposed to the Internet\n\nOption C is invalid since the database security group should allow incoming traffic on port 3306\n\nFor more information on this scenario, please refer to the below URL and go to Security section\n\nhttps://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "In your AWS VPC, you need to add a new subnet that will allow you to host a total of 20 EC2 instances. Which IPv4 CIDR block would you use to achieve the same?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "151.0.0.0/27"}, {"id": "B", "markdown": "151.0.0.0/28"}, {
+        "id": "C",
+        "markdown": "151.0.0.0/29"
+    }, {"id": "D", "markdown": "151.0.0.0/30"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer: A\n\nThe formula to calculate the number of assignable IP addresses to CIDR networks is similar to classful networking. Subtract the number of network bits from 32. Raise 2 to that power and subtract 2 for the network and broadcast addresses. For example, a /24 network has 2^(32-24) - 2 addresses available for host assignment.\n\nA.              Prefix Length is ‘27’\n\n            Therefore 32-27 = 5 and 2 ^ 5 (i.e 2 * 2 * 2 * 2 * 2) – 2 = 30\n\nB.              Prefix Length is ‘28’\n\n            Therefore 32-28 = 4 and 2 ^ 4 (i.e 2 * 2 * 2 * 2) - 2 = 14\n\nC.              Prefix Length is ‘29’\n\n            Therefore 32-29 = 3 and 2 ^ 3 (i.e 2 * 2 * 2) - 2 = 6\n\nD.              Prefix Length is ‘30’\n\n            Therefore 32-30 = 2 and 2 ^ 2 (i.e 2 * 2) - 2 = 2     \n\nFor option ‘A’ we get ‘30’ IP addresses (or indirectly the number of instances to be provisioned) as shown above\n\nSince the user has to provision ‘20’ EC2 instances, we need to go with option ‘A’ which is the only correct IPv4 CIDR block.\n\nOption ‘B’ is incorrect because we get only ‘14’ IP address (or indirectly the number of instances to be provisioned )\n\nOption ‘C’ is incorrect because we get only ‘6’ IP address\n\nOption ‘D’ is incorrect because we get only ‘2’ IP address\n\nFor more information, please refer to the below URL:\n\nhttps://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A Company is currently hosting an application which connects to a MySQL AWS RDS Instance. Of late there have been many performance issues being encountered. After careful analysis, it has been determined that the issue is occurring as a result of similar queries being fired against the database. Which of the following can be added to the architecture to alleviate the performance issue?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Enable Multi-AZ for the database"}, {
+        "id": "B",
+        "markdown": "Use the Elastic Cache Service"
+    }, {"id": "C", "markdown": "Use Read replica"}, {"id": "D", "markdown": "Use Cloudfront in front of the database"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – B\n\nElastiCache can be used to reduce the latency of requests as it is a caching service\n\nLet's understand the difference in Read replica and ElastiCache\n\nIn terms of load, they have the same goal, but they differ in other areas:\n\nUp-to-dateness of data:\n\nA read replica will continuously sync from the master. So your results will probably lag 0 - 3s (depending on the load) behind the master.\n\nA cache takes the query result at a specific point in time and stores it for a certain amount of time.\n\nPerformance:\n\nA cache can only return results for queries it has already seen. So if you run the same queries over and over again, it's a good match.\n\nIf you have many different, frequently changing, or dynamic queries, a read replica will be a better match.\n\nElastiCache should be much faster since it's returning values directly from RAM. However, this also limits the number of results you can store.\n\nOption A is incorrect since this is used for high availability of the database\n\nOption C is incorrect since using ElastiCache is a better choice.\n\nOption D is incorrect since Cloudfront should be used with Web distributions\n\nFor more information on ElastiCache, please refer to the below URL\n\nhttps://aws.amazon.com/elasticache\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as an AWS Administrator for a media company. They are using AWS resources in various regions for broadcasting live sports matches. Multiple EC2 On-Demand, Spot & Reserved Instances are launched as per user traffic on a daily basis resulting in huge monthly charges. Top management is looking for customized analysis for these charges based upon various factors like month-wise, instance-wise to deep dive into the incurred cost and they should be able to visualize the costs analysis. To meet this requirement, the accounts team is looking for a simpler way to analyze these charges and query this report. Suggest a cost-effective solution that can be set up with the least efforts?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Upload the AWS Cost and Usage Reports to S3. Integrate these reports with Amazon Athena to analyze billing data"
+    }, {
+        "id": "B",
+        "markdown": "Upload AWS Cost & Usage Reports to Amazon QuickSight & analyze billing data"
+    }, {
+        "id": "C",
+        "markdown": "Download CSV report from Amazon S3 & analyze cost & usage using a third-party tool."
+    }, {"id": "D", "markdown": "Upload AWS Cost & Usage Reports to Amazon Redshift & analyze billing data"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – B\n\nAmazon QuickSight is a business analytics service you can use to build visualizations, perform ad hoc analysis, and get business insights from your data. It can automatically discover AWS data sources and also works with your data sources.\n\nOption A is incorrect AWS Athena doesn’t provide visualizations.\n\nOption C is incorrect as using a third-party tool to analyze cost & usage reports can be costly.\n\nOption D is incorrect as Amazon Redshift is a petabyte-scale data warehouse service in the cloud. You can start with just a few hundred gigabytes of data and scale to a petabyte or more. It is not used for such cost analysis. It is used for complex queries and data warehousing.\n\nFor more information on Amazon QuickSight, refer to the following URL,\n\nhttps://docs.aws.amazon.com/quicksight/latest/user/welcome.html#analyses\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A Company is currently hosting an application which connects to a MySQL AWS RDS Instance The application behaves fine when there are 20 lookups against the database. When the lookups start to increase, the performance of the application starts to degrade. Which of the following can be added to the architecture to alleviate the performance issue?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Create a Read Replica for the database"}, {
+        "id": "B",
+        "markdown": "Enable Multi-AZ for the database"
+    }, {"id": "C", "markdown": "Place the database behind a Cloudfront distribution"}, {
+        "id": "D",
+        "markdown": "Create a snapshot of the database"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – A\n\nOption B is incorrect since this is used for high availability of the database\n\nOption C is incorrect since Cloudfront is used for web distributions\n\nOption D is incorrect since this is used for backups of databases\n\nThe AWS Documentation mentions the following\n\nAmazon RDS Read Replicas provide enhanced performance and durability for database (DB) instances. This feature makes it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. You can create one or more replicas of a given source DB Instance and serve high-volume application read traffic from multiple copies of your data, thereby increasing aggregate read throughput.\n\nFor more information on AWS Read Replica’s, please refer to the below URL\n\nhttps://aws.amazon.com/rds/details/read-replicas/\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company needs to develop an application that needs to have a login module in place. Their key requirement is to ensure that users can also use their current identities which they have with various providers such as facebook to log into the application. Which of the following can help you accomplish this?",
+    "prompt": "",
+    "correctAnswerId": ["A"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Using the AWS Cognito service"}, {
+        "id": "B",
+        "markdown": "Using the AWS Config service"
+    }, {"id": "C", "markdown": "Using the AWS SQS service"}, {"id": "D", "markdown": "Using the AWS WAF service"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – A\n\nThe AWS Documentation mentions the following\n\nAmazon Cognito provides authentication, authorization, and user management for your web and mobile apps. Your users can sign in directly with a user name and password, or through a third party such as Facebook, Amazon, or Google.\n\nThe two main components of Amazon Cognito are user pools and identity pools. User pools are user directories that provide sign-up and sign-in options for your app users. Identity pools enable you to grant your users access to other AWS services. You can use identity pools and user pools separately or together.\n\nOption B is incorrect since this is a configuration service\n\nOption C is incorrect since this is a messaging service\n\nOption D is incorrect since this is a web application firewall service\n\nFor more information on AWS Cognito, please refer to the below URL\n\nhttps://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A mid-sized Fintech company is using AWS Organization to manage multiple AWS accounts created for each department. Each of the accounts has purchased a Reserved Instance & are running web applications on a mix of On-Demand & Reserved Instance pool. A default IAM policy is configured for all accounts. Due to high recurring cost, Management has appointed you as an AWS consultant to suggest recommendations to reduce cost. Post analysis, you suggested purchasing more Reserved Instance as compared to using On-Demand EC2 instance. How would you justify your recommendations to the management?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Use organization master account to create RI coverage budgets for all the accounts in an organization and receive SNS alert once the threshold is below 50%."
+    }, {
+        "id": "B",
+        "markdown": "Use Organization member account owners to create RI coverage budgets for their individual accounts in an organization & receive SNS alert once the threshold is below 50%."
+    }, {
+        "id": "C",
+        "markdown": "Use Organization member account owners to create RI utilization budgets for their individual accounts in an organization and receive SNS alert once the threshold is below 50%."
+    }, {
+        "id": "D",
+        "markdown": "Use Organization master account to create RI utilization budgets for all the accounts in an organization and receive SNS alert once the threshold is below 50%."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nCorrect Answer – B\n\nThe Reserved Instance Utilization and Coverage reports are not the same\n\nEC2 RI Utilization % offers relevant data to identify and act on opportunities to increase your Reserved Instance usage efficiency. It’s calculated by dividing the Reserved Instance used hours by total Reserved Instance purchased hours.\n\nEC2 RI Coverage % shows how much of your overall instance usage is covered by Reserved Instances. This lets you make informed decisions about when to purchase or modify a Reserved Instance to ensure maximum coverage. It’s calculated by dividing the Reserved Instance used hours by total EC2 On-Demand and Reserved Instance hours.\n\nRI Coverage Budget reports the number of instances that are part of the Reserved Instance. This helps you to get an alert when the number of instances covered by reservation falls below 50% of the total number of instances launched. This report can identify the instance which is consistently running using On-Demand instance & can be converted to Reserved Instance for cost savings. AWS Organization member accounts' owners can create a budget for individual accounts. AWS Organization master account pays for usage incurred by all accounts in the organization.\n\nOption A is incorrect since the company is using a default IAM policy, each member account owner needs to create a budget policy for individual accounts & not by master account.\n\nOption C is incorrect as RI utilization Budget reports the utilization of your RI instance and you need RI Coverage report to check when the number of instances covered by reservation falls below 50% of the total number of instances launched.\n\nOption D is incorrect since the company is using a default IAM policy, each member account owner needs to create a budget policy for individual accounts & not by master account. Also, you need RI Coverage report to check when the number of instances covered by reservation falls below 50% of the total number of instances launched\n\nFor more information, refer to the following URLs:\n\nhttps://docs.aws.amazon.com/whitepapers/latest/cost-optimization-reservation-models/aws-cost-explorer.html\n\nhttps://aws.amazon.com/aws-cost-management/reserved-instance-reporting/\n\nhttps://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html\n\nhttps://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your current architecture consist of a set of web servers that are spun up as part of an Autoscaling group. These web servers then communicate with a set of database servers. You need to ensure that the security groups of the database servers are set properly to accept traffic from the web servers. Which of the following is the best way to accomplish this?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Ensure that the Private IP addresses of the web servers are put as sources for the incoming rules in the database server security group"
+    }, {
+        "id": "B",
+        "markdown": "Ensure that the Public IP addresses of the web servers are put as sources for the incoming rules in the database server security group"
+    }, {
+        "id": "C",
+        "markdown": "Ensure that the web server security group is placed as the source for the incoming rules in the database server security group"
+    }, {
+        "id": "D",
+        "markdown": "Ensure that the Instance ID of the web servers are put as sources for the incoming rules in the database server security group"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – C\n\nThe below example from the AWS Documentation also shows the Source of the database security group involving the ID of the web server security groups.\n\n\n\n \n\nOptions A and B are invalid or not the best practise. Since they are part of the Autoscaling Group , the IP addresses of the instances can change.\n\n \n\nOption D is incorrect since normally you don’t specify the Instance ID in security Groups\n\nFor more information on the Security Groups for the VPC, please refer to the below URL\n\nhttps://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company needs to host an application on an EC2 Instance. There is a requirement based on the compliance rules for the application that you need to have control over the number of cores allocated to the application. Which of the following should be used in such a case?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS Lambda"}, {"id": "B", "markdown": "EC2 - Dedicated Hosts"}, {
+        "id": "C",
+        "markdown": "EC2 – Reserved Instances"
+    }, {"id": "D", "markdown": "Elastic Beanstalk"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – B\n\nThe AWS Documentation mentions the following\n\nWhen you launch instances on a Dedicated Host, the instances run on a physical server that is dedicated to your use. While Dedicated instances also run on dedicated hardware, Dedicated Hosts provide further visibility and control by allowing you to place your instances on a specific, physical server. This enables you to deploy instances using configurations that help address corporate compliance and regulatory requirements.\n\nYou have visibility of the number of sockets and physical cores that support your instances on a Dedicated Host. You can use this information to manage to license for your own server-bound software that is licensed per-socket or per-core.\n\nOption A is incorrect because AWS Lambda was launched to eliminate infrastructure management of computing. It enables developers to concentrate on writing the function code without having to worry about provisioning infrastructure. You don’t need to do any forecasting of the resources (CPU, Memory, Storage, etc.). It can scale resources up and down automatically.\n\nDedicated instances are placed on an EC2 Host machine dedicated to your account, but you use them exactly like shared tenancy instance types (On-Demand, Spot, and Reserved). Dedicated Hosts are the same thing, but with additional visibility into the hardware that your instances run on. Check here for more details.\n\nFrom the above explanation, Option C, D stands invalid.\n\nFor more details on Dedicated hosts, please refer below URL\n\nhttps://aws.amazon.com/elasticbeanstalk/\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is planning to store sensitive documents in a bucket in the Simple Storage service. They need to ensure that all objects are encrypted at rest in the bucket. Which of the following can help accomplish this? Choose 2 answers from the options given below",
+    "prompt": "",
+    "correctAnswerId": ["A", "D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Ensure that the default encryption is enabled for the S3 bucket"}, {
+        "id": "B",
+        "markdown": "Ensure that the bucket policy is set to encrypt all objects that are added to the bucket"
+    }, {
+        "id": "C",
+        "markdown": "Ensure that the bucket ACL is set to encrypt all objects that are added to the bucket"
+    }, {
+        "id": "D",
+        "markdown": "Ensure to change the configuration of the bucket to use a KMS key to encrypt the objects"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer – A and D\n\nOptions B and C are incorrect since these options cannot be used to actually encrypt the objects as by using an S3 bucket policy, you can enforce the encryption requirement when users upload objects\n\nRefer below URL for more details,\n\nhttps://aws.amazon.com/blogs/security/how-to-prevent-uploads-of-unencrypted-objects-to-amazon-s3/\n\nThe term 'rest' means when data is resting (not in transition - while data is traveling to s3).\n\nServer-side encryption - facilitates encryption at rest.\n\nClient-side encryption - facilitates encryption both in transition and at rest.\n\nYou have three options depending on how you choose to manage the encryption keys:\n\nSSE-S3 requires that Amazon S3 manage the data and master encryption keys.\nSSE-C requires that you manage the encryption key\n\nSSE-KMS requires that AWS manage the data key but you manage the master key in AWS KMS\n\nFor more information, please refer the following URL.\nhttps://docs.aws.amazon.com/kms/latest/developerguide/services-s3.html\n\nAmazon S3 default encryption provides a way to set the default encryption behavior for an S3 bucket. You can set default encryption on a bucket so that all new objects are encrypted when they are stored in the bucket. The objects are encrypted using server-side encryption with either Amazon S3-managed keys (SSE-S3) or customer master keys (CMKs) stored in AWS Key Management Service (AWS KMS).\n\nFor more information on Server - Side encryption, please refer to the below URL\n\nhttps://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html\n\nTo know about default encryption (Option A) please refer to the below URL.\n\nhttps://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A global software company is using Amazon EC2 Reserved and On-Demand Instance for all project-related work. They are having different accounts created for each vertical like Finance, Project, HR which are managed individually by account owners in each vertical. Management is looking for options to decrease these recurring charges. How could the management save monthly billing charges without impacting the performance?  [Choose TWO]",
+    "prompt": "",
+    "correctAnswerId": ["B", "C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Each account should launch a Spot Instance instead of using On-Demand Instance."
+    }, {
+        "id": "B",
+        "markdown": "Each account should share Reserved Instance which they have purchased with other accounts."
+    }, {
+        "id": "C",
+        "markdown": "Use the Consolidated billing feature in AWS organization to get volume discounts on Amazon EC2."
+    }, {"id": "D", "markdown": "Use Budgets to limit the charges incurred for using Amazon EC2."}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – B and C\n\nConsolidated Billing combines usage from all the accounts & billing is generated based on the total usage. Services like Amazon EC2, Amazon S3, etc. have volume pricing tiers where the overall charges decrease with more usage volume.\n\nOption A is incorrect. Although this will save the cost but will impact the performance.\n\nSpot Instance and On-demand Instance are very similar in nature. The main difference between these is commitment. In Spot Instance there is no commitment. As soon as the Bid price exceeds Spot price, a user gets the Instance. In an On-demand Instance, a user has to pay the On-demand rate specified by Amazon. Once they have bought the Instance they have to use it by paying that rate.\nIn Spot Instance, once the Spot price exceeds the Bid price, Amazon will shut the instance. The benefit to users is that they will not be charged for the partial hour in which Instance was taken back from them.\n\nSpot instances are not always cheaper than on-demand, they can and do sometimes fluctuate wildly, even to very high per hour amounts, higher than the on-demand price at times\n\nOption B is correct as Reserved Instance discounts can be applied to accounts in an organization but Reserved Instance sharing has to be turned on or off for the account\n\nFor details, please refer below URL\n\nhttps://aws.amazon.com/premiumsupport/knowledge-center/ec2-ri-consolidated-billing/\n\nOption D is incorrect as the Budget will limit charges but will not provide discounts in services being used by various accounts.\n\nFor more information on using consolidated billing, refer to the following URL:\n\nhttps://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html\n\nhttps://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilling-discounts.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company is planning to host an active-active site. One site will be deployed in AWS and the other one on their On-premise data center. They need to ensure that traffic is distributed proportionately between both sites. Which of the following routing policy would you use for this purpose?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Simple Routing"}, {"id": "B", "markdown": "Failover Routing"}, {
+        "id": "C",
+        "markdown": "Latency Routing"
+    }, {"id": "D", "markdown": "Weighted Routing"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – D\n\nThe AWS Documentation mentions the following\n\nWeighted routing lets you associate multiple resources with a single domain name (example.com) or subdomain name (acme.example.com) and choose how much traffic is routed to each resource. This can be useful for a variety of purposes, including load balancing and testing new versions of software.\n\nTo configure weighted routing, you create records that have the same name and type for each of your resources. You assign each record a relative weight that corresponds with how much traffic you want to send to each resource. Amazon Route 53 sends traffic to a resource based on the weight that you assign to the record as a proportion of the total weight for all records in the group\n\nOption A is incorrect since this should be used when you want to configure standard DNS records\n\nOption B is incorrect since this should be used when you want to route traffic to a resource when the resource is healthy or to a different resource when the first resource is unhealthy\n\nOption C is incorrect since this should be used when you want to improve performance for your users by serving their requests from the AWS Region that provides the lowest latency.\n\nFor more information on a Routing policy, please refer to the below URL\n\nhttps://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is planning to store sensitive documents in a S3 bucket. They want to keep the documents as private but serve content only to selected users based on a particular time frame. Which of the following can help you accomplish this?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Enable CORS for the S3 bucket"}, {
+        "id": "B",
+        "markdown": "Use KMS and enable encryption for the files"
+    }, {"id": "C", "markdown": "Create pre-signed URL’s"}, {
+        "id": "D",
+        "markdown": "Enable versioning for the S3 bucket"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer – C\n\nThe AWS Documentation mentions the following\n\nA pre-signed URL gives you access to the object identified in the URL, provided that the creator of the pre-signed URL has permissions to access that object. That is, if you receive a pre-signed URL to upload an object, you can upload the object only if the creator of the pre-signed URL has the necessary permissions to upload that object.\n\nAll objects and buckets by default are private. The pre-signed URLs are useful if you want your user/customer to be able to upload a specific object to your bucket, but you don't require them to have AWS security credentials or permissions. When you create a pre-signed URL, you must provide your security credentials and then specify a bucket name, an object key, an HTTP method (PUT for uploading objects), and expiration date and time. The pre-signed URLs are valid only for the specified duration.\n\nOption A is incorrect since this is used for Cross-origin access\n\nOption B is incorrect since this is used for encryption purposes.\n\nOption D is incorrect since this is used for versioning\n\nFor more information on pre-signed URL’s, please refer to the below URL\n\nhttps://docs.aws.amazon.com/AmazonS3/latest/dev/PresignedUrlUploadObject.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company currently is hosting a Redshift cluster. As part of the disaster recovery drill , you need to ensure that the cluster would be made available even if the primary region goes down. How can you accomplish this?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Use the Elastic Beanstalk service to copy the cluster to another region"
+    }, {"id": "B", "markdown": "Use Cloudformation templates to copy the cluster to another region"}, {
+        "id": "C",
+        "markdown": "Configure cross-region snapshots for the underlying Redshift cluster."
+    }, {"id": "D", "markdown": "Use the snapshots stored in S3 to create a new Redshift cluster in another region"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer - C\n\nYou can configure Amazon Redshift to automatically copy snapshots (automated or manual) for a cluster to another region. When a snapshot is created in the cluster’s primary region, it will be copied to a secondary region; these are known respectively as the source region and destination region. By storing a copy of your snapshots in another region, you have the ability to restore your cluster from recent data if anything affects the primary\n\nSnapshots are point-in-time backups of a cluster. There are two types of snapshots: automated and manual. Amazon Redshift stores these snapshots internally in Amazon S3 by using an encrypted Secure Sockets Layer (SSL) connection.\n\nAmazon Redshift automatically takes incremental snapshots that track changes to the cluster since the previous automated snapshot. Automated snapshots retain all of the data required to restore a cluster from a snapshot. You can create a snapshot schedule to control when automated snapshots are taken, or you can take a manual snapshot at any time.\n\nWhen you restore from a snapshot, Amazon Redshift creates a new cluster and makes the new cluster available before all of the data is loaded, so you can begin querying the new cluster immediately. The cluster streams data on demand from the snapshot in response to active queries then loads the remaining data in the background.\n\nhttps://aws.amazon.com/blogs/aws/automated-cross-region-snapshot-copy-for-amazon-redshift/\n\nOption A is invalid since AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and not used to copy snapshots for disaster recovery.\n\nOption B is invalid since the CloudFormation template can help in creating clusters but it won’t help in disaster recovery.\n\nTo check how to create Cluster using CloudFormation, refer below URL\n\nhttps://aws.amazon.com/blogs/big-data/automate-amazon-redshift-cluster-creation-using-aws-cloudformation/\n\nOption D is invalid since it will be a manual process\n\nFor more information on working with snapshots, please refer to the below URL\n\nhttps://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as an AWS Architect for a global Pharma company. They have multiple accounts created in an organization & are using Consolidated billing. Account A has 6 reserved instances while Account B do not have any Reserved Instance. Based on the current utilization, Account A uses 4 Reserved Instance at any time. Account B uses On-Demand Instance for its Web-based application. What will be True with regards to discounts offered by the use of Consolidated billing?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "To receive hourly benefits of Reserved Instance from other accounts, Accounts B should have prior approval from Account A to launch the Reserved Instance purchased by Account A."
+    }, {
+        "id": "B",
+        "markdown": "To receive hourly benefits of Reserved Instance from other accounts, Accounts B should launch an Instance in any AZ in the same region"
+    }, {
+        "id": "C",
+        "markdown": "To receive hourly benefits of Reserved Instance from other accounts, Account B should launch an Instance of the same VPC, where account A has purchased a Reserved Instance."
+    }, {
+        "id": "D",
+        "markdown": "To receive hourly benefits of Reserved Instance from other accounts, Account B should launch Instance in any AZ in a different region"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nCorrect Answer – B\n\nConsolidate Billing combines the usage of all Accounts within an organization & shares Reserved Instance between multiple accounts. This discount is valid only if the account which has purchased Reserved Instance is not using its all Instances & other accounts have launched Instance in the same AZ as that of the account which has purchased this Instance.\n\nWhen you purchase a Reserved Instance, you determine the scope of the Reserved Instance. The scope is either regional or zonal.\n\nAs you might be aware AWS Randomizes in AZs but you can choose the scope as Zonal RIs in case you want to be in specific AZ or if you want to get discount in any AZ, you should go for Regional Reserved Instances\n\nFor more details on Zonal and Regional RIs, please refer below URL\n\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/reserved-instances-scope.html#reserved-instances-regional-zonal-differences\n\nBelow given example is for Zonal RIs,\n\nFor an Amazon EC2 Reserved Instances example, suppose that Bob and Susan each have an account in an organization. Susan has five Reserved Instances of the same type, and Bob has none. During one particular hour, Susan uses three instances and Bob uses six, for a total of nine instances on the organization's consolidated bill. AWS bills five instances as Reserved Instances, and the remaining four instances as regular instances.\n\nBob receives the cost-benefit from Susan's Reserved Instances only if he launches his instances in the same Availability Zone where Susan purchased her Reserved Instances. For example, if Susan specifies (us-west-2a) when she purchases her Reserved Instances, Bob must specify (us-west-2a) when he launches his instances to get the cost-benefit on the organization's consolidated bill.\n\nOption A is incorrect. When Consolidated Billing is enabled, Reserved Instance is by default shared between all accounts. No prior approvals are required to be granted for this sharing. You can turn it off also.\n\nOption C is incorrect as for Reserved Instance to be used by other accounts in the same organization, Instance should be launched in the any AZ and it can be part of different VPC.\n\nOption D is incorrect as to avail Reserved Instance discounts, each Account should use launch instance in the same region.\n\nFor more information on Consolidating Billing, refer to the following URL\n\nhttps://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidatedbilling-other.html\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company currently has a set of web servers in a public subnet and database servers in the private subnet. You need to ensure administrators from your on-premises environment can access the database servers. Which of the following is a secure way to access the database servers?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create a bastion host in the private subnet as the database servers. Ask the IT administrators to log into the database servers via the bastion host"
+    }, {
+        "id": "B",
+        "markdown": "Create a bastion host in the public subnet. Ask the IT administrators to log into the database servers via the bastion host"
+    }, {
+        "id": "C",
+        "markdown": "Create a NAT instance in the private subnet as the database servers. Ask the IT administrators to log into the database servers via the NAT Instance"
+    }, {
+        "id": "D",
+        "markdown": "Create a NAT instance in the public subnet as the database servers. Ask the IT administrators to log into the database servers via the NAT Instance"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – B\n\nThe AWS Documentation mentions the following\n\nA bastion host is a server whose purpose is to provide access to a private network from an external network, such as the Internet. Because of its exposure to potential attack, a bastion host must minimize the chances of penetration. For example, you can use a bastion host to mitigate the risk of allowing SSH connections from an external network to the Linux instances launched in a private subnet of your Amazon Virtual Private Cloud (VPC).\n\n\n\tOption A is incorrect since the bastion host needs to be in the public subnet\n\tOptions C and D are incorrect since the NAT instance should not be used as a jump server to the database servers\n\tFor more information on using a bastion host, please refer to the below URL\n\t\n\t\thttps://aws.amazon.com/blogs/security/how-to-record-ssh-sessions-established-through-a-bastion-host/\n\t\n\t\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company needs to access a service provided by a consultant company.  The service from the consultant company and the application of the primary company exist in their respective VPCs.  The VPC's are located in different regions.  What are the steps that are needed to take to establish communication between these VPCs such that data should not traverse via the Internet? Choose 2 answers from the options below",
+    "prompt": "",
+    "correctAnswerId": ["A", "C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Create a VPC peering between the VPC’s in the primary company and consultant company’s account"
+    }, {
+        "id": "B",
+        "markdown": "Create a Network Load Balancer in the consultant VPC in front of the service. Create a VPC Endpoint. Make the application in the other VPC access this endpoint"
+    }, {
+        "id": "C",
+        "markdown": "Modify the route tables for each VPC point to the VPC peering connection to access all the IPv4 CIDR blocks of the peer VPC (either way)"
+    }, {
+        "id": "D",
+        "markdown": "Create an IPSec Virtual Private connection between both accounts. Access the resources accordingly"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – A and C\n\n\n\tOption B is incorrect since for VPC Endpoint interfaces, they have to be in the same region\n\tOption D is incorrect since here the traffic will traverse via the Internet\n\n\nThe AWS Documentation mentions the following\n\nA VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them privately. Instances in either VPC can communicate with each other as if they are within the same network. You can create a VPC peering connection between your own VPCs, with a VPC in another AWS account, or with a VPC in a different AWS Region.\n\n\n\tFor more information on AWS Direct Connect and VPC peering, please refer to the below URL\n\t\n\t\thttps://docs.aws.amazon.com/vpc/latest/userguide/vpc-peering.html\n\t\n\t\n\n\nthe 2 answers provided for the question are correct.  Let me explain to you why?\n\n1. Both Primary & Consultant company are existing within there own VPCs in different AWS Regions.\nIn order to have the connection among them, we create VPC Peering across the region.  \nHence, Option A is correct answer.\n\n\n\thttps://aws.amazon.com/about-aws/whats-new/2017/11/announcing-support-for-inter-region-vpc-peering/\n\thttps://aws.amazon.com/blogs/aws/new-almost-inter-region-vpc-peering/\n\n\n2. Please refer to the below link, section \"Two VPCs with Multiple CIDRs Peered Together\" for further details\n\n\n\thttps://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-full-access.html#many-vpcs-full-access\n\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your team has deployed an application which consists of a web and database tier hosted on separate EC2 Instances. Both EC2 Instances are using General Purpose SSD for their underlying volume type. Of late, there are performance issues related to the read and writes of the database EC2 Instance. Which of the following could be used to alleviate the issue?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Change the Instance type to a higher Instance Type"}, {
+        "id": "B",
+        "markdown": "Change the EBS volume to Provisioned IOPS SSD"
+    }, {"id": "C", "markdown": "Enable Enhanced Networking on the Instance"}, {
+        "id": "D",
+        "markdown": "Enable Multi-AZ for the database"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – B\n\nThe Provisioned IOPS SSD EBS volume type is perfect for these types of workloads. The below excerpt from the documentation shows the key differences between the different volume types\n\n\n\n \n\nOption A is incorrect since the primary issue is that the volume type is not correct\n\n \n\nOption C is incorrect since networking is not an issue here\n\nOption D is incorrect since this option is applicable for the AWS RDS service\n\nFor more information on EBS volume types, please refer to the below URL\n\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company currently stores documents in an S3 bucket. They want to transfer the files to a low-cost storage unit after a duration of 2 months to save on cost. Which of the following can be used to perform this activity automatically?",
+    "prompt": "",
+    "correctAnswerId": ["C"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Use the events of the S3 bucket to transfer the files to Amazon Glacier"
+    }, {
+        "id": "B",
+        "markdown": "Use the events of the S3 bucket to transfer the files to EBS volumes – Cold HDD"
+    }, {
+        "id": "C",
+        "markdown": "Use the lifecycle policies of the S3 bucket to transfer the files to Amazon Glacier"
+    }, {
+        "id": "D",
+        "markdown": "Use the lifecycle policies of the S3 bucket to transfer the files to EBS volumes – Cold HDD"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – C\n\nThe AWS Documentation mentions the following\n\nTo manage your objects so that they are stored cost effectively throughout their lifecycle, configure their lifecycle. A lifecycle configuration is a set of rules that define actions that Amazon S3 applies to a group of objects. There are two types of actions:\n\n\n\tTransition actions—Define when objects transition to another storage class. For example, you might choose to transition objects to the STANDARD_IA storage class 30 days after you created them, or archive objects to the GLACIER storage class one year after creating them.\n\tExpiration actions—Define when objects expire. Amazon S3 deletes expired objects on your behalf.\n\n\n \n\nOptions B and D are incorrect because ideally you don’t transfer to EBS volumes – Cold HDD\n\nOption A is incorrect because you need to use lifecycle policies\n\nFor more information on lifecycle policies, please refer to the below URL\n\nhttps://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as an AWS architect for a global financial company that offers real-time stock trading quotes to customers. You are using Kinesis Data Streams to process stock market feeds from stock exchanges & provide a real-time dashboard to the customers. During stock market hours, there are a large number of users accessing these dashboards while after market hours, there are very few users accessing these dashboards.  The management team is looking for an optimum number of Kinesis Shards within Kinesis Data Streams. Which of the following would be an automated solution to achieve this? (Choose 2)",
+    "prompt": "",
+    "correctAnswerId": ["A", "C"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Use Application Auto Scaling"}, {
+        "id": "B",
+        "markdown": "Use Amazon Kinesis Scaling Utility to modify the number of Shards in Kinesis Data Streams."
+    }, {
+        "id": "C",
+        "markdown": "Use Amazon Kinesis Scaling Utility along with AWS Elastic Beanstalk to automatically modify the number of Shards in Kinesis Data Streams."
+    }, {"id": "D", "markdown": "Use UpdateShardCount to scale Shard count as per requirement."}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – A and C\n\nAWS Application Auto scaling can be used to automatically scale Kinesis Streams. For this, CloudWatch can be used to monitor Kinesis Data Stream shard metrics. Based on the changes in these metrics, CloudWatch can initiate a notification to Application Auto Scaling. This will trigger an API Gateway to call Lambda Functions to increase/decrease the number of Kinesis Data Stream Shards based upon metric values.\n\nAlternatively, you can use the Amazon Kinesis Scaling Utilities. To do so, you can use each utility manually, or automated with an AWS Elastic Beanstalk environment.\n\nOption B is incorrect because Amazon Kinesis Scaling Utility alone is a manual process as per documentation\n\nOption D is incorrect as using UpdateShardCount will be a manual process\n\nFor more information on Scaling Kinesis Data Streams using Application Auto Scaling and Amazon Kinesis Scaling Utilities, refer to the following URLs:\n\nhttps://aws.amazon.com/blogs/big-data/scaling-amazon-kinesis-data-streams-with-aws-application-auto-scaling/\n\nhttps://aws.amazon.com/blogs/big-data/under-the-hood-scaling-your-kinesis-data-streams/\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have currently contacted an AWS partner to carry out an audit for your AWS account. You need to ensure that the partner can carry out an audit on your resources. Which one of the following steps would you ideally carry out?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Create an IAM user for the partner account for login purposes"}, {
+        "id": "B",
+        "markdown": "Create a cross account IAM Role"
+    }, {"id": "C", "markdown": "Create an IAM group for the partner account for login purposes"}, {
+        "id": "D",
+        "markdown": "Create an IAM profile for the partner account for login purposes"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer - B\n\nThe AWS Documentation mentions the following\n\nCross-account IAM roles allow customers to securely grant access to AWS resources in their account to a third party, like an APN Partner, while retaining the ability to control and audit who is accessing their AWS account. Cross-account roles reduce the amount of sensitive information APN Partners need to store for their customers so that they can focus on their product instead of managing keys.\n\nCross Account access is safer because,\n\nA basic analogy of the difference is handing someone an access badge (which could be used by anyone) vs handing someone an access badge that requires that person's fingerprints to successfully use.\n\nUsing an IAM user to control 3rd party access involves handing over a Access Key/Secret Key - this is the simple \"access badge\"\n\nUsing AssumeRole to control 3rd party access uses the same information plus a security token. To assume a role, your AWS account must be trusted by the role. The trust relationship is defined in the role's trust policy when the role is created. This is the \"access badge with fingerprint validation\".\n\n(Also, for added security, the Access key/secret key for AssumeRole can be temporary credentials that expire after a specific time period.)\n\nAnyone can use the IAM keys - they're just a key-pair. Anyone can take them and use them later on, and you would not be able to be identify from the trusted party they were given to. To use the AssumeRole, you must be first authenticated as the trusted entity, and in the case of temporary credentials, use them while they haven't expired. These extra security features are what make it more secure.\n\nTypically, you use AssumeRole for cross-account access\n\nOption A and C are invalid since it is not secured as IAM users and IAM group (a set of users) will be given permissions just like giving keys to them without extra security token.\n\nOption D is invalid since IAM Profile doesn’t exists in AWS\n\nFor more information on cross account roles, please refer to the below URL\n\nhttps://aws.amazon.com/blogs/apn/securely-accessing-customer-aws-accounts-with-cross-account-iam-roles/\n\nhttps://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working for a start-up company using Amazon DynamoDB for mobile applications. During performing POC for a new application using AWS SDK, most of the cases are successfully executed, but for certain cases, Amazon DynamoDB is returning an error message. Development Team is asking for your help to verify this error message & suggest a solution for the same so that application logic can be modified. For which of the following HTTP 400 status code returned by Amazon DynamoDB, will you suggest the development team to resubmit the request from the application for successful execution? (Select Two.)",
+    "prompt": "",
+    "correctAnswerId": ["C", "F"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "ResourceNotFoundException"}, {
+        "id": "B",
+        "markdown": "Internal Server Error"
+    }, {"id": "C", "markdown": "ThrottlingException"}, {"id": "D", "markdown": "Service Unavailable"}, {
+        "id": "E",
+        "markdown": "ConditionalCheckFailedException"
+    }, {"id": "F", "markdown": "LimitExceededException"}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – C, F\n\nThrottlingException & LimitExceededException are part of HTTP status code 4xx. ThrottlingException is an error message generated when you are executing operations like CreateTable, UpdateTable, DeleteTable, very rapidly. LimitExceededException is an error message generated when you are doing concurrent control plane operations. Both error message can be resolved after trying the same request again.\n\nOption A is incorrect as this exception is part of HTTP status code 4xx & for this error, you will need to fix errors before retrying. This error is generated when a table being requested does not exist or in CREATING state. Before retrying, you need to check if the table exists.\n\nOptions B & D are incorrect as these exceptions are part of HTTP status code 5xx which indicates issues at AWS end. AWS should take corresponding actions from their end.\n\nOption E is incorrect as this exception is part of HTTP status code 4xx & for this error, you will need to fix errors before retrying. This error is generated when a condition being process is failed before moving to the next query.\n\nFor more information, refer to the following URL,\n\nhttps://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.MessagesAndCodes\n\nPlease refer to page 222 and 223 of the below link\n\nhttps://docs.aws.amazon.com/amazondynamodb/latest/developerguide/dynamodb-dg.pdf\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is planning on making use of the Elastic Container service for managing their container-based applications. They are going to process both critical and non-critical workloads with these applications. Which of the following COST effective setup would they consider?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Use ECS orchestration and Spot Instances for processing critical data and On-Demand for the non-critical data"
+    }, {
+        "id": "B",
+        "markdown": "Use ECS orchestration and On-Demand Instances for processing critical data and Spot Instances for the non-critical data"
+    }, {
+        "id": "C",
+        "markdown": "Use ECS orchestration and Spot Instances for both the processing of critical data and non-critical data"
+    }, {
+        "id": "D",
+        "markdown": "Use ECS orchestration and On-Demand Instances for both the processing of critical data and non-critical data"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – B\n\nSpot Instance and On-demand Instance are very similar in nature. The main difference between these is a commitment. In Spot Instance there is no commitment. As soon as the Bid price exceeds Spot price, a user gets the Instance. In an On-demand Instance, a user has to pay the On-demand rate specified by Amazon. Once they have bought the Instance they have to use it by paying that rate.\nIn Spot Instance, once the Spot price exceeds the Bid price, Amazon will shut the instance. The benefit to the user is that they will not be charged for the partial hour in which Instance was taken back from them.\n\nSpot instances are not always cheaper than on-demand, they can and do sometimes fluctuate wildly, even to very high per hour amounts, higher than the on-demand price at times\n\nA Spot Instance is an unused EC2 instance that is available for less than the On-Demand price. Because Spot Instances enable you to request unused EC2 instances at steep discounts, you can lower your Amazon EC2 costs significantly. The hourly price for a Spot Instance is called a Spot price. The Spot price of each instance type in each Availability Zone is set by Amazon EC2 and adjusted gradually based on the long-term supply of and demand for Spot Instances. Your Spot Instance runs whenever capacity is available and the maximum price per hour for your request exceeds the Spot price.\n\nOptions A and C are incorrect since Spot Instances can be taken back or interrupted and should not be used for critical workloads\n\nOption D is not a cost-effective solution. You can use Spot Instances for non-critical workloads\n\nFor more information on Spot Instances, please refer to the below URL\n\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is planning on setting up an application that will consists of a web layer. This web layer will consist of EC2 Instances sitting behind an Application Load Balancer. The company wants to protect the application against application level attacks. Which of the following can be used for this purpose?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "AWS Cloudfront"}, {"id": "B", "markdown": "AWS WAF"}, {
+        "id": "C",
+        "markdown": "AWS Config"
+    }, {"id": "D", "markdown": "AWS VPC NACL"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – B\n\nThe AWS Documentation mentions the following\n\nYou use AWS WAF to control how Amazon CloudFront or an Application Load Balancer responds to web requests. You start by creating conditions, rules, and web access control lists (web ACLs). You define your conditions, combine your conditions into rules, and combine the rules into a web ACL.\n\nOption A is invalid because this is used for content delivery\n\nOption C is invalid because this is a configuration service\n\nOption D is invalid because this is used to just block traffic based on simple rules\n\nFor more information on how the AWS WAF works, please refer to the below URL\n\nhttps://docs.aws.amazon.com/waf/latest/developerguide/how-aws-waf-works.html\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is planning on setting up an application that will consist of a presentation layer and a data store in DynamoDB. The data in DynamoDB will only be used frequently within the week in which the data is inserted. After a week, the data would tend to become stale. But the stale data would need to be available on durable storage for future analysis on historical data. Also, management overhead should not be there. Which of the following would be the ideal implementation steps for this sort of architecture?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Setup DynamoDB tables. Scan the tables for older data and transfer them to another DynamoDB table."
+    }, {
+        "id": "B",
+        "markdown": "Setup DynamoDB TTL(Time-to-live) and transfer the old data to S3 using AWS Lambda"
+    }, {
+        "id": "C",
+        "markdown": "Use the AWS Data Pipeline service to transfer the older data to EBS volumes"
+    }, {"id": "D", "markdown": "Use the AWS Data Pipeline service to transfer the older data to Amazon S3"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – D\n\nThe AWS Documentation mentions the following\n\nAWS Data Pipeline is a web service that you can use to automate the movement and transformation of data. With AWS Data Pipeline, you can define data-driven workflows, so that tasks can be dependent on the successful completion of previous tasks. You define the parameters of your data transformations and AWS Data Pipeline enforces the logic that you've set up.\n\n\n\nOption A is invalid because this would be an inefficient way to handle the data. You will be using too much throughput in the scan process.\n\nOption B is invalid since it involves a lot of management overhead, So better choice is to use Data Pipeline. However, it is possible to do so. Refer below URL for implementation details,\n\nhttps://aws.amazon.com/blogs/database/automatically-archive-items-to-s3-using-dynamodb-time-to-live-with-aws-lambda-and-amazon-kinesis-firehose/\n\nOption C is invalid because EBS volumes are not durable storage\n\nFor more information on AWS Data Pipeline, please refer to the below URL\n\nhttps://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/what-is-datapipeline.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "A company is going to setup an application that will be based on Docker-based containers. The containers will be setup in the Elastic Container Service. You need to also setup load balancing for the underlying services which are based on dynamic port values. Which of the following would be the fully managed service to use for this purpose?",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Classic Load Balancer"}, {"id": "B", "markdown": "Route 53"}, {
+        "id": "C",
+        "markdown": "Network Load Balancer"
+    }, {"id": "D", "markdown": "Application Load Balancer"}],
+    "answerExplanation": "\n                            Explanation:\n                            Answer - D\n\nApplication Load Balancers offer several features that make them attractive for use with Amazon ECS services:\n\nApplication Load Balancers allow containers to use dynamic host port mapping (so that multiple tasks from the same service are allowed per container instance).\n\nApplication Load Balancers support path-based routing and priority rules (so that multiple services can use the same listener port on a single Application Load Balancer).\n\n Application Load Balancer provides enhanced container support by load balancing across multiple ports on a single Amazon EC2 instance. Deep integration with the Amazon EC2 Container Service (ECS), provides a fully-managed container offering. ECS allows you to specify a dynamic port in the ECS task definition, giving the container an unused port when it is scheduled on the EC2 instance. The ECS scheduler automatically adds the task to the load balancer using this port.\n\nAn Application Load Balancer is more suited for Microservices based architecture or container-based architecture.\n\nOptions A, C, and D are incorrect because Network Load Balancers support dynamic host port mapping but it doesn’t provide fully managed support for Containers and Classic load balancer doesn’t support dynamic host port mapping and Route53 is DNS based routing across multiple regions and not balance containers.\n\nFor more information on Load balancing, please refer to the below URL\n\nhttps://aws.amazon.com/elasticloadbalancing/features/#details\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You have an architecture which consists of a set of web servers in the public subnets. And database servers in the private subnet along with a NAT instance. The NAT instance is now becoming a bottleneck and you are looking to replace it with a NAT gateway. Which of the following would ensure a high availability setup for the NAT device?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{"id": "A", "markdown": "Disable source/destination check on the NAT Instances"}, {
+        "id": "B",
+        "markdown": "Deploy the NAT gateway in 2 availability zones"
+    }, {"id": "C", "markdown": "Deploy a NAT gateway along with the NAT instance"}, {
+        "id": "D",
+        "markdown": "Deploy the NAT Gateway in 2 regions"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                             \n\nAnswer – B\n\nFirst, here we have a difference between NAT Instance and NAT Gateway\n\nA NAT instance is an Amazon EC2 instance configured to forward traffic to the Internet. It can be launched from an existing AMI.\n\nInstances in a private subnet that want to access the Internet can have their Internet-bound traffic forwarded to the NAT Instance via a Route Table configuration. The NAT Instance will then make the request to the Internet (since it is in a Public Subnet) and the response will be forwarded back to the private instance.\n\nTraffic sent to a NAT Instance will typically be sent to an IP address that is not associated with the NAT Instance itself (it will be destined for a server on the Internet). Therefore, it is important to turn off the Source/Destination Check option on the NAT Instance otherwise the traffic will be blocked.\n\nAWS introduced a NAT Gateway Service that can take the place of a NAT Instance. The benefits of using a NAT Gateway service are:\n\nIt is a fully-managed service -- just create it and it works automatically, including fail-over\n\nIt can burst up to 10 Gbps (a NAT Instance is limited to the bandwidth associated with the EC2 instance type)\n\nHowever,\n\nSecurity Groups cannot be associated with a NAT Gateway\n\nYou'll need one in each AZ since they only operate in a single AZ\n\nFor more differences, please refer below URL\n\nhttps://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html\n\nEnsure that your NAT gateways are deployed in at least two Availability Zones (AZs) in order to enable EC2 instances available within private subnets to connect to the Internet or to other AWS services but prevent the Internet from initiating a connection with those instances. AWS Availability Zones are distinct locations that are engineered to be isolated from failures that occurred in other zones. Each NAT gateway must be deployed within a specific Availability Zone to receive the redundancy implemented in that zone.\n\nOption A is invalid since this is a requirement for the NAT instance to function and will not satisfy the requirement for the question\n\nOption C is invalid since you should just use one type of device\n\nOption D is invalid since you should achieve redundancy via Availability Zones\n\nFor more information on the NAT gateway, please refer to the below URL\n\nhttps://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "Your company is planning on setting up an application with the following architecture\n\n \n\n\n\tA set of EC2 Instances hosting a web application.\n\tThe application will sit behind an Elastic Load balancer\n\tThe users will access the application from the internet via the Elastic Load balancer\n\tThe application will connect to a backend database server\n\tA NAT Gateway is also implemented\n\n\n \n\nWhich of the following is the right architecture for the network, keeping high availability and security in mind?",
+    "prompt": "",
+    "correctAnswerId": ["B"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "2 public subnets for the Elastic Load balancer and NAT Gateway, 2 public subnets for the Web server EC2 Instances, 2 private subnets for the database server"
+    }, {
+        "id": "B",
+        "markdown": "2 public subnets for the Elastic Load balancer and NAT Gateway, 2 private subnets for the Web server EC2 Instances, 2 private subnets for the database server"
+    }, {
+        "id": "C",
+        "markdown": "2 public subnets for the Elastic Load balancer and NAT Gateway, 2 public subnets for the Web server EC2 Instances, 2 public subnets for the database server"
+    }, {
+        "id": "D",
+        "markdown": "2 public subnets for the Elastic Load balancer and NAT Gateway, 2 private subnets for the Web server EC2 Instances, 2 public subnets for the database server"
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – B\n\nYou need to have public subnets for the Elastic Load balancer to ensure that traffic can flow via the Internet\n\nThe Web servers can be in the Private subnet since the communication between the instances and the ELB happens via the private IP and also it provide better security for the Web Servers.\n\nThe database servers should be in the private subnet since it does not need to communicate with the Internet\n\n\n\tOption A is invalid since the ELB is in the Public subnet, there is no need to place the Web Server in the Public subnet because ELB and Web Server communicate via Private IP.\n\tOption C is invalid since the  database servers don’t need to be in the public subnet\n\tOption D is invalid since the database servers don’t need to be in the public subnet\n\n\n \n\n\n\tFor more information on Elastic Load balancing, please refer to the below URL\n\t\n\t\thttps://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html\n\t\n\t\n\n\nNote: There is no requirement for ec2 instances to be in public subnet as route53 will route the request to elb whose endpoint is exposed as lb(Load Balancer) is in public subnet and the communication between elb and ec2 instances happen via private ip. So its better for security purpose.\n\n \n\nURL: https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-internet-facing-load-balancers.html\n\n \n\nreate an Internet-Facing Load Balancer\n\nWhen you create a load balancer in a VPC, you can make it an internal load balancer or an Internet-facing load balancer. You create an Internet-facing load balancer in a public subnet. Load balancers in EC2-Classic are always Internet-facing load balancers.\n\nWhen you create your load balancer, you configure listeners, configure health checks, and register back-end instances. You configure a listener by specifying a protocol and a port for front-end (client to load balancer) connections, and a protocol and a port for back-end (load balancer to back-end instances) connections. You can configure multiple listeners for your load balancer.\n\n \n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "You are working as an AWS consultant for a Bio-technology company that is working on the Human genome data processing. They are using HDFS to process this large amount of data. They are planning to migrate these systems to AWS Instance where 50 x EC2 C5 instance will be used to compute data. This is a critical project where any failure will result in huge financial loss. Company is seeking your recommendation for the best solution to avoid correlated failures. Which ways can be used to limit the impact of any Hardware failure in this scenario? (Select two)",
+    "prompt": "",
+    "correctAnswerId": ["A", "D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Use AWS CLI to deploy EC2 instance in Partitioned Placement group."
+    }, {"id": "B", "markdown": "Use AWS CLI to deploy EC2 instance in Cluster Placement group."}, {
+        "id": "C",
+        "markdown": "Use AWS CLI to deploy EC2 instance in Spread Placement group."
+    }, {"id": "D", "markdown": "Use AWS Console to deploy EC2 instance in Partitioned Placement group."}],
+    "answerExplanation": "\n                            Explanation:\n                            Correct Answer – A and D\n\nLaunching EC2 in the Placement group is possible using both CLI and Console.\n\nPlease refer below URL for details,\n\nhttps://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/placement-groups.html#launch-instance-placement-group\n\nFirstly, a Rack server is a computer dedicated to use as a server and designed to be installed in a framework called a rack. Each rack has its own network and power source.\n\nIn Partition Placement group, each logical partition within the placement group has its own set of racks. If a rack fails (hardware failure), it may affect multiple instances on that rack within that logical partition. So, if you have replication in other partitions, then your data will be safe. This will be good for Big data applications like HDFS, HBase, Cassandra, Kafka or any other fault-tolerant systems. This placement group strikes a balance between High Performance and High Availability\n\nOption B is incorrect because, in the Cluster Placement group, all instances are placed within a rack. If the rack fails (hardware failure), all instances fail at the same time. Ideal for High-Performance applications.\n\nOption C is incorrect because, in the Spread Placement group, each instance is placed in its own distinct rack. Each rack has at most one instance. A rack failure (hardware failure) will not affect more than one instance. Ideal for High Availability or mission-critical applications.\n\nFor more information on Placement Groups, refer to the following URL:\n\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\n                        ",
+    "referenceImage": ""
+}, {
+    "questionComplexityIndex": 0,
+    "explanation": "An application needs to be set up on AWS. It consists of several components. Two primary components are required to run for 3 hours every day. The other components are required every day for more than 6-8 hours.  Which of the following would you use to ensure COSTS are minimized for the underlying EC2 Instances?\n\nPlease select :",
+    "prompt": "",
+    "correctAnswerId": ["D"],
+    "codeString": "",
+    "options": [{
+        "id": "A",
+        "markdown": "Reserved instances for the primary components and On-Demand Instances for the remaining components."
+    }, {
+        "id": "B",
+        "markdown": "Spot instances for the primary components and On-Demand Instances for the remaining components."
+    }, {
+        "id": "C",
+        "markdown": "On-Demand instances for the primary components and Spot  Instances for the remaining components."
+    }, {
+        "id": "D",
+        "markdown": "On-Demand instances for the primary components and Reserved Instances for the remaining components."
+    }],
+    "answerExplanation": "\n                            Explanation:\n                            Answer – D\n\nThe AWS Documentation mentions the following\n\nReserved Instances provide you with a significant discount compared to On-Demand Instance pricing. Reserved Instances are not physical instances, but rather a billing discount applied to the use of On-Demand Instances in your account. These On-Demand Instances must match certain attributes in order to benefit from the billing discount.\n\nOn-Demand Instances – Pay, by the second, for the instances that you launch.\n\n\n\tOption A is incorrect since the primary component just runs for 3 hours and also keeping minimal costs in mind, On-demand instances would be the correct choice here (since using reserved instances incur upfront costs)\n\tOptions B and C are incorrect since we don’t know the type of workload to decide whether Spot Instances are required\n\tFor more information on On-Demand and Reserved Instances, please refer to the below URL\n\t\n\t\thttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html\n\t\n\t\n\n                        ",
+    "referenceImage": ""
 }]
