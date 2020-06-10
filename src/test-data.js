@@ -1,4 +1,5 @@
 import AWSCertifiedSolutionsArchitectAssociate from "./TestData/AWSCertifiedSolutionsArchitectAssociate";
+import AWSCertifiedCloudPractitioner from "./TestData/AWSCertifiedCloudPractitioner";
 export const questionDataSetTest = [
     {
         questionComplexityIndex: 0,
@@ -30092,5 +30093,6 @@ const exampleObject = {
 };
 
 export const TestData = {
-    AWSCertifiedSolutionsArchitectAssociate
+    AWSCertifiedSolutionsArchitectAssociate,
+    AWSCertifiedCloudPractitioner
 }
