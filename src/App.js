@@ -19,11 +19,11 @@ class App extends Component {
 
     componentDidMount() {
 
-        updateTest(TestData.AWSCertifiedCloudPractitioner);
+        //updateTest(TestData.AWSCertifiedCloudPractitioner);
 
 
 
-        //this.props.retrieveData()
+        this.props.retrieveData()
 
     }
 
