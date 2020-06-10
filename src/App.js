@@ -19,7 +19,14 @@ class App extends Component {
 
     componentDidMount() {
 
-        //updateTest(TestData.AWSCertifiedCloudPractitioner);
+        const transformedData = TestData.AWSCertifiedCloudPractitioner.map((item) => {
+            return {
+                ...item,
+                answerExplanation: item.answerExplanation.split(" ").filter(item => !item.includes("https")).join(' ')
+            }
+        })
+
+        //updateTest(transformedData);
 
 
 
