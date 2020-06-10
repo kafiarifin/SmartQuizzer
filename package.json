@@ -1,6 +1,9 @@
 {
   "name": "tiberius_cougar_alpha",
   "version": "0.1.0",
+  "engines": {
+    "node": "10.x"
+  },
   "private": true,
   "dependencies": {
     "basic-auth": "^2.0.1",
